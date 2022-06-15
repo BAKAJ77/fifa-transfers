@@ -20,8 +20,6 @@ project "fifa-transfers"
 
     files { "src/**.h", "src/**.cpp", "src/**.c", "src/**.tpp" }
 
-    links { "glfw3", "freetype", "irrKlang" }
-
     -- Project platform define macro based on identified system
     filter "system:windows"
         defines "_PLATFORM_WINDOWS"
@@ -33,7 +31,9 @@ project "fifa-transfers"
     filter "configurations:debug"
         kind "ConsoleApp"
         
-        libdirs { "libs/irrklang/bin", "libs/freetype/bin/debug", "libs/glfw/bin/debug" }
+        libdirs { "libs/irrklang/bin", "libs/freetype/build/Debug", "libs/glfw/build/src/Debug" }
+        links { "glfw3", "freetyped", "irrKlang" }
+
         defines { "_DEBUG" }
         symbols "On"
 
@@ -41,17 +41,19 @@ project "fifa-transfers"
         kind "WindowedApp"
         entrypoint "mainCRTStartup"
 
-        libdirs { "libs/irrklang/bin", "libs/freetype/bin/release", "libs/glfw/bin/release" }
+        libdirs { "libs/irrklang/bin", "libs/freetype/build/Release", "libs/glfw/build/src/Release" }
+        links { "glfw3", "freetype", "irrKlang" }
+
         defines { "NDEBUG" }
         optimize "Speed"
 
     -- Copy required DLL lib files into game executable directory when building
     filter { "system:windows", "configurations:debug" }
-        postbuildcommands { "copy ..\\libs\\irrklang\\bin\\irrKlang.dll ..\\bin\\build\\irrKlang.dll",
-            "copy ..\\libs\\irrklang\\bin\\ikpMP3.dll ..\\bin\\build\\ikpMP3.dll" }
+        postbuildcommands { "copy libs\\irrklang\\bin\\irrKlang.dll bin\\debug\\irrKlang.dll",
+            "copy libs\\irrklang\\bin\\ikpMP3.dll bin\\debug\\ikpMP3.dll" }
 
     filter { "system:windows", "configurations:release" }
-        postbuildcommands { "copy ..\\libs\\irrklang\\bin\\irrKlang.dll ..\\bin\\build\\irrKlang.dll",
-            "copy ..\\libs\\irrklang\\bin\\ikpMP3.dll ..\\bin\\build\\ikpMP3.dll" }
+        postbuildcommands { "copy libs\\irrklang\\bin\\irrKlang.dll bin\\release\\irrKlang.dll",
+            "copy libs\\irrklang\\bin\\ikpMP3.dll bin\\release\\ikpMP3.dll" }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------

@@ -399,3 +399,5 @@ FodyWeavers.xsd
 *.vcxproj
 *.vcxproj.filters
 /libs/irrklang/bin
+/bin/release
+/bin/debug
