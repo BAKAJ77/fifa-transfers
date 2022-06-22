@@ -1,0 +1,67 @@
+#include <core/application_core.h>
+#include <util/logging_system.h>
+#include <util/timestamp.h>
+
+#include <GLFW/glfw3.h>
+
+ApplicationCore::ApplicationCore() :
+	initializedGLFW(false)
+{
+	// Initialize the GLFW library module
+	if (glfwInit() < 0)
+		LogSystem::GetInstance().OutputLog("Failed to initialize GLFW", Severity::FATAL);
+	else
+		this->initializedGLFW = true;
+
+	// Create the main application window
+	this->window = Memory::CreateWindowFrame("FTFS 23", 1600, 900, *this);
+
+	// Continue onto the main loop
+	this->MainLoop();
+}
+
+ApplicationCore::~ApplicationCore()
+{
+	// Clean up and terminate the GLFW library module
+	glfwTerminate();
+	this->initializedGLFW = false;
+}
+
+void ApplicationCore::MainLoop()
+{
+	constexpr float timeStep = 0.001f;
+	float accumulatedRenderTime = 0.0f, elapsedRenderTime = 0.0f;
+
+	while (!this->window->HasRequestedClose())
+	{
+		// Update the application logic
+		accumulatedRenderTime += elapsedRenderTime;
+		while (accumulatedRenderTime >= timeStep)
+		{
+			this->Update(timeStep);
+			accumulatedRenderTime -= timeStep;
+		}
+
+		// Render to screen and calculate the amount time taken to render
+		const float preRenderTime = Util::GetSecondsSinceEpoch();
+
+		this->Render();
+		this->window->Update();
+
+		const float postRenderTime = Util::GetSecondsSinceEpoch();
+		elapsedRenderTime = postRenderTime - preRenderTime;
+	}
+}
+
+void ApplicationCore::Update(const float& deltaTime)
+{
+}
+
+void ApplicationCore::Render() const
+{
+}
+
+bool ApplicationCore::IsGLFWInitialized() const
+{
+	return this->initializedGLFW;
+}
