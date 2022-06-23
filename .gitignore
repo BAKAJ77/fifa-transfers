@@ -401,3 +401,4 @@ FodyWeavers.xsd
 /libs/irrklang/bin
 /bin/release
 /bin/debug
+config.json

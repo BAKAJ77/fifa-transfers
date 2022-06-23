@@ -10,7 +10,7 @@ namespace Util
 		return std::filesystem::create_directories(directory);
 	}
 
-	extern std::string GetGameRequisitesDirectory()
+	extern std::string GetAppDataDirectory()
 	{
 #ifdef _DEBUG
 		return std::string(); // Directories are relative to project file so return empty string
@@ -20,13 +20,13 @@ namespace Util
 		_dupenv_s(&directoryBuffer, &bufferSize, "APPDATA");
 
 		if (!directoryBuffer) // An error must've occurred
-			throw std::exception("Failed to fetch the game's requisites directory");
+			throw std::exception("Failed to fetch the application's data directory");
 
-		std::string directory = directoryBuffer + std::string("/square-run/");
+		std::string directory = directoryBuffer + std::string("/FTFS/");
 		std::replace(directory.begin(), directory.end(), '\\', '/');
 
 		if (!Util::IsExistingDirectory(directory))
-			throw std::exception("The fetched game's requisites directory does not exist");
+			throw std::exception("The fetched application data directory does not exist");
 
 		return directory;
 #endif

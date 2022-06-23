@@ -1,4 +1,6 @@
 #include <core/application_core.h>
+#include <serialization/config.h>
+#include <util/directory_system.h>
 #include <util/logging_system.h>
 #include <util/timestamp.h>
 
@@ -12,6 +14,10 @@ ApplicationCore::ApplicationCore() :
 		LogSystem::GetInstance().OutputLog("Failed to initialize GLFW", Severity::FATAL);
 	else
 		this->initializedGLFW = true;
+
+	// Load the app config file (if it doesn't exist then generate a new one then load it)
+	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
+		Serialization::GenerateConfigFile();
 
 	// Create the main application window
 	this->window = Memory::CreateWindowFrame("FTFS 23", 1600, 900, *this);
