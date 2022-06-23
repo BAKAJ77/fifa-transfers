@@ -5,6 +5,7 @@
 #include <util/timestamp.h>
 
 #include <GLFW/glfw3.h>
+#include <vector>
 
 ApplicationCore::ApplicationCore() :
 	initializedGLFW(false)
@@ -19,8 +20,13 @@ ApplicationCore::ApplicationCore() :
 	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
 		Serialization::GenerateConfigFile();
 
+	const std::vector<int> configWindowDimensions = Serialization::GetConfigElement<std::vector<int>>("window", "dimensions");
+	const bool configWindowFullscreen = Serialization::GetConfigElement<bool>("window", "fullscreen");
+	const bool configWindowVsync = Serialization::GetConfigElement<bool>("window", "vsync");
+
 	// Create the main application window
-	this->window = Memory::CreateWindowFrame("FTFS 23", 1600, 900, *this);
+	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowDimensions[0], configWindowDimensions[1], configWindowFullscreen,
+		configWindowVsync, *this);
 
 	// Continue onto the main loop
 	this->MainLoop();

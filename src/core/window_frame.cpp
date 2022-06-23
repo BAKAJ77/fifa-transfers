@@ -5,8 +5,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-WindowFrame::WindowFrame(const std::string_view& title, int width, int height, ApplicationCore& appCore) :
-	framePtr(nullptr), width(width), height(height), appCore(appCore)
+WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, ApplicationCore& appCore) :
+	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen), appCore(appCore)
 {
 	if (appCore.IsGLFWInitialized())
 	{
@@ -16,13 +16,19 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, A
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 		// Create and setup the window
-		this->framePtr = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
+		fullscreen ? 
+			this->framePtr = glfwCreateWindow(width, height, title.data(), glfwGetPrimaryMonitor(), nullptr) :
+			this->framePtr = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
+
 		if (!this->framePtr)
 			LogSystem::GetInstance().OutputLog("An error occurred while creating the window", Severity::FATAL);
 
 		const GLFWvidmode* monitorData = glfwGetVideoMode(glfwGetPrimaryMonitor());
 		glfwSetWindowPos(this->framePtr, (monitorData->width / 2) - (width / 2), (monitorData->height / 2) - (height / 2));
 		glfwMakeContextCurrent(this->framePtr);
+		
+		if (vsync)
+			glfwSwapInterval(1);
 
 		// Load the OpenGL function addresses
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -85,7 +91,18 @@ int WindowFrame::GetHeight() const
 	return this->height;
 }
 
-WindowFramePtr Memory::CreateWindowFrame(const std::string_view& title, int width, int height, ApplicationCore& appCore)
+bool WindowFrame::IsUsingVsyncMode() const
 {
-	return std::make_shared<WindowFrame>(title, width, height, appCore);
+	return this->usingVsync;
+}
+
+bool WindowFrame::IsFullscreenEnabled() const
+{
+	return this->fullscreenEnabled;
+}
+
+WindowFramePtr Memory::CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
+	ApplicationCore& appCore)
+{
+	return std::make_shared<WindowFrame>(title, width, height, fullscreen, vsync, appCore);
 }

@@ -12,9 +12,11 @@ class WindowFrame
 private:
 	ApplicationCore& appCore;
 	GLFWwindow* framePtr;
+
 	int width, height;
+	bool usingVsync, fullscreenEnabled;
 public:
-	WindowFrame(const std::string_view& title, int width, int height, ApplicationCore& appCore);
+	WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, ApplicationCore& appCore);
 	~WindowFrame();
 
 	// Sets the width of the window.
@@ -40,13 +42,20 @@ public:
 
 	// Returns the height of the window.
 	int GetHeight() const;
+
+	// Returns TRUE if the window is using vsync.
+	bool IsUsingVsyncMode() const;
+
+	// Returns TRUE if the window is in fullscreen mode.
+	bool IsFullscreenEnabled() const;
 };
 
 using WindowFramePtr = std::shared_ptr<WindowFrame>;
 namespace Memory
 {
 	// Creates a new window and returns shared pointer to the created window object.
-	WindowFramePtr CreateWindowFrame(const std::string_view& title, int width, int height, ApplicationCore& appCore);
+	WindowFramePtr CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
+		ApplicationCore& appCore);
 }
 
 #endif
