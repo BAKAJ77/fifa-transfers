@@ -9,14 +9,13 @@ namespace Serialization
 		{
 			{ "window", 
 				{ 
-					{ "dimensions", { 1600, 900 } },
+					{ "resolution", { 1600, 900 } },
 					{ "fullscreen", false },
 					{ "vsync", false }
 				}
 			},
 			{ "graphics",
 				{
-					{ "resolution", { 1920, 1080 } },
 					{ "numSamplesMSAA", 2 },
 					{ "gamma", 2.2f },
 					{ "textQuality", 100 }

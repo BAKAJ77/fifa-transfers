@@ -20,12 +20,12 @@ ApplicationCore::ApplicationCore() :
 	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
 		Serialization::GenerateConfigFile();
 
-	const std::vector<int> configWindowDimensions = Serialization::GetConfigElement<std::vector<int>>("window", "dimensions");
+	const std::vector<int> configWindowResolution = Serialization::GetConfigElement<std::vector<int>>("window", "resolution");
 	const bool configWindowFullscreen = Serialization::GetConfigElement<bool>("window", "fullscreen");
 	const bool configWindowVsync = Serialization::GetConfigElement<bool>("window", "vsync");
 
 	// Create the main application window
-	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowDimensions[0], configWindowDimensions[1], configWindowFullscreen,
+	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
 		configWindowVsync, *this);
 
 	// Continue onto the main loop
