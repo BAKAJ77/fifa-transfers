@@ -1,7 +1,9 @@
 #include <core/application_core.h>
 #include <core/input_system.h>
+#include <core/application_state.h>
 
 #include <graphics/renderer.h>
+#include <states/splash_screen.h>
 #include <serialization/config.h>
 
 #include <util/directory_system.h>
@@ -37,6 +39,8 @@ ApplicationCore::ApplicationCore() :
 	InputSystem::GetInstance().Init(this->window);
 	Renderer::GetInstance().Init(this->window);
 
+	AppStateSystem::GetInstance().SwitchState(SplashScreen::GetAppState());
+
 	// Continue onto the main loop
 	this->MainLoop();
 }
@@ -53,7 +57,7 @@ void ApplicationCore::MainLoop()
 	constexpr float timeStep = 0.001f;
 	float accumulatedRenderTime = 0.0f, elapsedRenderTime = 0.0f;
 
-	while (!this->window->HasRequestedClose())
+	while (!this->window->HasRequestedClose() && AppStateSystem::GetInstance().IsActive())
 	{
 		// Update the application logic
 		accumulatedRenderTime += elapsedRenderTime;
@@ -76,10 +80,12 @@ void ApplicationCore::MainLoop()
 
 void ApplicationCore::Update(const float& deltaTime)
 {
+	AppStateSystem::GetInstance().Update(deltaTime);
 }
 
 void ApplicationCore::Render() const
 {
+	AppStateSystem::GetInstance().Render();
 }
 
 bool ApplicationCore::IsGLFWInitialized() const
