@@ -1,6 +1,7 @@
 #include <core/application_core.h>
 #include <core/input_system.h>
 
+#include <graphics/renderer.h>
 #include <serialization/config.h>
 
 #include <util/directory_system.h>
@@ -9,6 +10,7 @@
 
 #include <GLFW/glfw3.h>
 #include <vector>
+
 
 ApplicationCore::ApplicationCore() :
 	initializedGLFW(false)
@@ -31,7 +33,9 @@ ApplicationCore::ApplicationCore() :
 	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
 		configWindowVsync, *this);
 
-	InputSystem::GetInstance().Init(this->window); // Initialize the input system
+	// Initialize singleton systems
+	InputSystem::GetInstance().Init(this->window);
+	Renderer::GetInstance().Init(this->window);
 
 	// Continue onto the main loop
 	this->MainLoop();
