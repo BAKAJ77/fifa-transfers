@@ -1,5 +1,8 @@
 #include <core/application_core.h>
+#include <core/input_system.h>
+
 #include <serialization/config.h>
+
 #include <util/directory_system.h>
 #include <util/logging_system.h>
 #include <util/timestamp.h>
@@ -27,6 +30,8 @@ ApplicationCore::ApplicationCore() :
 	// Create the main application window
 	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
 		configWindowVsync, *this);
+
+	InputSystem::GetInstance().Init(this->window); // Initialize the input system
 
 	// Continue onto the main loop
 	this->MainLoop();
