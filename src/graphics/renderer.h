@@ -37,8 +37,14 @@ public:
 	// Renders a uni-colored square onto the screen.
 	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
 
+	// Renders a textured square onto the screen.
+	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
+
 	// Renders a uni-colored triangle onto the screen.
 	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
+
+	// Renders a textured triangle onto the screen.
+	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
 
 	// CLears the screen and fills with the current set clear color.
 	void Clear() const;
