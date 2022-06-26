@@ -13,11 +13,16 @@ class Renderer
 {
 private:
 	WindowFramePtr appWindow;
+	FrameBufferPtr postProcessFbo;
+	TextureBuffer2DPtr postProcessedScene;
 
 	OrthogonalCamera viewport;
-	ShaderProgramPtr geometryShader;
+	ShaderProgramPtr geometryShader, postProcessShader;
 	VertexArrayPtr squareGeometryVao, triangleGeometryVao;
 	glm::vec4 clearColor;
+
+	uint32_t numSamplesPerPixel;
+	float gamma;
 private:
 	Renderer() = default;
 
@@ -34,20 +39,23 @@ public:
 	// Sets the renderer clear color.
 	void SetClearColor(const glm::vec4& color);
 
-	// Renders a uni-colored square onto the screen.
+	// Renders a uni-colored square on the post processing FBO.
 	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
 
-	// Renders a textured square onto the screen.
+	// Renders a textured square on the post processing FBO.
 	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
 
-	// Renders a uni-colored triangle onto the screen.
+	// Renders a uni-colored triangle on the post processing FBO.
 	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
 
-	// Renders a textured triangle onto the screen.
+	// Renders a textured triangle on the post processing FBO.
 	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
 
-	// CLears the screen and fills with the current set clear color.
+	// Clears the post processing FBO and fills with the current set clear color.
 	void Clear() const;
+
+	// Flushes the rendered post processed scene in the FBO onto the screen.
+	void Flush() const;
 
 	// Returns singleton instance object of this class.
 	static Renderer& GetInstance();

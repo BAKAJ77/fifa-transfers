@@ -96,9 +96,32 @@ public:
 	const int& GetNumSamplesPerPixel() const;
 };
 
+using TextureBuffer2DPtr = std::shared_ptr<TextureBuffer2D>;
+
+class FrameBuffer
+{
+private:
+	uint32_t id;
+public:
+	FrameBuffer();
+	~FrameBuffer();
+
+	// Attaches the given texture buffer to the frame buffer.
+	void AttachTextureBuffer(uint32_t attachment, const TextureBuffer2DPtr texture);
+
+	// Binds the frame buffer.
+	void Bind() const;
+
+	// Unbinds the frame buffer.
+	void Unbind() const;
+
+	// Returns the ID of the frame buffer.
+	const uint32_t& GetID() const;
+};
+
 using VertexBufferPtr = std::shared_ptr<VertexBuffer>;
 using IndexBufferPtr = std::shared_ptr<IndexBuffer>;
-using TextureBuffer2DPtr = std::shared_ptr<TextureBuffer2D>;
+using FrameBufferPtr = std::shared_ptr<FrameBuffer>;
 
 namespace Memory
 {
@@ -119,6 +142,9 @@ namespace Memory
 	// Returns a shared pointer to the newly created texture buffer which contains the loaded pixel data from the image file specified.
 	// Note that only images with 3 or 4 channels e.g. pngs, jpegs etc are supported.
 	TextureBuffer2DPtr LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad = false);
+
+	// Returns a shared pointer to the newly created frame buffer.
+	FrameBufferPtr CreateFrameBuffer();
 }
 
 #endif

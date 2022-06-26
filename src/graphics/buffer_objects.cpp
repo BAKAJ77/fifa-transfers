@@ -198,6 +198,43 @@ const int& TextureBuffer2D::GetNumSamplesPerPixel() const
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+FrameBuffer::FrameBuffer()
+{
+    glGenFramebuffers(1, &this->id);
+}
+
+FrameBuffer::~FrameBuffer()
+{
+    glDeleteFramebuffers(1, &this->id);
+}
+
+void FrameBuffer::AttachTextureBuffer(uint32_t attachment, const TextureBuffer2DPtr texture)
+{
+    glBindFramebuffer(GL_FRAMEBUFFER, this->id);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, attachment, texture->GetTarget(), texture->GetID(), 0);
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void FrameBuffer::Bind() const
+{
+    glBindFramebuffer(GL_FRAMEBUFFER, this->id);
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        LogSystem::GetInstance().OutputLog("The framebuffer (id: " + std::to_string(this->id) + ") being bound is not complete.",
+            Severity::FATAL);
+}
+
+void FrameBuffer::Unbind() const
+{
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+const uint32_t& FrameBuffer::GetID() const
+{
+    return this->id;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
 VertexBufferPtr Memory::CreateVertexBuffer(const void* data, uint32_t size, uint32_t usage)
 {
     return std::make_shared<VertexBuffer>(data, size, usage);
@@ -216,10 +253,7 @@ TextureBuffer2DPtr Memory::CreateTextureBuffer(int internalFormat, uint32_t widt
 
 TextureBuffer2DPtr Memory::CreateTextureBuffer(int numSamplesPerPixel, uint32_t internalFormat, int width, int height)
 {
-    if (numSamplesPerPixel > 1)
-        return std::make_shared<TextureBuffer2D>(numSamplesPerPixel, internalFormat, width, height);
-
-    return std::make_shared<TextureBuffer2D>(internalFormat, width, height, internalFormat, GL_UNSIGNED_BYTE, nullptr, false);
+    return std::make_shared<TextureBuffer2D>(numSamplesPerPixel, internalFormat, width, height);
 }
 
 TextureBuffer2DPtr Memory::LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad)
@@ -238,4 +272,9 @@ TextureBuffer2DPtr Memory::LoadImageFromFile(const std::string_view& fileName, b
     channels > 3 ? format = GL_RGBA : format = GL_RGB;
 
     return std::make_shared<TextureBuffer2D>(format, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true);
+}
+
+FrameBufferPtr Memory::CreateFrameBuffer()
+{
+    return std::make_shared<FrameBuffer>();
 }

@@ -5,8 +5,6 @@
 
 class SplashScreen : public AppState
 {
-private:
-	TextureBuffer2DPtr texture;
 protected:
 	void Init() override;
 	void Destroy() override;

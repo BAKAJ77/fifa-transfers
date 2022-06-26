@@ -1,4 +1,5 @@
 #include <graphics/renderer.h>
+#include <serialization/config.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glad/glad.h>
@@ -14,8 +15,19 @@ void Renderer::Init(WindowFramePtr window)
 	// Setup the render scene viewport
 	this->viewport = OrthogonalCamera({ 0.0f, 0.0f }, { 1920.0f, 1080.0f });
 
+	// Load the required configuration settings then setup the post processing framebuffer
+	this->numSamplesPerPixel = Serialization::GetConfigElement<uint32_t>("graphics", "numSamplesMSAA");
+	this->gamma = Serialization::GetConfigElement<float>("graphics", "gamma");
+
+	this->postProcessedScene = Memory::CreateTextureBuffer(this->numSamplesPerPixel, GL_SRGB, this->appWindow->GetWidth(), 
+		this->appWindow->GetHeight());
+
+	this->postProcessFbo = Memory::CreateFrameBuffer();
+	this->postProcessFbo->AttachTextureBuffer(GL_COLOR_ATTACHMENT0, this->postProcessedScene);
+
 	// Load the required shaders
 	this->geometryShader = Memory::CreateShaderProgram("geometry.glsl.vsh", "geometry.glsl.fsh");
+	this->postProcessShader = Memory::CreateShaderProgram("post_process.glsl.vsh", "post_process.glsl.fsh");
 
 	// Setup the geometry vertex array objects
 	const float squareVertexData[] = { 
@@ -120,8 +132,31 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 
 void Renderer::Clear() const
 {
+	this->postProcessFbo->Bind();
+
 	glClearColor(clearColor.r / 255.0f, clearColor.g / 255.0f, clearColor.b / 255.0f, clearColor.a / 255.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Renderer::Flush() const
+{
+	this->postProcessFbo->Unbind(); // Unbind therefore binding the default framebuffer
+
+	// Clear the default framebuffer
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	// Bind the post processing shader and setup shader uniforms
+	this->postProcessShader->Bind();
+	this->postProcessShader->SetUniform("multisampleSceneTexture", 0);
+	this->postProcessShader->SetUniform("numSamplesPerPixel", (int)this->numSamplesPerPixel);
+	this->postProcessShader->SetUniform("gamma", this->gamma);
+
+	// Bind the generated post processed scene texture and square geometry vertex array, then display to screen
+	this->postProcessedScene->Bind(0);
+	this->squareGeometryVao->Bind();
+
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
 Renderer& Renderer::GetInstance()
