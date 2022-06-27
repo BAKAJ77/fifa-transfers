@@ -16,7 +16,7 @@ namespace Serialization
 			},
 			{ "graphics",
 				{
-					{ "numSamplesMSAA", 2 },
+					{ "samplesMSAA", 4 },
 					{ "gamma", 2.2f },
 					{ "textQuality", 100 }
 				}

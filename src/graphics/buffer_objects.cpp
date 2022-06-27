@@ -83,36 +83,20 @@ const uint32_t& IndexBuffer::GetID() const
 
 TextureBuffer2D::TextureBuffer2D(int internalFormat, uint32_t width, uint32_t height, uint32_t format, uint32_t type, 
     const void* pixelData, bool genMipmaps) :
-    target(GL_TEXTURE_2D), width(width), height(height), numSamplesPerPixel(1)
+    width(width), height(height)
 {
     // Generate and bind the texture buffer then configure wrap and filter modes
     glGenTextures(1, &this->id);
-    glBindTexture(this->target, this->id);
+    glBindTexture(GL_TEXTURE_2D, this->id);
 
     this->SetDefaultModeSettings();
 
     // Fill the texture buffer with the pixel data given (then generate mipmaps if specified to do so)
-    glTexImage2D(this->target, 0, internalFormat, width, height, 0, format, type, pixelData);
-    glGenerateMipmap(this->target);
+    glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, type, pixelData);
+    glGenerateMipmap(GL_TEXTURE_2D);
 
     // Unbind the texture buffer
-    glBindTexture(this->target, 0);
-}
-
-TextureBuffer2D::TextureBuffer2D(int numSamplesPerPixel, uint32_t internalFormat, int width, int height) :
-    target(GL_TEXTURE_2D_MULTISAMPLE), width(width), height(height), numSamplesPerPixel(std::max(numSamplesPerPixel, 1))
-{
-    // Generate and bind the texture buffer then configure wrap and filter modes
-    glGenTextures(1, &this->id);
-    glBindTexture(this->target, this->id);
-
-    this->SetDefaultModeSettings();
-
-    // Allocate memory for the multisample texture buffer
-    glTexImage2DMultisample(this->target, numSamplesPerPixel, internalFormat, width, height, true);
-
-    // Unbind the texture buffer
-    glBindTexture(this->target, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 TextureBuffer2D::~TextureBuffer2D()
@@ -122,63 +106,55 @@ TextureBuffer2D::~TextureBuffer2D()
 
 void TextureBuffer2D::SetDefaultModeSettings() const
 {
-    glTexParameteri(this->target, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(this->target, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(this->target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(this->target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
 void TextureBuffer2D::SetWrapMode(uint32_t sAxis, uint32_t tAxis)
 {
-    glBindTexture(this->target, this->id);
-    glTexParameteri(this->target, GL_TEXTURE_WRAP_S, sAxis);
-    glTexParameteri(this->target, GL_TEXTURE_WRAP_T, tAxis);
-    glBindTexture(this->target, 0);
+    glBindTexture(GL_TEXTURE_2D, this->id);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, sAxis);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, tAxis);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void TextureBuffer2D::SetFilterMode(uint32_t min, uint32_t mag)
 {
-    glBindTexture(this->target, this->id);
-    glTexParameteri(this->target, GL_TEXTURE_MIN_FILTER, min);
-    glTexParameteri(this->target, GL_TEXTURE_MAG_FILTER, mag);
-    glBindTexture(this->target, 0);
+    glBindTexture(GL_TEXTURE_2D, this->id);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void TextureBuffer2D::Update(int offsetX, int offsetY, uint32_t width, uint32_t height, uint32_t format, uint32_t type,
     const void* pixelData)
 {
-    if (this->numSamplesPerPixel == 1)
-    {
-        glBindTexture(this->target, this->id);
-        glTexSubImage2D(this->target, 0, offsetX, offsetY, width, height, format, type, pixelData);
-        glBindTexture(this->target, 0);
-    }
+    glBindTexture(GL_TEXTURE_2D, this->id);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, offsetX, offsetY, width, height, format, type, pixelData);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void TextureBuffer2D::Bind() const
 {
-    glBindTexture(this->target, this->id);
+    glBindTexture(GL_TEXTURE_2D, this->id);
 }
 
 void TextureBuffer2D::Bind(uint32_t textureIndex) const
 {
     glActiveTexture(GL_TEXTURE0 + textureIndex);
-    glBindTexture(this->target, this->id);
+    glBindTexture(GL_TEXTURE_2D, this->id);
 }
 
 void TextureBuffer2D::Unbind() const
 {
-    glBindTexture(this->target, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 const uint32_t& TextureBuffer2D::GetID() const
 {
     return this->id;
-}
-
-const uint32_t& TextureBuffer2D::GetTarget() const
-{
-    return this->target;
 }
 
 const uint32_t& TextureBuffer2D::GetWidth() const
@@ -189,48 +165,6 @@ const uint32_t& TextureBuffer2D::GetWidth() const
 const uint32_t& TextureBuffer2D::GetHeight() const
 {
     return this->height;
-}
-
-const int& TextureBuffer2D::GetNumSamplesPerPixel() const
-{
-    return this->numSamplesPerPixel;
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-FrameBuffer::FrameBuffer()
-{
-    glGenFramebuffers(1, &this->id);
-}
-
-FrameBuffer::~FrameBuffer()
-{
-    glDeleteFramebuffers(1, &this->id);
-}
-
-void FrameBuffer::AttachTextureBuffer(uint32_t attachment, const TextureBuffer2DPtr texture)
-{
-    glBindFramebuffer(GL_FRAMEBUFFER, this->id);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, attachment, texture->GetTarget(), texture->GetID(), 0);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
-void FrameBuffer::Bind() const
-{
-    glBindFramebuffer(GL_FRAMEBUFFER, this->id);
-    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-        LogSystem::GetInstance().OutputLog("The framebuffer (id: " + std::to_string(this->id) + ") being bound is not complete.",
-            Severity::FATAL);
-}
-
-void FrameBuffer::Unbind() const
-{
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
-const uint32_t& FrameBuffer::GetID() const
-{
-    return this->id;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -251,11 +185,6 @@ TextureBuffer2DPtr Memory::CreateTextureBuffer(int internalFormat, uint32_t widt
     return std::make_shared<TextureBuffer2D>(internalFormat, width, height, format, type, pixelData, genMipmaps);
 }
 
-TextureBuffer2DPtr Memory::CreateTextureBuffer(int numSamplesPerPixel, uint32_t internalFormat, int width, int height)
-{
-    return std::make_shared<TextureBuffer2D>(numSamplesPerPixel, internalFormat, width, height);
-}
-
 TextureBuffer2DPtr Memory::LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad)
 {
     // Load the image file using STB
@@ -272,9 +201,4 @@ TextureBuffer2DPtr Memory::LoadImageFromFile(const std::string_view& fileName, b
     channels > 3 ? format = GL_RGBA : format = GL_RGB;
 
     return std::make_shared<TextureBuffer2D>(format, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true);
-}
-
-FrameBufferPtr Memory::CreateFrameBuffer()
-{
-    return std::make_shared<FrameBuffer>();
 }

@@ -14,9 +14,11 @@ private:
 	GLFWwindow* framePtr;
 
 	int width, height;
+	uint32_t samplesPerPixel;
 	bool usingVsync, fullscreenEnabled;
 public:
-	WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, ApplicationCore& appCore);
+	WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel,
+		ApplicationCore& appCore);
 	~WindowFrame();
 
 	// Sets the width of the window.
@@ -38,10 +40,14 @@ public:
 	GLFWwindow* GetFramePtr();
 
 	// Returns the width of the window.
-	int GetWidth() const;
+	const int& GetWidth() const;
 
 	// Returns the height of the window.
-	int GetHeight() const;
+	const int& GetHeight() const;
+
+	// Returns the amount of samples per pixel being used.
+	// Anything above 1 indicates that MSAA is being used.
+	const uint32_t& GetSamplesPerPixel() const;
 
 	// Returns TRUE if the window is using vsync.
 	bool IsUsingVsyncMode() const;
@@ -55,7 +61,7 @@ namespace Memory
 {
 	// Creates a new window and returns shared pointer to the created window object.
 	WindowFramePtr CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
-		ApplicationCore& appCore);
+		uint32_t samplesPerPixel, ApplicationCore& appCore);
 }
 
 #endif

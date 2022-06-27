@@ -49,15 +49,13 @@ public:
 class TextureBuffer2D
 {
 private:
-	uint32_t id, target, width, height;
-	int numSamplesPerPixel;
+	uint32_t id, width, height;
 private:
 	// Configures default wrapping and filtering modes for the texture buffer.
 	void SetDefaultModeSettings() const;
 public:
 	TextureBuffer2D(int internalFormat, uint32_t width, uint32_t height, uint32_t format, uint32_t type,
 		const void* pixelData, bool genMipmaps);
-	TextureBuffer2D(int numSamplesPerPixel, uint32_t internalFormat, int width, int height);
 	~TextureBuffer2D();
 
 	// Sets the wrapping mode used for the texture buffer.
@@ -67,7 +65,6 @@ public:
 	void SetFilterMode(uint32_t min, uint32_t mag);
 
 	// Updates the contents of the texture buffer at the specified offset with the pixel data given.
-	// Note that this method is only compatible with non-multisample texture buffers.
 	void Update(int offsetX, int offsetY, uint32_t width, uint32_t height, uint32_t format, uint32_t type,
 		const void* pixelData);
 
@@ -83,45 +80,16 @@ public:
 	// Returns the ID of the texture buffer.
 	const uint32_t& GetID() const;
 
-	// Returns the target of the texture buffer.
-	const uint32_t& GetTarget() const;
-
 	// Returns the width of the texture buffer.
 	const uint32_t& GetWidth() const;
 
 	// Returns the height of the texture buffer.
 	const uint32_t& GetHeight() const;
-
-	// Returns the number of samples per pixel in the texture buffer.
-	const int& GetNumSamplesPerPixel() const;
-};
-
-using TextureBuffer2DPtr = std::shared_ptr<TextureBuffer2D>;
-
-class FrameBuffer
-{
-private:
-	uint32_t id;
-public:
-	FrameBuffer();
-	~FrameBuffer();
-
-	// Attaches the given texture buffer to the frame buffer.
-	void AttachTextureBuffer(uint32_t attachment, const TextureBuffer2DPtr texture);
-
-	// Binds the frame buffer.
-	void Bind() const;
-
-	// Unbinds the frame buffer.
-	void Unbind() const;
-
-	// Returns the ID of the frame buffer.
-	const uint32_t& GetID() const;
 };
 
 using VertexBufferPtr = std::shared_ptr<VertexBuffer>;
 using IndexBufferPtr = std::shared_ptr<IndexBuffer>;
-using FrameBufferPtr = std::shared_ptr<FrameBuffer>;
+using TextureBuffer2DPtr = std::shared_ptr<TextureBuffer2D>;
 
 namespace Memory
 {
@@ -135,16 +103,9 @@ namespace Memory
 	TextureBuffer2DPtr CreateTextureBuffer(int internalFormat, uint32_t width, uint32_t height, uint32_t format, uint32_t type, 
 		const void* pixelData, bool genMipmaps = true);
 
-	// Returns a shared pointer to the newly created multisample texture buffer.
-	// Note that if a value of 1 is passed for 'numSamplesPerPixel', a regular texture buffer will be created instead of a multisample one.
-	TextureBuffer2DPtr CreateTextureBuffer(int numSamplesPerPixel, uint32_t internalFormat, int width, int height);
-
 	// Returns a shared pointer to the newly created texture buffer which contains the loaded pixel data from the image file specified.
 	// Note that only images with 3 or 4 channels e.g. pngs, jpegs etc are supported.
 	TextureBuffer2DPtr LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad = false);
-
-	// Returns a shared pointer to the newly created frame buffer.
-	FrameBufferPtr CreateFrameBuffer();
 }
 
 #endif

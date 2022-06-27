@@ -89,8 +89,6 @@ void AppStateSystem::Render() const
 		if (stateIndex == (this->stateStack.size() - 1) || appState->renderWhilePaused)
 			appState->Render();
 	}
-
-	Renderer::GetInstance().Flush();
 }
 
 bool AppStateSystem::IsActive() const

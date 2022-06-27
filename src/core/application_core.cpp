@@ -28,12 +28,18 @@ ApplicationCore::ApplicationCore() :
 		Serialization::GenerateConfigFile();
 
 	const std::vector<int> configWindowResolution = Serialization::GetConfigElement<std::vector<int>>("window", "resolution");
+
+	if (configWindowResolution.size() != 2)
+		LogSystem::GetInstance().OutputLog("The window resolution json config setting should only have 2 values, a width and height",
+			Severity::FATAL);
+
+	const uint32_t configSamplesPerPixel = Serialization::GetConfigElement<uint32_t>("graphics", "samplesMSAA");
 	const bool configWindowFullscreen = Serialization::GetConfigElement<bool>("window", "fullscreen");
 	const bool configWindowVsync = Serialization::GetConfigElement<bool>("window", "vsync");
 
 	// Create the main application window
 	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
-		configWindowVsync, *this);
+		configWindowVsync, configSamplesPerPixel, *this);
 
 	// Initialize singleton systems
 	InputSystem::GetInstance().Init(this->window);

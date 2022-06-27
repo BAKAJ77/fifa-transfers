@@ -5,8 +5,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, ApplicationCore& appCore) :
-	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen), appCore(appCore)
+WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel,
+	ApplicationCore& appCore) :
+	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen), appCore(appCore),
+	samplesPerPixel(std::max((int)samplesPerPixel, 1))
 {
 	if (appCore.IsGLFWInitialized())
 	{
@@ -14,7 +16,8 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+		glfwWindowHint(GLFW_SAMPLES, this->samplesPerPixel);
+		
 		// Create and setup the window
 		fullscreen ? 
 			this->framePtr = glfwCreateWindow(width, height, title.data(), glfwGetPrimaryMonitor(), nullptr) :
@@ -35,6 +38,10 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 			LogSystem::GetInstance().OutputLog("Failed to load OpenGL function addresses", Severity::FATAL);
 
 		LogSystem::GetInstance().OutputLog((const char*)glGetString(GL_VERSION), Severity::INFO); // Log the version of OpenGL being used
+		
+		// Make sure to enable multisampling if specified to do so
+		if (this->samplesPerPixel > 1)
+			glEnable(GL_MULTISAMPLE);
 	}
 	else
 		LogSystem::GetInstance().OutputLog("Skipped window creation as GLFW is not initialized", Severity::WARNING);
@@ -81,14 +88,19 @@ GLFWwindow* WindowFrame::GetFramePtr()
 	return this->framePtr;
 }
 
-int WindowFrame::GetWidth() const
+const int& WindowFrame::GetWidth() const
 {
 	return this->width;
 }
 
-int WindowFrame::GetHeight() const
+const int& WindowFrame::GetHeight() const
 {
 	return this->height;
+}
+
+const uint32_t& WindowFrame::GetSamplesPerPixel() const
+{
+	return this->samplesPerPixel;
 }
 
 bool WindowFrame::IsUsingVsyncMode() const
@@ -102,7 +114,7 @@ bool WindowFrame::IsFullscreenEnabled() const
 }
 
 WindowFramePtr Memory::CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
-	ApplicationCore& appCore)
+	uint32_t samplesPerPixel, ApplicationCore& appCore)
 {
-	return std::make_shared<WindowFrame>(title, width, height, fullscreen, vsync, appCore);
+	return std::make_shared<WindowFrame>(title, width, height, fullscreen, vsync, samplesPerPixel, appCore);
 }

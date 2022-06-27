@@ -4,6 +4,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glad/glad.h>
 
+Renderer::Renderer() :
+	gamma(2.2f)
+{}
+
 void Renderer::Init(WindowFramePtr window)
 {
 	// Store application window shared pointer and enable blending (for transparency rendering)
@@ -15,20 +19,12 @@ void Renderer::Init(WindowFramePtr window)
 	// Setup the render scene viewport
 	this->viewport = OrthogonalCamera({ 0.0f, 0.0f }, { 1920.0f, 1080.0f });
 
-	// Load the required configuration settings then setup the post processing framebuffer
-	this->numSamplesPerPixel = Serialization::GetConfigElement<uint32_t>("graphics", "numSamplesMSAA");
+	// Load the gamma json config setting
 	this->gamma = Serialization::GetConfigElement<float>("graphics", "gamma");
 
-	this->postProcessedScene = Memory::CreateTextureBuffer(this->numSamplesPerPixel, GL_SRGB, this->appWindow->GetWidth(), 
-		this->appWindow->GetHeight());
-
-	this->postProcessFbo = Memory::CreateFrameBuffer();
-	this->postProcessFbo->AttachTextureBuffer(GL_COLOR_ATTACHMENT0, this->postProcessedScene);
-
 	// Load the required shaders
-	this->geometryShader = Memory::CreateShaderProgram("geometry.glsl.vsh", "geometry.glsl.fsh");
-	this->postProcessShader = Memory::CreateShaderProgram("post_process.glsl.vsh", "post_process.glsl.fsh");
-
+	this->geometryShader = Memory::CreateShaderProgram("geometry_render.glsl.vsh", "geometry_render.glsl.fsh");
+	
 	// Setup the geometry vertex array objects
 	const float squareVertexData[] = { 
 		-0.5f, -0.5f, 0.0f, 0.0f, 0.5f, -0.5f, 1.0f, 0.0f, 0.5f,  0.5f, 1.0f, 1.0f, -0.5f, 0.5f, 0.0f, 1.0f 
@@ -75,6 +71,8 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const g
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
+	this->geometryShader->SetUniform("gamma", this->gamma);
+
 	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -89,6 +87,8 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const T
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", true);
+	this->geometryShader->SetUniform("gamma", this->gamma);
+
 	this->geometryShader->SetUniform("diffuseTexture", 0);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -105,6 +105,8 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
+	this->geometryShader->SetUniform("gamma", this->gamma);
+
 	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -119,6 +121,8 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", true);
+	this->geometryShader->SetUniform("gamma", this->gamma);
+
 	this->geometryShader->SetUniform("diffuseTexture", 0);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -132,31 +136,8 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 
 void Renderer::Clear() const
 {
-	this->postProcessFbo->Bind();
-
 	glClearColor(clearColor.r / 255.0f, clearColor.g / 255.0f, clearColor.b / 255.0f, clearColor.a / 255.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-}
-
-void Renderer::Flush() const
-{
-	this->postProcessFbo->Unbind(); // Unbind therefore binding the default framebuffer
-
-	// Clear the default framebuffer
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	// Bind the post processing shader and setup shader uniforms
-	this->postProcessShader->Bind();
-	this->postProcessShader->SetUniform("multisampleSceneTexture", 0);
-	this->postProcessShader->SetUniform("numSamplesPerPixel", (int)this->numSamplesPerPixel);
-	this->postProcessShader->SetUniform("gamma", this->gamma);
-
-	// Bind the generated post processed scene texture and square geometry vertex array, then display to screen
-	this->postProcessedScene->Bind(0);
-	this->squareGeometryVao->Bind();
-
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
 Renderer& Renderer::GetInstance()
