@@ -10,15 +10,13 @@ struct GLFWwindow;
 class WindowFrame
 {
 private:
-	ApplicationCore& appCore;
 	GLFWwindow* framePtr;
 
 	int width, height;
 	uint32_t samplesPerPixel;
 	bool usingVsync, fullscreenEnabled;
 public:
-	WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel,
-		ApplicationCore& appCore);
+	WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel);
 	~WindowFrame();
 
 	// Sets the width of the window.
@@ -61,7 +59,7 @@ namespace Memory
 {
 	// Creates a new window and returns shared pointer to the created window object.
 	WindowFramePtr CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
-		uint32_t samplesPerPixel, ApplicationCore& appCore);
+		uint32_t samplesPerPixel);
 }
 
 #endif

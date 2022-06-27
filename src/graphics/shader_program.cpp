@@ -1,6 +1,7 @@
 #include <graphics/shader_program.h>
 #include <util/directory_system.h>
 #include <util/logging_system.h>
+#include <util/opengl_error.h>
 
 #include <fstream>
 #include <sstream>
@@ -30,33 +31,33 @@ ShaderProgram::ShaderProgram(const std::string_view& vshFileName, const std::str
 	const char* fshSrcCode = fshSrcCodeStr.c_str();
 
 	// Compile the loaded shader code
-	const uint32_t vshID = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vshID, 1, &vshSrcCode, nullptr);
-	glCompileShader(vshID);
+	const uint32_t vshID = GLValidate(glCreateShader(GL_VERTEX_SHADER));
+	GLValidate(glShaderSource(vshID, 1, &vshSrcCode, nullptr));
+	GLValidate(glCompileShader(vshID));
 
 	this->ValidateShaderOperation(vshID, ShaderOperation::COMPILATION);
 
-	const uint32_t fshID = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fshID, 1, &fshSrcCode, nullptr);
-	glCompileShader(fshID);
+	const uint32_t fshID = GLValidate(glCreateShader(GL_FRAGMENT_SHADER));
+	GLValidate(glShaderSource(fshID, 1, &fshSrcCode, nullptr));
+	GLValidate(glCompileShader(fshID));
 
 	this->ValidateShaderOperation(fshID, ShaderOperation::COMPILATION);
 
 	// Create the shader program, then attach the compiled shaders and perform linking operation
-	this->id = glCreateProgram();
-	glAttachShader(this->id, vshID);
-	glAttachShader(this->id, fshID);
-	glLinkProgram(this->id);
+	this->id = GLValidate(glCreateProgram());
+	GLValidate(glAttachShader(this->id, vshID));
+	GLValidate(glAttachShader(this->id, fshID));
+	GLValidate(glLinkProgram(this->id));
 
 	this->ValidateShaderOperation(this->id, ShaderOperation::LINKAGE);
 
-	glDeleteShader(vshID);
-	glDeleteShader(fshID);
+	GLValidate(glDeleteShader(vshID));
+	GLValidate(glDeleteShader(fshID));
 }
 
 ShaderProgram::~ShaderProgram()
 {
-	glDeleteProgram(this->id);
+	GLValidate(glDeleteProgram(this->id));
 }
 
 void ShaderProgram::ValidateShaderOperation(const uint32_t& id, ShaderOperation operation) const
@@ -69,19 +70,19 @@ void ShaderProgram::ValidateShaderOperation(const uint32_t& id, ShaderOperation 
 	switch (operation)
 	{
 	case ShaderOperation::COMPILATION:
-		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &logLength);
+		GLValidate(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &logLength));
 		if (logLength > 0)
 		{
 			errorLog = std::unique_ptr<char>(new char[logLength]);
-			glGetShaderInfoLog(id, logLength, nullptr, errorLog.get());
+			GLValidate(glGetShaderInfoLog(id, logLength, nullptr, errorLog.get()));
 		}
 		break;
 	case ShaderOperation::LINKAGE:
-		glGetProgramiv(id, GL_INFO_LOG_LENGTH, &logLength);
+		GLValidate(glGetProgramiv(id, GL_INFO_LOG_LENGTH, &logLength));
 		if (logLength > 0)
 		{
 			errorLog = std::unique_ptr<char>(new char[logLength]);
-			glGetProgramInfoLog(id, logLength, nullptr, errorLog.get());
+			GLValidate(glGetProgramInfoLog(id, logLength, nullptr, errorLog.get()));
 		}
 		break;
 	}
@@ -97,7 +98,7 @@ uint32_t ShaderProgram::GetUniformLocation(const std::string_view& uniformName) 
 	if (cacheIterator == this->uniformLocationCache.end())
 	{
 		// It is not cached so fetch it from GPU, store it in cache and return it
-		const uint32_t location = glGetUniformLocation(this->id, uniformName.data());
+		const uint32_t location = GLValidate(glGetUniformLocation(this->id, uniformName.data()));
 		this->uniformLocationCache[uniformName.data()] = location;
 
 		return location;
@@ -108,52 +109,52 @@ uint32_t ShaderProgram::GetUniformLocation(const std::string_view& uniformName) 
 
 void ShaderProgram::SetUniform(const std::string_view& uniformName, int value) const
 {
-	glUniform1i(this->GetUniformLocation(uniformName), value);
+	GLValidate(glUniform1i(this->GetUniformLocation(uniformName), value));
 }
 
 void ShaderProgram::SetUniform(const std::string_view& uniformName, float value) const
 {
-	glUniform1f(this->GetUniformLocation(uniformName), value);
+	GLValidate(glUniform1f(this->GetUniformLocation(uniformName), value));
 }
 
 void ShaderProgram::SetUniform(const std::string_view& uniformName, bool value) const
 {
-	glUniform1i(this->GetUniformLocation(uniformName), (int)value);
+	GLValidate(glUniform1i(this->GetUniformLocation(uniformName), (int)value));
 }
 
 void ShaderProgram::SetUniformGLM(const std::string_view& uniformName, const glm::vec2& vector) const
 {
-	glUniform2fv(this->GetUniformLocation(uniformName), 1, &vector[0]);
+	GLValidate(glUniform2fv(this->GetUniformLocation(uniformName), 1, &vector[0]));
 }
 
 void ShaderProgram::SetUniformGLM(const std::string_view& uniformName, const glm::vec3& vector) const
 {
-	glUniform3fv(this->GetUniformLocation(uniformName), 1, &vector[0]);
+	GLValidate(glUniform3fv(this->GetUniformLocation(uniformName), 1, &vector[0]));
 }
 
 void ShaderProgram::SetUniformGLM(const std::string_view& uniformName, const glm::vec4& vector) const
 {
-	glUniform4fv(this->GetUniformLocation(uniformName), 1, &vector[0]);
+	GLValidate(glUniform4fv(this->GetUniformLocation(uniformName), 1, &vector[0]));
 }
 
 void ShaderProgram::SetUniformGLM(const std::string_view& uniformName, const glm::mat3& matrix) const
 {
-	glUniformMatrix3fv(this->GetUniformLocation(uniformName), 1, false, &matrix[0][0]);
+	GLValidate(glUniformMatrix3fv(this->GetUniformLocation(uniformName), 1, false, &matrix[0][0]));
 }
 
 void ShaderProgram::SetUniformGLM(const std::string_view& uniformName, const glm::mat4& matrix) const
 {
-	glUniformMatrix4fv(this->GetUniformLocation(uniformName), 1, false, &matrix[0][0]);
+	GLValidate(glUniformMatrix4fv(this->GetUniformLocation(uniformName), 1, false, &matrix[0][0]));
 }
 
 void ShaderProgram::Bind() const
 {
-	glUseProgram(this->id);
+	GLValidate(glUseProgram(this->id));
 }
 
 void ShaderProgram::Unbind() const
 {
-	glUseProgram(0);
+	GLValidate(glUseProgram(0));
 }
 
 const uint32_t& ShaderProgram::GetID() const

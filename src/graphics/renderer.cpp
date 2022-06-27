@@ -1,5 +1,6 @@
 #include <graphics/renderer.h>
 #include <serialization/config.h>
+#include <util/opengl_error.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glad/glad.h>
@@ -13,8 +14,8 @@ void Renderer::Init(WindowFramePtr window)
 	// Store application window shared pointer and enable blending (for transparency rendering)
 	this->appWindow = window;
 
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	GLValidate(glEnable(GL_BLEND));
+	GLValidate(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 
 	// Setup the render scene viewport
 	this->viewport = OrthogonalCamera({ 0.0f, 0.0f }, { 1920.0f, 1080.0f });
@@ -79,7 +80,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const g
 
 	// Bind the vertex array object
 	this->squareGeometryVao->Bind();
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+	GLValidate(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 }
 
 void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle) const
@@ -97,7 +98,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const T
 	texture->Bind(0);
 	this->squareGeometryVao->Bind();
 
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+	GLValidate(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 }
 
 void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle) const
@@ -113,7 +114,7 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 
 	// Bind the vertex array object
 	this->triangleGeometryVao->Bind();
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	GLValidate(glDrawArrays(GL_TRIANGLES, 0, 3));
 }
 
 void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle) const
@@ -131,13 +132,13 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	texture->Bind(0);
 	this->triangleGeometryVao->Bind();
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	GLValidate(glDrawArrays(GL_TRIANGLES, 0, 3));
 }
 
 void Renderer::Clear() const
 {
-	glClearColor(clearColor.r / 255.0f, clearColor.g / 255.0f, clearColor.b / 255.0f, clearColor.a / 255.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	GLValidate(glClearColor(clearColor.r / 255.0f, clearColor.g / 255.0f, clearColor.b / 255.0f, clearColor.a / 255.0f));
+	GLValidate(glClear(GL_COLOR_BUFFER_BIT));
 }
 
 Renderer& Renderer::GetInstance()

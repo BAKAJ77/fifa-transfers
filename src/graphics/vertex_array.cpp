@@ -1,14 +1,16 @@
 #include <graphics/vertex_array.h>
+#include <util/opengl_error.h>
+
 #include <glad/glad.h>
 
 VertexArray::VertexArray()
 {
-    glGenVertexArrays(1, &this->id);
+    GLValidate(glGenVertexArrays(1, &this->id));
 }
 
 VertexArray::~VertexArray()
 {
-    glDeleteVertexArrays(1, &this->id);
+    GLValidate(glDeleteVertexArrays(1, &this->id));
 }
 
 void VertexArray::PushLayout(uint32_t index, uint32_t size, uint32_t stride, uint32_t offset, uint32_t divisor, bool normalized)
@@ -19,7 +21,7 @@ void VertexArray::PushLayout(uint32_t index, uint32_t size, uint32_t stride, uin
 void VertexArray::AttachBuffers(VertexBufferPtr vertexBuffer, IndexBufferPtr indexBuffer)
 {
     // Bind the vertex array, then bind the vertex buffer (and index buffer if given one)
-    glBindVertexArray(this->id);
+    GLValidate(glBindVertexArray(this->id));
 
     vertexBuffer->Bind();
     if (indexBuffer)
@@ -28,15 +30,16 @@ void VertexArray::AttachBuffers(VertexBufferPtr vertexBuffer, IndexBufferPtr ind
     // Configure the vertex attribute pointers using the stored vertex layouts
     for (const VertexLayout& layout : this->layouts)
     {
-        glEnableVertexAttribArray(layout.index);
-        glVertexAttribPointer(layout.index, layout.size, layout.type, layout.normalized, layout.stride, (void*)((uint64_t)layout.offset));
-        glVertexAttribDivisor(layout.index, layout.divisor);
+        GLValidate(glEnableVertexAttribArray(layout.index));
+        GLValidate(glVertexAttribPointer(layout.index, layout.size, layout.type, layout.normalized, layout.stride, 
+            (void*)((uint64_t)layout.offset)));
+        GLValidate(glVertexAttribDivisor(layout.index, layout.divisor));
     }
 
     this->layouts.clear();
 
     // Finally unbind all objects
-    glBindVertexArray(0);
+    GLValidate(glBindVertexArray(0));
 
     vertexBuffer->Unbind();
     if (indexBuffer)
@@ -51,12 +54,12 @@ void VertexArray::AttachBuffers(VertexBufferPtr vertexBuffer, IndexBufferPtr ind
 
 void VertexArray::Bind() const
 {
-    glBindVertexArray(this->id);
+    GLValidate(glBindVertexArray(this->id));
 }
 
 void VertexArray::Unbind() const
 {
-    glBindVertexArray(0);
+    GLValidate(glBindVertexArray(0));
 }
 
 const uint32_t& VertexArray::GetID() const

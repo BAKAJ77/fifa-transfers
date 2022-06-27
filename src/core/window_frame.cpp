@@ -1,58 +1,54 @@
 #include <core/window_frame.h>
 #include <core/application_core.h>
 #include <util/logging_system.h>
+#include <util/opengl_error.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel,
-	ApplicationCore& appCore) :
-	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen), appCore(appCore),
+WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel) :
+	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen),
 	samplesPerPixel(std::max((int)samplesPerPixel, 1))
 {
-	if (appCore.IsGLFWInitialized())
-	{
-		// Setup GLFW window hints
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		glfwWindowHint(GLFW_SAMPLES, this->samplesPerPixel);
+	// Initialize the GLFW library
+	if (glfwInit() < 0)
+		LogSystem::GetInstance().OutputLog("Failed to initialize GLFW", Severity::FATAL);
+
+	// Setup GLFW window hints
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_SAMPLES, this->samplesPerPixel);
 		
-		// Create and setup the window
-		fullscreen ? 
-			this->framePtr = glfwCreateWindow(width, height, title.data(), glfwGetPrimaryMonitor(), nullptr) :
-			this->framePtr = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
+	// Create and setup the window
+	fullscreen ? 
+		this->framePtr = glfwCreateWindow(width, height, title.data(), glfwGetPrimaryMonitor(), nullptr) :
+		this->framePtr = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
 
-		if (!this->framePtr)
-			LogSystem::GetInstance().OutputLog("An error occurred while creating the window", Severity::FATAL);
+	if (!this->framePtr)
+		LogSystem::GetInstance().OutputLog("An error occurred while creating the window", Severity::FATAL);
 
-		const GLFWvidmode* monitorData = glfwGetVideoMode(glfwGetPrimaryMonitor());
-		glfwSetWindowPos(this->framePtr, (monitorData->width / 2) - (width / 2), (monitorData->height / 2) - (height / 2));
-		glfwMakeContextCurrent(this->framePtr);
+	const GLFWvidmode* monitorData = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	glfwSetWindowPos(this->framePtr, (monitorData->width / 2) - (width / 2), (monitorData->height / 2) - (height / 2));
+	glfwMakeContextCurrent(this->framePtr);
 		
-		if (vsync)
-			glfwSwapInterval(1);
+	if (vsync)
+		glfwSwapInterval(1);
 
-		// Load the OpenGL function addresses
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-			LogSystem::GetInstance().OutputLog("Failed to load OpenGL function addresses", Severity::FATAL);
+	// Load the OpenGL function addresses
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		LogSystem::GetInstance().OutputLog("Failed to load OpenGL function addresses", Severity::FATAL);
 
-		LogSystem::GetInstance().OutputLog((const char*)glGetString(GL_VERSION), Severity::INFO); // Log the version of OpenGL being used
+	LogSystem::GetInstance().OutputLog((const char*)glGetString(GL_VERSION), Severity::INFO); // Log the version of OpenGL being used
 		
-		// Make sure to enable multisampling if specified to do so
-		if (this->samplesPerPixel > 1)
-			glEnable(GL_MULTISAMPLE);
-	}
-	else
-		LogSystem::GetInstance().OutputLog("Skipped window creation as GLFW is not initialized", Severity::WARNING);
+	// Make sure to enable multisampling if specified to do so
+	if (this->samplesPerPixel > 1)
+		GLValidate(glEnable(GL_MULTISAMPLE));
 }
 
 WindowFrame::~WindowFrame()
 {
-	// GLFW windows are automatically destroyed when glfwTerminate() is called,
-	// also calling glfwDestroyWindow() when GLFW is not initialized will cause an exception to occur
-	if (this->appCore.IsGLFWInitialized())
-		glfwDestroyWindow(this->framePtr);
+	glfwTerminate();
 }
 
 void WindowFrame::SetWidth(int width)
@@ -114,7 +110,7 @@ bool WindowFrame::IsFullscreenEnabled() const
 }
 
 WindowFramePtr Memory::CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
-	uint32_t samplesPerPixel, ApplicationCore& appCore)
+	uint32_t samplesPerPixel)
 {
-	return std::make_shared<WindowFrame>(title, width, height, fullscreen, vsync, samplesPerPixel, appCore);
+	return std::make_shared<WindowFrame>(title, width, height, fullscreen, vsync, samplesPerPixel);
 }

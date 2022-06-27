@@ -7,7 +7,6 @@ class ApplicationCore
 {
 private:
 	WindowFramePtr window;
-	bool initializedGLFW;
 private:
 	// The main loop of the application is executed here.
 	void MainLoop();
@@ -19,10 +18,7 @@ private:
 	void Render() const;
 public:
 	ApplicationCore();
-	~ApplicationCore();
-
-	// Returns TRUE if the GLFW library is currently initialized.
-	bool IsGLFWInitialized() const;
+	~ApplicationCore() = default;
 };
 
 #endif
