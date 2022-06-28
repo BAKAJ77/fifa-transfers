@@ -7,9 +7,8 @@
 void OpenGL::CheckError(const char* file, int line)
 {
 #if _DEBUG
-	uint32_t errorCode = glGetError();
-
-	while (errorCode != GL_NO_ERROR)
+	uint32_t errorCode;
+	while ((errorCode = glGetError()) != GL_NO_ERROR)
 	{
 		std::string errorString;
 		switch (errorCode)
@@ -22,7 +21,6 @@ void OpenGL::CheckError(const char* file, int line)
 		}
 
 		LogSystem::GetInstance().OutputLog(errorString + "(File: " + file + ", Line: " + std::to_string(line) + ")", Severity::FATAL);
-		errorCode = glGetError();
 	}
 #endif
 }
