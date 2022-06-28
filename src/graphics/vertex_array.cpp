@@ -2,6 +2,7 @@
 #include <util/opengl_error.h>
 
 #include <glad/glad.h>
+#include <cassert>
 
 VertexArray::VertexArray()
 {
@@ -20,6 +21,8 @@ void VertexArray::PushLayout(uint32_t index, uint32_t size, uint32_t stride, uin
 
 void VertexArray::AttachBuffers(VertexBufferPtr vertexBuffer, IndexBufferPtr indexBuffer)
 {
+    assert(vertexBuffer != nullptr);
+
     // Bind the vertex array, then bind the vertex buffer (and index buffer if given one)
     GLValidate(glBindVertexArray(this->id));
 
@@ -44,12 +47,6 @@ void VertexArray::AttachBuffers(VertexBufferPtr vertexBuffer, IndexBufferPtr ind
     vertexBuffer->Unbind();
     if (indexBuffer)
         indexBuffer->Unbind();
-
-    // Keep shared pointer copy of vbo (and ibo if given one) in their respective vectors
-    this->attachedVbos.emplace_back(vertexBuffer);
-
-    if (indexBuffer)
-        this->attachedIbos.emplace_back(indexBuffer);
 }
 
 void VertexArray::Bind() const

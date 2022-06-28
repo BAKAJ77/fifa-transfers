@@ -14,10 +14,7 @@ private:
 	};
 private:
 	uint32_t id;
-
 	std::vector<VertexLayout> layouts;
-	std::vector<VertexBufferPtr> attachedVbos;
-	std::vector<IndexBufferPtr> attachedIbos;
 public:
 	VertexArray();
 	~VertexArray();
