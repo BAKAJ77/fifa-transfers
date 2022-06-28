@@ -13,8 +13,7 @@
 #include <vector>
 
 
-ApplicationCore::ApplicationCore() :
-	initializedGLFW(false)
+ApplicationCore::ApplicationCore()
 {
 	// Load the app config file (if it doesn't exist then generate a new one then load it)
 	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
