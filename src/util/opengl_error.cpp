@@ -21,7 +21,7 @@ void OpenGL::CheckError(const char* file, int line)
 		case GL_INVALID_FRAMEBUFFER_OPERATION: errorString = "[OpenGL] -> The framebuffer operation is invalid"; break;
 		}
 
-		LogSystem::GetInstance().OutputLog(errorString + "(File: " + file + ", Line: " + std::to_string(line) + ")", Severity::WARNING);
+		LogSystem::GetInstance().OutputLog(errorString + "(File: " + file + ", Line: " + std::to_string(line) + ")", Severity::FATAL);
 		errorCode = glGetError();
 	}
 #endif
