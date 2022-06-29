@@ -22,7 +22,7 @@ void Renderer::Init(WindowFramePtr window)
 	this->viewport = OrthogonalCamera({ 0.0f, 0.0f }, { 1920.0f, 1080.0f });
 
 	// Load the gamma json config setting
-	ConfigLoader mainConfigFile(Util::GetAppDataDirectory() + "config.json");
+	ConfigLoader mainConfigFile("config.json");
 	this->gamma = mainConfigFile.GetElement<float>("gamma", "graphics");
 
 	// Load the required shaders

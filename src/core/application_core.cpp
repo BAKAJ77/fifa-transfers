@@ -20,7 +20,7 @@ ApplicationCore::ApplicationCore()
 	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
 		generateConfigSettings = true;
 
-	ConfigLoader mainConfigFile(Util::GetAppDataDirectory() + "config.json");
+	ConfigLoader mainConfigFile("config.json");
 	if (generateConfigSettings)
 	{
 		mainConfigFile.SetElement<std::vector<uint32_t>>("resolution", { 1600, 900 }, "window");
