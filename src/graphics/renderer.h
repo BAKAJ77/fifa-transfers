@@ -49,13 +49,15 @@ public:
 	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
 
 	// Renders a textured square onto the screen.
-	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
+	void RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, 
+		const glm::vec4& colorMod = glm::vec4(255.0f), float rotationAngle = 0.0f) const;
 
 	// Renders a uni-colored triangle onto the screen.
 	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float rotationAngle = 0.0f) const;
 
 	// Renders a textured triangle onto the screen
-	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle = 0.0f) const;
+	void RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, 
+		const glm::vec4& colorMod = glm::vec4(255.0f), float rotationAngle = 0.0f) const;
 
 	// Renders a uni-colored string of text onto the screen.
 	void RenderText(const glm::vec2& pos, const glm::vec4& color, const FontPtr font, uint32_t fontSize, const std::string_view& text, 

@@ -16,7 +16,7 @@ void main()
 {
     vec4 fragColor;
     if (useDiffuseTexture)
-        fragColor = texture(diffuseTexture, f_uvCoord);
+        fragColor = texture(diffuseTexture, f_uvCoord) * diffuseColor;
     else
         fragColor = diffuseColor;
 

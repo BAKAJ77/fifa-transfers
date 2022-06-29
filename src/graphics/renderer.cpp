@@ -161,7 +161,8 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const g
 	GLValidate(glDrawArrays(GL_TRIANGLES, 0, 6));
 }
 
-void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle) const
+void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, const glm::vec4& colorMod, 
+	float rotationAngle) const
 {
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
@@ -169,6 +170,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const T
 	this->geometryShader->SetUniform("gamma", this->gamma);
 
 	this->geometryShader->SetUniform("diffuseTexture", 0);
+	this->geometryShader->SetUniformGLM("diffuseColor", colorMod / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
@@ -195,7 +197,8 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	GLValidate(glDrawArrays(GL_TRIANGLES, 0, 3));
 }
 
-void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, float rotationAngle) const
+void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const TextureBuffer2DPtr texture, const glm::vec4& colorMod, 
+	float rotationAngle) const
 {
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
@@ -203,6 +206,7 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	this->geometryShader->SetUniform("gamma", this->gamma);
 
 	this->geometryShader->SetUniform("diffuseTexture", 0);
+	this->geometryShader->SetUniformGLM("diffuseColor", colorMod / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
