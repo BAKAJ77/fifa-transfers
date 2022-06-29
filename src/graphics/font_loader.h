@@ -1,5 +1,5 @@
-#ifndef TTF_FONT_LOADER_H
-#define TTF_FONT_LOADER_H
+#ifndef FONT_LOADER_H
+#define FONT_LOADER_H
 
 #include <graphics/buffer_objects.h>
 
