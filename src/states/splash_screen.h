@@ -5,6 +5,11 @@
 
 class SplashScreen : public AppState
 {
+private:
+	float devLogoOpacity, titleLogoOpacity;
+	bool devLogoEffectDone, startedResourceLoading;
+private:
+	void UpdateDevLogoEffect(const float& deltaTime);
 protected:
 	void Init() override;
 	void Destroy() override;

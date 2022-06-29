@@ -3,6 +3,7 @@
 
 #include <graphics/renderer.h>
 #include <graphics/texture_loader.h>
+#include <core/audio_system.h>
 
 #include <vector>
 
