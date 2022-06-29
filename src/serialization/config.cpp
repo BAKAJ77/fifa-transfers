@@ -66,6 +66,11 @@ void ConfigLoader::Close()
 	this->fileStream.close();
 }
 
+bool ConfigLoader::IsEntryExisting(const std::string_view& entryName) const
+{
+	return this->jsonData.contains(entryName);
+}
+
 const std::string& ConfigLoader::GetFileName() const
 {
 	return this->fileName;

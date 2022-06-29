@@ -26,11 +26,16 @@ public:
 	// is destroyed.
 	void Close();
 
+	// Sets the value of the JSON element specified.
 	template<typename T>
 	void SetElement(const std::string_view& elementName, T value, const std::string_view& groupName = "");
 
+	// Returns the value of the JSON element specified.
 	template<typename T>
 	T GetElement(const std::string_view& elementName, const std::string_view& groupName = "");
+
+	// Returns TRUE if the specified json group or element exists.
+	bool IsEntryExisting(const std::string_view& entryName) const;
 
 	const std::string& GetFileName() const;
 };
