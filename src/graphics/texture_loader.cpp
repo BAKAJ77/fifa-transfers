@@ -37,11 +37,12 @@ void TextureLoader::LoadFromFile(const std::string_view& id, const std::string_v
 		LogSystem::GetInstance().OutputLog("Failed to load image file at path: " + filePath, Severity::WARNING);
 
 	// Deduce the correct format enum to use
-	uint32_t format = 0x0;
+	uint32_t internalFormat, format;
+	channels > 3 ? internalFormat = GL_SRGB_ALPHA : internalFormat = GL_SRGB;
 	channels > 3 ? format = GL_RGBA : format = GL_RGB;
 
 	this->loadedTextures[id.data()] = { fileName.data(),
-		std::make_shared<TextureBuffer2D>(format, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true) };
+		std::make_shared<TextureBuffer2D>(internalFormat, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true) };
 }
 
 void TextureLoader::Free(const std::string_view& id)
