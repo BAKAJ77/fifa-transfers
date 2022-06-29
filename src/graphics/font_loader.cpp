@@ -27,11 +27,14 @@ Font::Font(FT_Library& lib, const std::string_view& fileName, uint32_t resolutio
 	FT_Set_Pixel_Sizes(fontFace, 0, this->resolution);
 
 	// Set the font style to load
-	FT_MM_Var* var;
+	FT_MM_Var* var = nullptr;
 	FT_Get_MM_Var(fontFace, &var);
 
-	this->styleIndex = std::clamp(styleIndex, (uint32_t)0, (var->num_namedstyles - 1));
-	FT_Set_Var_Design_Coordinates(fontFace, var->num_axis, var->namedstyle[this->styleIndex].coords);
+	if (var)
+	{
+		this->styleIndex = std::clamp(styleIndex, (uint32_t)0, (var->num_namedstyles - 1));
+		FT_Set_Var_Design_Coordinates(fontFace, var->num_axis, var->namedstyle[this->styleIndex].coords);
+	}
 
 	// Retrieve the metric data of each glyph in the font
 	// Also, figure out how large the texture will need to be to store every glyph bitmap in it
@@ -78,7 +81,8 @@ Font::Font(FT_Library& lib, const std::string_view& fileName, uint32_t resolutio
 	this->bitmapTexture->Unbind();
 	this->bitmapTexture->SetWrapMode(GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER);
 
-	FT_Done_MM_Var(lib, var);
+	if (var)
+		FT_Done_MM_Var(lib, var);
 }
 
 const std::string& Font::GetFileName() const
