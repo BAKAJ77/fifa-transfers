@@ -44,6 +44,16 @@ void TextureLoader::LoadFromFile(const std::string_view& id, const std::string_v
 		std::make_shared<TextureBuffer2D>(format, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true) };
 }
 
+void TextureLoader::Free(const std::string_view& id)
+{
+	// Search through the unordered map for a texture matching the given ID
+	auto iterator = this->loadedTextures.find(id.data());
+	if (iterator != this->loadedTextures.end())
+		this->loadedTextures.erase(iterator);
+	else
+		LogSystem::GetInstance().OutputLog("No loaded texture has the given ID: " + std::string(id), Severity::WARNING);
+}
+
 const TextureBuffer2DPtr TextureLoader::GetTexture(const std::string_view& id) const
 {
 	// Search through the unordered map for a texture matching the given ID

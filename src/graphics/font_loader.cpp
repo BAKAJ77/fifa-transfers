@@ -150,6 +150,16 @@ void FontLoader::LoadFromFile(const std::string_view& id, const std::string_view
 	this->loadedFonts[id.data()] = std::make_shared<Font>(this->lib, fileName, resolution, styleIndex);
 }
 
+void FontLoader::Free(const std::string_view& id)
+{
+	// Search through the unordered map for a font matching the given ID
+	auto iterator = this->loadedFonts.find(id.data());
+	if (iterator != this->loadedFonts.end())
+		this->loadedFonts.erase(iterator);
+	else
+		LogSystem::GetInstance().OutputLog("No loaded font has the given ID: " + std::string(id), Severity::WARNING);
+}
+
 const FontPtr FontLoader::GetFont(const std::string_view& id) const
 {
 	// Search through the unordered map for a font matching the given ID

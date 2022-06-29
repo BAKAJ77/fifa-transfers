@@ -64,6 +64,9 @@ public:
 	// If the font being loaded is a variable font, you can use the 'styleIndex' parameter to select a specific font style to load.
 	void LoadFromFile(const std::string_view& id, const std::string_view& fileName, uint32_t styleIndex = 0);
 
+	// Frees the stored loaded font matching the ID given.
+	void Free(const std::string_view& id);
+
 	// Returns a shared pointer to the loaded font matching the ID given.
 	// If no loaded font matches the ID given, nullptr will be returned instead.
 	const FontPtr GetFont(const std::string_view& id) const;

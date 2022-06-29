@@ -20,6 +20,9 @@ public:
 	// Loads the texture from the file specified. 
 	void LoadFromFile(const std::string_view& id, const std::string_view& fileName, bool flipOnLoad = false);
 
+	// Destroys the stored loaded texture matching the ID given.
+	void Free(const std::string_view& id);
+
 	// Returns a shared pointer to the loaded texture matching the ID given.
 	// If no loaded texture matches the ID given, nullptr will be returned instead.
 	const TextureBuffer2DPtr GetTexture(const std::string_view& id) const;
