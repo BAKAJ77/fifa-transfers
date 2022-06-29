@@ -2,7 +2,8 @@
 #define AUDIO_PLAYER_H
 
 #include <irrKlang.h>
-#include <string_view>
+#include <unordered_map>
+#include <string>
 #include <memory>
 
 class Audio
@@ -50,8 +51,10 @@ using AudioPtr = std::shared_ptr<Audio>;
 
 class AudioSystem
 {
+	using AudioPair = std::pair<std::string, AudioPtr>; // [file name, audio object]
 private:
 	irrklang::ISoundEngine* engine;
+	std::unordered_map<std::string, AudioPair> loadedAudio;
 private:
 	AudioSystem();
 public:
@@ -65,8 +68,15 @@ public:
 	// Sets the master volume for all audios being played.
 	void SetMasterVolume(float volume);
 
-	// Returns a pointer to the audio that was loaded from file.
-	AudioPtr LoadAudioFromFile(const std::string_view& fileName);
+	// Loads audio from the file specified. 
+	void LoadFromFile(const std::string_view& id, const std::string_view& fileName);
+
+	// Frees the stored loaded audio matching the ID given.
+	void Free(const std::string_view& id);
+
+	// Returns a shared pointer to the loaded audio matching the ID given.
+	// If no loaded audio matches the ID given, nullptr will be returned instead.
+	const AudioPtr GetAudio(const std::string_view& id) const;
 
 	// Returns singleton instance object of this class.
 	static AudioSystem& GetInstance();
