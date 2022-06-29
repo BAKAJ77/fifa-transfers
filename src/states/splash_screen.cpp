@@ -4,6 +4,9 @@
 void SplashScreen::Init()
 {
     FontLoader::GetInstance().LoadFromFile("Bahnschrift", "bahnschrift.ttf");
+    TextureLoader::GetInstance().LoadFromFile("Dev-Logo", "dev_logo.png");
+
+    Renderer::GetInstance().SetClearColor({ 128, 128, 128, 255 });
 }
 
 void SplashScreen::Destroy()
@@ -22,6 +25,8 @@ void SplashScreen::Render() const
         "Andrija Zivkovic");
     Renderer::GetInstance().RenderTriangle({ 800, 400 }, { 200, 200 }, { 255, 0, 0, 255 }, 70);
     Renderer::GetInstance().RenderSquare({ 350, 800 }, { 100, 200 }, { 255, 0, 0, 255 }, 70);
+
+    Renderer::GetInstance().RenderSquare({ 300, 500 }, { 1000, 600 }, TextureLoader::GetInstance().GetTexture("Dev-Logo"));
 }
 
 SplashScreen* SplashScreen::GetAppState()

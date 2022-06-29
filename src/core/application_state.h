@@ -2,6 +2,8 @@
 #define APPLICATION_STATE_H
 
 #include <graphics/renderer.h>
+#include <graphics/texture_loader.h>
+
 #include <vector>
 
 class AppState

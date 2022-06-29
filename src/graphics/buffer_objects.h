@@ -102,10 +102,6 @@ namespace Memory
 	// Returns a shared pointer to the newly created texture buffer.
 	TextureBuffer2DPtr CreateTextureBuffer(int internalFormat, uint32_t width, uint32_t height, uint32_t format, uint32_t type, 
 		const void* pixelData, bool genMipmaps = true);
-
-	// Returns a shared pointer to the newly created texture buffer which contains the loaded pixel data from the image file specified.
-	// Note that only images with 3 or 4 channels e.g. pngs, jpegs etc are supported.
-	TextureBuffer2DPtr LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad = false);
 }
 
 #endif

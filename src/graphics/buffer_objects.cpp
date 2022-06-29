@@ -185,21 +185,3 @@ TextureBuffer2DPtr Memory::CreateTextureBuffer(int internalFormat, uint32_t widt
 {
     return std::make_shared<TextureBuffer2D>(internalFormat, width, height, format, type, pixelData, genMipmaps);
 }
-
-TextureBuffer2DPtr Memory::LoadImageFromFile(const std::string_view& fileName, bool flipOnLoad)
-{
-    // Load the image file using STB
-    int width = 0, height = 0, channels = 0;
-    const std::string filePath = Util::GetAppDataDirectory() + "textures/" + fileName.data();
-
-    stbi_set_flip_vertically_on_load(flipOnLoad);
-    const uint8_t* loadedPixelData = stbi_load(filePath.c_str(), &width, &height, &channels, 0);
-    if (!loadedPixelData)
-        LogSystem::GetInstance().OutputLog("Failed to load image file at path: " + filePath, Severity::WARNING);
-
-    // Deduce the correct format enum to use
-    uint32_t format = 0x0;
-    channels > 3 ? format = GL_RGBA : format = GL_RGB;
-
-    return std::make_shared<TextureBuffer2D>(format, width, height, format, GL_UNSIGNED_BYTE, loadedPixelData, true);
-}
