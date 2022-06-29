@@ -5,8 +5,6 @@
 
 class SplashScreen : public AppState
 {
-private:
-	FontPtr font;
 protected:
 	void Init() override;
 	void Destroy() override;

@@ -4,7 +4,7 @@
 #include <core/window_frame.h>
 
 #include <graphics/orthogonal_camera.h>
-#include <graphics/ttf_font_loader.h>
+#include <graphics/font_loader.h>
 #include <graphics/shader_program.h>
 #include <graphics/vertex_array.h>
 

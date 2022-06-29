@@ -3,7 +3,7 @@
 
 void SplashScreen::Init()
 {
-    this->font = Memory::LoadFontFromFile("fff_forwa.ttf");
+    FontLoader::GetInstance().LoadFromFile("Bahnschrift", "bahnschrift.ttf");
 }
 
 void SplashScreen::Destroy()
@@ -18,7 +18,8 @@ void SplashScreen::Update(const float& deltaTime)
 
 void SplashScreen::Render() const
 {
-    Renderer::GetInstance().RenderText({ 600, 100 }, { 0, 255, 0, 255 }, this->font, 72, "Hello, this is test text!");
+    Renderer::GetInstance().RenderText({ 600, 100 }, { 0, 255, 0, 255 }, FontLoader::GetInstance().GetFont("Bahnschrift"), 72, 
+        "Andrija Zivkovic");
     Renderer::GetInstance().RenderTriangle({ 800, 400 }, { 200, 200 }, { 255, 0, 0, 255 }, 70);
     Renderer::GetInstance().RenderSquare({ 350, 800 }, { 100, 200 }, { 255, 0, 0, 255 }, 70);
 }

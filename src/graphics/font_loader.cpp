@@ -1,4 +1,4 @@
-#include <graphics/ttf_font_loader.h>
+#include <graphics/font_loader.h>
 #include <serialization/config.h>
 #include <util/logging_system.h>
 #include <util/directory_system.h>
@@ -9,24 +9,29 @@
 #include <ft2build.h>
 
 #include FT_FREETYPE_H
+#include <freetype/ftmm.h>
 
-Font::Font(const std::string_view& fileName, uint32_t resolution) :
-	resolution(std::clamp(resolution, (uint32_t)30, (uint32_t)230))
+//////////////////////////////////////////////////////////////////////////////////
+
+Font::Font(FT_Library& lib, const std::string_view& fileName, uint32_t resolution, uint32_t styleIndex) :
+	fileName(fileName), resolution(std::clamp(resolution, (uint32_t)30, (uint32_t)230))
 {
-	// Initialize the freetype library
-	FT_Library freeTypeLib = nullptr;
-	if (FT_Init_FreeType(&freeTypeLib))
-		LogSystem::GetInstance().OutputLog("Failed to initialize freetype", Severity::FATAL);
-
 	// Fetch the game asset directory to construct path to font file
 	const std::string fontPath = Util::GetAppDataDirectory() + "fonts/" + fileName.data();
 
 	// Load the font face
 	FT_Face fontFace;
-	if (FT_New_Face(freeTypeLib, fontPath.c_str(), 0, &fontFace))
+	if (FT_New_Face(lib, fontPath.c_str(), 0, &fontFace))
 		LogSystem::GetInstance().OutputLog("Failed to load the font: " + fontPath, Severity::FATAL);
 
 	FT_Set_Pixel_Sizes(fontFace, 0, this->resolution);
+
+	// Set the font style to load
+	FT_MM_Var* var;
+	FT_Get_MM_Var(fontFace, &var);
+
+	this->styleIndex = std::clamp(styleIndex, (uint32_t)0, (var->num_namedstyles - 1));
+	FT_Set_Var_Design_Coordinates(fontFace, var->num_axis, var->namedstyle[this->styleIndex].coords);
 
 	// Retrieve the metric data of each glyph in the font
 	// Also, figure out how large the texture will need to be to store every glyph bitmap in it
@@ -72,6 +77,8 @@ Font::Font(const std::string_view& fileName, uint32_t resolution) :
 
 	this->bitmapTexture->Unbind();
 	this->bitmapTexture->SetWrapMode(GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER);
+
+	FT_Done_MM_Var(lib, var);
 }
 
 const std::string& Font::GetFileName() const
@@ -94,8 +101,67 @@ const uint32_t& Font::GetResolution() const
 	return this->resolution;
 }
 
-FontPtr Memory::LoadFontFromFile(const std::string_view& fileName)
+const uint32_t& Font::GetStyleIndex() const
 {
-	const uint32_t resolution = Serialization::GetConfigElement<uint32_t>("graphics", "textQuality");
-	return std::make_shared<Font>(fileName, resolution);
+	return this->styleIndex;
 }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+FontLoader::FontLoader()
+{
+	if (FT_Init_FreeType(&this->lib))
+		LogSystem::GetInstance().OutputLog("Failed to initialize freetype", Severity::FATAL);
+}
+
+FontLoader::~FontLoader()
+{
+	FT_Done_FreeType(this->lib);
+}
+
+void FontLoader::LoadFromFile(const std::string_view& id, const std::string_view& fileName, uint32_t styleIndex)
+{
+	// Skip loading the font if it has already been loaded
+	if (this->loadedFonts.find(id.data()) != this->loadedFonts.end())
+	{
+		LogSystem::GetInstance().OutputLog("Aborted font loading process, there's already a loaded font with the ID: " + std::string(id), 
+			Severity::WARNING);
+		return;
+	}
+	else
+	{
+		for (const auto& font : this->loadedFonts)
+		{
+			if (font.second->GetFileName() == fileName && font.second->GetStyleIndex() == styleIndex)
+			{
+				LogSystem::GetInstance().OutputLog("Aborted font loading process, the font (" + std::string(fileName) + ", style = " + 
+					std::to_string(styleIndex) + ") has already been loaded", Severity::WARNING);
+				return;
+			}
+		}
+	}
+
+	// Load the font and store it in the unordered map
+	const uint32_t resolution = Serialization::GetConfigElement<uint32_t>("graphics", "textQuality");
+	this->loadedFonts[id.data()] = std::make_shared<Font>(this->lib, fileName, resolution, styleIndex);
+}
+
+const FontPtr FontLoader::GetFont(const std::string_view& id) const
+{
+	// Search through the unordered map for a font matching the given ID
+	auto iterator = this->loadedFonts.find(id.data());
+	if (iterator != this->loadedFonts.end())
+		return iterator->second;
+
+	// No font has been found a matching ID
+	LogSystem::GetInstance().OutputLog("No loaded font has the given ID: " + std::string(id), Severity::WARNING);
+	return nullptr;
+}
+
+FontLoader& FontLoader::GetInstance()
+{
+	static FontLoader instance;
+	return instance;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
