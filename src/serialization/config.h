@@ -1,21 +1,39 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include <util/directory_system.h>
-#include <util/logging_system.h>
-
 #include <nlohmann/json.hpp>
-#include <string_view>
 #include <fstream>
+#include <string>
 
-namespace Serialization
+class ConfigLoader
 {
-	// Generates a new default config file.
-	extern void GenerateConfigFile();
+private:
+	std::string fileName;
+	std::fstream fileStream;
+	nlohmann::json jsonData;
+public:
+	ConfigLoader() = default;
+	ConfigLoader(const std::string_view& fileName);
+	~ConfigLoader();
 
-	// Returns the specified json element's value from the config file.
-	template<typename Ty> Ty GetConfigElement(const std::string_view& elementGroupKey, const std::string_view& elementKey);
-}
+	// Opens the specified config file.
+	// If the config file doesn't exist, an empty config file will be created.
+	void Open(const std::string_view& fileName);
+
+	// Writes the json data stored into the config file and closes it.
+	// Note that you don't need to call this function manually as it is automatically called by the destructor.
+	// Also note that when you call this function, any JSON data that was loaded is still kept until the config loader object 
+	// is destroyed.
+	void Close();
+
+	template<typename T>
+	void SetElement(const std::string_view& elementName, T value, const std::string_view& groupName = "");
+
+	template<typename T>
+	T GetElement(const std::string_view& elementName, const std::string_view& groupName = "");
+
+	const std::string& GetFileName() const;
+};
 
 #include <serialization/config.inl>
 

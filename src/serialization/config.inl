@@ -1,30 +1,16 @@
 #include <serialization/config.h>
 
-template<typename Ty> Ty Serialization::GetConfigElement(const std::string_view& elementGroupKey, const std::string_view& elementKey)
+template<typename T> void ConfigLoader::SetElement(const std::string_view& elementName, T value, const std::string_view& groupName)
 {
-	// Open the json file and load the contents
-	std::ifstream jsonFile(Util::GetAppDataDirectory() + "config.json");
-	if (jsonFile.fail())
-		LogSystem::GetInstance().OutputLog("Couldn't open the app config file", Severity::FATAL);
+	groupName.empty() ?
+		this->jsonData[elementName.data()] = value :
+		this->jsonData[groupName.data()][elementName.data()] = value;
+}
 
-	std::string jsonData, fileLine;
-	while (std::getline(jsonFile, fileLine))
-		jsonData += fileLine;
+template<typename T> T ConfigLoader::GetElement(const std::string_view& elementName, const std::string_view& groupName)
+{
+	if (groupName.empty())
+		return this->jsonData[elementName.data()];
 
-	Ty elementData; // This will hold the retrieved json element value
-
-	try
-	{
-		// Parse the loaded json data
-		const nlohmann::json loadedJSON = nlohmann::json::parse(jsonData, nullptr, true, true);
-
-		// Retrieve and return the requested json element
-		elementData = loadedJSON.at(elementGroupKey.data()).at(elementKey.data()).get<Ty>();
-	}
-	catch (nlohmann::json::exception& exception) // Catch potential json exceptions thrown
-	{
-		LogSystem::GetInstance().OutputLog(exception.what(), Severity::FATAL);
-	}
-
-	return elementData;
+	return this->jsonData[groupName.data()][elementName.data()];
 }

@@ -146,7 +146,9 @@ void FontLoader::LoadFromFile(const std::string_view& id, const std::string_view
 	}
 
 	// Load the font and store it in the unordered map
-	const uint32_t resolution = Serialization::GetConfigElement<uint32_t>("graphics", "textQuality");
+	ConfigLoader mainConfigFile(Util::GetAppDataDirectory() + "config.json");
+	const uint32_t resolution = mainConfigFile.GetElement<uint32_t>("textQualityLevel", "graphics");
+
 	this->loadedFonts[id.data()] = std::make_shared<Font>(this->lib, fileName, resolution, styleIndex);
 }
 

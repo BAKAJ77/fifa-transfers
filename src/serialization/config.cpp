@@ -1,30 +1,72 @@
 #include <serialization/config.h>
+#include <util/directory_system.h>
+#include <util/logging_system.h>
 
-namespace Serialization
+ConfigLoader::ConfigLoader(const std::string_view& fileName)
 {
-	void GenerateConfigFile()
-	{
-		// Create and setup the json object
-		nlohmann::json jsonObject = 
-		{
-			{ "window", 
-				{ 
-					{ "resolution", { 1600, 900 } },
-					{ "fullscreen", false },
-					{ "vsync", false }
-				}
-			},
-			{ "graphics",
-				{
-					{ "samplesMSAA", 4 },
-					{ "gamma", 2.2f },
-					{ "textQuality", 100 }
-				}
-			}
-		};
+	this->Open(fileName);
+}
 
-		// Write the json data to the new config file
-		std::ofstream configFile(Util::GetAppDataDirectory() + "config.json", std::ios::trunc);
-		configFile << std::setw(4) << jsonObject;
+ConfigLoader::~ConfigLoader()
+{
+	this->Close();
+}
+
+void ConfigLoader::Open(const std::string_view& fileName)
+{
+	if (Util::IsExistingFile(Util::GetAppDataDirectory() + fileName.data()))
+	{
+		// Open the config file in read mode only
+		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::in);
+		if (this->fileStream.fail())
+			LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+
+		this->fileStream.seekg(0); // Make sure the read pointer is positioned at the beginning of the file
+
+		// Load the JSON config data
+		std::string loadedJsonData, fetchedFileLine;
+		while (std::getline(this->fileStream, fetchedFileLine))
+			loadedJsonData += fetchedFileLine;
+
+		this->fileStream.close();
+
+		try
+		{
+			// Parse the loaded json data
+			this->jsonData = nlohmann::json::parse(loadedJsonData, nullptr, true, true);
+		}
+		catch (nlohmann::json::exception& exception) // Catch potential json exceptions thrown
+		{
+			LogSystem::GetInstance().OutputLog(exception.what(), Severity::FATAL);
+		}
 	}
+	else
+	{
+		// Create a new config file
+		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
+		if (this->fileStream.fail())
+			LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+
+		this->fileStream.close();
+	}
+
+	this->fileName = fileName;
+}
+
+void ConfigLoader::Close()
+{
+	// Open the config file
+	this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
+	if (this->fileStream.fail())
+		LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+
+	this->fileStream.seekp(0); // Make sure the write pointer is positioned at the beginning of the file
+
+	this->fileStream << std::setw(4) << this->jsonData;
+	this->fileStream.close();
+}
+
+const std::string& ConfigLoader::GetFileName() const
+{
+	return this->fileName;
 }
