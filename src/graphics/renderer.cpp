@@ -153,7 +153,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const g
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
 	
-	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
+	this->geometryShader->SetUniformGLM("diffuseColor", glm::clamp(color, glm::vec4(0), glm::vec4(255)) / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
@@ -171,7 +171,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const T
 	this->geometryShader->SetUniform("gamma", this->gamma);
 
 	this->geometryShader->SetUniform("diffuseTexture", 0);
-	this->geometryShader->SetUniformGLM("diffuseColor", colorMod / 255.0f);
+	this->geometryShader->SetUniformGLM("diffuseColor", glm::clamp(colorMod, glm::vec4(0), glm::vec4(255)) / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
@@ -188,7 +188,7 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
 	
-	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
+	this->geometryShader->SetUniformGLM("diffuseColor", glm::clamp(color, glm::vec4(0), glm::vec4(255)) / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
@@ -206,7 +206,7 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	this->geometryShader->SetUniform("gamma", this->gamma);
 
 	this->geometryShader->SetUniform("diffuseTexture", 0);
-	this->geometryShader->SetUniformGLM("diffuseColor", colorMod / 255.0f);
+	this->geometryShader->SetUniformGLM("diffuseColor", glm::clamp(colorMod, glm::vec4(0), glm::vec4(255)) / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 
@@ -245,7 +245,7 @@ void Renderer::RenderText(const glm::vec2& pos, const glm::vec4& color, const Fo
 	this->textShader->SetUniform("fontBitmap", 0);
 	this->textShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
 	this->textShader->SetUniformGLM("modelMatrix", modelMatrix);
-	this->textShader->SetUniformGLM("diffuseColor", color / 255.0f);
+	this->textShader->SetUniformGLM("diffuseColor", glm::clamp(color, glm::vec4(0), glm::vec4(255)) / 255.0f);
 
 	// Bind the vertex array and font bitmap texture
 	textVao->Bind();
