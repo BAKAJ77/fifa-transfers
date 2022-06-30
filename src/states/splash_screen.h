@@ -16,6 +16,8 @@ protected:
 
 	void Update(const float& deltaTime) override;
 	void Render() const override;
+
+	bool OnStartupTransitionUpdate(const float deltaTime) override;
 public:
 	static SplashScreen* GetAppState();
 };

@@ -26,7 +26,7 @@ void ResourceLoader::Destroy() {}
 
 void ResourceLoader::Update(const float& deltaTime)
 {
-    if (this->workDonePercentage == 100)
+    if (this->workDonePercentage == 100) // End this state once all resources have been loaded
         this->PopState();
 }
 

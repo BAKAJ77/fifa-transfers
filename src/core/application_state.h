@@ -35,6 +35,18 @@ protected:
 	// For rendering objects in the application state.
 	virtual void Render() const = 0;
 
+	// For handling the transition of the new app state being started.
+	// This method should return TRUE when the transition is finished.
+	virtual bool OnStartupTransitionUpdate(const float deltaTime);
+
+	// For handling the transition of a existing app state being paused.
+	// This method should return TRUE when the transition is finished.
+	virtual bool OnPauseTransitionUpdate(const float deltaTime);
+
+	// For handling the transition of a existing app state being resumed.
+	// This method should return TRUE when the transition is finished.
+	virtual bool OnResumeTransitionUpdate(const float deltaTime);
+	
 	void SwitchState(AppState* appState);
 	void PushState(AppState* appState);
 	void PopState();
@@ -42,8 +54,18 @@ protected:
 
 class AppStateSystem
 {
+	enum class SystemCommand
+	{
+		NONE,
+		SWITCH,
+		PUSH,
+		POP
+	};
 private:
 	std::vector<AppState*> stateStack;
+
+	SystemCommand currentCommand;
+	AppState* pendingAppState;
 private:
 	AppStateSystem();
 public:

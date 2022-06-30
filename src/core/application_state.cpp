@@ -10,6 +10,21 @@ void AppState::Resume() {}
 
 void AppState::Pause() {}
 
+bool AppState::OnStartupTransitionUpdate(const float deltaTime)
+{
+	return true;
+}
+
+bool AppState::OnPauseTransitionUpdate(const float deltaTime)
+{
+	return true;
+}
+
+bool AppState::OnResumeTransitionUpdate(const float deltaTime)
+{
+	return true;
+}
+
 void AppState::SwitchState(AppState* appState)
 {
 	AppStateSystem::GetInstance().SwitchState(appState);
@@ -27,54 +42,119 @@ void AppState::PopState()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-AppStateSystem::AppStateSystem() {}
+AppStateSystem::AppStateSystem() :
+	currentCommand(SystemCommand::NONE), pendingAppState(nullptr)
+{}
 
 void AppStateSystem::SwitchState(AppState* appState)
 {
-	// Destroy all the application states in the stack
-	for (AppState* state : this->stateStack)
-		state->Destroy();
+	this->currentCommand = SystemCommand::SWITCH;
 
-	this->stateStack.clear();
-
-	// Start the application state given then push into stack
+	// Start the application state given
 	appState->Init();
-	this->stateStack.emplace_back(appState);
+	this->pendingAppState = appState;
 }
 
 void AppStateSystem::PushState(AppState* appState)
 {
-	// Pause the last active application state in the stack (if any)
-	if (!this->stateStack.empty())
-		this->stateStack.back()->Pause();
+	this->currentCommand = SystemCommand::PUSH;
 
-	// Start the application state given then push into stack
+	// Start the application state given
 	appState->Init();
-	this->stateStack.emplace_back(appState);
+	this->pendingAppState = appState;
 }
 
 void AppStateSystem::PopState()
 {
+	this->currentCommand = SystemCommand::POP;
+
 	// Destroy the last active application state then pop if off the stack (if any)
 	if (!this->stateStack.empty())
 	{
 		this->stateStack.back()->Destroy();
 		this->stateStack.pop_back();
 	}
-
-	// Resume the application state at the top of the stack (if any)
-	if (!this->stateStack.empty())
-		this->stateStack.back()->Resume();
 }
 
 void AppStateSystem::Update(const float& deltaTime)
 {
+	// Handle switch, push or pop operations
+	switch (this->currentCommand)
+	{
+	case SystemCommand::SWITCH: // HANDLE SWITCH OPERATION
+		if (this->pendingAppState->OnStartupTransitionUpdate(deltaTime))
+		{
+			// Destroy all the application states in the stack
+			for (AppState* state : this->stateStack)
+				state->Destroy();
+
+			this->stateStack.clear();
+
+			// Push the new active app state back into the stack
+			this->stateStack.emplace_back(this->pendingAppState);
+
+			// Reset current command and pending app state pointer
+			this->currentCommand = SystemCommand::NONE;
+			this->pendingAppState = nullptr;
+		}
+		break;
+	case SystemCommand::POP: // HANDLE POP OPERATION
+		if (!this->stateStack.empty())
+		{
+			if (this->stateStack.back()->OnResumeTransitionUpdate(deltaTime))
+			{
+				// Resume the application state at the top of the stack
+				this->stateStack.back()->Resume();
+				this->currentCommand = SystemCommand::NONE;
+			}
+		}
+		break;
+	case SystemCommand::PUSH: // HANDLE PUSH OPERATION
+		static bool pauseTransitionComplete = false;
+
+		if (!this->stateStack.empty() && !pauseTransitionComplete)
+		{
+			static bool calledPauseFunc = false;
+
+			if (!calledPauseFunc) // This is to prevent the pause function from being called multiple times
+			{
+				this->stateStack.back()->Pause();
+				calledPauseFunc = true;
+			}
+
+			// Pause the last active application state in the stack
+			if ((pauseTransitionComplete = this->stateStack.back()->OnPauseTransitionUpdate(deltaTime)))
+				calledPauseFunc = false;
+		}
+		else if (this->stateStack.empty()) // There are no other app states in the stack so no need for a pause transition
+			pauseTransitionComplete = true;
+
+		if (pauseTransitionComplete)
+		{
+			if (this->pendingAppState->OnStartupTransitionUpdate(deltaTime))
+			{
+				// Push the pending app state into the stack
+				this->stateStack.emplace_back(this->pendingAppState);
+
+				// Reset current command, pending app state pointer and the onPauseComplete boolean flag
+				this->currentCommand = SystemCommand::NONE;
+				this->pendingAppState = nullptr;
+
+				pauseTransitionComplete = false;
+			}
+		}
+		break;
+	}
+
 	// Update the current active application state (and application states which are set to be updated while paused)
 	for (size_t stateIndex = 0; stateIndex < this->stateStack.size(); stateIndex++)
 	{
 		AppState* appState = this->stateStack[stateIndex];
 		if (stateIndex == (this->stateStack.size() - 1) || appState->updateWhilePaused)
-			appState->Update(deltaTime);
+		{
+			if (this->currentCommand != SystemCommand::SWITCH)
+				appState->Update(deltaTime);
+		}
 	}
 }
 
@@ -89,11 +169,15 @@ void AppStateSystem::Render() const
 		if (stateIndex == (this->stateStack.size() - 1) || appState->renderWhilePaused)
 			appState->Render();
 	}
+
+	// Render the in-transition game state (if any)
+	if (this->pendingAppState)
+		this->pendingAppState->Render();
 }
 
 bool AppStateSystem::IsActive() const
 {
-	return !this->stateStack.empty();
+	return !this->stateStack.empty() || this->pendingAppState;
 }
 
 AppStateSystem& AppStateSystem::GetInstance()

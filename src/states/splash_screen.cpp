@@ -26,13 +26,6 @@ void SplashScreen::Destroy()
 
 void SplashScreen::Update(const float& deltaTime)
 {
-    // Update the dev logo splash screen effect
-    this->UpdateDevLogoEffect(deltaTime);
-
-    // Update title logo fade in effect
-    if (this->devLogoEffectDone)
-        this->titleLogoOpacity = std::min(this->titleLogoOpacity + (300.0f * deltaTime), 255.0f);
-
     // Start the resource loading app state once the title logo has fully appeared
     if (this->titleLogoOpacity == 255.0f && !startedResourceLoading)
     {
@@ -53,6 +46,22 @@ void SplashScreen::Render() const
     // Render the title logo
     Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1500, 375 }, TextureLoader::GetInstance().GetTexture("Title Logo"),
         { 255, 255, 255, this->titleLogoOpacity });
+}
+
+bool SplashScreen::OnStartupTransitionUpdate(const float deltaTime)
+{
+    // Update the dev logo splash screen effect
+    this->UpdateDevLogoEffect(deltaTime);
+
+    // Update title logo fade in effect
+    if (this->devLogoEffectDone)
+    {
+        this->titleLogoOpacity = std::min(this->titleLogoOpacity + (300.0f * deltaTime), 255.0f);
+        if (this->titleLogoOpacity == 255.0f)
+            return true;
+    }
+
+    return false;
 }
 
 void SplashScreen::UpdateDevLogoEffect(const float& deltaTime)
