@@ -69,6 +69,9 @@ public:
 	// Returns the expected size of the given text string when rendered.
 	glm::vec2 GetTextSize(const FontPtr font, uint32_t fontSize, const std::string_view& text) const;
 
+	// Returns the renderer viewport camera.
+	const OrthogonalCamera& GetViewport() const;
+	
 	// Returns singleton instance object of this class.
 	static Renderer& GetInstance();
 };

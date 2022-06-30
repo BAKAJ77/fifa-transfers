@@ -152,8 +152,7 @@ void Renderer::RenderSquare(const glm::vec2& pos, const glm::vec2& size, const g
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
-	this->geometryShader->SetUniform("gamma", this->gamma);
-
+	
 	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -188,8 +187,7 @@ void Renderer::RenderTriangle(const glm::vec2& pos, const glm::vec2& size, const
 	// Bind the geometry shader and setup shader uniforms
 	this->geometryShader->Bind();
 	this->geometryShader->SetUniform("useDiffuseTexture", false);
-	this->geometryShader->SetUniform("gamma", this->gamma);
-
+	
 	this->geometryShader->SetUniformGLM("diffuseColor", color / 255.0f);
 	this->geometryShader->SetUniformGLM("modelMatrix", this->GenerateModelMatrix(pos, size, rotationAngle));
 	this->geometryShader->SetUniformGLM("cameraMatrix", this->viewport.GetMatrix());
@@ -296,6 +294,11 @@ glm::vec2 Renderer::GetTextSize(const FontPtr font, uint32_t fontSize, const std
 	totalSize *= glm::vec2(static_cast<float>(fontSize) / static_cast<float>(font->GetResolution()));
 
 	return totalSize;
+}
+
+const OrthogonalCamera& Renderer::GetViewport() const
+{
+	return this->viewport;
 }
 
 Renderer& Renderer::GetInstance()
