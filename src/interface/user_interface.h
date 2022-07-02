@@ -1,6 +1,7 @@
 #ifndef USER_INTERFACE_H
 #define USER_INTERFACE_H
 
+#include <core/window_frame.h>
 #include <interface/button_base.h>
 #include <string>
 #include <vector>
@@ -8,11 +9,12 @@
 class UserInterface
 {
 private:
+	WindowFramePtr appWindow;
 	std::vector<ButtonBase*> standaloneButtons; 
 	float animationSpeed, opacity;
 public:
 	UserInterface();
-	UserInterface(float animationSpeed, float opacity);
+	UserInterface(WindowFramePtr window, float animationSpeed, float opacity);
 
 	~UserInterface();
 

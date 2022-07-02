@@ -8,7 +8,7 @@ void MainMenu::Init()
     this->paused = false;
 
     // Initialize the user interface
-    this->menuGUI = UserInterface(8.0f, 0.0f);
+    this->menuGUI = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
     this->menuGUI.AddStandaloneButton(new MenuButton({ 250, 960 }, { 450, 200 }, { 465, 215 }, "PLAY"));
     this->menuGUI.AddStandaloneButton(new MenuButton({ 720, 960 }, { 450, 200 }, { 465, 215 }, "SETTINGS"));

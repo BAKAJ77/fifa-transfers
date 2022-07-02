@@ -5,8 +5,8 @@ UserInterface::UserInterface() :
     animationSpeed(8.0f), opacity(255.0f)
 {}
 
-UserInterface::UserInterface(float animationSpeed, float opacity) :
-    animationSpeed(animationSpeed), opacity(opacity)
+UserInterface::UserInterface(WindowFramePtr window, float animationSpeed, float opacity) :
+    appWindow(window), animationSpeed(animationSpeed), opacity(opacity)
 {}
 
 UserInterface::~UserInterface()
@@ -33,9 +33,12 @@ void UserInterface::AddStandaloneButton(ButtonBase* button)
 
 void UserInterface::Update(const float& deltaTime)
 {
-    // Update the standalone buttons
-    for (ButtonBase* button : this->standaloneButtons)
-        button->Update(deltaTime, this->animationSpeed);
+    if (this->appWindow->IsFocused()) // Only update if the window is focused
+    {
+        // Update the standalone buttons
+        for (ButtonBase* button : this->standaloneButtons)
+            button->Update(deltaTime, this->animationSpeed);
+    }
 }
 
 void UserInterface::Render() const
