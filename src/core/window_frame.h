@@ -52,6 +52,9 @@ public:
 
 	// Returns TRUE if the window is in fullscreen mode.
 	bool IsFullscreenEnabled() const;
+
+	// Returns TRUE if the window is focused.
+	bool IsFocused() const;
 };
 
 using WindowFramePtr = std::shared_ptr<WindowFrame>;

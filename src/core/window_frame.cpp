@@ -6,6 +6,16 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+namespace WindowActivity
+{
+	bool isFocused = false;
+
+	void WindowFocusCallback(GLFWwindow* window, int focused)
+	{
+		isFocused = (bool)focused;
+	}
+}
+
 WindowFrame::WindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, uint32_t samplesPerPixel) :
 	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen),
 	samplesPerPixel(std::max((int)samplesPerPixel, 1))
@@ -34,6 +44,8 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 		
 	if (vsync)
 		glfwSwapInterval(1);
+
+	glfwSetWindowFocusCallback(this->framePtr, WindowActivity::WindowFocusCallback);
 
 	// Load the OpenGL function addresses
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -107,6 +119,11 @@ bool WindowFrame::IsUsingVsyncMode() const
 bool WindowFrame::IsFullscreenEnabled() const
 {
 	return this->fullscreenEnabled;
+}
+
+bool WindowFrame::IsFocused() const
+{
+	return WindowActivity::isFocused;
 }
 
 WindowFramePtr Memory::CreateWindowFrame(const std::string_view& title, int width, int height, bool fullscreen, bool vsync, 
