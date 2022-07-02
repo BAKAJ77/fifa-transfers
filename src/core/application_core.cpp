@@ -3,7 +3,7 @@
 #include <core/input_system.h>
 
 #include <graphics/renderer.h>
-#include <states/splash_screen.h>
+#include <states/resource_loader.h>
 #include <serialization/json_loader.h>
 
 #include <util/directory_system.h>
@@ -52,7 +52,7 @@ ApplicationCore::ApplicationCore()
 	InputSystem::GetInstance().Init(this->window);
 	Renderer::GetInstance().Init(this->window);
 
-	AppStateSystem::GetInstance().SwitchState(SplashScreen::GetAppState());
+	AppStateSystem::GetInstance().SwitchState(ResourceLoader::GetAppState());
 
 	// Continue onto the main loop
 	this->MainLoop();

@@ -9,6 +9,7 @@ class ResourceLoader : public AppState
 private:
 	JSONLoader resourcesListFile;
 	uint32_t workDonePercentage;
+	bool splashScreenStarted;
 private:
 	void LoadTextures();
 	void LoadFonts();

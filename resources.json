@@ -24,12 +24,24 @@
     },
     "textures": {
         "1": {
+            "filename": "bkg.png",
+            "id": "Background 1"
+        },
+        "2": {
             "filename": "bkg2.png",
             "id": "Background 2"
         },
-        "2": {
+        "3": {
+            "filename": "dev_logo.png",
+            "id": "Developer Logo"
+        },
+        "4": {
             "filename": "title_logo_sml.png",
             "id": "Title Logo Small"
+        },
+        "5": {
+            "filename": "title_logo_lrg.png",
+            "id": "Title Logo Large"
         }
     },
     "tracks": {

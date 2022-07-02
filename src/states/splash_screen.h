@@ -6,8 +6,8 @@
 class SplashScreen : public AppState
 {
 private:
-	float devLogoOpacity, titleLogoOpacity;
-	bool devLogoEffectDone, startedResourceLoading;
+	float devLogoOpacity;
+	bool devLogoEffectDone;
 private:
 	void UpdateDevLogoEffect(const float& deltaTime);
 protected:

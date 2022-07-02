@@ -1,5 +1,5 @@
 #include <states/resource_loader.h>
-#include <states/main_menu.h>
+#include <states/splash_screen.h>
 #include <util/timestamp.h>
 
 #include <thread>
@@ -14,6 +14,7 @@ void ResourceLoader::Init()
 {
     // Initialize member variables
     this->workDonePercentage = 0;
+    this->splashScreenStarted = false;
 
     // Load the resources list JSON file
     this->resourcesListFile.Open("resources.json");
@@ -33,20 +34,29 @@ void ResourceLoader::Update(const float& deltaTime)
     if (this->workDonePercentage == 100) // End this state once all resources have been loaded
     {
         static float workDoneTime = Util::GetSecondsSinceEpoch();
-        if (Util::GetSecondsSinceEpoch() - workDoneTime >= 2.0f)
-            this->SwitchState(MainMenu::GetAppState());
+        if ((Util::GetSecondsSinceEpoch() - workDoneTime >= 2.0f) && !this->splashScreenStarted)
+        {
+            this->splashScreenStarted = true;
+            this->PushState(SplashScreen::GetAppState());
+        }
     }
 }
 
 void ResourceLoader::Render() const
 {
-    // Render the loading bar edge
-    Renderer::GetInstance().RenderSquare({ 960, 900 }, { 1000, 100 }, { 255, 255, 255, 255 });
+    // Render the background
+    Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1920, 1080 }, TextureLoader::GetInstance().GetTexture("Background 1"));
 
-    // Render the loading bar progress
-    std::scoped_lock lock(Threading::mutex);
-    Renderer::GetInstance().RenderSquare({ 470 + (490 * ((float)this->workDonePercentage / 100)), 900 }, 
-        { (980 * ((float)this->workDonePercentage / 100)), 80 }, { 128, 128, 128, 255 });
+    if (!this->splashScreenStarted)
+    {
+        // Render the loading bar edge
+        Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1000, 100 }, { 255, 255, 255, 255 });
+
+        // Render the loading bar progress
+        std::scoped_lock lock(Threading::mutex);
+        Renderer::GetInstance().RenderSquare({ 470 + (490 * ((float)this->workDonePercentage / 100)), 540 },
+            { (990 * ((float)this->workDonePercentage / 100)), 90 }, { 128, 128, 128, 255 });
+    }
 }
 
 void ResourceLoader::LoadTextures()
