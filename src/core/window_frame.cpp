@@ -8,7 +8,7 @@
 
 namespace WindowActivity
 {
-	bool isFocused = false;
+	bool isFocused = true;
 
 	void WindowFocusCallback(GLFWwindow* window, int focused)
 	{
