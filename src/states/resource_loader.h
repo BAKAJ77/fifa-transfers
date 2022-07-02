@@ -2,15 +2,17 @@
 #define RESOURCE_LOADER_H
 
 #include <core/application_state.h>
+#include <serialization/json_loader.h>
 
 class ResourceLoader : public AppState
 {
 private:
+	JSONLoader resourcesListFile;
 	uint32_t workDonePercentage;
 private:
 	void LoadTextures();
-	void LoadAudio();
 	void LoadFonts();
+	void LoadAudio();
 protected:
 	void Init() override;
 	void Destroy() override;

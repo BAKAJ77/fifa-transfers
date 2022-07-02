@@ -9,7 +9,7 @@ void SplashScreen::Init()
     // Load the required texture
     TextureLoader::GetInstance().LoadFromFile("Background 1", "bkg.png");
     TextureLoader::GetInstance().LoadFromFile("Developer Logo", "dev_logo.png");
-    TextureLoader::GetInstance().LoadFromFile("Title Logo", "title_logo.png");
+    TextureLoader::GetInstance().LoadFromFile("Title Logo Large", "title_logo_lrg.png");
 
     // Set the renderer clear color
     Renderer::GetInstance().SetClearColor({ 57, 57, 57, 255 });
@@ -44,7 +44,7 @@ void SplashScreen::Render() const
         { 255, 255, 255, this->devLogoOpacity });
 
     // Render the title logo
-    Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1500, 375 }, TextureLoader::GetInstance().GetTexture("Title Logo"),
+    Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1500, 375 }, TextureLoader::GetInstance().GetTexture("Title Logo Large"),
         { 255, 255, 255, this->titleLogoOpacity });
 }
 
@@ -82,7 +82,7 @@ void SplashScreen::UpdateDevLogoEffect(const float& deltaTime)
             else if (this->devLogoOpacity == 0.0f)
             {
                 static float delayStartTime = Util::GetSecondsSinceEpoch();
-                if (Util::GetSecondsSinceEpoch() - delayStartTime >= 1.0f)
+                if (Util::GetSecondsSinceEpoch() - delayStartTime >= 2.0f)
                     this->devLogoEffectDone = true;
             }
         }

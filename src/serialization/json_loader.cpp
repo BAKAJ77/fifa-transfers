@@ -1,25 +1,25 @@
-#include <serialization/config.h>
+#include <serialization/json_loader.h>
 #include <util/directory_system.h>
 #include <util/logging_system.h>
 
-ConfigLoader::ConfigLoader(const std::string_view& fileName)
+JSONLoader::JSONLoader(const std::string_view& fileName)
 {
 	this->Open(fileName);
 }
 
-ConfigLoader::~ConfigLoader()
+JSONLoader::~JSONLoader()
 {
 	this->Close();
 }
 
-void ConfigLoader::Open(const std::string_view& fileName)
+void JSONLoader::Open(const std::string_view& fileName)
 {
 	if (Util::IsExistingFile(Util::GetAppDataDirectory() + fileName.data()))
 	{
-		// Open the config file in read mode only
+		// Open the JSON file in read mode only
 		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::in);
 		if (this->fileStream.fail())
-			LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
 		this->fileStream.seekg(0); // Make sure the read pointer is positioned at the beginning of the file
 
@@ -33,7 +33,7 @@ void ConfigLoader::Open(const std::string_view& fileName)
 		try
 		{
 			// Parse the loaded json data
-			this->jsonData = nlohmann::json::parse(loadedJsonData, nullptr, true, true);
+			this->root = nlohmann::json::parse(loadedJsonData, nullptr, true, true);
 		}
 		catch (nlohmann::json::exception& exception) // Catch potential json exceptions thrown
 		{
@@ -42,10 +42,10 @@ void ConfigLoader::Open(const std::string_view& fileName)
 	}
 	else
 	{
-		// Create a new config file
+		// Create a new JSON file
 		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
 		if (this->fileStream.fail())
-			LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
 		this->fileStream.close();
 	}
@@ -53,25 +53,25 @@ void ConfigLoader::Open(const std::string_view& fileName)
 	this->fileName = fileName;
 }
 
-void ConfigLoader::Close()
+void JSONLoader::Close()
 {
-	// Open the config file
+	// Open the JSON file
 	this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
 	if (this->fileStream.fail())
-		LogSystem::GetInstance().OutputLog("Failed to open the config file: " + std::string(fileName), Severity::FATAL);
+		LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
 	this->fileStream.seekp(0); // Make sure the write pointer is positioned at the beginning of the file
 
-	this->fileStream << std::setw(4) << this->jsonData;
+	this->fileStream << std::setw(4) << this->root;
 	this->fileStream.close();
 }
 
-bool ConfigLoader::IsEntryExisting(const std::string_view& entryName) const
+nlohmann::json& JSONLoader::GetRoot()
 {
-	return this->jsonData.contains(entryName);
+	return this->root;
 }
 
-const std::string& ConfigLoader::GetFileName() const
+const std::string& JSONLoader::GetFileName() const
 {
 	return this->fileName;
 }

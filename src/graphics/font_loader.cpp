@@ -1,5 +1,5 @@
 #include <graphics/font_loader.h>
-#include <serialization/config.h>
+#include <serialization/json_loader.h>
 #include <util/logging_system.h>
 #include <util/directory_system.h>
 #include <util/opengl_error.h>
@@ -146,8 +146,8 @@ void FontLoader::LoadFromFile(const std::string_view& id, const std::string_view
 	}
 
 	// Load the font and store it in the unordered map
-	ConfigLoader mainConfigFile("config.json");
-	const uint32_t resolution = mainConfigFile.GetElement<uint32_t>("textQualityLevel", "graphics");
+	JSONLoader configFile("config.json");
+	const uint32_t resolution = configFile.GetRoot()["graphics"]["textResolutionLevel"].get<uint32_t>();
 
 	this->loadedFonts[id.data()] = std::make_shared<Font>(this->lib, fileName, resolution, styleIndex);
 }

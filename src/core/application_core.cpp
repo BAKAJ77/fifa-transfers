@@ -4,7 +4,7 @@
 
 #include <graphics/renderer.h>
 #include <states/splash_screen.h>
-#include <serialization/config.h>
+#include <serialization/json_loader.h>
 
 #include <util/directory_system.h>
 #include <util/logging_system.h>
@@ -20,29 +20,29 @@ ApplicationCore::ApplicationCore()
 	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
 		generateConfigSettings = true;
 
-	ConfigLoader mainConfigFile("config.json");
+	JSONLoader configFile("config.json");
 	if (generateConfigSettings)
 	{
-		mainConfigFile.SetElement<std::vector<uint32_t>>("resolution", { 1600, 900 }, "window");
-		mainConfigFile.SetElement<bool>("fullscreen", false, "window");
-		mainConfigFile.SetElement<bool>("vsync", false, "window");
+		configFile.GetRoot()["window"]["resolution"] = { 1600, 900 };
+		configFile.GetRoot()["window"]["fullscreen"] = false;
+		configFile.GetRoot()["window"]["vsync"] = false;
 
-		mainConfigFile.SetElement<uint32_t>("samplesMSAA", 4, "graphics");
-		mainConfigFile.SetElement<uint32_t>("textQualityLevel", 100, "graphics");
-		mainConfigFile.SetElement<float>("gamma", 2.2f, "graphics");
+		configFile.GetRoot()["graphics"]["samplesMSAA"] = 4;
+		configFile.GetRoot()["graphics"]["textResolutionLevel"] = 100;
+		configFile.GetRoot()["graphics"]["gamma"] = 2.2f;
 	}
 
-	mainConfigFile.Close();
+	configFile.Close();
 
-	const std::vector<int> configWindowResolution = mainConfigFile.GetElement<std::vector<int>>("resolution", "window");
-	const bool configWindowFullscreen = mainConfigFile.GetElement<bool>("fullscreen", "window");
-	const bool configWindowVsync = mainConfigFile.GetElement<bool>("vsync", "window");
+	const std::vector<int> configWindowResolution = configFile.GetRoot()["window"]["resolution"].get<std::vector<int>>();
+	const bool configWindowFullscreen = configFile.GetRoot()["window"]["fullscreen"].get<bool>();
+	const bool configWindowVsync = configFile.GetRoot()["window"]["vsync"].get<bool>();
 
 	if (configWindowResolution.size() != 2)
-		LogSystem::GetInstance().OutputLog("The window resolution json config setting should only have 2 values, a width and height",
+		LogSystem::GetInstance().OutputLog("The window resolution config setting should only have 2 values, a width and height",
 			Severity::FATAL);
 
-	const uint32_t configSamplesPerPixel = mainConfigFile.GetElement<uint32_t>("samplesMSAA", "graphics");
+	const uint32_t configSamplesPerPixel = configFile.GetRoot()["graphics"]["samplesMSAA"].get<uint32_t>();
 
 	// Create the main application window
 	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,

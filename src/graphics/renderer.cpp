@@ -1,5 +1,5 @@
 #include <graphics/renderer.h>
-#include <serialization/config.h>
+#include <serialization/json_loader.h>
 #include <util/directory_system.h>
 #include <util/opengl_error.h>
 
@@ -22,8 +22,8 @@ void Renderer::Init(WindowFramePtr window)
 	this->viewport = OrthogonalCamera({ 0.0f, 0.0f }, { 1920.0f, 1080.0f });
 
 	// Load the gamma json config setting
-	ConfigLoader mainConfigFile("config.json");
-	this->gamma = mainConfigFile.GetElement<float>("gamma", "graphics");
+	JSONLoader configFile("config.json");
+	this->gamma = configFile.GetRoot()["graphics"]["gamma"].get<float>();
 
 	// Load the required shaders
 	this->geometryShader = Memory::CreateShaderProgram("geometry_render.glsl.vsh", "geometry_render.glsl.fsh");

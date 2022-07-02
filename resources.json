@@ -1,0 +1,42 @@
+{
+    "fonts": {
+        "1": {
+            "filename": "arial_nbi.ttf",
+            "id": "Arial Narrow Bold Italic",
+            "style": 0
+        },
+        "2": {
+            "filename": "bahnschrift.ttf",
+            "id": "Bahnschrift Condensed Bold",
+            "style": 14
+        },
+        "3": {
+            "filename": "cascadia_code_bold.ttf",
+            "id": "Cascadia Code Bold",
+            "style": 0
+        }
+    },
+    "sfx": {
+        "1": {
+            "filename": "button.wav",
+            "id": "Button"
+        }
+    },
+    "textures": {
+        "1": {
+            "filename": "bkg2.png",
+            "id": "Background 2"
+        },
+        "2": {
+            "filename": "title_logo_sml.png",
+            "id": "Title Logo Small"
+        }
+    },
+    "tracks": {
+        "1": {
+            "enabled": true,
+            "filename": "track_1.mp3",
+            "id": "Cartoon - On & On (feat. Daniel Levi)"
+        }
+    }
+}
