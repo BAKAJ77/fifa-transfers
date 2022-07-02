@@ -50,6 +50,8 @@ protected:
 	void SwitchState(AppState* appState);
 	void PushState(AppState* appState);
 	void PopState();
+
+	uint32_t GetStackSize() const;
 };
 
 class AppStateSystem
@@ -93,6 +95,9 @@ public:
 
 	// Returns TRUE if there is an active application state in the application state system stack.
 	bool IsActive() const;
+
+	// Returns the amount of app states in the stack.
+	uint32_t GetStackSize() const;
 
 	static AppStateSystem& GetInstance();
 };

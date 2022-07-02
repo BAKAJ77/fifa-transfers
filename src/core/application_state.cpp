@@ -40,6 +40,11 @@ void AppState::PopState()
 	AppStateSystem::GetInstance().PopState();
 }
 
+uint32_t AppState::GetStackSize() const
+{
+	return AppStateSystem::GetInstance().GetStackSize();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 AppStateSystem::AppStateSystem() :
@@ -178,6 +183,11 @@ void AppStateSystem::Render() const
 bool AppStateSystem::IsActive() const
 {
 	return !this->stateStack.empty() || this->pendingAppState;
+}
+
+uint32_t AppStateSystem::GetStackSize() const
+{
+	return (uint32_t)this->stateStack.size();
 }
 
 AppStateSystem& AppStateSystem::GetInstance()
