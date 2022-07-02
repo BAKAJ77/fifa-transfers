@@ -1,9 +1,9 @@
 #ifndef APPLICATION_STATE_H
 #define APPLICATION_STATE_H
 
+#include <core/audio_system.h>
 #include <graphics/renderer.h>
 #include <graphics/texture_loader.h>
-#include <core/audio_system.h>
 
 #include <vector>
 
@@ -51,6 +51,7 @@ protected:
 	void PushState(AppState* appState);
 	void PopState();
 
+	WindowFramePtr GetAppWindow() const;
 	uint32_t GetStackSize() const;
 };
 
@@ -64,8 +65,9 @@ class AppStateSystem
 		POP
 	};
 private:
-	std::vector<AppState*> stateStack;
+	WindowFramePtr appWindow;
 
+	std::vector<AppState*> stateStack;
 	SystemCommand currentCommand;
 	AppState* pendingAppState;
 private:
@@ -77,6 +79,9 @@ public:
 
 	AppStateSystem& operator=(const AppStateSystem& other) = delete;
 	AppStateSystem& operator=(AppStateSystem&& temp) noexcept = delete;
+
+	// Initializes the application state system.
+	void Init(const WindowFramePtr window);
 
 	// Destroys all application states in the stack and starts up the new application state given.
 	void SwitchState(AppState* appState);
@@ -93,12 +98,16 @@ public:
 	// Renders the current active application state and other application states which are instructed to keep rendering even when paused.
 	void Render() const;
 
+	// Returns the application window.
+	WindowFramePtr GetAppWindow() const;
+
 	// Returns TRUE if there is an active application state in the application state system stack.
 	bool IsActive() const;
 
 	// Returns the amount of app states in the stack.
 	uint32_t GetStackSize() const;
 
+	// Returns singleton instance object of this class.
 	static AppStateSystem& GetInstance();
 };
 

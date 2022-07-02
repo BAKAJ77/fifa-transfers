@@ -51,6 +51,7 @@ ApplicationCore::ApplicationCore()
 	// Initialize singleton systems
 	InputSystem::GetInstance().Init(this->window);
 	Renderer::GetInstance().Init(this->window);
+	AppStateSystem::GetInstance().Init(this->window);
 
 	AppStateSystem::GetInstance().SwitchState(ResourceLoader::GetAppState());
 
