@@ -1,15 +1,14 @@
-#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
+#ifndef PLAY_MENU_H
+#define PLAY_MENU_H
 
 #include <core/application_state.h>
 #include <interface/user_interface.h>
 
-class MainMenu : public AppState
+class PlayMenu : public AppState
 {
 private:
 	UserInterface userInterface;
-	float bkgOpacity;
-	bool paused;
+	bool goBackToMenu;
 protected:
 	void Init() override;
 	void Destroy() override;
@@ -18,10 +17,8 @@ protected:
 	void Render() const override;
 
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
-	bool OnPauseTransitionUpdate(const float deltaTime) override;
-	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
-	static MainMenu* GetAppState();
+	static PlayMenu* GetAppState();
 };
 
 #endif
