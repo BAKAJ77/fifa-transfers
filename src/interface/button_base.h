@@ -11,7 +11,7 @@ protected:
 	glm::vec3 currentColor, baseColor, highlightColor, edgeColor;
 
 	float shadowDistance, opacity;
-	bool clicked, released, hovering;
+	bool clicked, hovering;
 private:
 	// Checks if the button has been clicked.
 	void CheckButtonClicked();

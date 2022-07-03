@@ -4,15 +4,19 @@
 
 #include <algorithm>
 
+namespace Events
+{
+    static bool released = false;
+}
+
 ButtonBase::ButtonBase() :
-    shadowDistance(0.0f), opacity(0.0f), clicked(false), released(true), hovering(false)
+    shadowDistance(0.0f), opacity(0.0f), hovering(false), clicked(false)
 {}
 
 ButtonBase::ButtonBase(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const glm::vec3& baseColor,
     const glm::vec3& highlightColor, const glm::vec3& edgeColor, float opacity, float shadowDistance) :
     position(pos), baseSize(baseSize), currentSize(baseSize), maxSize(maxSize), currentColor(baseColor), baseColor(baseColor),
-    highlightColor(highlightColor), edgeColor(edgeColor), shadowDistance(shadowDistance), opacity(opacity), clicked(false), 
-    released(true), hovering(false)
+    highlightColor(highlightColor), edgeColor(edgeColor), shadowDistance(shadowDistance), opacity(opacity), hovering(false), clicked(false)
 {}
 
 void ButtonBase::SetPosition(const glm::vec2& pos)
@@ -67,10 +71,10 @@ void ButtonBase::Render(float masterOpacity) const
 
 void ButtonBase::CheckButtonClicked()
 {
-    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && this->released)
+    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && Events::released)
     {
         this->clicked = true;
-        this->released = false;
+        Events::released = false;
     }
     else
         this->clicked = false;
@@ -78,8 +82,8 @@ void ButtonBase::CheckButtonClicked()
 
 void ButtonBase::CheckMouseClickReleased()
 {
-    if (!InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && !this->released)
-        this->released = true;
+    if (!InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && !Events::released)
+        Events::released = true;
 }
 
 glm::vec2 ButtonBase::Interpolate(const glm::vec2& vec, const glm::vec2& baseVec, const glm::vec2& targetVec, float animationSpeed, 
