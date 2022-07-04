@@ -181,6 +181,9 @@ public:
 	// instead of the window resolution.
 	glm::vec2 GetCursorPosition(const OrthogonalCamera* viewport = nullptr) const;
 
+	// Returns the unicode character inputted.
+	uint32_t GetInputtedCharacter() const;
+
 	// Returns singleton instance object of this class.
 	static InputSystem& GetInstance();
 };

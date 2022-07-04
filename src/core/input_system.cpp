@@ -1,9 +1,19 @@
 #include <core/input_system.h>
 #include <GLFW/glfw3.h>
 
+namespace TextPolling
+{
+	static uint32_t characterInputted = 0x0;
+	static void PollTextInputCallback(GLFWwindow* window, uint32_t codePoint)
+	{
+		characterInputted = codePoint;
+	}
+}
+
 void InputSystem::Init(WindowFramePtr window)
 {
 	this->window = window;
+	glfwSetCharCallback(window->GetFramePtr(), TextPolling::PollTextInputCallback);
 }
 
 bool InputSystem::WasKeyPressed(KeyCode key) const
@@ -30,6 +40,14 @@ glm::vec2 InputSystem::GetCursorPosition(const OrthogonalCamera* viewport) const
 	}
 
 	return glm::vec2((float)cursorPosX, (float)cursorPosY);
+}
+
+uint32_t InputSystem::GetInputtedCharacter() const
+{
+	const uint32_t character = TextPolling::characterInputted;
+	TextPolling::characterInputted = 0x0;
+
+	return character;
 }
 
 InputSystem& InputSystem::GetInstance()
