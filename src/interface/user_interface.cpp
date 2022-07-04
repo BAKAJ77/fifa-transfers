@@ -31,6 +31,18 @@ void UserInterface::AddStandaloneButton(ButtonBase* button)
     this->standaloneButtons.emplace_back(button);
 }
 
+void UserInterface::AddStandaloneTextField(const std::string_view& id, const TextInputField& field)
+{
+    // Don't add the text field to the interface if another with the ID given already exists
+    if (this->standaloneTextFields.find(id.data()) != this->standaloneTextFields.end())
+    {
+        LogSystem::GetInstance().OutputLog("There's already a standalone text field with the ID: " + std::string(id), Severity::WARNING);
+        return;
+    }
+
+    this->standaloneTextFields[id.data()] = field;
+}
+
 void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
@@ -38,6 +50,10 @@ void UserInterface::Update(const float& deltaTime)
         // Update the standalone buttons
         for (ButtonBase* button : this->standaloneButtons)
             button->Update(deltaTime, this->animationSpeed);
+
+        // Update the standalone text fields
+        for (auto& field : this->standaloneTextFields)
+            field.second.Update(deltaTime);
     }
 }
 
@@ -46,6 +62,21 @@ void UserInterface::Render() const
     // Render the standalone buttons
     for (const ButtonBase* button : this->standaloneButtons)
         button->Render(this->opacity);
+
+    // Render the standalone text fields
+    for (const auto& field : this->standaloneTextFields)
+        field.second.Render(this->opacity);
+}
+
+TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
+{
+    auto iterator = this->standaloneTextFields.find(id.data());
+    if (iterator != this->standaloneTextFields.end())
+        return &iterator->second;
+
+    // No standalone text field has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No standalone text field exists with the ID: " + std::string(id), Severity::WARNING);
+    return nullptr;
 }
 
 const std::vector<ButtonBase*>& UserInterface::GetStandaloneButtons()

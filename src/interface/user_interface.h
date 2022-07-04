@@ -3,14 +3,19 @@
 
 #include <core/window_frame.h>
 #include <interface/button_base.h>
+#include <interface/text_input_field.h>
+
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 class UserInterface
 {
 private:
 	WindowFramePtr appWindow;
 	std::vector<ButtonBase*> standaloneButtons; 
+	std::unordered_map<std::string, TextInputField> standaloneTextFields;
+
 	float animationSpeed, opacity;
 public:
 	UserInterface();
@@ -25,10 +30,11 @@ public:
 	void SetOpacity(float opacity);
 
 	// Adds a standalone button to the interface.
-	// Standalone buttons are in basic terms a single individual buttons, which don't have their position and size affected by
-	// factors like a scroll bar etc.
 	// NOTE: The button object given must be heap allocated i.e with the 'new' keyword.
 	void AddStandaloneButton(ButtonBase* button);
+
+	// Adds a standalone text field to the interface.
+	void AddStandaloneTextField(const std::string_view& id, const TextInputField& field);
 
 	// Updates the interface.
 	void Update(const float& deltaTime);
@@ -36,8 +42,11 @@ public:
 	// Renders the interface.
 	void Render() const;
 
+	// Returns the standalone text field matching the ID given.
+	TextInputField* GetStandaloneTextField(const std::string_view& id);
+
 	// Returns the vector containing the standalone buttons in the interface.
-	const std::vector<ButtonBase*>& GetStandaloneButtons();
+	const std::vector<ButtonBase*>& GetStandaloneButtons(); 
 
 	// Returns the master opacity of the user interface. 
 	const float& GetOpacity() const;
