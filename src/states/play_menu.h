@@ -8,7 +8,7 @@ class PlayMenu : public AppState
 {
 private:
 	UserInterface userInterface;
-	bool goBackToMenu;
+	bool goBackToMainMenu;
 protected:
 	void Init() override;
 	void Destroy() override;
@@ -17,6 +17,8 @@ protected:
 	void Render() const override;
 
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
+	bool OnPauseTransitionUpdate(const float deltaTime) override;
+	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
 	static PlayMenu* GetAppState();
 };
