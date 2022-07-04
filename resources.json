@@ -1,14 +1,14 @@
 {
     "fonts": {
         "1": {
-            "filename": "arial_nbi.ttf",
-            "id": "Arial Narrow Bold Italic",
-            "style": 0
-        },
-        "2": {
             "filename": "bahnschrift.ttf",
             "id": "Bahnschrift Condensed Bold",
             "style": 14
+        },
+        "2": {
+            "filename": "bahnschrift.ttf",
+            "id": "Bahnschrift Bold",
+            "style": 4
         },
         "3": {
             "filename": "cascadia_code_bold.ttf",
