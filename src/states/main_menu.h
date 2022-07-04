@@ -8,7 +8,7 @@ class MainMenu : public AppState
 {
 private:
 	UserInterface userInterface;
-	float bkgOpacity;
+	float bkgOpacity, logoOpacity;
 	bool paused;
 protected:
 	void Init() override;
@@ -21,6 +21,12 @@ protected:
 	bool OnPauseTransitionUpdate(const float deltaTime) override;
 	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
+	// Sets the opacity of the title logo.
+	void SetLogoOpacity(float opacity);
+
+	// Returns the opacity of the title logo.
+	float GetLogoOpacity() const;
+
 	static MainMenu* GetAppState();
 };
 

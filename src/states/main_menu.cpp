@@ -5,7 +5,7 @@
 void MainMenu::Init()
 {
     // Initialize the member variables
-    this->bkgOpacity = 0.0f;
+    this->bkgOpacity = this->logoOpacity = 0.0f;
     this->paused = false;
 
     // Initialize the user interface
@@ -42,7 +42,7 @@ void MainMenu::Render() const
     Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1920, 1080 }, TextureLoader::GetInstance().GetTexture("Background 2"),
         { 255, 255, 255, this->bkgOpacity });
     Renderer::GetInstance().RenderSquare({ 960, 400 }, { 1280, 345 }, TextureLoader::GetInstance().GetTexture("Title Logo Large"),
-        { 255, 255, 255, this->bkgOpacity });
+        { 255, 255, 255, this->logoOpacity });
 
     this->userInterface.Render();
 }
@@ -52,7 +52,7 @@ bool MainMenu::OnStartupTransitionUpdate(const float deltaTime)
     constexpr float transitionSpeed = 1000.0f;
 
     // Update background fade in effect
-    this->bkgOpacity = std::min(this->bkgOpacity + ((transitionSpeed / 2.0f) * deltaTime), 255.0f);
+    this->logoOpacity = this->bkgOpacity = std::min(this->bkgOpacity + ((transitionSpeed / 2.0f) * deltaTime), 255.0f);
 
     // Once background fade in effect is complete, update the gui and logo fade in effect
     if (this->bkgOpacity == 255.0f)
@@ -123,6 +123,16 @@ bool MainMenu::OnResumeTransitionUpdate(const float deltaTime)
     }
 
     return false;
+}
+
+void MainMenu::SetLogoOpacity(float opacity)
+{
+    this->logoOpacity = opacity;
+}
+
+float MainMenu::GetLogoOpacity() const
+{
+    return this->logoOpacity;
 }
 
 MainMenu* MainMenu::GetAppState()
