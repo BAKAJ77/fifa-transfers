@@ -167,7 +167,7 @@ void AppStateSystem::Update(const float& deltaTime)
 		AppState* appState = this->stateStack[stateIndex];
 		if (stateIndex == (this->stateStack.size() - 1) || appState->updateWhilePaused)
 		{
-			if (this->currentCommand != SystemCommand::SWITCH)
+			if (this->currentCommand != SystemCommand::SWITCH && this->currentCommand != SystemCommand::PUSH)
 				appState->Update(deltaTime);
 		}
 	}
