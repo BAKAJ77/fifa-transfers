@@ -13,7 +13,8 @@ TextInputField::TextInputField() :
 {}
 
 TextInputField::TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags, float opacity, float shadowDistance) :
-    position(pos), size(size), opacity(opacity), shadowDistance(shadowDistance), fontSize(size.y / 2.0f), inputFlags(flags)
+    position(pos), size({ std::max(size.x, 75.0f), std::max(size.y, 50.0f) }), opacity(opacity), shadowDistance(shadowDistance), fontSize(size.y / 2.0f),
+    inputFlags(flags)
 {
     this->textFont = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 }
@@ -59,7 +60,7 @@ void TextInputField::Update(const float& deltaTime)
 
         // Accept only spaces, numerical and alphabetic characters based on the input restriction flags given
         // Also only accept characters if the text box field is not full
-        if (this->textSize.x < this->size.x - 50)
+        if (this->textSize.x + 30 < this->size.x - 30)
         {
             if ((character == 32 && (this->inputFlags & Restrictions::NO_SPACES) != Restrictions::NO_SPACES) ||
                 ((character >= 48 && character <= 57) && (this->inputFlags & Restrictions::NO_NUMERIC) != Restrictions::NO_NUMERIC) ||
@@ -108,8 +109,7 @@ void TextInputField::Render(float masterOpacity) const
     Renderer::GetInstance().RenderSquare(this->position, this->size - 10.0f, { 255, 255, 255, (this->opacity * masterOpacity) / 255.0f });
 
     // Render the inputted text string in the text box
-    Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + (30 * (this->size.x / 700.0f)),
-        this->position.y + (17.5f * (this->size.y / 100.0f)) },
+    Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + 30, this->position.y + (17.5f * (this->size.y / 100.0f)) },
         { glm::vec3(0.0f), (this->opacity * masterOpacity) / 255.0f }, this->textFont, (uint32_t)fontSize, this->inputtedText);
 }
 
