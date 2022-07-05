@@ -17,7 +17,7 @@ void RadioButtonGroup::SetOpacity(float opacity)
     this->opacity = opacity;
 }
 
-void RadioButtonGroup::Add(const std::string_view& id)
+void RadioButtonGroup::Add(const std::string_view& id, int value)
 {
     // Don't add the radio button to the group if another with the ID given already exists
     for (const RadioButton& button : this->radioButtons)
@@ -33,8 +33,8 @@ void RadioButtonGroup::Add(const std::string_view& id)
     const glm::vec2 idTextSize = Renderer::GetInstance().GetTextSize(this->font, (uint32_t)(this->buttonSize.y), id);
 
     // Push the radio button into the vector
-    this->radioButtons.push_back({ id.data(), idTextSize, ButtonBase({ this->position.x + this->currentOffset, this->position.y }, this->buttonSize, 
-        this->buttonSize, glm::vec3(70), glm::vec3(100), glm::vec3(130), this->opacity, 2.5f) });
+    this->radioButtons.push_back({ id.data(), idTextSize, value, ButtonBase({ this->position.x + this->currentOffset, this->position.y }, 
+        this->buttonSize, this->buttonSize, glm::vec3(70), glm::vec3(100), glm::vec3(130), this->opacity, 2.5f) });
 
     // Update the current offset
     this->currentOffset += idTextSize.x + (this->buttonSize.x / 2) + 70;
@@ -72,12 +72,12 @@ void RadioButtonGroup::Render(float masterOpacity) const
     }
 }
 
-std::string_view RadioButtonGroup::GetSelected() const
+int RadioButtonGroup::GetSelected() const
 {
     if (this->currentSelected)
-        return this->currentSelected->id;
+        return this->currentSelected->value;
 
-    return std::string_view();
+    return -1;
 }
 
 const float& RadioButtonGroup::GetOpacity() const

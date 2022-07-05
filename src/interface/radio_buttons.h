@@ -13,6 +13,7 @@ private:
 	{
 		std::string id;
 		glm::vec2 textSize;
+		int value;
 
 		ButtonBase button;
 	};
@@ -33,7 +34,7 @@ public:
 	void SetOpacity(float opacity);
 
 	// Adds a new radio button into the group.
-	void Add(const std::string_view& id);
+	void Add(const std::string_view& id, int value);
 
 	// Updates the radio button group.
 	void Update(const float& deltaTime);
@@ -41,9 +42,9 @@ public:
 	// Renders the radio button group.
 	void Render(float masterOpacity) const;
 
-	// Returns the ID of the current selected radio button.
-	// If no radio button is selected, an empty string is returned.
-	std::string_view GetSelected() const;
+	// Returns the value of the current selected radio button.
+	// If no radio button is selected, an -1 is returned.
+	int GetSelected() const;
 
 	// Returns the opacity of the radio button group.
 	const float& GetOpacity() const;
