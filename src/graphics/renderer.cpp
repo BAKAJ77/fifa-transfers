@@ -254,6 +254,13 @@ void Renderer::RenderText(const glm::vec2& pos, const glm::vec4& color, const Fo
 	GLValidate(glDrawElements(GL_TRIANGLES, (uint32_t)renderData.second.size(), GL_UNSIGNED_INT, nullptr));
 }
 
+void Renderer::RenderShadowedText(const glm::vec2& pos, const glm::vec4& color, const FontPtr font, uint32_t fontSize, const std::string_view& text,
+	float shadowDistance, float rotationAngle) const
+{
+	this->RenderText(pos + (shadowDistance * 2.0f), { glm::vec3(0.0f), color.a * 0.5f }, font, fontSize, text, rotationAngle);
+	this->RenderText(pos, color, font, fontSize, text, rotationAngle);
+}
+
 void Renderer::Clear() const
 {
 	GLValidate(glClearColor(clearColor.r / 255.0f, clearColor.g / 255.0f, clearColor.b / 255.0f, clearColor.a / 255.0f));

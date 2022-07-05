@@ -63,6 +63,10 @@ public:
 	void RenderText(const glm::vec2& pos, const glm::vec4& color, const FontPtr font, uint32_t fontSize, const std::string_view& text, 
 		float rotationAngle = 0.0f) const;
 
+	// Renders a shadowed uni-colored string of text onto the screen.
+	void RenderShadowedText(const glm::vec2& pos, const glm::vec4& color, const FontPtr font, uint32_t fontSize, const std::string_view& text,
+		float shadowDistance, float rotationAngle = 0.0f) const;
+
 	// Clears the post processing FBO and fills with the current set clear color.
 	void Clear() const;
 
