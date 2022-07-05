@@ -108,7 +108,8 @@ void TextInputField::Render(float masterOpacity) const
     Renderer::GetInstance().RenderSquare(this->position, this->size - 10.0f, { 255, 255, 255, (this->opacity * masterOpacity) / 255.0f });
 
     // Render the inputted text string in the text box
-    Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + 30, this->position.y + 17.5f },
+    Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + (30 * (this->size.x / 700.0f)),
+        this->position.y + (17.5f * (this->size.y / 100.0f)) },
         { glm::vec3(0.0f), (this->opacity * masterOpacity) / 255.0f }, this->textFont, (uint32_t)fontSize, this->inputtedText);
 }
 
