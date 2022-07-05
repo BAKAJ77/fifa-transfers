@@ -1,5 +1,7 @@
 #include <states/new_save.h>
 #include <states/main_menu.h>
+#include <states/user_setup.h>
+
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
 
@@ -7,6 +9,7 @@ void NewSave::Init()
 {
     // Initialize the member variables
     this->goBackToPlayMenu = this->saveNameInvalid = this->playerCountInvalid = this->growthSystemInvalid = this->randomisePotentialInvalid = false;
+    this->logoOpacity = 0.0f;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -29,11 +32,7 @@ void NewSave::Init()
     this->userInterface.GetRadioButtonGroup("Randomise Potentials")->Add("No", 0);
 }
 
-void NewSave::Destroy() 
-{
-    this->userInterface.GetStandaloneTextField("Save Name")->Clear();
-    this->userInterface.GetStandaloneTextField("Player Count")->Clear();
-}
+void NewSave::Destroy() {}
 
 void NewSave::Update(const float& deltaTime)
 {
@@ -76,7 +75,8 @@ void NewSave::Update(const float& deltaTime)
                     SaveData::GetInstance().SetPlayerCount((uint8_t)std::stoi(playerCountStr));
                     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)growthSystemType);
 
-                    // Finally, continue onto the user setup app state (TODO)
+                    // Finally, continue onto the user setup app state
+                    this->PushState(UserSetup::GetAppState());
                 }
             }
             else if (menuButton->GetText() == "BACK" && menuButton->WasClicked())
@@ -87,11 +87,13 @@ void NewSave::Update(const float& deltaTime)
     {
         constexpr float transitionSpeed = 1000.0f;
 
-        // Update the interface fade out effect
+        // Update the interface and small title logo fade out effect
         this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
+        this->logoOpacity = this->userInterface.GetOpacity();
+
         if (this->userInterface.GetOpacity() == 0.0f)
         {
-            // Update title logo fade in effect
+            // Update large title logo fade in effect
             MainMenu::GetAppState()->SetLogoOpacity(std::min(MainMenu::GetAppState()->GetLogoOpacity() + (transitionSpeed * deltaTime), 255.0f));
             if (MainMenu::GetAppState()->GetLogoOpacity() == 255.0f)
                 this->PopState();
@@ -103,7 +105,7 @@ void NewSave::Render() const
 {
     // Render the small title logo
     Renderer::GetInstance().RenderSquare({ 169, 63 }, { 288, 78 }, TextureLoader::GetInstance().GetTexture("Title Logo Small"), 
-        { glm::vec3(255), this->userInterface.GetOpacity() });
+        { glm::vec3(255), this->logoOpacity });
 
     // Render the text field descriptions
     Renderer::GetInstance().RenderShadowedText({ 25, 225 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
@@ -143,16 +145,42 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
 {
     constexpr float transitionSpeed = 1000.0f;
 
-    // Update title logo fade out effect
+    // Update large title logo fade out effect
     MainMenu::GetAppState()->SetLogoOpacity(std::max(MainMenu::GetAppState()->GetLogoOpacity() - (transitionSpeed * deltaTime), 0.0f));
 
-    // Once the title logo fade out effect is complete, update interface fade in effect
+    // Once the large title logo fade out effect is complete, update interface and small title logo fade in effect
     if (MainMenu::GetAppState()->GetLogoOpacity() == 0.0f)
     {
         this->userInterface.SetOpacity(std::min(this->userInterface.GetOpacity() + (transitionSpeed * deltaTime), 255.0f));
+        this->logoOpacity = this->userInterface.GetOpacity();
+
         if (this->userInterface.GetOpacity() == 255.0f)
             return true;
     }
+
+    return false;
+}
+
+bool NewSave::OnPauseTransitionUpdate(const float deltaTime)
+{
+    constexpr float transitionSpeed = 1000.0f;
+
+    // Update the interface fade out effect
+    this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
+    if (this->userInterface.GetOpacity() == 0.0f)
+        return true;
+
+    return false;
+}
+
+bool NewSave::OnResumeTransitionUpdate(const float deltaTime)
+{
+    constexpr float transitionSpeed = 1000.0f;
+
+    // Update the interface fade in effect
+    this->userInterface.SetOpacity(std::min(this->userInterface.GetOpacity() + (transitionSpeed * deltaTime), 255.0f));
+    if (this->userInterface.GetOpacity() == 255.0f)
+        return true;
 
     return false;
 }

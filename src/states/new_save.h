@@ -9,6 +9,7 @@ class NewSave : public AppState
 private:
 	UserInterface userInterface;
 	FontPtr font;
+	float logoOpacity;
 
 	int randomisePotentials;
 	bool goBackToPlayMenu, saveNameInvalid, playerCountInvalid, growthSystemInvalid, randomisePotentialInvalid;
@@ -20,6 +21,8 @@ protected:
 	void Render() const override;
 
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
+	bool OnPauseTransitionUpdate(const float deltaTime) override;
+	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
 	static NewSave* GetAppState();
 
