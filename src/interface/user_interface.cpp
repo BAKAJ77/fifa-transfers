@@ -43,6 +43,18 @@ void UserInterface::AddStandaloneTextField(const std::string_view& id, const Tex
     this->standaloneTextFields[id.data()] = field;
 }
 
+void UserInterface::AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group)
+{
+    // Don't add the radio button group to the interface if another with the ID given already exists
+    if (this->radioButtonGroups.find(id.data()) != this->radioButtonGroups.end())
+    {
+        LogSystem::GetInstance().OutputLog("There's already a radio button group with the ID: " + std::string(id), Severity::WARNING);
+        return;
+    }
+
+    this->radioButtonGroups[id.data()] = group;
+}
+
 void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
@@ -54,6 +66,10 @@ void UserInterface::Update(const float& deltaTime)
         // Update the standalone text fields
         for (auto& field : this->standaloneTextFields)
             field.second.Update(deltaTime);
+
+        // Update the radio button groups
+        for (auto& group : this->radioButtonGroups)
+            group.second.Update(deltaTime);
     }
 }
 
@@ -66,6 +82,10 @@ void UserInterface::Render() const
     // Render the standalone text fields
     for (const auto& field : this->standaloneTextFields)
         field.second.Render(this->opacity);
+
+    // Render the radio button groups
+    for (auto& group : this->radioButtonGroups)
+        group.second.Render(this->opacity);
 }
 
 TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
@@ -82,6 +102,17 @@ TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id
 const std::vector<ButtonBase*>& UserInterface::GetStandaloneButtons()
 {
     return this->standaloneButtons;
+}
+
+RadioButtonGroup* UserInterface::GetRadioButtonGroup(const std::string_view& id)
+{
+    auto iterator = this->radioButtonGroups.find(id.data());
+    if (iterator != this->radioButtonGroups.end())
+        return &iterator->second;
+
+    // No radio button group has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No radio button group exists with the ID: " + std::string(id), Severity::WARNING);
+    return nullptr;
 }
 
 const float& UserInterface::GetOpacity() const
