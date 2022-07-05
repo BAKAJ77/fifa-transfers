@@ -7,15 +7,25 @@
 
 class TextInputField
 {
+public:
+	enum class Restrictions : uint8_t
+	{
+		NONE = 0x0,
+		NO_ALPHABETIC = 0x1,
+		NO_NUMERIC = 0x2,
+		NO_SPACES = 0x4
+	};
 private:
 	FontPtr textFont;
 
 	std::string inputtedText;
 	glm::vec2 position, size, textSize;
 	float opacity, shadowDistance, fontSize;
+	Restrictions inputFlags;
 public:
 	TextInputField();
-	TextInputField(const glm::vec2& pos, const glm::vec2& size, float opacity = 255.0f, float shadowDistance = 5.0f);
+	TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags = Restrictions::NONE, float opacity = 255.0f, 
+		float shadowDistance = 5.0f);
 	
 	~TextInputField();
 
@@ -64,5 +74,11 @@ public:
 	// Returns the distance of the shadow from the button.
 	const float& GetShadowDistance() const;
 };
+
+// Bitwise manipulation operator overload for ANDing between two restriction flags
+extern TextInputField::Restrictions operator&(const TextInputField::Restrictions& lhs, const TextInputField::Restrictions& rhs);
+
+// Bitwise manipulation operator overload for ORing between two restriction flags
+extern TextInputField::Restrictions operator|(const TextInputField::Restrictions& lhs, const TextInputField::Restrictions& rhs);
 
 #endif

@@ -9,11 +9,11 @@ namespace Focus
 }
 
 TextInputField::TextInputField() :
-    opacity(0.0f), shadowDistance(0.0f), fontSize(0.0f)
+    opacity(0.0f), shadowDistance(0.0f), fontSize(0.0f), inputFlags(Restrictions::NONE)
 {}
 
-TextInputField::TextInputField(const glm::vec2& pos, const glm::vec2& size, float opacity, float shadowDistance) :
-    position(pos), size(size), opacity(opacity), shadowDistance(shadowDistance), fontSize(size.y / 2.0f)
+TextInputField::TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags, float opacity, float shadowDistance) :
+    position(pos), size(size), opacity(opacity), shadowDistance(shadowDistance), fontSize(size.y / 2.0f), inputFlags(flags)
 {
     this->textFont = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 }
@@ -57,12 +57,17 @@ void TextInputField::Update(const float& deltaTime)
         // Poll for any character that has been inputted
         const uint32_t character = InputSystem::GetInstance().GetInputtedCharacter();
 
-        // Accept only spaces, numerical and alphabetic characters
+        // Accept only spaces, numerical and alphabetic characters based on the input restriction flags given
         // Also only accept characters if the text box field is not full
-        if ((character == 32 || (character >= 48 && character <= 57) || (character >= 65 && character <= 90) || (character >= 97 && character <= 122)) &&
-            (this->textSize.x < this->size.x - 50))
+        if (this->textSize.x < this->size.x - 50)
         {
-            this->inputtedText.push_back((char)character);
+            if ((character == 32 && (this->inputFlags & Restrictions::NO_SPACES) != Restrictions::NO_SPACES) ||
+                ((character >= 48 && character <= 57) && (this->inputFlags & Restrictions::NO_NUMERIC) != Restrictions::NO_NUMERIC) ||
+                (((character >= 65 && character <= 90) || (character >= 97 && character <= 122)) &&
+                    (this->inputFlags & Restrictions::NO_ALPHABETIC) != Restrictions::NO_ALPHABETIC))
+            {
+                this->inputtedText.push_back((char)character);
+            }
         }
 
         // Pop the last character if the user presses BACKSPACE
@@ -161,4 +166,14 @@ const float& TextInputField::GetOpacity() const
 const float& TextInputField::GetShadowDistance() const
 {
     return this->shadowDistance;
+}
+
+TextInputField::Restrictions operator&(const TextInputField::Restrictions& lhs, const TextInputField::Restrictions& rhs)
+{
+    return (TextInputField::Restrictions)((uint8_t)lhs & (uint8_t)rhs);
+}
+
+TextInputField::Restrictions operator|(const TextInputField::Restrictions& lhs, const TextInputField::Restrictions& rhs)
+{
+    return (TextInputField::Restrictions)((uint8_t)lhs | (uint8_t)rhs);
 }
