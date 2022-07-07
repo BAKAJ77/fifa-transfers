@@ -55,6 +55,18 @@ void UserInterface::AddRadioButtonGroup(const std::string_view& id, const RadioB
     this->radioButtonGroups[id.data()] = group;
 }
 
+void UserInterface::AddDropDown(const std::string_view& id, const DropDown& dropDown)
+{
+    // Don't add the drop down to the interface if another with the ID given already exists
+    if (this->dropDowns.find(id.data()) != this->dropDowns.end())
+    {
+        LogSystem::GetInstance().OutputLog("There's already a drop down with the ID: " + std::string(id), Severity::WARNING);
+        return;
+    }
+
+    this->dropDowns[id.data()] = dropDown;
+}
+
 void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
@@ -112,6 +124,17 @@ RadioButtonGroup* UserInterface::GetRadioButtonGroup(const std::string_view& id)
 
     // No radio button group has been found matching the ID given
     LogSystem::GetInstance().OutputLog("No radio button group exists with the ID: " + std::string(id), Severity::WARNING);
+    return nullptr;
+}
+
+DropDown* UserInterface::GetDropDown(const std::string_view& id)
+{
+    auto iterator = this->dropDowns.find(id.data());
+    if (iterator != this->dropDowns.end())
+        return &iterator->second;
+
+    // No drop down has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No drop down exists with the ID: " + std::string(id), Severity::WARNING);
     return nullptr;
 }
 

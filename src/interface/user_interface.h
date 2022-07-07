@@ -5,6 +5,7 @@
 #include <interface/button_base.h>
 #include <interface/text_input_field.h>
 #include <interface/radio_buttons.h>
+#include <interface/drop_down.h>
 
 #include <string>
 #include <vector>
@@ -18,6 +19,7 @@ private:
 	std::unordered_map<std::string, TextInputField> standaloneTextFields;
 
 	std::unordered_map<std::string, RadioButtonGroup> radioButtonGroups;
+	std::unordered_map<std::string, DropDown> dropDowns;
 
 	float animationSpeed, opacity;
 public:
@@ -42,6 +44,9 @@ public:
 	// Adds a radio button group to the interface.
 	void AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group);
 
+	// Adds a drop down to the interface.
+	void AddDropDown(const std::string_view& id, const DropDown& dropDown);
+
 	// Updates the interface.
 	void Update(const float& deltaTime);
 
@@ -56,6 +61,9 @@ public:
 
 	// Returns the radio button group matching the ID given.
 	RadioButtonGroup* GetRadioButtonGroup(const std::string_view& id);
+
+	// Returns the drop down matching the ID given.
+	DropDown* GetDropDown(const std::string_view& id);
 
 	// Returns the master opacity of the user interface. 
 	const float& GetOpacity() const;
