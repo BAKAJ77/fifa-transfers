@@ -181,6 +181,9 @@ public:
 	// instead of the window resolution.
 	glm::vec2 GetCursorPosition(const OrthogonalCamera* viewport = nullptr) const;
 
+	// Returns the offset of which the user scrolls using their mouse/touchpad.
+	glm::vec2 GetScrollOffset() const;
+
 	// Returns the unicode character inputted.
 	uint32_t GetInputtedCharacter() const;
 

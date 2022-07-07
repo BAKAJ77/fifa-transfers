@@ -1,19 +1,28 @@
 #include <core/input_system.h>
 #include <GLFW/glfw3.h>
 
-namespace TextPolling
+namespace Callbacks
 {
 	static uint32_t characterInputted = 0x0;
 	static void PollTextInputCallback(GLFWwindow* window, uint32_t codePoint)
 	{
 		characterInputted = codePoint;
 	}
+
+	static glm::vec2 scrollOffset;
+	static void GetScrollOffsetsCallback(GLFWwindow* window, double offsetX, double offsetY)
+	{
+		scrollOffset = { (float)offsetX, (float)offsetY };
+	}
 }
 
 void InputSystem::Init(WindowFramePtr window)
 {
 	this->window = window;
-	glfwSetCharCallback(window->GetFramePtr(), TextPolling::PollTextInputCallback);
+
+	// Setup the callback functions
+	glfwSetCharCallback(window->GetFramePtr(), Callbacks::PollTextInputCallback);
+	glfwSetScrollCallback(window->GetFramePtr(), Callbacks::GetScrollOffsetsCallback);
 }
 
 bool InputSystem::WasKeyPressed(KeyCode key) const
@@ -42,10 +51,18 @@ glm::vec2 InputSystem::GetCursorPosition(const OrthogonalCamera* viewport) const
 	return glm::vec2((float)cursorPosX, (float)cursorPosY);
 }
 
+glm::vec2 InputSystem::GetScrollOffset() const
+{
+	const glm::vec2 scrollOffset = Callbacks::scrollOffset;
+	Callbacks::scrollOffset = glm::vec2(0);
+
+	return scrollOffset;
+}
+
 uint32_t InputSystem::GetInputtedCharacter() const
 {
-	const uint32_t character = TextPolling::characterInputted;
-	TextPolling::characterInputted = 0x0;
+	const uint32_t character = Callbacks::characterInputted;
+	Callbacks::characterInputted = 0x0;
 
 	return character;
 }
