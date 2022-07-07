@@ -82,6 +82,10 @@ void UserInterface::Update(const float& deltaTime)
         // Update the radio button groups
         for (auto& group : this->radioButtonGroups)
             group.second.Update(deltaTime);
+
+        // Update the drop downs
+        for (auto& dropDown : this->dropDowns)
+            dropDown.second.Update(deltaTime);
     }
 }
 
@@ -98,6 +102,10 @@ void UserInterface::Render() const
     // Render the radio button groups
     for (auto& group : this->radioButtonGroups)
         group.second.Render(this->opacity);
+
+    // Render the drop downs
+    for (auto& dropDown : this->dropDowns)
+        dropDown.second.Render(this->opacity);
 }
 
 TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
