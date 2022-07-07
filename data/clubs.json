@@ -1,0 +1,3507 @@
+{
+    "1": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "1. FC HEIDENHEIM 1846"
+    },
+    "10": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "AALBORG BK"
+    },
+    "100": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "BRISTOL CITY"
+    },
+    "101": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "BRISTOL ROVERS"
+    },
+    "102": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "BRUK-BET TERMALICA NIECIECZA"
+    },
+    "103": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "BRONDBY IF"
+    },
+    "104": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "BSC YOUNG BOYS"
+    },
+    "105": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "BURGOS CF"
+    },
+    "106": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "BURNLEY"
+    },
+    "107": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "BURTON ALBION"
+    },
+    "108": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "CA OSASUNA"
+    },
+    "109": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "CAGLIARI"
+    },
+    "11": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "AARHUS GF"
+    },
+    "110": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "CAMBRIDGE UNITED"
+    },
+    "111": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "CAMPIONII FC ARGES"
+    },
+    "112": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "CARDIFF CITY"
+    },
+    "113": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "CARLISLE UNITED"
+    },
+    "114": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "CARLOS A. MANNUCCI"
+    },
+    "115": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "CD ANTOFAGASTA"
+    },
+    "116": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "CD HUACHIPATO"
+    },
+    "117": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "CD LEGANES"
+    },
+    "118": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "CD LUGO"
+    },
+    "119": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "CD MIRANDES"
+    },
+    "12": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "ABERDEEN"
+    },
+    "120": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "CD TENERIFE"
+    },
+    "121": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "CD TONDELA"
+    },
+    "122": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "CEARA SPORTING CLUB"
+    },
+    "123": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "CELTIC"
+    },
+    "124": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "CENTRAL COAST MARINERS"
+    },
+    "125": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "CENTRO ATLETICO FENIX"
+    },
+    "126": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "CEREZO OSAKA"
+    },
+    "127": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "CERRO LARGO FUTBOL CLUB"
+    },
+    "128": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "CF FUENLABRADA"
+    },
+    "129": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CF MONTERREY"
+    },
+    "13": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "ABHA CLUB"
+    },
+    "130": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "CFR CLUJ"
+    },
+    "131": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "CHAMOIS NIORTAIS FOOTBALL CLUB"
+    },
+    "132": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "CHANGCHUN YATAI FC"
+    },
+    "133": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "CHARLTON ATHLETIC"
+    },
+    "134": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "CHELSEA"
+    },
+    "135": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "CHELTENHAM TOWN"
+    },
+    "136": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "CHENNAIYIN FC"
+    },
+    "137": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "CHICAGO FIRE FOOTBALL CLUB"
+    },
+    "138": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "CHONGQING LIANGJIANG ATHLETIC"
+    },
+    "139": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "CLERMONT FOOT 63"
+    },
+    "14": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "AC AJACCIO"
+    },
+    "140": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB ALWAYS READY"
+    },
+    "141": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB AMERICA"
+    },
+    "142": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "CLUB ATHLETICO PARANAENSE"
+    },
+    "143": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB ATLAS"
+    },
+    "144": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO ALDOSIVI"
+    },
+    "145": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO BANFIELD"
+    },
+    "146": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO CENTRAL CORDOBA"
+    },
+    "147": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO COLON"
+    },
+    "148": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB ATLETICO DE SAN LUIS"
+    },
+    "149": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO HURACAN"
+    },
+    "15": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "AC MILAN"
+    },
+    "150": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO INDEPENDIENTE"
+    },
+    "151": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO LANUS"
+    },
+    "152": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB ATLETICO NACIONAL POTOSI"
+    },
+    "153": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB ATLETICO PALMAFLOR"
+    },
+    "154": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "CLUB ATLETICO PENAROL"
+    },
+    "155": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "CLUB ATLETICO RENTISTAS"
+    },
+    "156": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO SARMIENTO"
+    },
+    "157": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "CLUB ATLETICO TALLERES"
+    },
+    "158": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB BOLIVAR"
+    },
+    "159": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "CLUB BRUGGE KV"
+    },
+    "16": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "AC MINEROS DE GUAYANA"
+    },
+    "160": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "CLUB CERRO PORTENO"
+    },
+    "161": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "CLUB DE DEPORTES COBRESAL"
+    },
+    "162": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "CLUB DE FOOT MONTREAL"
+    },
+    "163": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "CLUB DEPORTES TOLIMA"
+    },
+    "164": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB DEPORTIVO GUABIRA"
+    },
+    "165": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB DEPORTIVO GUADALAJARA"
+    },
+    "166": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB DEPORTIVO JORGE WILSTERMANN"
+    },
+    "167": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "CLUB DEPORTIVO PALESTINO"
+    },
+    "168": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "CLUB INDEPENDIENTE SANTA FE"
+    },
+    "169": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB LEON"
+    },
+    "17": {
+        "budget": 0,
+        "leagueID": 30,
+        "name": "AC MONZA"
+    },
+    "170": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "CLUB LIBERTAD"
+    },
+    "171": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "CLUB NACIONAL DE FOOTBALL"
+    },
+    "172": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "CLUB NACIONAL"
+    },
+    "173": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB NECAXA"
+    },
+    "174": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "CLUB OLIMPIA"
+    },
+    "175": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "CLUB RIVER PLATE ASUNCION"
+    },
+    "176": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "CLUB SOCIAL Y DEPORTIVO MACARA"
+    },
+    "177": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "CLUB SPORTING CRISTAL"
+    },
+    "178": {
+        "budget": 0,
+        "leagueID": 33,
+        "name": "CLUB THE STRONGEST"
+    },
+    "179": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB TIJUANA"
+    },
+    "18": {
+        "budget": 0,
+        "leagueID": 11,
+        "name": "AC SPARTA PRAHA"
+    },
+    "180": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CLUB UNIVERSIDAD NACIONAL"
+    },
+    "181": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "CLUB UNIVERSITARIO DE DEPORTES"
+    },
+    "182": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "CLUBE ATLETICO MINEIRO"
+    },
+    "183": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "CLUBE SPORT MARITIMO"
+    },
+    "184": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "COLCHESTER UNITED"
+    },
+    "185": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "COLORADO RAPIDS"
+    },
+    "186": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "COLUMBUS CREW"
+    },
+    "187": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "COVENTRY CITY"
+    },
+    "188": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "CRACOVIA"
+    },
+    "189": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "CRAWLEY TOWN"
+    },
+    "19": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "ACADEMIA PUERTO CABELLO"
+    },
+    "190": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "CREWE ALEXANDRA"
+    },
+    "191": {
+        "budget": 0,
+        "leagueID": 30,
+        "name": "CROTONE"
+    },
+    "192": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "CRUZ AZUL"
+    },
+    "193": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "CRYSTAL PALACE"
+    },
+    "194": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "CS EMELEC"
+    },
+    "195": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "CS MIOVENI"
+    },
+    "196": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "CUIABA"
+    },
+    "197": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "CADIZ CF"
+    },
+    "198": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "D.C. UNITED"
+    },
+    "199": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "DAEGU FC"
+    },
+    "2": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "1. FC KAISERSLAUTERN"
+    },
+    "20": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "ACCRINGTON STANLEY"
+    },
+    "200": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "DALIAN PROFESSIONAL FOOTBALL CLUB"
+    },
+    "201": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "DAMAC FC"
+    },
+    "202": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "DEFENSA Y JUSTICIA"
+    },
+    "203": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "DEGERFORS IF"
+    },
+    "204": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "DEMIR GRUP SIVASSPOR"
+    },
+    "205": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "DEPORTIVO ALAVES"
+    },
+    "206": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "DEPORTIVO CALI"
+    },
+    "207": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "DEPORTIVO LA GUAIRA FC"
+    },
+    "208": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "DEPORTIVO PASTO"
+    },
+    "209": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "DEPORTIVO TOLUCA"
+    },
+    "21": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "AD ALCORCON"
+    },
+    "210": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "DEPORTIVO TACHIRA FC"
+    },
+    "211": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "DERBY COUNTY"
+    },
+    "212": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "DERRY CITY"
+    },
+    "213": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "DIJON FCO"
+    },
+    "214": {
+        "budget": 0,
+        "leagueID": 9,
+        "name": "DINAMO ZAGREB"
+    },
+    "215": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "DJURGARDENS IF"
+    },
+    "216": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "DONCASTER ROVERS"
+    },
+    "217": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "DROGHEDA UNITED"
+    },
+    "218": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "DSC ARMINIA BIELEFELD"
+    },
+    "219": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "DUNDALK FC"
+    },
+    "22": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ADANA DEMIRSPOR"
+    },
+    "220": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "DUNDEE FC"
+    },
+    "221": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "DUNDEE UNITED"
+    },
+    "222": {
+        "budget": 0,
+        "leagueID": 53,
+        "name": "DYNAMO KYIV"
+    },
+    "223": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "EINTRACHT BRAUNSCHWEIG"
+    },
+    "224": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "EINTRACHT FRANKFURT"
+    },
+    "225": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "ELCHE CF"
+    },
+    "226": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "EMPOLI"
+    },
+    "227": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "EN AVANT DE GUINGAMP"
+    },
+    "228": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "ESTAC TROYES"
+    },
+    "229": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "ESTORIL PRAIA"
+    },
+    "23": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "ADELAIDE UNITED"
+    },
+    "230": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "ESTUDIANTES DE LA PLATA"
+    },
+    "231": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "ETTIFAQ FC"
+    },
+    "232": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "EVERTON"
+    },
+    "233": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "EXETER CITY"
+    },
+    "234": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "F.C. HANSA ROSTOCK"
+    },
+    "235": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "F.C. KOBENHAVN"
+    },
+    "236": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "FATIH KARAGUMRUK S.K."
+    },
+    "237": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "FBC MELGAR"
+    },
+    "238": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC ACADEMICA CLINCENI"
+    },
+    "239": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "FC AROUCA"
+    },
+    "24": {
+        "budget": 0,
+        "leagueID": 25,
+        "name": "AEK ATHENS"
+    },
+    "240": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "FC AUGSBURG"
+    },
+    "241": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "FC BARCELONA"
+    },
+    "242": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC BASEL 1893"
+    },
+    "243": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "FC BAYERN MUNCHEN"
+    },
+    "244": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC BOTOSANI"
+    },
+    "245": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "FC CARTAGENA"
+    },
+    "246": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "FC CINCINNATI"
+    },
+    "247": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "FC DALLAS"
+    },
+    "248": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC DINAMO 1948 BUCURESTI"
+    },
+    "249": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "FC ERZGEBIRGE AUE"
+    },
+    "25": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "AFC BOURNEMOUTH"
+    },
+    "250": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC FARUL CONSTANTA"
+    },
+    "251": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "FC FLYERALARM ADMIRA"
+    },
+    "252": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "FC GIRONDINS DE BORDEAUX"
+    },
+    "253": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "FC GOA"
+    },
+    "254": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "FC GRONINGEN"
+    },
+    "255": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "FC INGOLSTADT 04"
+    },
+    "256": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC LAUSANNE-SPORT"
+    },
+    "257": {
+        "budget": 0,
+        "leagueID": 42,
+        "name": "FC LOKOMOTIV MOSCOW"
+    },
+    "258": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "FC LORIENT"
+    },
+    "259": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC LUGANO"
+    },
+    "26": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "AFC CHINDIA TARGOVISTE"
+    },
+    "260": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC LUZERN"
+    },
+    "261": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "FC METZ"
+    },
+    "262": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "FC MIDTJYLLAND"
+    },
+    "263": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "FC NANTES"
+    },
+    "264": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "FC NORDSJAELLAND"
+    },
+    "265": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "FC PACOS DE FERREIRA"
+    },
+    "266": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "FC PORTO"
+    },
+    "267": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "FC RED BULL SALZBURG"
+    },
+    "268": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "FC SCHALKE 04"
+    },
+    "269": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "FC SEOUL"
+    },
+    "27": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "AFC UTA ARAD"
+    },
+    "270": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC SION"
+    },
+    "271": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "FC SOCHAUX-MONTBELIARD"
+    },
+    "272": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC ST. GALLEN 1879"
+    },
+    "273": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "FC ST. PAULI"
+    },
+    "274": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "FC TOKYO"
+    },
+    "275": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "FC TWENTE"
+    },
+    "276": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC U CRAIOVA 1948"
+    },
+    "277": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "FC UTRECHT"
+    },
+    "278": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "FC VIKTORIA 1889 BERLIN"
+    },
+    "279": {
+        "budget": 0,
+        "leagueID": 11,
+        "name": "FC VIKTORIA PLZEN"
+    },
+    "28": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "AFC WIMBLEDON"
+    },
+    "280": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "FC VIZELA"
+    },
+    "281": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FC VOLUNTARI"
+    },
+    "282": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "FC WURZBURGER KICKERS"
+    },
+    "283": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "FC ZURICH"
+    },
+    "284": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "FCSB (STEAUA)"
+    },
+    "285": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "FENERBAHCE SK"
+    },
+    "286": {
+        "budget": 0,
+        "leagueID": 27,
+        "name": "FERENCVAROSI TC"
+    },
+    "287": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "FEYENOORD"
+    },
+    "288": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "FINN HARPS"
+    },
+    "289": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "FIORENTINA"
+    },
+    "29": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "AIK"
+    },
+    "290": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "FK AUSTRIA WIEN"
+    },
+    "291": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "FK BODO/GLIMT"
+    },
+    "292": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "FK HAUGESUND"
+    },
+    "293": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "FLAMENGO"
+    },
+    "294": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "FLEETWOOD TOWN"
+    },
+    "295": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "FLUMINENSE"
+    },
+    "296": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "FOREST GREEN ROVERS"
+    },
+    "297": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "FORTALEZA"
+    },
+    "298": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "FORTUNA DUSSELDORF"
+    },
+    "299": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "FORTUNA SITTARD"
+    },
+    "3": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "1. FC KOLN"
+    },
+    "30": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "AJ AUXERRE"
+    },
+    "300": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "FSV ZWICKAU"
+    },
+    "301": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "FULHAM"
+    },
+    "302": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "FUTEBOL CLUBE DE FAMALICAO"
+    },
+    "303": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "FUTBOL CLUB JUAREZ"
+    },
+    "304": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "GALATASARAY SK"
+    },
+    "305": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "GALLOS BLANCOS DE QUERETARO"
+    },
+    "306": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "GAMBA OSAKA"
+    },
+    "307": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "GANGWON FC"
+    },
+    "308": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "GAZ METAN MEDIAS"
+    },
+    "309": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "GAZISEHIR GAZIANTEP F.K."
+    },
+    "31": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "AJAX"
+    },
+    "310": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "GENOA"
+    },
+    "311": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "GETAFE CF"
+    },
+    "312": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "GIL VICENTE FC"
+    },
+    "313": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "GILLINGHAM"
+    },
+    "314": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "GIMNASIA Y ESGRIMA LA PLATA"
+    },
+    "315": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "GIRONA FC"
+    },
+    "316": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "GO AHEAD EAGLES"
+    },
+    "317": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "GODOY CRUZ"
+    },
+    "318": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "GRANADA CF"
+    },
+    "319": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "GRASSHOPPER CLUB ZURICH"
+    },
+    "32": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL AHLI"
+    },
+    "320": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "GRENOBLE FOOT 38"
+    },
+    "321": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "GREMIO"
+    },
+    "322": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "GUAIRENA FC"
+    },
+    "323": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "GUANGZHOU CITY"
+    },
+    "324": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "GUANGZHOU FC"
+    },
+    "325": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "GUAYAQUIL CITY FC"
+    },
+    "326": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "GWANGJU FC"
+    },
+    "327": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "GZT GIRESUNSPOR"
+    },
+    "328": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "GORNIK ZABRZE"
+    },
+    "329": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "GORNIK LECZNA"
+    },
+    "33": {
+        "budget": 0,
+        "leagueID": 51,
+        "name": "AL AIN FC"
+    },
+    "330": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "GOZTEPE SK"
+    },
+    "331": {
+        "budget": 0,
+        "leagueID": 9,
+        "name": "HAJDUK SPLIT"
+    },
+    "332": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "HALLESCHER FC"
+    },
+    "333": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "HALMSTADS BK"
+    },
+    "334": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "HAMBURGER SV"
+    },
+    "335": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "HAMMARBY IF"
+    },
+    "336": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "HANNOVER 96"
+    },
+    "337": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "HARROGATE TOWN"
+    },
+    "338": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "HARTLEPOOL UNITED"
+    },
+    "339": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "HEART OF MIDLOTHIAN"
+    },
+    "34": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL BATIN"
+    },
+    "340": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "HEBEI FC"
+    },
+    "341": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "HELLAS VERONA"
+    },
+    "342": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "HENAN SONGSHAN LONGMEN FC"
+    },
+    "343": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "HERACLES ALMELO"
+    },
+    "344": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "HERTHA BSC"
+    },
+    "345": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "HIBERNIAN"
+    },
+    "346": {
+        "budget": 0,
+        "leagueID": 19,
+        "name": "HJK HELSINKI"
+    },
+    "347": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "HOKKAIDO CONSADOLE SAPPORO"
+    },
+    "348": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "HOLSTEIN KIEL"
+    },
+    "349": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "HOUSTON DYNAMO"
+    },
+    "35": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL FAISALY"
+    },
+    "350": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "HUDDERSFIELD TOWN"
+    },
+    "351": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "HULL CITY"
+    },
+    "352": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "HYDERABAD FC"
+    },
+    "353": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "IF ELFSBORG"
+    },
+    "354": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "IFK GOTEBORG"
+    },
+    "355": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "IFK NORRKOPING"
+    },
+    "356": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "IK SIRIUS"
+    },
+    "357": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "INCHEON UNITED FC"
+    },
+    "358": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "INDEPENDIENTE DEL VALLE"
+    },
+    "359": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "INTER MIAMI CF"
+    },
+    "36": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL FATEH"
+    },
+    "360": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "INTER"
+    },
+    "361": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "INTERNACIONAL"
+    },
+    "362": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "IPSWICH TOWN"
+    },
+    "363": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "JAGIELLONIA BIALYSTOK"
+    },
+    "364": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "JAMSHEDPUR FC"
+    },
+    "365": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "JEJU UNITED FC"
+    },
+    "366": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "JEONBUK HYUNDAI MOTORS"
+    },
+    "367": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "JUNIOR FC"
+    },
+    "368": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "JUVENTUDE"
+    },
+    "369": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "JUVENTUS"
+    },
+    "37": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL FAYHA"
+    },
+    "370": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "K BEERSCHOT VA"
+    },
+    "371": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KAA GENT"
+    },
+    "372": {
+        "budget": 0,
+        "leagueID": 45,
+        "name": "KAIZER CHIEFS"
+    },
+    "373": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "KALMAR FF"
+    },
+    "374": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "KARLSRUHER SC"
+    },
+    "375": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KAS EUPEN"
+    },
+    "376": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "KASHIMA ANTLERS"
+    },
+    "377": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "KASHIWA REYSOL"
+    },
+    "378": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "KASIMPASA SK"
+    },
+    "379": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "KAWASAKI FRONTALE"
+    },
+    "38": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL HAZEM"
+    },
+    "380": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "KERALA BLASTERS FC"
+    },
+    "381": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KRC GENK"
+    },
+    "382": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "KRISTIANSUND BK"
+    },
+    "383": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KSV CERCLE BRUGGE"
+    },
+    "384": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KV KORTRIJK"
+    },
+    "385": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KV MECHELEN"
+    },
+    "386": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "KV OOSTENDE"
+    },
+    "387": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "LA EQUIDAD"
+    },
+    "388": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "LA GALAXY"
+    },
+    "389": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "LASK LINZ"
+    },
+    "39": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL HILAL"
+    },
+    "390": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "LAZIO"
+    },
+    "391": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "LDU QUITO"
+    },
+    "392": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "LE HAVRE AC"
+    },
+    "393": {
+        "budget": 0,
+        "leagueID": 30,
+        "name": "LECCE"
+    },
+    "394": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "LECH POZNAN"
+    },
+    "395": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "LECHIA GDANSK"
+    },
+    "396": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "LEEDS UNITED"
+    },
+    "397": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "LEGIA WARSZAWA"
+    },
+    "398": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "LEICESTER CITY"
+    },
+    "399": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "LEVANTE UNION DEPORTIVA"
+    },
+    "4": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "1. FC MAGDEBURG"
+    },
+    "40": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL ITTIHAD"
+    },
+    "400": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "LEYTON ORIENT"
+    },
+    "401": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "LILLESTROM SK"
+    },
+    "402": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "LINCOLN CITY"
+    },
+    "403": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "LIVERPOOL"
+    },
+    "404": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "LIVINGSTON FC"
+    },
+    "405": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "LONGFORD TOWN"
+    },
+    "406": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "LOS ANGELES FC"
+    },
+    "407": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "LOSC LILLE"
+    },
+    "408": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "LUTON TOWN"
+    },
+    "409": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "MACARTHUR FC"
+    },
+    "41": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL NASSR"
+    },
+    "410": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "MALMO FF"
+    },
+    "411": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "MANCHESTER CITY"
+    },
+    "412": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "MANCHESTER UNITED"
+    },
+    "413": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "MANSFIELD TOWN"
+    },
+    "414": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "MAZATLAN FUTBOL CLUB"
+    },
+    "415": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "MELBOURNE CITY FC"
+    },
+    "416": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "MELBOURNE VICTORY"
+    },
+    "417": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "METROPOLITANOS DE CARACAS FC"
+    },
+    "418": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "MIDDLESBROUGH"
+    },
+    "419": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "MILLWALL"
+    },
+    "42": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL RAED"
+    },
+    "420": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "MILTON KEYNES DONS"
+    },
+    "421": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "MINNESOTA UNITED FC"
+    },
+    "422": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "MJALLBY AIF"
+    },
+    "423": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "MJONDALEN IF"
+    },
+    "424": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "MOLDE FK"
+    },
+    "425": {
+        "budget": 0,
+        "leagueID": 54,
+        "name": "MONTEVIDEO CITY TORQUE"
+    },
+    "426": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "MONTPELLIER HERAULT SC"
+    },
+    "427": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "MORECAMBE"
+    },
+    "428": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "MOREIRENSE FC"
+    },
+    "429": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "MOTHERWELL"
+    },
+    "43": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL SHABAB"
+    },
+    "430": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "MSV DUISBURG"
+    },
+    "431": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "MUMBAI CITY FC"
+    },
+    "432": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "MALAGA CF"
+    },
+    "433": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "N.E.C. NIJMEGEN"
+    },
+    "434": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "NAGOYA GRAMPUS"
+    },
+    "435": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "NAPOLI"
+    },
+    "436": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "NASHVILLE SC"
+    },
+    "437": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "NEW ENGLAND REVOLUTION"
+    },
+    "438": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "NEW YORK CITY FC"
+    },
+    "439": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "NEW YORK RED BULLS"
+    },
+    "44": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL TAAWOUN"
+    },
+    "440": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "NEWCASTLE JETS"
+    },
+    "441": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "NEWCASTLE UNITED"
+    },
+    "442": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "NEWELL'S OLD BOYS"
+    },
+    "443": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "NEWPORT COUNTY"
+    },
+    "444": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "NORTHAMPTON TOWN"
+    },
+    "445": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "NORTHEAST UNITED FC"
+    },
+    "446": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "NORWICH CITY"
+    },
+    "447": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "NOTTINGHAM FOREST"
+    },
+    "448": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "NIMES OLYMPIQUE"
+    },
+    "449": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "ODDS BK"
+    },
+    "45": {
+        "budget": 0,
+        "leagueID": 43,
+        "name": "AL TAI"
+    },
+    "450": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "ODENSE BOLDKLUB"
+    },
+    "451": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "ODISHA FC"
+    },
+    "452": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "OGC NICE"
+    },
+    "453": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "OITA TRINITA"
+    },
+    "454": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "OLDHAM ATHLETIC"
+    },
+    "455": {
+        "budget": 0,
+        "leagueID": 25,
+        "name": "OLYMPIACOS CFP"
+    },
+    "456": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "OLYMPIQUE DE MARSEILLE"
+    },
+    "457": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "OLYMPIQUE LYONNAIS"
+    },
+    "458": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "ORLANDO CITY SOCCER CLUB"
+    },
+    "459": {
+        "budget": 0,
+        "leagueID": 45,
+        "name": "ORLANDO PIRATES"
+    },
+    "46": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ALTAY SK"
+    },
+    "460": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "OUD-HEVERLEE LEUVEN"
+    },
+    "461": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "OXFORD UNITED"
+    },
+    "462": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "PACHUCA"
+    },
+    "463": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "PALMEIRAS"
+    },
+    "464": {
+        "budget": 0,
+        "leagueID": 25,
+        "name": "PANATHINAIKOS FC"
+    },
+    "465": {
+        "budget": 0,
+        "leagueID": 25,
+        "name": "PAOK"
+    },
+    "466": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "PARIS FC"
+    },
+    "467": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "PARIS SAINT-GERMAIN"
+    },
+    "468": {
+        "budget": 0,
+        "leagueID": 30,
+        "name": "PARMA"
+    },
+    "469": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "PATRONATO"
+    },
+    "47": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "AMIENS SC"
+    },
+    "470": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "PAU FC"
+    },
+    "471": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "PEC ZWOLLE"
+    },
+    "472": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "PERTH GLORY"
+    },
+    "473": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "PETERBOROUGH UNITED"
+    },
+    "474": {
+        "budget": 0,
+        "leagueID": 42,
+        "name": "PFC CSKA MOSCOW"
+    },
+    "475": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "PGE FKS STAL MIELEC"
+    },
+    "476": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "PHILADELPHIA UNION"
+    },
+    "477": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "PIAST GLIWICE"
+    },
+    "478": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "PLATENSE"
+    },
+    "479": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "PLYMOUTH ARGYLE"
+    },
+    "48": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "AMERICA DE CALI"
+    },
+    "480": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "POGON SZCZECIN"
+    },
+    "481": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "POHANG STEELERS"
+    },
+    "482": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "PORT VALE"
+    },
+    "483": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "PORTIMONENSE SC"
+    },
+    "484": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "PORTLAND TIMBERS"
+    },
+    "485": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "PORTSMOUTH"
+    },
+    "486": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "PRESTON NORTH END"
+    },
+    "487": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "PSV"
+    },
+    "488": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "PUEBLA FC"
+    },
+    "489": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "QINGDAO FC"
+    },
+    "49": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "ANGERS SCO"
+    },
+    "490": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "QUEENS PARK RANGERS"
+    },
+    "491": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "RACING CLUB DE LENS"
+    },
+    "492": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "RACING CLUB"
+    },
+    "493": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "RADOMIAK RADOM"
+    },
+    "494": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "RAKOW CZESTOCHOWA"
+    },
+    "495": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "RANDERS FC"
+    },
+    "496": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "RANGERS FC"
+    },
+    "497": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "RAPID BUCURESTI"
+    },
+    "498": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "RAYO VALLECANO"
+    },
+    "499": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "RB BRAGANTINO"
+    },
+    "5": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "1. FC NURNBERG"
+    },
+    "50": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ANTALYASPOR"
+    },
+    "500": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "RB LEIPZIG"
+    },
+    "501": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "RC CELTA DE VIGO"
+    },
+    "502": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "RC STRASBOURG ALSACE"
+    },
+    "503": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "RCD ESPANYOL DE BARCELONA"
+    },
+    "504": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "RCD MALLORCA"
+    },
+    "505": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "READING"
+    },
+    "506": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "REAL BETIS BALOMPIE"
+    },
+    "507": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "REAL MADRID CF"
+    },
+    "508": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "REAL OVIEDO"
+    },
+    "509": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "REAL SALT LAKE"
+    },
+    "51": {
+        "budget": 0,
+        "leagueID": 10,
+        "name": "APOEL NICOSIA FC"
+    },
+    "510": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "REAL SOCIEDAD B"
+    },
+    "511": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "REAL SOCIEDAD"
+    },
+    "512": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "REAL SPORTING DE GIJON"
+    },
+    "513": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "REAL VALLADOLID CF"
+    },
+    "514": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "REAL ZARAGOZA"
+    },
+    "515": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "RIVER PLATE"
+    },
+    "516": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "RKC WAALWIJK"
+    },
+    "517": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "ROCHDALE"
+    },
+    "518": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "RODEZ AVEYRON FOOTBALL"
+    },
+    "519": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "ROMA"
+    },
+    "52": {
+        "budget": 0,
+        "leagueID": 55,
+        "name": "ARAGUA FUTBOL CLUB"
+    },
+    "520": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "ROSARIO CENTRAL"
+    },
+    "521": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "ROSENBORG BK"
+    },
+    "522": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "ROSS COUNTY FC"
+    },
+    "523": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "ROTHERHAM UNITED"
+    },
+    "524": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "ROYAL ANTWERP FC"
+    },
+    "525": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "ROYAL CHARLEROI S.C."
+    },
+    "526": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "ROYALE UNION SAINT-GILLOISE"
+    },
+    "527": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "RSC ANDERLECHT"
+    },
+    "528": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "RZ PELLETS WOLFSBERGER AC"
+    },
+    "529": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "SAGAN TOSU"
+    },
+    "53": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "ARGENTINOS JUNIORS"
+    },
+    "530": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "SALFORD CITY"
+    },
+    "531": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "SAN JOSE EARTHQUAKES"
+    },
+    "532": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "SAN LORENZO DE ALMAGRO"
+    },
+    "533": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "SANDEFJORD FOTBALL"
+    },
+    "534": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "SANFRECCE HIROSHIMA"
+    },
+    "535": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "SANTA CLARA"
+    },
+    "536": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "SANTOS LAGUNA"
+    },
+    "537": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "SANTOS"
+    },
+    "538": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "SARPSBORG 08 FF"
+    },
+    "539": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "SC BASTIA"
+    },
+    "54": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "ARSENAL DE SARANDI"
+    },
+    "540": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "SC BRAGA"
+    },
+    "541": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "SC CAMBUUR"
+    },
+    "542": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "SC EAST BENGAL FC"
+    },
+    "543": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "SC FREIBURG II"
+    },
+    "544": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "SC HEERENVEEN"
+    },
+    "545": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SC PADERBORN 07"
+    },
+    "546": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "SC RHEINDORF ALTACH"
+    },
+    "547": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "SCUNTHORPE UNITED"
+    },
+    "548": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "SD AMOREBIETA"
+    },
+    "549": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "SD EIBAR"
+    },
+    "55": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "ARSENAL"
+    },
+    "550": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "SD HUESCA"
+    },
+    "551": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "SD PONFERRADINA"
+    },
+    "552": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "SEATTLE SOUNDERS FC"
+    },
+    "553": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "SEONGNAM FC"
+    },
+    "554": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "SEPSI OSK SF. GHEORGHE"
+    },
+    "555": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "SERAING"
+    },
+    "556": {
+        "budget": 0,
+        "leagueID": 49,
+        "name": "SERVETTE FC"
+    },
+    "557": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "SEVILLA FC"
+    },
+    "558": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SG DYNAMO DRESDEN"
+    },
+    "559": {
+        "budget": 0,
+        "leagueID": 53,
+        "name": "SHAKHTAR DONETSK"
+    },
+    "56": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "AS MONACO"
+    },
+    "560": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "SHAMROCK ROVERS"
+    },
+    "561": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "SHANDONG TAISHAN"
+    },
+    "562": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "SHANGHAI PORT FC"
+    },
+    "563": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "SHANGHAI SHENHUA FC"
+    },
+    "564": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "SHEFFIELD UNITED"
+    },
+    "565": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "SHEFFIELD WEDNESDAY"
+    },
+    "566": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "SHENZHEN FC"
+    },
+    "567": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "SHIJIAZHUANG EVER BRIGHT F.C."
+    },
+    "568": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "SHIMIZU S-PULSE"
+    },
+    "569": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "SHONAN BELLMARE"
+    },
+    "57": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "AS NANCY LORRAINE"
+    },
+    "570": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "SHREWSBURY TOWN"
+    },
+    "571": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "SILKEBORG IF"
+    },
+    "572": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "SINT-TRUIDENSE VV"
+    },
+    "573": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "SK AUSTRIA KLAGENFURT"
+    },
+    "574": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "SK BRANN"
+    },
+    "575": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "SK RAPID WIEN"
+    },
+    "576": {
+        "budget": 0,
+        "leagueID": 11,
+        "name": "SK SLAVIA PRAHA"
+    },
+    "577": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "SK STURM GRAZ"
+    },
+    "578": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "SL BENFICA"
+    },
+    "579": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "SLIGO ROVERS"
+    },
+    "58": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "AS SAINT-ETIENNE"
+    },
+    "580": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "SOCIEDAD DEPORTIVA AUCAS"
+    },
+    "581": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "SOUTHAMPTON"
+    },
+    "582": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "SPARTA ROTTERDAM"
+    },
+    "583": {
+        "budget": 0,
+        "leagueID": 42,
+        "name": "SPARTAK MOSKVA"
+    },
+    "584": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "SPEZIA"
+    },
+    "585": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "SPORT CLUB CORINTHIANS PAULISTA"
+    },
+    "586": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "SPORT HUANCAYO"
+    },
+    "587": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "SPORT-CLUB FREIBURG"
+    },
+    "588": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "SPORTCLUB VERL"
+    },
+    "589": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "SPORTING CP"
+    },
+    "59": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "ASSOCIACAO CHAPECOENSE DE FUTEBOL"
+    },
+    "590": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "SPORTING KANSAS CITY"
+    },
+    "591": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "SPVGG GREUTHER FURTH"
+    },
+    "592": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SSV JAHN REGENSBURG"
+    },
+    "593": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "ST. JOHNSTONE FC"
+    },
+    "594": {
+        "budget": 0,
+        "leagueID": 44,
+        "name": "ST. MIRREN"
+    },
+    "595": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "ST. PATRICK'S ATHLETIC"
+    },
+    "596": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "STABAEK FOTBALL"
+    },
+    "597": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "STADE BRESTOIS 29"
+    },
+    "598": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "STADE DE REIMS"
+    },
+    "599": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "STADE MALHERBE CAEN"
+    },
+    "6": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "1. FC SAARBRUCKEN"
+    },
+    "60": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "ASTON VILLA"
+    },
+    "600": {
+        "budget": 0,
+        "leagueID": 20,
+        "name": "STADE RENNAIS FC"
+    },
+    "601": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "STANDARD DE LIEGE"
+    },
+    "602": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "STEVENAGE"
+    },
+    "603": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "STOKE CITY"
+    },
+    "604": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "STROMSGODSET IF"
+    },
+    "605": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "SUNDERLAND"
+    },
+    "606": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "SUTTON UNITED"
+    },
+    "607": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "SUWON FC"
+    },
+    "608": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "SUWON SAMSUNG BLUEWINGS"
+    },
+    "609": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SV DARMSTADT 98"
+    },
+    "61": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ATAKAS HATAYSPOR"
+    },
+    "610": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "SV MEPPEN"
+    },
+    "611": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "SV RIED"
+    },
+    "612": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SV SANDHAUSEN"
+    },
+    "613": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "SV WALDHOF MANNHEIM 07"
+    },
+    "614": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "SV WEHEN WIESBADEN"
+    },
+    "615": {
+        "budget": 0,
+        "leagueID": 23,
+        "name": "SV WERDER BREMEN"
+    },
+    "616": {
+        "budget": 0,
+        "leagueID": 4,
+        "name": "SV ZULTE WAREGEM"
+    },
+    "617": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "SWANSEA CITY"
+    },
+    "618": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "SWINDON TOWN"
+    },
+    "619": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "SYDNEY FC"
+    },
+    "62": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "ATALANTA"
+    },
+    "620": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "SAO PAULO"
+    },
+    "621": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "SONDERJYSKE"
+    },
+    "622": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "TIANJIN JINMEN TIGER FC"
+    },
+    "623": {
+        "budget": 0,
+        "leagueID": 34,
+        "name": "TIGRES U.A.N.L."
+    },
+    "624": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "TOKUSHIMA VORTIS"
+    },
+    "625": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "TORINO F.C."
+    },
+    "626": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "TORONTO FC"
+    },
+    "627": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "TOTTENHAM HOTSPUR"
+    },
+    "628": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "TOULOUSE FOOTBALL CLUB"
+    },
+    "629": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "TRABZONSPOR"
+    },
+    "63": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "ATHLETIC CLUB DE BILBAO"
+    },
+    "630": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "TRANMERE ROVERS"
+    },
+    "631": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "TROMSO IL"
+    },
+    "632": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "TSG HOFFENHEIM"
+    },
+    "633": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "TSV 1860 MUNCHEN"
+    },
+    "634": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "TSV EGGER GLAS HARTBERG"
+    },
+    "635": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "TSV HAVELSE"
+    },
+    "636": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "TURKGUCU MUNCHEN"
+    },
+    "637": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "U.C. SAMPDORIA"
+    },
+    "638": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "U.S. SASSUOLO CALCIO"
+    },
+    "639": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "UD IBIZA"
+    },
+    "64": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "ATK MOHUN BAGAN FC"
+    },
+    "640": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "UDINESE CALCIO"
+    },
+    "641": {
+        "budget": 0,
+        "leagueID": 32,
+        "name": "ULSAN HYUNDAI FC"
+    },
+    "642": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "UNIVERSIDAD CATOLICA"
+    },
+    "643": {
+        "budget": 0,
+        "leagueID": 37,
+        "name": "UNIVERSIDAD TECNICA DE CAJAMARCA"
+    },
+    "644": {
+        "budget": 0,
+        "leagueID": 41,
+        "name": "UNIVERSITATEA CRAIOVA"
+    },
+    "645": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "UNION DE SANTA FE"
+    },
+    "646": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "UNION DEPORTIVA ALMERIA"
+    },
+    "647": {
+        "budget": 0,
+        "leagueID": 47,
+        "name": "UNION DEPORTIVA LAS PALMAS"
+    },
+    "648": {
+        "budget": 0,
+        "leagueID": 6,
+        "name": "UNION LA CALERA"
+    },
+    "649": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "URAWA RED DIAMONDS"
+    },
+    "65": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "ATLANTA UNITED"
+    },
+    "650": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "US QUEVILLY ROUEN METROPOLE"
+    },
+    "651": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "US SALERNITANA 1919"
+    },
+    "652": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "USL DUNKERQUE"
+    },
+    "653": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "VALENCIA CF"
+    },
+    "654": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "VANCOUVER WHITECAPS FC"
+    },
+    "655": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "VARBERGS BOIS FC"
+    },
+    "656": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "VEGALTA SENDAI"
+    },
+    "657": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "VEJLE BOLDKLUB"
+    },
+    "658": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "VENEZIA FC"
+    },
+    "659": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "VFB STUTTGART"
+    },
+    "66": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "ATLETICO CLUBE GOIANIENSE"
+    },
+    "660": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "VFL BOCHUM 1848"
+    },
+    "661": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "VFL OSNABRUCK"
+    },
+    "662": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "VFL WOLFSBURG"
+    },
+    "663": {
+        "budget": 0,
+        "leagueID": 12,
+        "name": "VIBORG FF"
+    },
+    "664": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "VIKING FK"
+    },
+    "665": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "VIKTORIA KOLN"
+    },
+    "666": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "VILLARREAL CF"
+    },
+    "667": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "VISSEL KOBE"
+    },
+    "668": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "VITESSE"
+    },
+    "669": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "VITORIA DE GUIMARAES"
+    },
+    "67": {
+        "budget": 0,
+        "leagueID": 46,
+        "name": "ATLETICO DE MADRID"
+    },
+    "670": {
+        "budget": 0,
+        "leagueID": 35,
+        "name": "VALERENGA FOTBALL"
+    },
+    "671": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "VELEZ SARSFIELD"
+    },
+    "672": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "WALSALL"
+    },
+    "673": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "WARTA POZNAN"
+    },
+    "674": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "WATERFORD FC"
+    },
+    "675": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "WATFORD"
+    },
+    "676": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "WELLINGTON PHOENIX"
+    },
+    "677": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "WEST BROMWICH ALBION"
+    },
+    "678": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "WEST HAM UNITED"
+    },
+    "679": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "WESTERN SYDNEY WANDERERS"
+    },
+    "68": {
+        "budget": 0,
+        "leagueID": 8,
+        "name": "ATLETICO NACIONAL"
+    },
+    "680": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "WESTERN UNITED FC"
+    },
+    "681": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "WIGAN ATHLETIC"
+    },
+    "682": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "WILLEM II"
+    },
+    "683": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "WISLA KRAKOW"
+    },
+    "684": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "WISLA PLOCK"
+    },
+    "685": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "WOLVERHAMPTON WANDERERS"
+    },
+    "686": {
+        "budget": 0,
+        "leagueID": 17,
+        "name": "WREXHAM AFC"
+    },
+    "687": {
+        "budget": 0,
+        "leagueID": 3,
+        "name": "WSG TIROL"
+    },
+    "688": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "WUHAN FC"
+    },
+    "689": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "WYCOMBE WANDERERS"
+    },
+    "69": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "ATLETICO TUCUMAN"
+    },
+    "690": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "YENI MALATYASPOR"
+    },
+    "691": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "YOKOHAMA F. MARINOS"
+    },
+    "692": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "YOKOHAMA FC"
+    },
+    "693": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "YUKATEL KAYSERISPOR"
+    },
+    "694": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "ZAGLEBIE LUBIN"
+    },
+    "695": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "CAYKUR RIZESPOR"
+    },
+    "696": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "OREBRO SK"
+    },
+    "697": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "OSTERSUNDS FK"
+    },
+    "698": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ISTANBUL BASAKSEHIR FK"
+    },
+    "699": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "ITTIFAK HOLDING KONYASPOR"
+    },
+    "7": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "1. FC UNION BERLIN"
+    },
+    "70": {
+        "budget": 0,
+        "leagueID": 52,
+        "name": "AUSTIN FC"
+    },
+    "700": {
+        "budget": 0,
+        "leagueID": 38,
+        "name": "SLASK WROCLAW"
+    },
+    "701": {
+        "budget": 0,
+        "leagueID": 21,
+        "name": "VALENCIENNES FC"
+    },
+    "71": {
+        "budget": 0,
+        "leagueID": 31,
+        "name": "AVISPA FUKUOKA"
+    },
+    "72": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "AYTEMIZ ALANYASPOR"
+    },
+    "73": {
+        "budget": 0,
+        "leagueID": 26,
+        "name": "AZ ALKMAAR"
+    },
+    "74": {
+        "budget": 0,
+        "leagueID": 5,
+        "name": "BAHIA"
+    },
+    "75": {
+        "budget": 0,
+        "leagueID": 13,
+        "name": "BARCELONA SPORTING CLUB"
+    },
+    "76": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "BARNSLEY"
+    },
+    "77": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "BARROW"
+    },
+    "78": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "BAYER 04 LEVERKUSEN"
+    },
+    "79": {
+        "budget": 0,
+        "leagueID": 7,
+        "name": "BEIJING GUOAN FC"
+    },
+    "8": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "1. FSV MAINZ 05"
+    },
+    "80": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "BELENENSES SAD"
+    },
+    "81": {
+        "budget": 0,
+        "leagueID": 30,
+        "name": "BENEVENTO"
+    },
+    "82": {
+        "budget": 0,
+        "leagueID": 28,
+        "name": "BENGALURU FC"
+    },
+    "83": {
+        "budget": 0,
+        "leagueID": 50,
+        "name": "BESIKTAS JK"
+    },
+    "84": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "BIRMINGHAM CITY"
+    },
+    "85": {
+        "budget": 0,
+        "leagueID": 48,
+        "name": "BK HACKEN"
+    },
+    "86": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "BLACKBURN ROVERS"
+    },
+    "87": {
+        "budget": 0,
+        "leagueID": 14,
+        "name": "BLACKPOOL"
+    },
+    "88": {
+        "budget": 0,
+        "leagueID": 39,
+        "name": "BOAVISTA FC"
+    },
+    "89": {
+        "budget": 0,
+        "leagueID": 1,
+        "name": "BOCA JUNIORS"
+    },
+    "9": {
+        "budget": 0,
+        "leagueID": 36,
+        "name": "12 DE OCTUBRE FC"
+    },
+    "90": {
+        "budget": 0,
+        "leagueID": 40,
+        "name": "BOHEMIAN FC"
+    },
+    "91": {
+        "budget": 0,
+        "leagueID": 29,
+        "name": "BOLOGNA"
+    },
+    "92": {
+        "budget": 0,
+        "leagueID": 15,
+        "name": "BOLTON WANDERERS"
+    },
+    "93": {
+        "budget": 0,
+        "leagueID": 24,
+        "name": "BORUSSIA DORTMUND II"
+    },
+    "94": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "BORUSSIA DORTMUND"
+    },
+    "95": {
+        "budget": 0,
+        "leagueID": 22,
+        "name": "BORUSSIA MONCHENGLADBACH"
+    },
+    "96": {
+        "budget": 0,
+        "leagueID": 16,
+        "name": "BRADFORD CITY"
+    },
+    "97": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "BRENTFORD"
+    },
+    "98": {
+        "budget": 0,
+        "leagueID": 18,
+        "name": "BRIGHTON & HOVE ALBION"
+    },
+    "99": {
+        "budget": 0,
+        "leagueID": 2,
+        "name": "BRISBANE ROAR"
+    }
+}

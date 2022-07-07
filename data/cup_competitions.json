@@ -1,0 +1,101 @@
+{
+    "1": {
+        "name": "INTERNATIONAL PRESEASON CUP",
+        "nation": "NULL",
+        "rounds": [
+            "Group Stage",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 1.5
+    },
+    "2": {
+        "name": "UEFA CONFERENCE LEAGUE",
+        "nation": "NULL",
+        "rounds": [
+            "Group Stage",
+            "Preliminary Round",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 12.5
+    },
+    "3": {
+        "name": "UEFA EUROPA LEAGUE",
+        "nation": "NULL",
+        "rounds": [
+            "Group Stage",
+            "Preliminary Round",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 20.0
+    },
+    "4": {
+        "name": "UEFA CHAMPIONS LEAGUE",
+        "nation": "NULL",
+        "rounds": [
+            "Group Stage",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 30.0
+    },
+    "5": {
+        "name": "UEFA SUPER CUP",
+        "nation": "NULL",
+        "rounds": [],
+        "winnerBonus": 15.0
+    },
+    "6": {
+        "name": "EFL PAPA JOHN CUP",
+        "nation": "ENGLAND",
+        "rounds": [
+            "Group Stage",
+            "Round 2",
+            "Round 3",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 7.5
+    },
+    "7": {
+        "name": "EFL CARABAO CUP",
+        "nation": "ENGLAND",
+        "numRounds": 7,
+        "rounds": [
+            "Round 1",
+            "Round 2",
+            "Round 3",
+            "Round 4",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 15.0
+    },
+    "8": {
+        "name": "EMIRATES FA CUP",
+        "nation": "ENGLAND",
+        "rounds": [
+            "Round 1",
+            "Round 2",
+            "Round 3",
+            "Round 4",
+            "Round 5",
+            "Round 6",
+            "Semi Final",
+            "Final"
+        ],
+        "winnerBonus": 20.0
+    }
+}

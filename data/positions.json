@@ -1,0 +1,77 @@
+{
+    "1": {
+        "position": "GK"
+    },
+    "2": {
+        "position": "LB"
+    },
+    "3": {
+        "position": "LWB"
+    },
+    "4": {
+        "position": "LCB"
+    },
+    "5": {
+        "position": "CB"
+    },
+    "6": {
+        "position": "RCB"
+    },
+    "7": {
+        "position": "RWB"
+    },
+    "8": {
+        "position": "RB"
+    },
+    "9": {
+        "position": "LCM"
+    },
+    "10": {
+        "position": "RCM"
+    },
+    "11": {
+        "position": "CM"
+    },
+    "12": {
+        "position": "LDM"
+    },
+    "13": {
+        "position": "RDM"
+    },
+    "14": {
+        "position": "CDM"
+    },
+    "15": {
+        "position": "LAM"
+    },
+    "16": {
+        "position": "RAM"
+    },
+    "17": {
+        "position": "CAM"
+    },
+    "18": {
+        "position": "LM"
+    },
+    "19": {
+        "position": "RM"
+    },
+    "20": {
+        "position": "LW"
+    },
+    "21": {
+        "position": "RW"
+    },
+    "22": {
+        "position": "LF"
+    },
+    "23": {
+        "position": "RF"
+    },
+    "24": {
+        "position": "CF"
+    },
+    "25": {
+        "position": "ST"
+    }
+}
