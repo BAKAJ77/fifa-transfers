@@ -8,6 +8,7 @@
         "nation": "ARGENTINA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -20,6 +21,7 @@
         "nation": "CYPRUS",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -32,6 +34,7 @@
         "nation": "CZECH REPUBLIC",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -44,6 +47,7 @@
         "nation": "DENMARK",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -56,6 +60,7 @@
         "nation": "ECUADOR",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -68,6 +73,7 @@
         "nation": "ENGLAND",
         "playoffsThreshold": 6,
         "relegationThreshold": 22,
+        "supported": true,
         "tier": 2,
         "titleBonus": 20.0
     },
@@ -80,6 +86,7 @@
         "nation": "ENGLAND",
         "playoffsThreshold": 6,
         "relegationThreshold": 21,
+        "supported": true,
         "tier": 3,
         "titleBonus": 10.0
     },
@@ -92,6 +99,7 @@
         "nation": "ENGLAND",
         "playoffsThreshold": 7,
         "relegationThreshold": 23,
+        "supported": true,
         "tier": 4,
         "titleBonus": 5.0
     },
@@ -104,6 +112,7 @@
         "nation": "ENGLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 5,
         "titleBonus": 0.0
     },
@@ -116,6 +125,7 @@
         "nation": "ENGLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": 18,
+        "supported": true,
         "tier": 1,
         "titleBonus": 30.0
     },
@@ -128,6 +138,7 @@
         "nation": "FINLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -140,6 +151,7 @@
         "nation": "AUSTRALIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -152,6 +164,7 @@
         "nation": "FRANCE",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -164,6 +177,7 @@
         "nation": "FRANCE",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 2,
         "titleBonus": 0.0
     },
@@ -176,6 +190,7 @@
         "nation": "GERMANY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -188,6 +203,7 @@
         "nation": "GERMANY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 2,
         "titleBonus": 0.0
     },
@@ -200,6 +216,7 @@
         "nation": "GERMANY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 3,
         "titleBonus": 0.0
     },
@@ -212,6 +229,7 @@
         "nation": "GREECE",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -224,6 +242,7 @@
         "nation": "NETHERLANDS",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -236,6 +255,7 @@
         "nation": "HUNGARY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -248,6 +268,7 @@
         "nation": "INDIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -260,6 +281,7 @@
         "nation": "ITALY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -272,6 +294,7 @@
         "nation": "AUSTRIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -284,6 +307,7 @@
         "nation": "ITALY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 2,
         "titleBonus": 0.0
     },
@@ -296,6 +320,7 @@
         "nation": "JAPAN",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -308,6 +333,7 @@
         "nation": "KOREA REPUBLIC",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -320,6 +346,7 @@
         "nation": "BOLIVIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -332,6 +359,7 @@
         "nation": "MEXICO",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -344,6 +372,7 @@
         "nation": "NORWAY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -356,6 +385,7 @@
         "nation": "PARAGUAY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -368,6 +398,7 @@
         "nation": "PERU",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -380,6 +411,7 @@
         "nation": "POLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -392,6 +424,7 @@
         "nation": "PORTUGAL",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -404,6 +437,7 @@
         "nation": "BELGIUM",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -416,6 +450,7 @@
         "nation": "REPUBLIC OF IRELAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -428,6 +463,7 @@
         "nation": "ROMANIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -440,6 +476,7 @@
         "nation": "RUSSIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -452,6 +489,7 @@
         "nation": "SAUDI ARABIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -464,6 +502,7 @@
         "nation": "SCOTLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -476,6 +515,7 @@
         "nation": "SOUTH AFRICA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -488,6 +528,7 @@
         "nation": "SPAIN",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -500,6 +541,7 @@
         "nation": "SPAIN",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 2,
         "titleBonus": 0.0
     },
@@ -512,6 +554,7 @@
         "nation": "SWEDEN",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -524,6 +567,7 @@
         "nation": "SWITZERLAND",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -536,6 +580,7 @@
         "nation": "BRAZIL",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -548,6 +593,7 @@
         "nation": "TURKEY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -560,6 +606,7 @@
         "nation": "UNITED ARAB EMIRATES",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -572,6 +619,7 @@
         "nation": "UNITED STATES OF AMERICA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -584,6 +632,7 @@
         "nation": "UKRAINE",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -596,6 +645,7 @@
         "nation": "URUGUAY",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -608,6 +658,7 @@
         "nation": "VENEZUELA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -620,6 +671,7 @@
         "nation": "CHILE",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -632,6 +684,7 @@
         "nation": "CHINA PR",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -644,6 +697,7 @@
         "nation": "COLOMBIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     },
@@ -656,6 +710,7 @@
         "nation": "CROATIA",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
+        "supported": false,
         "tier": 1,
         "titleBonus": 0.0
     }
