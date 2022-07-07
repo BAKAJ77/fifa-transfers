@@ -58,6 +58,9 @@ public:
 	// Loads the players, clubs, leagues and competitions databases from their respective JSON files.
 	void LoadDefaultDatabase();
 
+	// Clears all loaded data in the database.
+	void ClearDatabase();
+
 	// Returns the save's player database.
 	std::vector<Player>& GetPlayerDatabase();
 

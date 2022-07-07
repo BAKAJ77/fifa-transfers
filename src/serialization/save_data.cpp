@@ -40,6 +40,14 @@ void SaveData::LoadDefaultDatabase()
     this->LoadCupsFromJSON(cupsFile.GetRoot());
 }
 
+void SaveData::ClearDatabase()
+{
+    this->playerDatabase.clear();
+    this->clubDatabase.clear();
+    this->leagueDatabase.clear();
+    this->cupDatabase.clear();
+}
+
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 {
     uint16_t cupID = 1;
