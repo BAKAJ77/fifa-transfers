@@ -60,7 +60,7 @@ void TextInputField::Update(const float& deltaTime)
 
         // Accept only spaces, numerical and alphabetic characters based on the input restriction flags given
         // Also only accept characters if the text box field is not full
-        if (this->textSize.x + 30 < this->size.x - 30)
+        if (this->textSize.x + 30 < this->size.x - 40)
         {
             if ((character == 32 && (this->inputFlags & Restrictions::NO_SPACES) != Restrictions::NO_SPACES) ||
                 ((character >= 48 && character <= 57) && (this->inputFlags & Restrictions::NO_NUMERIC) != Restrictions::NO_NUMERIC) ||
@@ -129,6 +129,15 @@ bool TextInputField::WasClicked() const
         {
             released = false;
             return true;
+        }
+    }
+    else
+    {
+        // If true then the text field has lost focus
+        if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && released)
+        {
+            Focus::focusedTextField = nullptr;
+            return false;
         }
     }
 
