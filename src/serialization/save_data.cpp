@@ -21,33 +21,6 @@ void SaveData::SetGrowthSystem(GrowthSystemType type)
     this->growthSystemType = type;
 }
 
-void SaveData::LoadDefaultDatabase()
-{
-    // Open the players JSON file and load every player's data
-    JSONLoader playersFile("data/players.json");
-    this->LoadPlayersFromJSON(playersFile.GetRoot());
-
-    // Open the clubs JSON file and load every clubs's data
-    JSONLoader clubsFile("data/clubs.json");
-    this->LoadClubsFromJSON(clubsFile.GetRoot());
-
-    // Open the leagues JSON file and load every league's data
-    JSONLoader leaguesFile("data/leagues.json");
-    this->LoadLeaguesFromJSON(leaguesFile.GetRoot());
-
-    // Open the cup competitions JSON file and load every cup's data
-    JSONLoader cupsFile("data/cup_competitions.json");
-    this->LoadCupsFromJSON(cupsFile.GetRoot());
-}
-
-void SaveData::ClearDatabase()
-{
-    this->playerDatabase.clear();
-    this->clubDatabase.clear();
-    this->leagueDatabase.clear();
-    this->cupDatabase.clear();
-}
-
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 {
     uint16_t cupID = 1;
@@ -69,24 +42,28 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
     uint16_t leagueID = 1;
     while (dataRoot.contains(std::to_string(leagueID)))
     {
-        // Fetch the clubs which are in the league
-        std::vector<Club*> clubs;
-        for (auto& club : this->clubDatabase)
+        if (dataRoot[std::to_string(leagueID)]["supported"].get<bool>())
         {
-            if (club.GetLeague() == leagueID)
-                clubs.emplace_back(&club);
+            // Fetch the clubs which are in the league
+            std::vector<Club*> clubs;
+            for (auto& club : this->clubDatabase)
+            {
+                if (club.GetLeague() == leagueID)
+                    clubs.emplace_back(&club);
+            }
+
+            // Add the league to the database
+            const std::string leagueIDStr = std::to_string(leagueID);
+
+            League league = { dataRoot[leagueIDStr]["name"].get<std::string>(), dataRoot[leagueIDStr]["nation"].get<std::string>(), leagueID,
+                dataRoot[leagueIDStr]["tier"].get<uint16_t>(), dataRoot[leagueIDStr]["championsLeagueThreshold"].get<int>(),
+                dataRoot[leagueIDStr]["europaLeagueThreshold"].get<int>(), dataRoot[leagueIDStr]["conferenceLeagueThreshold"].get<int>(),
+                dataRoot[leagueIDStr]["autoPromotionThreshold"].get<int>(), dataRoot[leagueIDStr]["playoffsThreshold"].get<int>(),
+                dataRoot[leagueIDStr]["relegationThreshold"].get<int>(), dataRoot[leagueIDStr]["titleBonus"].get<float>(), clubs };
+
+            this->leagueDatabase.emplace_back(league);
         }
 
-        // Add the league to the database
-        const std::string leagueIDStr = std::to_string(leagueID);
-
-        League league = { dataRoot[leagueIDStr]["name"].get<std::string>(), dataRoot[leagueIDStr]["nation"].get<std::string>(), leagueID,
-            dataRoot[leagueIDStr]["tier"].get<uint16_t>(), dataRoot[leagueIDStr]["championsLeagueThreshold"].get<int>(),
-            dataRoot[leagueIDStr]["europaLeagueThreshold"].get<int>(), dataRoot[leagueIDStr]["conferenceLeagueThreshold"].get<int>(),
-            dataRoot[leagueIDStr]["autoPromotionThreshold"].get<int>(), dataRoot[leagueIDStr]["playoffsThreshold"].get<int>(),
-            dataRoot[leagueIDStr]["relegationThreshold"].get<int>(), dataRoot[leagueIDStr]["titleBonus"].get<float>(), clubs };
-
-        this->leagueDatabase.emplace_back(league);
         ++leagueID;
     }
 }

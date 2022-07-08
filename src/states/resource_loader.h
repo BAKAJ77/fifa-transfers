@@ -11,9 +11,17 @@ private:
 	uint32_t workDonePercentage;
 	bool splashScreenStarted;
 private:
+	// Loads all texture resources.
 	void LoadTextures();
+
+	// Loads all font resources.
 	void LoadFonts();
+
+	// Loads all audio resources.
 	void LoadAudio();
+
+	// Loads the default database.
+	void LoadDefaultDatabase();
 protected:
 	void Init() override;
 	void Destroy() override;

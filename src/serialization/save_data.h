@@ -27,18 +27,6 @@ private:
 	std::vector<League> leagueDatabase;
 	std::vector<Club> clubDatabase;
 	std::vector<Player> playerDatabase;
-private:
-	// Loads every cup competition's data in the JSON structure into the vector.
-	void LoadCupsFromJSON(const nlohmann::json& dataRoot);
-
-	// Loads every league's data in the JSON structure into the vector. 
-	void LoadLeaguesFromJSON(const nlohmann::json& dataRoot);
-
-	// Loads every club's data in the JSON structure into the vector. 
-	void LoadClubsFromJSON(const nlohmann::json& dataRoot);
-
-	// Loads every player's data in the JSON structure into the vector.
-	void LoadPlayersFromJSON(const nlohmann::json& dataRoot);
 public:
 	SaveData();
 	SaveData(const SaveData& other) = delete;
@@ -55,12 +43,18 @@ public:
 	// Sets the type of growth system used in the save.
 	void SetGrowthSystem(GrowthSystemType type);
 
-	// Loads the players, clubs, leagues and competitions databases from their respective JSON files.
-	void LoadDefaultDatabase();
+	// Loads every cup competition's data in the JSON structure into the vector.
+	void LoadCupsFromJSON(const nlohmann::json& dataRoot);
 
-	// Clears all loaded data in the database.
-	void ClearDatabase();
+	// Loads every league's data in the JSON structure into the vector. 
+	void LoadLeaguesFromJSON(const nlohmann::json& dataRoot);
 
+	// Loads every club's data in the JSON structure into the vector. 
+	void LoadClubsFromJSON(const nlohmann::json& dataRoot);
+
+	// Loads every player's data in the JSON structure into the vector.
+	void LoadPlayersFromJSON(const nlohmann::json& dataRoot);
+	
 	// Returns the save's player database.
 	std::vector<Player>& GetPlayerDatabase();
 

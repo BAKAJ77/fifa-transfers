@@ -1,5 +1,7 @@
 #include <states/resource_loader.h>
 #include <states/splash_screen.h>
+#include <serialization/save_data.h>
+#include <serialization/json_loader.h>
 #include <util/timestamp.h>
 
 #include <thread>
@@ -121,6 +123,12 @@ void ResourceLoader::LoadAudio()
             {
                 tracksFetched = true;
                 fetchIndex = 1;
+
+                // Update the work done percentage counter
+                {
+                    std::scoped_lock lock(Threading::mutex);
+                    this->workDonePercentage = 10;
+                }
             }
         }
         else
@@ -137,6 +145,51 @@ void ResourceLoader::LoadAudio()
                 allAudioFetched = true;
         }
     }
+
+    // Update the work done percentage counter
+    {
+        std::scoped_lock lock(Threading::mutex);
+        this->workDonePercentage = 20;
+    }
+
+    this->LoadDefaultDatabase();
+}
+
+void ResourceLoader::LoadDefaultDatabase()
+{
+    // Open the players JSON file and load every player's data
+    JSONLoader playersFile("data/players.json");
+    SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
+
+    // Update the work done percentage counter
+    {
+        std::scoped_lock lock(Threading::mutex);
+        this->workDonePercentage = 50;
+    }
+
+    // Open the clubs JSON file and load every clubs's data
+    JSONLoader clubsFile("data/clubs.json");
+    SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
+
+    // Update the work done percentage counter
+    {
+        std::scoped_lock lock(Threading::mutex);
+        this->workDonePercentage = 80;
+    }
+
+    // Open the leagues JSON file and load every league's data
+    JSONLoader leaguesFile("data/leagues.json");
+    SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
+
+    // Update the work done percentage counter
+    {
+        std::scoped_lock lock(Threading::mutex);
+        this->workDonePercentage = 90;
+    }
+
+    // Open the cup competitions JSON file and load every cup's data
+    JSONLoader cupsFile("data/cup_competitions.json");
+    SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
 
     // Update the work done percentage counter
     {
