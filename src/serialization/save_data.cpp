@@ -138,8 +138,7 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
 void SaveData::Write(int& currentProgress, std::mutex& mutex)
 {
     // Open the save file (it will be generated if it's a new save file)
-    const std::string savePath = Util::GetAppDataDirectory() + "data/" + this->name + ".json";
-    JSONLoader file(savePath);
+    JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
     
     // Write the data of all clubs into the JSON structure
     for (const Club& club : this->clubDatabase)
@@ -154,6 +153,18 @@ void SaveData::Write(int& currentProgress, std::mutex& mutex)
         this->ConvertUserProfileToJSON(file.GetRoot(), user);
 
     file.Close();
+    file.Clear();
+
+    // Open the saves metadata file
+    file.Open(Util::GetAppDataDirectory() + "data/saves.json");
+
+    // Get the next free save ID
+    uint16_t nextID = 1;
+    while (file.GetRoot().contains(std::to_string(nextID)))
+        nextID++;
+
+    // Write the new save filename to the saves metadata file
+    file.GetRoot()[std::to_string(nextID)]["filename"] = this->name + ".json";
 }
 
 void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
