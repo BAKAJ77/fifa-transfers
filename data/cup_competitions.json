@@ -1,7 +1,9 @@
 {
     "1": {
         "name": "INTERNATIONAL PRESEASON CUP",
-        "nation": "NULL",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -13,7 +15,9 @@
     },
     "2": {
         "name": "UEFA CONFERENCE LEAGUE",
-        "nation": "NULL",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -26,7 +30,9 @@
     },
     "3": {
         "name": "UEFA EUROPA LEAGUE",
-        "nation": "NULL",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -39,7 +45,9 @@
     },
     "4": {
         "name": "UEFA CHAMPIONS LEAGUE",
-        "nation": "NULL",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -51,13 +59,17 @@
     },
     "5": {
         "name": "UEFA SUPER CUP",
-        "nation": "NULL",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [],
         "winnerBonus": 15.0
     },
     "6": {
         "name": "EFL PAPA JOHN CUP",
-        "nation": "ENGLAND",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Group Stage",
             "Round 2",
@@ -70,7 +82,9 @@
     },
     "7": {
         "name": "EFL CARABAO CUP",
-        "nation": "ENGLAND",
+        "nations": [
+            "ENGLAND"
+        ],
         "numRounds": 7,
         "rounds": [
             "Round 1",
@@ -85,7 +99,9 @@
     },
     "8": {
         "name": "EMIRATES FA CUP",
-        "nation": "ENGLAND",
+        "nations": [
+            "ENGLAND"
+        ],
         "rounds": [
             "Round 1",
             "Round 2",

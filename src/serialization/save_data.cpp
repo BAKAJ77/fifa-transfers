@@ -29,7 +29,7 @@ void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
         // Add the cup competition to the database
         const std::string cupIDStr = std::to_string(cupID);
 
-        KnockoutCup cup = { cupID, dataRoot[cupIDStr]["name"].get<std::string>(), dataRoot[cupIDStr]["nation"].get<std::string>(),
+        KnockoutCup cup = { cupID, dataRoot[cupIDStr]["name"].get<std::string>(), dataRoot[cupIDStr]["nations"].get<std::vector<std::string>>(),
             dataRoot[cupIDStr]["rounds"].get<std::vector<std::string>>(), dataRoot[cupIDStr]["winnerBonus"].get<float>() };
 
         this->cupDatabase.emplace_back(cup);

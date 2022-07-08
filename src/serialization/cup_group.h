@@ -8,20 +8,21 @@ class KnockoutCup
 {
 private:
 	uint16_t id;
-	std::string name, nation;
-	std::vector<std::string> rounds;
+	std::string name;
+	std::vector<std::string> nations, rounds;
 	float winnerBonus;
 public:
 	KnockoutCup();
-	KnockoutCup(uint16_t id, const std::string_view& name, const std::string_view& nation, const std::vector<std::string>& rounds, float winnerBonus);
+	KnockoutCup(uint16_t id, const std::string_view& name, const std::vector<std::string>& nations, const std::vector<std::string>& rounds, 
+		float winnerBonus);
 
 	~KnockoutCup() = default;
 
 	// Sets the name of the cup competition.
 	void SetName(const std::string_view& name);
 
-	// Sets the nation of the cup competition.
-	void SetNation(const std::string_view& nation);
+	// Sets the nations that can participate in the cup competition.
+	void SetNations(const std::vector<std::string>& nations);
 
 	// Sets the rounds in the cup competition.
 	void SetRounds(const std::vector<std::string>& rounds);
@@ -35,8 +36,8 @@ public:
 	// Returns the name of the cup competition.
 	std::string_view GetName() const;
 
-	// Returns the nation of the cup competition.
-	std::string_view GetNation() const;
+	// Returns the nations that can participate in the cup competition.
+	const std::vector<std::string>& GetNations() const;
 
 	// Returns the rounds in the cup competition.
 	const std::vector<std::string>& GetRounds() const;

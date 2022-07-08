@@ -4,9 +4,9 @@ KnockoutCup::KnockoutCup() :
     id(0), winnerBonus(0.0f)
 {}
 
-KnockoutCup::KnockoutCup(uint16_t id, const std::string_view& name, const std::string_view& nation, const std::vector<std::string>& rounds, 
+KnockoutCup::KnockoutCup(uint16_t id, const std::string_view& name, const std::vector<std::string>& nations, const std::vector<std::string>& rounds,
     float winnerBonus) :
-    id(id), name(name), nation(nation), rounds(rounds), winnerBonus(winnerBonus)
+    id(id), name(name), nations(nations), rounds(rounds), winnerBonus(winnerBonus)
 {}
 
 void KnockoutCup::SetName(const std::string_view& name)
@@ -14,9 +14,9 @@ void KnockoutCup::SetName(const std::string_view& name)
     this->name = name;
 }
 
-void KnockoutCup::SetNation(const std::string_view& nation)
+void KnockoutCup::SetNations(const std::vector<std::string>& nations)
 {
-    this->nation = nation;
+    this->nations = nations;
 }
 
 void KnockoutCup::SetRounds(const std::vector<std::string>& rounds)
@@ -39,9 +39,9 @@ std::string_view KnockoutCup::GetName() const
     return this->name;
 }
 
-std::string_view KnockoutCup::GetNation() const
+const std::vector<std::string>& KnockoutCup::GetNations() const
 {
-    return this->nation;
+    return this->nations;
 }
 
 const std::vector<std::string>& KnockoutCup::GetRounds() const
