@@ -4,22 +4,27 @@
 #include <util/logging_system.h>
 
 DropDown::DropDown() :
-    opacity(0.0f), doDropDown(false), fontSize(0), clicked(false), released(false)
+    opacity(0.0f), doDropDown(false), fontSize(0), clicked(false), released(false), selectionsOffset(0), maxSelectionsVisible(0)
 {}
 
 DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity) :
-    position(pos), size(size), opacity(opacity), doDropDown(false), clicked(false), released(false), fontSize(size.y / 2.5f)
+    position(pos), size(size), opacity(opacity), doDropDown(false), clicked(false), released(false), fontSize(size.y / 2.5f), selectionsOffset(0)
 {
+    // Load the font to be used
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
+    // Calculate the max amount of selection options that can be displayed at a time when dropped down
+    this->maxSelectionsVisible = (int)((1080.0f - pos.y - (size.y / 2)) / size.y);
+
+    // Set empty selection as default
     this->currentSelected = { std::string(), 
-        { pos, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1}; // Set empty selection as default
+        { pos, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1};
 }
 
 DropDown::DropDown(DropDown&& temp) noexcept :
     font(std::move(temp.font)), position(std::move(temp.position)), size(std::move(temp.size)), fontSize(std::move(temp.fontSize)), 
     opacity(std::move(temp.opacity)), selections(std::move(temp.selections)), currentSelected(std::move(temp.currentSelected)), clicked(false), 
-    released(false), doDropDown(false)
+    released(false), doDropDown(false), selectionsOffset(0), maxSelectionsVisible(std::move(temp.maxSelectionsVisible))
 {}
 
 DropDown& DropDown::operator=(DropDown&& temp) noexcept
@@ -30,6 +35,7 @@ DropDown& DropDown::operator=(DropDown&& temp) noexcept
     this->fontSize = std::move(temp.fontSize);
     this->opacity = std::move(temp.opacity);
     
+    this->maxSelectionsVisible = std::move(temp.maxSelectionsVisible);
     this->selections = std::move(temp.selections);
     this->currentSelected = std::move(temp.currentSelected);
 
@@ -53,13 +59,23 @@ void DropDown::SetOpacity(float opacity)
 
 void DropDown::AddSelection(const std::string_view& id, int value)
 {
-    this->selections.push_back({ id.data(), { { this->position.x, this->position.y + ((float)(this->selections.size() + 1) * this->size.y) },
-        this->size, this->size, glm::vec3(85), glm::vec3(115), glm::vec3(85), this->opacity, 2.5f }, 
+    this->selections.push_back({ id.data(), { this->position, this->size, this->size, glm::vec3(85), glm::vec3(115), glm::vec3(85), this->opacity, 2.5f }, 
         Renderer::GetInstance().GetTextSize(this->font, (uint32_t)this->fontSize, id), value });
 }
 
 void DropDown::Update(const float& deltaTime)
 {
+    // Update the selections offset via the user scrolling
+    if (this->doDropDown)
+    {
+        const float scrollOffsetY = InputSystem::GetInstance().GetScrollOffset().y;
+
+        if (scrollOffsetY > 0.0f)
+            this->selectionsOffset = std::max(--this->selectionsOffset, 0);
+        else if (scrollOffsetY < 0.0f)
+            this->selectionsOffset = std::min(++this->selectionsOffset, (int)(this->selections.size() - this->maxSelectionsVisible));
+    }
+    
     // Update the clicked and released boolean flags
     if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && this->released)
     {
@@ -76,8 +92,9 @@ void DropDown::Update(const float& deltaTime)
     if (this->doDropDown)
     {
         bool buttonClicked = false;
-        for (size_t i = 0; i < this->selections.size(); i++)
+        for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
         {
+            this->selections[i].button.SetPosition({ this->position.x, this->position.y + ((float)((i - this->selectionsOffset) + 1) * this->size.y) });
             this->selections[i].button.Update(deltaTime, 8.0f);
 
             if (this->selections[i].button.WasClicked())
@@ -116,7 +133,7 @@ void DropDown::Render(float masterOpacity) const
 
     if (this->doDropDown)
     {
-        for (size_t i = 0; i < this->selections.size(); i++)
+        for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
         {
             // Render the selection element button body
             this->selections[i].button.Render(masterOpacity);
@@ -125,6 +142,18 @@ void DropDown::Render(float masterOpacity) const
             Renderer::GetInstance().RenderText({ this->selections[i].button.GetPosition().x - (this->selections[i].textSize.x / 2) + offset,
                 this->selections[i].button.GetPosition().y + (this->selections[i].textSize.y / 2) }, 
                 glm::vec4(255, 255, 255, (this->opacity * masterOpacity) / 255.0f), this->font, (uint32_t)this->fontSize, this->selections[i].id);
+        }
+
+        // If drop down is scrollable, render small arrow triangles to indicate so
+        if (this->selections.size() > this->maxSelectionsVisible)
+        {
+            if (this->selectionsOffset > 0)
+                Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, this->position.y + (this->size.y / 2) + 20 },
+                    glm::vec2(20, 25), { 50, 50, 50, 255 }, 180);
+
+            if ((this->selectionsOffset + this->maxSelectionsVisible) < this->selections.size())
+                Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, 
+                    this->position.y + ((this->maxSelectionsVisible * this->size.y) + (this->size.y / 2)) - 20}, glm::vec2(20, 25), { 50, 50, 50, 255 });
         }
     }
 }

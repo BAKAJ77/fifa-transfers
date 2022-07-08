@@ -22,6 +22,7 @@ private:
 	float fontSize, opacity;
 	bool doDropDown, clicked, released;
 
+	int selectionsOffset, maxSelectionsVisible;
 	std::vector<Element> selections;
 	Element currentSelected;
 public:
