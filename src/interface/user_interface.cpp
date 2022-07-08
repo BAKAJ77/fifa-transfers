@@ -91,25 +91,28 @@ void UserInterface::Update(const float& deltaTime)
 
 void UserInterface::Render() const
 {
-    // Render the standalone buttons
-    for (const ButtonBase* button : this->standaloneButtons)
-        button->Render(this->opacity);
+    if (this->opacity > 0.0f)
+    {
+        // Render the standalone buttons
+        for (const ButtonBase* button : this->standaloneButtons)
+            button->Render(this->opacity);
 
-    // Render the standalone text fields
-    for (const auto& field : this->standaloneTextFields)
-        field.second.Render(this->opacity);
+        // Render the standalone text fields
+        for (const auto& field : this->standaloneTextFields)
+            field.second.Render(this->opacity);
 
-    // Render the radio button groups
-    for (auto& group : this->radioButtonGroups)
-        group.second.Render(this->opacity);
+        // Render the radio button groups
+        for (auto& group : this->radioButtonGroups)
+            group.second.Render(this->opacity);
 
-    // Render the drop downs
-    const DropDown* activeDropDown = nullptr;
-    for (auto& dropDown : this->dropDowns)
-        dropDown.second.IsDroppedDown() ? activeDropDown = &dropDown.second : dropDown.second.Render(this->opacity);
+        // Render the drop downs
+        const DropDown* activeDropDown = nullptr;
+        for (auto& dropDown : this->dropDowns)
+            dropDown.second.IsDroppedDown() ? activeDropDown = &dropDown.second : dropDown.second.Render(this->opacity);
 
-    if (activeDropDown) // This is to make sure the active drop down renders over other inactive drop downs
-        activeDropDown->Render(this->opacity);
+        if (activeDropDown) // This is to make sure the active drop down renders over other inactive drop downs
+            activeDropDown->Render(this->opacity);
+    }
 }
 
 TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
