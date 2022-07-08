@@ -1,3507 +1,4208 @@
 {
     "1": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "1. FC HEIDENHEIM 1846"
+        "name": "1. FC HEIDENHEIM 1846",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "10": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "AALBORG BK"
+        "name": "AALBORG BK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "100": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "BRISTOL CITY"
+        "name": "BRISTOL CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "101": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "BRISTOL ROVERS"
+        "name": "BRISTOL ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "102": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "BRUK-BET TERMALICA NIECIECZA"
+        "name": "BRUK-BET TERMALICA NIECIECZA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "103": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "BRONDBY IF"
+        "name": "BRONDBY IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "104": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "BSC YOUNG BOYS"
+        "name": "BSC YOUNG BOYS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "105": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "BURGOS CF"
+        "name": "BURGOS CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "106": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "BURNLEY"
+        "name": "BURNLEY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "107": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "BURTON ALBION"
+        "name": "BURTON ALBION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "108": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "CA OSASUNA"
+        "name": "CA OSASUNA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "109": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "CAGLIARI"
+        "name": "CAGLIARI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "11": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "AARHUS GF"
+        "name": "AARHUS GF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "110": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "CAMBRIDGE UNITED"
+        "name": "CAMBRIDGE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "111": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "CAMPIONII FC ARGES"
+        "name": "CAMPIONII FC ARGES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "112": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "CARDIFF CITY"
+        "name": "CARDIFF CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "113": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "CARLISLE UNITED"
+        "name": "CARLISLE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "114": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "CARLOS A. MANNUCCI"
+        "name": "CARLOS A. MANNUCCI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "115": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "CD ANTOFAGASTA"
+        "name": "CD ANTOFAGASTA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "116": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "CD HUACHIPATO"
+        "name": "CD HUACHIPATO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "117": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "CD LEGANES"
+        "name": "CD LEGANES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "118": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "CD LUGO"
+        "name": "CD LUGO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "119": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "CD MIRANDES"
+        "name": "CD MIRANDES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "12": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "ABERDEEN"
+        "name": "ABERDEEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "120": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "CD TENERIFE"
+        "name": "CD TENERIFE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "121": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "CD TONDELA"
+        "name": "CD TONDELA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "122": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "CEARA SPORTING CLUB"
+        "name": "CEARA SPORTING CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "123": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "CELTIC"
+        "name": "CELTIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "124": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "CENTRAL COAST MARINERS"
+        "name": "CENTRAL COAST MARINERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "125": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "CENTRO ATLETICO FENIX"
+        "name": "CENTRO ATLETICO FENIX",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "126": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "CEREZO OSAKA"
+        "name": "CEREZO OSAKA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "127": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "CERRO LARGO FUTBOL CLUB"
+        "name": "CERRO LARGO FUTBOL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "128": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "CF FUENLABRADA"
+        "name": "CF FUENLABRADA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "129": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CF MONTERREY"
+        "name": "CF MONTERREY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "13": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "ABHA CLUB"
+        "name": "ABHA CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "130": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "CFR CLUJ"
+        "name": "CFR CLUJ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "131": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "CHAMOIS NIORTAIS FOOTBALL CLUB"
+        "name": "CHAMOIS NIORTAIS FOOTBALL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "132": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "CHANGCHUN YATAI FC"
+        "name": "CHANGCHUN YATAI FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "133": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "CHARLTON ATHLETIC"
+        "name": "CHARLTON ATHLETIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "134": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "CHELSEA"
+        "name": "CHELSEA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "135": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "CHELTENHAM TOWN"
+        "name": "CHELTENHAM TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "136": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "CHENNAIYIN FC"
+        "name": "CHENNAIYIN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "137": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "CHICAGO FIRE FOOTBALL CLUB"
+        "name": "CHICAGO FIRE FOOTBALL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "138": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "CHONGQING LIANGJIANG ATHLETIC"
+        "name": "CHONGQING LIANGJIANG ATHLETIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "139": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "CLERMONT FOOT 63"
+        "name": "CLERMONT FOOT 63",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "14": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "AC AJACCIO"
+        "name": "AC AJACCIO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "140": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB ALWAYS READY"
+        "name": "CLUB ALWAYS READY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "141": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB AMERICA"
+        "name": "CLUB AMERICA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "142": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "CLUB ATHLETICO PARANAENSE"
+        "name": "CLUB ATHLETICO PARANAENSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "143": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB ATLAS"
+        "name": "CLUB ATLAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "144": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO ALDOSIVI"
+        "name": "CLUB ATLETICO ALDOSIVI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "145": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO BANFIELD"
+        "name": "CLUB ATLETICO BANFIELD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "146": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO CENTRAL CORDOBA"
+        "name": "CLUB ATLETICO CENTRAL CORDOBA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "147": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO COLON"
+        "name": "CLUB ATLETICO COLON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "148": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB ATLETICO DE SAN LUIS"
+        "name": "CLUB ATLETICO DE SAN LUIS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "149": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO HURACAN"
+        "name": "CLUB ATLETICO HURACAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "15": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "AC MILAN"
+        "name": "AC MILAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "150": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO INDEPENDIENTE"
+        "name": "CLUB ATLETICO INDEPENDIENTE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "151": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO LANUS"
+        "name": "CLUB ATLETICO LANUS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "152": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB ATLETICO NACIONAL POTOSI"
+        "name": "CLUB ATLETICO NACIONAL POTOSI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "153": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB ATLETICO PALMAFLOR"
+        "name": "CLUB ATLETICO PALMAFLOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "154": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "CLUB ATLETICO PENAROL"
+        "name": "CLUB ATLETICO PENAROL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "155": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "CLUB ATLETICO RENTISTAS"
+        "name": "CLUB ATLETICO RENTISTAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "156": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO SARMIENTO"
+        "name": "CLUB ATLETICO SARMIENTO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "157": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "CLUB ATLETICO TALLERES"
+        "name": "CLUB ATLETICO TALLERES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "158": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB BOLIVAR"
+        "name": "CLUB BOLIVAR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "159": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "CLUB BRUGGE KV"
+        "name": "CLUB BRUGGE KV",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "16": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "AC MINEROS DE GUAYANA"
+        "name": "AC MINEROS DE GUAYANA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "160": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "CLUB CERRO PORTENO"
+        "name": "CLUB CERRO PORTENO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "161": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "CLUB DE DEPORTES COBRESAL"
+        "name": "CLUB DE DEPORTES COBRESAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "162": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "CLUB DE FOOT MONTREAL"
+        "name": "CLUB DE FOOT MONTREAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "163": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "CLUB DEPORTES TOLIMA"
+        "name": "CLUB DEPORTES TOLIMA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "164": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB DEPORTIVO GUABIRA"
+        "name": "CLUB DEPORTIVO GUABIRA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "165": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB DEPORTIVO GUADALAJARA"
+        "name": "CLUB DEPORTIVO GUADALAJARA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "166": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB DEPORTIVO JORGE WILSTERMANN"
+        "name": "CLUB DEPORTIVO JORGE WILSTERMANN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "167": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "CLUB DEPORTIVO PALESTINO"
+        "name": "CLUB DEPORTIVO PALESTINO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "168": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "CLUB INDEPENDIENTE SANTA FE"
+        "name": "CLUB INDEPENDIENTE SANTA FE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "169": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB LEON"
+        "name": "CLUB LEON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "17": {
-        "budget": 0,
         "leagueID": 30,
-        "name": "AC MONZA"
+        "name": "AC MONZA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "170": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "CLUB LIBERTAD"
+        "name": "CLUB LIBERTAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "171": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "CLUB NACIONAL DE FOOTBALL"
+        "name": "CLUB NACIONAL DE FOOTBALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "172": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "CLUB NACIONAL"
+        "name": "CLUB NACIONAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "173": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB NECAXA"
+        "name": "CLUB NECAXA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "174": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "CLUB OLIMPIA"
+        "name": "CLUB OLIMPIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "175": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "CLUB RIVER PLATE ASUNCION"
+        "name": "CLUB RIVER PLATE ASUNCION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "176": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "CLUB SOCIAL Y DEPORTIVO MACARA"
+        "name": "CLUB SOCIAL Y DEPORTIVO MACARA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "177": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "CLUB SPORTING CRISTAL"
+        "name": "CLUB SPORTING CRISTAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "178": {
-        "budget": 0,
         "leagueID": 33,
-        "name": "CLUB THE STRONGEST"
+        "name": "CLUB THE STRONGEST",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "179": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB TIJUANA"
+        "name": "CLUB TIJUANA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "18": {
-        "budget": 0,
         "leagueID": 11,
-        "name": "AC SPARTA PRAHA"
+        "name": "AC SPARTA PRAHA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "180": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CLUB UNIVERSIDAD NACIONAL"
+        "name": "CLUB UNIVERSIDAD NACIONAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "181": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "CLUB UNIVERSITARIO DE DEPORTES"
+        "name": "CLUB UNIVERSITARIO DE DEPORTES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "182": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "CLUBE ATLETICO MINEIRO"
+        "name": "CLUBE ATLETICO MINEIRO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "183": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "CLUBE SPORT MARITIMO"
+        "name": "CLUBE SPORT MARITIMO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "184": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "COLCHESTER UNITED"
+        "name": "COLCHESTER UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "185": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "COLORADO RAPIDS"
+        "name": "COLORADO RAPIDS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "186": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "COLUMBUS CREW"
+        "name": "COLUMBUS CREW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "187": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "COVENTRY CITY"
+        "name": "COVENTRY CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "188": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "CRACOVIA"
+        "name": "CRACOVIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "189": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "CRAWLEY TOWN"
+        "name": "CRAWLEY TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "19": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "ACADEMIA PUERTO CABELLO"
+        "name": "ACADEMIA PUERTO CABELLO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "190": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "CREWE ALEXANDRA"
+        "name": "CREWE ALEXANDRA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "191": {
-        "budget": 0,
         "leagueID": 30,
-        "name": "CROTONE"
+        "name": "CROTONE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "192": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "CRUZ AZUL"
+        "name": "CRUZ AZUL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "193": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "CRYSTAL PALACE"
+        "name": "CRYSTAL PALACE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "194": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "CS EMELEC"
+        "name": "CS EMELEC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "195": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "CS MIOVENI"
+        "name": "CS MIOVENI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "196": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "CUIABA"
+        "name": "CUIABA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "197": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "CADIZ CF"
+        "name": "CADIZ CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "198": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "D.C. UNITED"
+        "name": "D.C. UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "199": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "DAEGU FC"
+        "name": "DAEGU FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "2": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "1. FC KAISERSLAUTERN"
+        "name": "1. FC KAISERSLAUTERN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "20": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "ACCRINGTON STANLEY"
+        "name": "ACCRINGTON STANLEY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "200": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "DALIAN PROFESSIONAL FOOTBALL CLUB"
+        "name": "DALIAN PROFESSIONAL FOOTBALL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "201": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "DAMAC FC"
+        "name": "DAMAC FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "202": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "DEFENSA Y JUSTICIA"
+        "name": "DEFENSA Y JUSTICIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "203": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "DEGERFORS IF"
+        "name": "DEGERFORS IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "204": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "DEMIR GRUP SIVASSPOR"
+        "name": "DEMIR GRUP SIVASSPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "205": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "DEPORTIVO ALAVES"
+        "name": "DEPORTIVO ALAVES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "206": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "DEPORTIVO CALI"
+        "name": "DEPORTIVO CALI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "207": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "DEPORTIVO LA GUAIRA FC"
+        "name": "DEPORTIVO LA GUAIRA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "208": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "DEPORTIVO PASTO"
+        "name": "DEPORTIVO PASTO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "209": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "DEPORTIVO TOLUCA"
+        "name": "DEPORTIVO TOLUCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "21": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "AD ALCORCON"
+        "name": "AD ALCORCON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "210": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "DEPORTIVO TACHIRA FC"
+        "name": "DEPORTIVO TACHIRA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "211": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "DERBY COUNTY"
+        "name": "DERBY COUNTY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "212": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "DERRY CITY"
+        "name": "DERRY CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "213": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "DIJON FCO"
+        "name": "DIJON FCO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "214": {
-        "budget": 0,
         "leagueID": 9,
-        "name": "DINAMO ZAGREB"
+        "name": "DINAMO ZAGREB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "215": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "DJURGARDENS IF"
+        "name": "DJURGARDENS IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "216": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "DONCASTER ROVERS"
+        "name": "DONCASTER ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "217": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "DROGHEDA UNITED"
+        "name": "DROGHEDA UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "218": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "DSC ARMINIA BIELEFELD"
+        "name": "DSC ARMINIA BIELEFELD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "219": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "DUNDALK FC"
+        "name": "DUNDALK FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "22": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ADANA DEMIRSPOR"
+        "name": "ADANA DEMIRSPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "220": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "DUNDEE FC"
+        "name": "DUNDEE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "221": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "DUNDEE UNITED"
+        "name": "DUNDEE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "222": {
-        "budget": 0,
         "leagueID": 53,
-        "name": "DYNAMO KYIV"
+        "name": "DYNAMO KYIV",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "223": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "EINTRACHT BRAUNSCHWEIG"
+        "name": "EINTRACHT BRAUNSCHWEIG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "224": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "EINTRACHT FRANKFURT"
+        "name": "EINTRACHT FRANKFURT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "225": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "ELCHE CF"
+        "name": "ELCHE CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "226": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "EMPOLI"
+        "name": "EMPOLI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "227": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "EN AVANT DE GUINGAMP"
+        "name": "EN AVANT DE GUINGAMP",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "228": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "ESTAC TROYES"
+        "name": "ESTAC TROYES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "229": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "ESTORIL PRAIA"
+        "name": "ESTORIL PRAIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "23": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "ADELAIDE UNITED"
+        "name": "ADELAIDE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "230": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "ESTUDIANTES DE LA PLATA"
+        "name": "ESTUDIANTES DE LA PLATA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "231": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "ETTIFAQ FC"
+        "name": "ETTIFAQ FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "232": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "EVERTON"
+        "name": "EVERTON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "233": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "EXETER CITY"
+        "name": "EXETER CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "234": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "F.C. HANSA ROSTOCK"
+        "name": "F.C. HANSA ROSTOCK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "235": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "F.C. KOBENHAVN"
+        "name": "F.C. KOBENHAVN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "236": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "FATIH KARAGUMRUK S.K."
+        "name": "FATIH KARAGUMRUK S.K.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "237": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "FBC MELGAR"
+        "name": "FBC MELGAR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "238": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC ACADEMICA CLINCENI"
+        "name": "FC ACADEMICA CLINCENI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "239": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "FC AROUCA"
+        "name": "FC AROUCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "24": {
-        "budget": 0,
         "leagueID": 25,
-        "name": "AEK ATHENS"
+        "name": "AEK ATHENS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "240": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "FC AUGSBURG"
+        "name": "FC AUGSBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "241": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "FC BARCELONA"
+        "name": "FC BARCELONA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "242": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC BASEL 1893"
+        "name": "FC BASEL 1893",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "243": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "FC BAYERN MUNCHEN"
+        "name": "FC BAYERN MUNCHEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "244": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC BOTOSANI"
+        "name": "FC BOTOSANI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "245": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "FC CARTAGENA"
+        "name": "FC CARTAGENA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "246": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "FC CINCINNATI"
+        "name": "FC CINCINNATI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "247": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "FC DALLAS"
+        "name": "FC DALLAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "248": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC DINAMO 1948 BUCURESTI"
+        "name": "FC DINAMO 1948 BUCURESTI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "249": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "FC ERZGEBIRGE AUE"
+        "name": "FC ERZGEBIRGE AUE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "25": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "AFC BOURNEMOUTH"
+        "name": "AFC BOURNEMOUTH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "250": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC FARUL CONSTANTA"
+        "name": "FC FARUL CONSTANTA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "251": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "FC FLYERALARM ADMIRA"
+        "name": "FC FLYERALARM ADMIRA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "252": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "FC GIRONDINS DE BORDEAUX"
+        "name": "FC GIRONDINS DE BORDEAUX",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "253": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "FC GOA"
+        "name": "FC GOA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "254": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "FC GRONINGEN"
+        "name": "FC GRONINGEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "255": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "FC INGOLSTADT 04"
+        "name": "FC INGOLSTADT 04",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "256": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC LAUSANNE-SPORT"
+        "name": "FC LAUSANNE-SPORT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "257": {
-        "budget": 0,
         "leagueID": 42,
-        "name": "FC LOKOMOTIV MOSCOW"
+        "name": "FC LOKOMOTIV MOSCOW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "258": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "FC LORIENT"
+        "name": "FC LORIENT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "259": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC LUGANO"
+        "name": "FC LUGANO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "26": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "AFC CHINDIA TARGOVISTE"
+        "name": "AFC CHINDIA TARGOVISTE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "260": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC LUZERN"
+        "name": "FC LUZERN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "261": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "FC METZ"
+        "name": "FC METZ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "262": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "FC MIDTJYLLAND"
+        "name": "FC MIDTJYLLAND",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "263": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "FC NANTES"
+        "name": "FC NANTES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "264": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "FC NORDSJAELLAND"
+        "name": "FC NORDSJAELLAND",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "265": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "FC PACOS DE FERREIRA"
+        "name": "FC PACOS DE FERREIRA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "266": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "FC PORTO"
+        "name": "FC PORTO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "267": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "FC RED BULL SALZBURG"
+        "name": "FC RED BULL SALZBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "268": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "FC SCHALKE 04"
+        "name": "FC SCHALKE 04",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "269": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "FC SEOUL"
+        "name": "FC SEOUL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "27": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "AFC UTA ARAD"
+        "name": "AFC UTA ARAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "270": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC SION"
+        "name": "FC SION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "271": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "FC SOCHAUX-MONTBELIARD"
+        "name": "FC SOCHAUX-MONTBELIARD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "272": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC ST. GALLEN 1879"
+        "name": "FC ST. GALLEN 1879",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "273": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "FC ST. PAULI"
+        "name": "FC ST. PAULI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "274": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "FC TOKYO"
+        "name": "FC TOKYO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "275": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "FC TWENTE"
+        "name": "FC TWENTE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "276": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC U CRAIOVA 1948"
+        "name": "FC U CRAIOVA 1948",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "277": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "FC UTRECHT"
+        "name": "FC UTRECHT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "278": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "FC VIKTORIA 1889 BERLIN"
+        "name": "FC VIKTORIA 1889 BERLIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "279": {
-        "budget": 0,
         "leagueID": 11,
-        "name": "FC VIKTORIA PLZEN"
+        "name": "FC VIKTORIA PLZEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "28": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "AFC WIMBLEDON"
+        "name": "AFC WIMBLEDON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "280": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "FC VIZELA"
+        "name": "FC VIZELA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "281": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FC VOLUNTARI"
+        "name": "FC VOLUNTARI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "282": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "FC WURZBURGER KICKERS"
+        "name": "FC WURZBURGER KICKERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "283": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "FC ZURICH"
+        "name": "FC ZURICH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "284": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "FCSB (STEAUA)"
+        "name": "FCSB (STEAUA)",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "285": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "FENERBAHCE SK"
+        "name": "FENERBAHCE SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "286": {
-        "budget": 0,
         "leagueID": 27,
-        "name": "FERENCVAROSI TC"
+        "name": "FERENCVAROSI TC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "287": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "FEYENOORD"
+        "name": "FEYENOORD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "288": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "FINN HARPS"
+        "name": "FINN HARPS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "289": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "FIORENTINA"
+        "name": "FIORENTINA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "29": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "AIK"
+        "name": "AIK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "290": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "FK AUSTRIA WIEN"
+        "name": "FK AUSTRIA WIEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "291": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "FK BODO/GLIMT"
+        "name": "FK BODO/GLIMT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "292": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "FK HAUGESUND"
+        "name": "FK HAUGESUND",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "293": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "FLAMENGO"
+        "name": "FLAMENGO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "294": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "FLEETWOOD TOWN"
+        "name": "FLEETWOOD TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "295": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "FLUMINENSE"
+        "name": "FLUMINENSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "296": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "FOREST GREEN ROVERS"
+        "name": "FOREST GREEN ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "297": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "FORTALEZA"
+        "name": "FORTALEZA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "298": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "FORTUNA DUSSELDORF"
+        "name": "FORTUNA DUSSELDORF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "299": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "FORTUNA SITTARD"
+        "name": "FORTUNA SITTARD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "3": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "1. FC KOLN"
+        "name": "1. FC KOLN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "30": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "AJ AUXERRE"
+        "name": "AJ AUXERRE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "300": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "FSV ZWICKAU"
+        "name": "FSV ZWICKAU",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "301": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "FULHAM"
+        "name": "FULHAM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "302": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "FUTEBOL CLUBE DE FAMALICAO"
+        "name": "FUTEBOL CLUBE DE FAMALICAO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "303": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "FUTBOL CLUB JUAREZ"
+        "name": "FUTBOL CLUB JUAREZ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "304": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "GALATASARAY SK"
+        "name": "GALATASARAY SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "305": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "GALLOS BLANCOS DE QUERETARO"
+        "name": "GALLOS BLANCOS DE QUERETARO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "306": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "GAMBA OSAKA"
+        "name": "GAMBA OSAKA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "307": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "GANGWON FC"
+        "name": "GANGWON FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "308": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "GAZ METAN MEDIAS"
+        "name": "GAZ METAN MEDIAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "309": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "GAZISEHIR GAZIANTEP F.K."
+        "name": "GAZISEHIR GAZIANTEP F.K.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "31": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "AJAX"
+        "name": "AJAX",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "310": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "GENOA"
+        "name": "GENOA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "311": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "GETAFE CF"
+        "name": "GETAFE CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "312": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "GIL VICENTE FC"
+        "name": "GIL VICENTE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "313": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "GILLINGHAM"
+        "name": "GILLINGHAM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "314": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "GIMNASIA Y ESGRIMA LA PLATA"
+        "name": "GIMNASIA Y ESGRIMA LA PLATA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "315": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "GIRONA FC"
+        "name": "GIRONA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "316": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "GO AHEAD EAGLES"
+        "name": "GO AHEAD EAGLES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "317": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "GODOY CRUZ"
+        "name": "GODOY CRUZ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "318": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "GRANADA CF"
+        "name": "GRANADA CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "319": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "GRASSHOPPER CLUB ZURICH"
+        "name": "GRASSHOPPER CLUB ZURICH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "32": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL AHLI"
+        "name": "AL AHLI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "320": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "GRENOBLE FOOT 38"
+        "name": "GRENOBLE FOOT 38",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "321": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "GREMIO"
+        "name": "GREMIO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "322": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "GUAIRENA FC"
+        "name": "GUAIRENA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "323": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "GUANGZHOU CITY"
+        "name": "GUANGZHOU CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "324": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "GUANGZHOU FC"
+        "name": "GUANGZHOU FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "325": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "GUAYAQUIL CITY FC"
+        "name": "GUAYAQUIL CITY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "326": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "GWANGJU FC"
+        "name": "GWANGJU FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "327": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "GZT GIRESUNSPOR"
+        "name": "GZT GIRESUNSPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "328": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "GORNIK ZABRZE"
+        "name": "GORNIK ZABRZE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "329": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "GORNIK LECZNA"
+        "name": "GORNIK LECZNA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "33": {
-        "budget": 0,
         "leagueID": 51,
-        "name": "AL AIN FC"
+        "name": "AL AIN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "330": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "GOZTEPE SK"
+        "name": "GOZTEPE SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "331": {
-        "budget": 0,
         "leagueID": 9,
-        "name": "HAJDUK SPLIT"
+        "name": "HAJDUK SPLIT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "332": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "HALLESCHER FC"
+        "name": "HALLESCHER FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "333": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "HALMSTADS BK"
+        "name": "HALMSTADS BK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "334": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "HAMBURGER SV"
+        "name": "HAMBURGER SV",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "335": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "HAMMARBY IF"
+        "name": "HAMMARBY IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "336": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "HANNOVER 96"
+        "name": "HANNOVER 96",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "337": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "HARROGATE TOWN"
+        "name": "HARROGATE TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "338": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "HARTLEPOOL UNITED"
+        "name": "HARTLEPOOL UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "339": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "HEART OF MIDLOTHIAN"
+        "name": "HEART OF MIDLOTHIAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "34": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL BATIN"
+        "name": "AL BATIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "340": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "HEBEI FC"
+        "name": "HEBEI FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "341": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "HELLAS VERONA"
+        "name": "HELLAS VERONA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "342": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "HENAN SONGSHAN LONGMEN FC"
+        "name": "HENAN SONGSHAN LONGMEN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "343": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "HERACLES ALMELO"
+        "name": "HERACLES ALMELO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "344": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "HERTHA BSC"
+        "name": "HERTHA BSC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "345": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "HIBERNIAN"
+        "name": "HIBERNIAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "346": {
-        "budget": 0,
         "leagueID": 19,
-        "name": "HJK HELSINKI"
+        "name": "HJK HELSINKI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "347": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "HOKKAIDO CONSADOLE SAPPORO"
+        "name": "HOKKAIDO CONSADOLE SAPPORO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "348": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "HOLSTEIN KIEL"
+        "name": "HOLSTEIN KIEL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "349": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "HOUSTON DYNAMO"
+        "name": "HOUSTON DYNAMO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "35": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL FAISALY"
+        "name": "AL FAISALY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "350": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "HUDDERSFIELD TOWN"
+        "name": "HUDDERSFIELD TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "351": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "HULL CITY"
+        "name": "HULL CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "352": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "HYDERABAD FC"
+        "name": "HYDERABAD FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "353": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "IF ELFSBORG"
+        "name": "IF ELFSBORG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "354": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "IFK GOTEBORG"
+        "name": "IFK GOTEBORG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "355": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "IFK NORRKOPING"
+        "name": "IFK NORRKOPING",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "356": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "IK SIRIUS"
+        "name": "IK SIRIUS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "357": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "INCHEON UNITED FC"
+        "name": "INCHEON UNITED FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "358": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "INDEPENDIENTE DEL VALLE"
+        "name": "INDEPENDIENTE DEL VALLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "359": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "INTER MIAMI CF"
+        "name": "INTER MIAMI CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "36": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL FATEH"
+        "name": "AL FATEH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "360": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "INTER"
+        "name": "INTER",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "361": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "INTERNACIONAL"
+        "name": "INTERNACIONAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "362": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "IPSWICH TOWN"
+        "name": "IPSWICH TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "363": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "JAGIELLONIA BIALYSTOK"
+        "name": "JAGIELLONIA BIALYSTOK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "364": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "JAMSHEDPUR FC"
+        "name": "JAMSHEDPUR FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "365": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "JEJU UNITED FC"
+        "name": "JEJU UNITED FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "366": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "JEONBUK HYUNDAI MOTORS"
+        "name": "JEONBUK HYUNDAI MOTORS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "367": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "JUNIOR FC"
+        "name": "JUNIOR FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "368": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "JUVENTUDE"
+        "name": "JUVENTUDE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "369": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "JUVENTUS"
+        "name": "JUVENTUS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "37": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL FAYHA"
+        "name": "AL FAYHA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "370": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "K BEERSCHOT VA"
+        "name": "K BEERSCHOT VA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "371": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KAA GENT"
+        "name": "KAA GENT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "372": {
-        "budget": 0,
         "leagueID": 45,
-        "name": "KAIZER CHIEFS"
+        "name": "KAIZER CHIEFS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "373": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "KALMAR FF"
+        "name": "KALMAR FF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "374": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "KARLSRUHER SC"
+        "name": "KARLSRUHER SC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "375": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KAS EUPEN"
+        "name": "KAS EUPEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "376": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "KASHIMA ANTLERS"
+        "name": "KASHIMA ANTLERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "377": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "KASHIWA REYSOL"
+        "name": "KASHIWA REYSOL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "378": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "KASIMPASA SK"
+        "name": "KASIMPASA SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "379": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "KAWASAKI FRONTALE"
+        "name": "KAWASAKI FRONTALE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "38": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL HAZEM"
+        "name": "AL HAZEM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "380": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "KERALA BLASTERS FC"
+        "name": "KERALA BLASTERS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "381": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KRC GENK"
+        "name": "KRC GENK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "382": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "KRISTIANSUND BK"
+        "name": "KRISTIANSUND BK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "383": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KSV CERCLE BRUGGE"
+        "name": "KSV CERCLE BRUGGE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "384": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KV KORTRIJK"
+        "name": "KV KORTRIJK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "385": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KV MECHELEN"
+        "name": "KV MECHELEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "386": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "KV OOSTENDE"
+        "name": "KV OOSTENDE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "387": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "LA EQUIDAD"
+        "name": "LA EQUIDAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "388": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "LA GALAXY"
+        "name": "LA GALAXY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "389": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "LASK LINZ"
+        "name": "LASK LINZ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "39": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL HILAL"
+        "name": "AL HILAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "390": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "LAZIO"
+        "name": "LAZIO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "391": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "LDU QUITO"
+        "name": "LDU QUITO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "392": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "LE HAVRE AC"
+        "name": "LE HAVRE AC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "393": {
-        "budget": 0,
         "leagueID": 30,
-        "name": "LECCE"
+        "name": "LECCE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "394": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "LECH POZNAN"
+        "name": "LECH POZNAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "395": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "LECHIA GDANSK"
+        "name": "LECHIA GDANSK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "396": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "LEEDS UNITED"
+        "name": "LEEDS UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "397": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "LEGIA WARSZAWA"
+        "name": "LEGIA WARSZAWA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "398": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "LEICESTER CITY"
+        "name": "LEICESTER CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "399": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "LEVANTE UNION DEPORTIVA"
+        "name": "LEVANTE UNION DEPORTIVA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "4": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "1. FC MAGDEBURG"
+        "name": "1. FC MAGDEBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "40": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL ITTIHAD"
+        "name": "AL ITTIHAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "400": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "LEYTON ORIENT"
+        "name": "LEYTON ORIENT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "401": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "LILLESTROM SK"
+        "name": "LILLESTROM SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "402": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "LINCOLN CITY"
+        "name": "LINCOLN CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "403": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "LIVERPOOL"
+        "name": "LIVERPOOL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "404": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "LIVINGSTON FC"
+        "name": "LIVINGSTON FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "405": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "LONGFORD TOWN"
+        "name": "LONGFORD TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "406": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "LOS ANGELES FC"
+        "name": "LOS ANGELES FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "407": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "LOSC LILLE"
+        "name": "LOSC LILLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "408": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "LUTON TOWN"
+        "name": "LUTON TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "409": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "MACARTHUR FC"
+        "name": "MACARTHUR FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "41": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL NASSR"
+        "name": "AL NASSR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "410": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "MALMO FF"
+        "name": "MALMO FF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "411": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "MANCHESTER CITY"
+        "name": "MANCHESTER CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "412": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "MANCHESTER UNITED"
+        "name": "MANCHESTER UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "413": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "MANSFIELD TOWN"
+        "name": "MANSFIELD TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "414": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "MAZATLAN FUTBOL CLUB"
+        "name": "MAZATLAN FUTBOL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "415": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "MELBOURNE CITY FC"
+        "name": "MELBOURNE CITY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "416": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "MELBOURNE VICTORY"
+        "name": "MELBOURNE VICTORY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "417": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "METROPOLITANOS DE CARACAS FC"
+        "name": "METROPOLITANOS DE CARACAS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "418": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "MIDDLESBROUGH"
+        "name": "MIDDLESBROUGH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "419": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "MILLWALL"
+        "name": "MILLWALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "42": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL RAED"
+        "name": "AL RAED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "420": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "MILTON KEYNES DONS"
+        "name": "MILTON KEYNES DONS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "421": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "MINNESOTA UNITED FC"
+        "name": "MINNESOTA UNITED FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "422": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "MJALLBY AIF"
+        "name": "MJALLBY AIF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "423": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "MJONDALEN IF"
+        "name": "MJONDALEN IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "424": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "MOLDE FK"
+        "name": "MOLDE FK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "425": {
-        "budget": 0,
         "leagueID": 54,
-        "name": "MONTEVIDEO CITY TORQUE"
+        "name": "MONTEVIDEO CITY TORQUE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "426": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "MONTPELLIER HERAULT SC"
+        "name": "MONTPELLIER HERAULT SC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "427": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "MORECAMBE"
+        "name": "MORECAMBE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "428": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "MOREIRENSE FC"
+        "name": "MOREIRENSE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "429": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "MOTHERWELL"
+        "name": "MOTHERWELL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "43": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL SHABAB"
+        "name": "AL SHABAB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "430": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "MSV DUISBURG"
+        "name": "MSV DUISBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "431": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "MUMBAI CITY FC"
+        "name": "MUMBAI CITY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "432": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "MALAGA CF"
+        "name": "MALAGA CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "433": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "N.E.C. NIJMEGEN"
+        "name": "N.E.C. NIJMEGEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "434": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "NAGOYA GRAMPUS"
+        "name": "NAGOYA GRAMPUS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "435": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "NAPOLI"
+        "name": "NAPOLI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "436": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "NASHVILLE SC"
+        "name": "NASHVILLE SC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "437": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "NEW ENGLAND REVOLUTION"
+        "name": "NEW ENGLAND REVOLUTION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "438": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "NEW YORK CITY FC"
+        "name": "NEW YORK CITY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "439": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "NEW YORK RED BULLS"
+        "name": "NEW YORK RED BULLS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "44": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL TAAWOUN"
+        "name": "AL TAAWOUN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "440": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "NEWCASTLE JETS"
+        "name": "NEWCASTLE JETS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "441": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "NEWCASTLE UNITED"
+        "name": "NEWCASTLE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "442": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "NEWELL'S OLD BOYS"
+        "name": "NEWELL'S OLD BOYS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "443": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "NEWPORT COUNTY"
+        "name": "NEWPORT COUNTY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "444": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "NORTHAMPTON TOWN"
+        "name": "NORTHAMPTON TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "445": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "NORTHEAST UNITED FC"
+        "name": "NORTHEAST UNITED FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "446": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "NORWICH CITY"
+        "name": "NORWICH CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "447": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "NOTTINGHAM FOREST"
+        "name": "NOTTINGHAM FOREST",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "448": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "NIMES OLYMPIQUE"
+        "name": "NIMES OLYMPIQUE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "449": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "ODDS BK"
+        "name": "ODDS BK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "45": {
-        "budget": 0,
         "leagueID": 43,
-        "name": "AL TAI"
+        "name": "AL TAI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "450": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "ODENSE BOLDKLUB"
+        "name": "ODENSE BOLDKLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "451": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "ODISHA FC"
+        "name": "ODISHA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "452": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "OGC NICE"
+        "name": "OGC NICE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "453": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "OITA TRINITA"
+        "name": "OITA TRINITA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "454": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "OLDHAM ATHLETIC"
+        "name": "OLDHAM ATHLETIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "455": {
-        "budget": 0,
         "leagueID": 25,
-        "name": "OLYMPIACOS CFP"
+        "name": "OLYMPIACOS CFP",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "456": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "OLYMPIQUE DE MARSEILLE"
+        "name": "OLYMPIQUE DE MARSEILLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "457": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "OLYMPIQUE LYONNAIS"
+        "name": "OLYMPIQUE LYONNAIS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "458": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "ORLANDO CITY SOCCER CLUB"
+        "name": "ORLANDO CITY SOCCER CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "459": {
-        "budget": 0,
         "leagueID": 45,
-        "name": "ORLANDO PIRATES"
+        "name": "ORLANDO PIRATES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "46": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ALTAY SK"
+        "name": "ALTAY SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "460": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "OUD-HEVERLEE LEUVEN"
+        "name": "OUD-HEVERLEE LEUVEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "461": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "OXFORD UNITED"
+        "name": "OXFORD UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "462": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "PACHUCA"
+        "name": "PACHUCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "463": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "PALMEIRAS"
+        "name": "PALMEIRAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "464": {
-        "budget": 0,
         "leagueID": 25,
-        "name": "PANATHINAIKOS FC"
+        "name": "PANATHINAIKOS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "465": {
-        "budget": 0,
         "leagueID": 25,
-        "name": "PAOK"
+        "name": "PAOK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "466": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "PARIS FC"
+        "name": "PARIS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "467": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "PARIS SAINT-GERMAIN"
+        "name": "PARIS SAINT-GERMAIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "468": {
-        "budget": 0,
         "leagueID": 30,
-        "name": "PARMA"
+        "name": "PARMA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "469": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "PATRONATO"
+        "name": "PATRONATO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "47": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "AMIENS SC"
+        "name": "AMIENS SC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "470": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "PAU FC"
+        "name": "PAU FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "471": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "PEC ZWOLLE"
+        "name": "PEC ZWOLLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "472": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "PERTH GLORY"
+        "name": "PERTH GLORY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "473": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "PETERBOROUGH UNITED"
+        "name": "PETERBOROUGH UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "474": {
-        "budget": 0,
         "leagueID": 42,
-        "name": "PFC CSKA MOSCOW"
+        "name": "PFC CSKA MOSCOW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "475": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "PGE FKS STAL MIELEC"
+        "name": "PGE FKS STAL MIELEC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "476": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "PHILADELPHIA UNION"
+        "name": "PHILADELPHIA UNION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "477": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "PIAST GLIWICE"
+        "name": "PIAST GLIWICE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "478": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "PLATENSE"
+        "name": "PLATENSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "479": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "PLYMOUTH ARGYLE"
+        "name": "PLYMOUTH ARGYLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "48": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "AMERICA DE CALI"
+        "name": "AMERICA DE CALI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "480": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "POGON SZCZECIN"
+        "name": "POGON SZCZECIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "481": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "POHANG STEELERS"
+        "name": "POHANG STEELERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "482": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "PORT VALE"
+        "name": "PORT VALE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "483": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "PORTIMONENSE SC"
+        "name": "PORTIMONENSE SC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "484": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "PORTLAND TIMBERS"
+        "name": "PORTLAND TIMBERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "485": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "PORTSMOUTH"
+        "name": "PORTSMOUTH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "486": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "PRESTON NORTH END"
+        "name": "PRESTON NORTH END",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "487": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "PSV"
+        "name": "PSV",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "488": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "PUEBLA FC"
+        "name": "PUEBLA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "489": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "QINGDAO FC"
+        "name": "QINGDAO FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "49": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "ANGERS SCO"
+        "name": "ANGERS SCO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "490": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "QUEENS PARK RANGERS"
+        "name": "QUEENS PARK RANGERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "491": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "RACING CLUB DE LENS"
+        "name": "RACING CLUB DE LENS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "492": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "RACING CLUB"
+        "name": "RACING CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "493": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "RADOMIAK RADOM"
+        "name": "RADOMIAK RADOM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "494": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "RAKOW CZESTOCHOWA"
+        "name": "RAKOW CZESTOCHOWA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "495": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "RANDERS FC"
+        "name": "RANDERS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "496": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "RANGERS FC"
+        "name": "RANGERS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "497": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "RAPID BUCURESTI"
+        "name": "RAPID BUCURESTI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "498": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "RAYO VALLECANO"
+        "name": "RAYO VALLECANO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "499": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "RB BRAGANTINO"
+        "name": "RB BRAGANTINO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "5": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "1. FC NURNBERG"
+        "name": "1. FC NURNBERG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "50": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ANTALYASPOR"
+        "name": "ANTALYASPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "500": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "RB LEIPZIG"
+        "name": "RB LEIPZIG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "501": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "RC CELTA DE VIGO"
+        "name": "RC CELTA DE VIGO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "502": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "RC STRASBOURG ALSACE"
+        "name": "RC STRASBOURG ALSACE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "503": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "RCD ESPANYOL DE BARCELONA"
+        "name": "RCD ESPANYOL DE BARCELONA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "504": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "RCD MALLORCA"
+        "name": "RCD MALLORCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "505": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "READING"
+        "name": "READING",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "506": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "REAL BETIS BALOMPIE"
+        "name": "REAL BETIS BALOMPIE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "507": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "REAL MADRID CF"
+        "name": "REAL MADRID CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "508": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "REAL OVIEDO"
+        "name": "REAL OVIEDO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "509": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "REAL SALT LAKE"
+        "name": "REAL SALT LAKE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "51": {
-        "budget": 0,
         "leagueID": 10,
-        "name": "APOEL NICOSIA FC"
+        "name": "APOEL NICOSIA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "510": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "REAL SOCIEDAD B"
+        "name": "REAL SOCIEDAD B",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "511": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "REAL SOCIEDAD"
+        "name": "REAL SOCIEDAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "512": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "REAL SPORTING DE GIJON"
+        "name": "REAL SPORTING DE GIJON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "513": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "REAL VALLADOLID CF"
+        "name": "REAL VALLADOLID CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "514": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "REAL ZARAGOZA"
+        "name": "REAL ZARAGOZA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "515": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "RIVER PLATE"
+        "name": "RIVER PLATE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "516": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "RKC WAALWIJK"
+        "name": "RKC WAALWIJK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "517": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "ROCHDALE"
+        "name": "ROCHDALE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "518": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "RODEZ AVEYRON FOOTBALL"
+        "name": "RODEZ AVEYRON FOOTBALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "519": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "ROMA"
+        "name": "ROMA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "52": {
-        "budget": 0,
         "leagueID": 55,
-        "name": "ARAGUA FUTBOL CLUB"
+        "name": "ARAGUA FUTBOL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "520": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "ROSARIO CENTRAL"
+        "name": "ROSARIO CENTRAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "521": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "ROSENBORG BK"
+        "name": "ROSENBORG BK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "522": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "ROSS COUNTY FC"
+        "name": "ROSS COUNTY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "523": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "ROTHERHAM UNITED"
+        "name": "ROTHERHAM UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "524": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "ROYAL ANTWERP FC"
+        "name": "ROYAL ANTWERP FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "525": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "ROYAL CHARLEROI S.C."
+        "name": "ROYAL CHARLEROI S.C.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "526": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "ROYALE UNION SAINT-GILLOISE"
+        "name": "ROYALE UNION SAINT-GILLOISE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "527": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "RSC ANDERLECHT"
+        "name": "RSC ANDERLECHT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "528": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "RZ PELLETS WOLFSBERGER AC"
+        "name": "RZ PELLETS WOLFSBERGER AC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "529": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "SAGAN TOSU"
+        "name": "SAGAN TOSU",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "53": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "ARGENTINOS JUNIORS"
+        "name": "ARGENTINOS JUNIORS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "530": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "SALFORD CITY"
+        "name": "SALFORD CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "531": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "SAN JOSE EARTHQUAKES"
+        "name": "SAN JOSE EARTHQUAKES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "532": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "SAN LORENZO DE ALMAGRO"
+        "name": "SAN LORENZO DE ALMAGRO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "533": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "SANDEFJORD FOTBALL"
+        "name": "SANDEFJORD FOTBALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "534": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "SANFRECCE HIROSHIMA"
+        "name": "SANFRECCE HIROSHIMA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "535": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "SANTA CLARA"
+        "name": "SANTA CLARA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "536": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "SANTOS LAGUNA"
+        "name": "SANTOS LAGUNA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "537": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "SANTOS"
+        "name": "SANTOS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "538": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "SARPSBORG 08 FF"
+        "name": "SARPSBORG 08 FF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "539": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "SC BASTIA"
+        "name": "SC BASTIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "54": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "ARSENAL DE SARANDI"
+        "name": "ARSENAL DE SARANDI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "540": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "SC BRAGA"
+        "name": "SC BRAGA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "541": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "SC CAMBUUR"
+        "name": "SC CAMBUUR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "542": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "SC EAST BENGAL FC"
+        "name": "SC EAST BENGAL FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "543": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "SC FREIBURG II"
+        "name": "SC FREIBURG II",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "544": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "SC HEERENVEEN"
+        "name": "SC HEERENVEEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "545": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SC PADERBORN 07"
+        "name": "SC PADERBORN 07",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "546": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "SC RHEINDORF ALTACH"
+        "name": "SC RHEINDORF ALTACH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "547": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "SCUNTHORPE UNITED"
+        "name": "SCUNTHORPE UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "548": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "SD AMOREBIETA"
+        "name": "SD AMOREBIETA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "549": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "SD EIBAR"
+        "name": "SD EIBAR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "55": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "ARSENAL"
+        "name": "ARSENAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "550": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "SD HUESCA"
+        "name": "SD HUESCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "551": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "SD PONFERRADINA"
+        "name": "SD PONFERRADINA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "552": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "SEATTLE SOUNDERS FC"
+        "name": "SEATTLE SOUNDERS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "553": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "SEONGNAM FC"
+        "name": "SEONGNAM FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "554": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "SEPSI OSK SF. GHEORGHE"
+        "name": "SEPSI OSK SF. GHEORGHE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "555": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "SERAING"
+        "name": "SERAING",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "556": {
-        "budget": 0,
         "leagueID": 49,
-        "name": "SERVETTE FC"
+        "name": "SERVETTE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "557": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "SEVILLA FC"
+        "name": "SEVILLA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "558": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SG DYNAMO DRESDEN"
+        "name": "SG DYNAMO DRESDEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "559": {
-        "budget": 0,
         "leagueID": 53,
-        "name": "SHAKHTAR DONETSK"
+        "name": "SHAKHTAR DONETSK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "56": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "AS MONACO"
+        "name": "AS MONACO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "560": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "SHAMROCK ROVERS"
+        "name": "SHAMROCK ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "561": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "SHANDONG TAISHAN"
+        "name": "SHANDONG TAISHAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "562": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "SHANGHAI PORT FC"
+        "name": "SHANGHAI PORT FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "563": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "SHANGHAI SHENHUA FC"
+        "name": "SHANGHAI SHENHUA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "564": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "SHEFFIELD UNITED"
+        "name": "SHEFFIELD UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "565": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "SHEFFIELD WEDNESDAY"
+        "name": "SHEFFIELD WEDNESDAY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "566": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "SHENZHEN FC"
+        "name": "SHENZHEN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "567": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "SHIJIAZHUANG EVER BRIGHT F.C."
+        "name": "SHIJIAZHUANG EVER BRIGHT F.C.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "568": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "SHIMIZU S-PULSE"
+        "name": "SHIMIZU S-PULSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "569": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "SHONAN BELLMARE"
+        "name": "SHONAN BELLMARE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "57": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "AS NANCY LORRAINE"
+        "name": "AS NANCY LORRAINE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "570": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "SHREWSBURY TOWN"
+        "name": "SHREWSBURY TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "571": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "SILKEBORG IF"
+        "name": "SILKEBORG IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "572": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "SINT-TRUIDENSE VV"
+        "name": "SINT-TRUIDENSE VV",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "573": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "SK AUSTRIA KLAGENFURT"
+        "name": "SK AUSTRIA KLAGENFURT",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "574": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "SK BRANN"
+        "name": "SK BRANN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "575": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "SK RAPID WIEN"
+        "name": "SK RAPID WIEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "576": {
-        "budget": 0,
         "leagueID": 11,
-        "name": "SK SLAVIA PRAHA"
+        "name": "SK SLAVIA PRAHA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "577": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "SK STURM GRAZ"
+        "name": "SK STURM GRAZ",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "578": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "SL BENFICA"
+        "name": "SL BENFICA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "579": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "SLIGO ROVERS"
+        "name": "SLIGO ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "58": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "AS SAINT-ETIENNE"
+        "name": "AS SAINT-ETIENNE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "580": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "SOCIEDAD DEPORTIVA AUCAS"
+        "name": "SOCIEDAD DEPORTIVA AUCAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "581": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "SOUTHAMPTON"
+        "name": "SOUTHAMPTON",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "582": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "SPARTA ROTTERDAM"
+        "name": "SPARTA ROTTERDAM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "583": {
-        "budget": 0,
         "leagueID": 42,
-        "name": "SPARTAK MOSKVA"
+        "name": "SPARTAK MOSKVA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "584": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "SPEZIA"
+        "name": "SPEZIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "585": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "SPORT CLUB CORINTHIANS PAULISTA"
+        "name": "SPORT CLUB CORINTHIANS PAULISTA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "586": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "SPORT HUANCAYO"
+        "name": "SPORT HUANCAYO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "587": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "SPORT-CLUB FREIBURG"
+        "name": "SPORT-CLUB FREIBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "588": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "SPORTCLUB VERL"
+        "name": "SPORTCLUB VERL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "589": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "SPORTING CP"
+        "name": "SPORTING CP",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "59": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "ASSOCIACAO CHAPECOENSE DE FUTEBOL"
+        "name": "ASSOCIACAO CHAPECOENSE DE FUTEBOL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "590": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "SPORTING KANSAS CITY"
+        "name": "SPORTING KANSAS CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "591": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "SPVGG GREUTHER FURTH"
+        "name": "SPVGG GREUTHER FURTH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "592": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SSV JAHN REGENSBURG"
+        "name": "SSV JAHN REGENSBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "593": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "ST. JOHNSTONE FC"
+        "name": "ST. JOHNSTONE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "594": {
-        "budget": 0,
         "leagueID": 44,
-        "name": "ST. MIRREN"
+        "name": "ST. MIRREN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "595": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "ST. PATRICK'S ATHLETIC"
+        "name": "ST. PATRICK'S ATHLETIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "596": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "STABAEK FOTBALL"
+        "name": "STABAEK FOTBALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "597": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "STADE BRESTOIS 29"
+        "name": "STADE BRESTOIS 29",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "598": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "STADE DE REIMS"
+        "name": "STADE DE REIMS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "599": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "STADE MALHERBE CAEN"
+        "name": "STADE MALHERBE CAEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "6": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "1. FC SAARBRUCKEN"
+        "name": "1. FC SAARBRUCKEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "60": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "ASTON VILLA"
+        "name": "ASTON VILLA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "600": {
-        "budget": 0,
         "leagueID": 20,
-        "name": "STADE RENNAIS FC"
+        "name": "STADE RENNAIS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "601": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "STANDARD DE LIEGE"
+        "name": "STANDARD DE LIEGE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "602": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "STEVENAGE"
+        "name": "STEVENAGE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "603": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "STOKE CITY"
+        "name": "STOKE CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "604": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "STROMSGODSET IF"
+        "name": "STROMSGODSET IF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "605": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "SUNDERLAND"
+        "name": "SUNDERLAND",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "606": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "SUTTON UNITED"
+        "name": "SUTTON UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "607": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "SUWON FC"
+        "name": "SUWON FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "608": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "SUWON SAMSUNG BLUEWINGS"
+        "name": "SUWON SAMSUNG BLUEWINGS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "609": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SV DARMSTADT 98"
+        "name": "SV DARMSTADT 98",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "61": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ATAKAS HATAYSPOR"
+        "name": "ATAKAS HATAYSPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "610": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "SV MEPPEN"
+        "name": "SV MEPPEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "611": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "SV RIED"
+        "name": "SV RIED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "612": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SV SANDHAUSEN"
+        "name": "SV SANDHAUSEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "613": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "SV WALDHOF MANNHEIM 07"
+        "name": "SV WALDHOF MANNHEIM 07",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "614": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "SV WEHEN WIESBADEN"
+        "name": "SV WEHEN WIESBADEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "615": {
-        "budget": 0,
         "leagueID": 23,
-        "name": "SV WERDER BREMEN"
+        "name": "SV WERDER BREMEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "616": {
-        "budget": 0,
         "leagueID": 4,
-        "name": "SV ZULTE WAREGEM"
+        "name": "SV ZULTE WAREGEM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "617": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "SWANSEA CITY"
+        "name": "SWANSEA CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "618": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "SWINDON TOWN"
+        "name": "SWINDON TOWN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "619": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "SYDNEY FC"
+        "name": "SYDNEY FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "62": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "ATALANTA"
+        "name": "ATALANTA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "620": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "SAO PAULO"
+        "name": "SAO PAULO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "621": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "SONDERJYSKE"
+        "name": "SONDERJYSKE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "622": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "TIANJIN JINMEN TIGER FC"
+        "name": "TIANJIN JINMEN TIGER FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "623": {
-        "budget": 0,
         "leagueID": 34,
-        "name": "TIGRES U.A.N.L."
+        "name": "TIGRES U.A.N.L.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "624": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "TOKUSHIMA VORTIS"
+        "name": "TOKUSHIMA VORTIS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "625": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "TORINO F.C."
+        "name": "TORINO F.C.",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "626": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "TORONTO FC"
+        "name": "TORONTO FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "627": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "TOTTENHAM HOTSPUR"
+        "name": "TOTTENHAM HOTSPUR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "628": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "TOULOUSE FOOTBALL CLUB"
+        "name": "TOULOUSE FOOTBALL CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "629": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "TRABZONSPOR"
+        "name": "TRABZONSPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "63": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "ATHLETIC CLUB DE BILBAO"
+        "name": "ATHLETIC CLUB DE BILBAO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "630": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "TRANMERE ROVERS"
+        "name": "TRANMERE ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "631": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "TROMSO IL"
+        "name": "TROMSO IL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "632": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "TSG HOFFENHEIM"
+        "name": "TSG HOFFENHEIM",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "633": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "TSV 1860 MUNCHEN"
+        "name": "TSV 1860 MUNCHEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "634": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "TSV EGGER GLAS HARTBERG"
+        "name": "TSV EGGER GLAS HARTBERG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "635": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "TSV HAVELSE"
+        "name": "TSV HAVELSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "636": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "TURKGUCU MUNCHEN"
+        "name": "TURKGUCU MUNCHEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "637": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "U.C. SAMPDORIA"
+        "name": "U.C. SAMPDORIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "638": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "U.S. SASSUOLO CALCIO"
+        "name": "U.S. SASSUOLO CALCIO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "639": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "UD IBIZA"
+        "name": "UD IBIZA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "64": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "ATK MOHUN BAGAN FC"
+        "name": "ATK MOHUN BAGAN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "640": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "UDINESE CALCIO"
+        "name": "UDINESE CALCIO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "641": {
-        "budget": 0,
         "leagueID": 32,
-        "name": "ULSAN HYUNDAI FC"
+        "name": "ULSAN HYUNDAI FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "642": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "UNIVERSIDAD CATOLICA"
+        "name": "UNIVERSIDAD CATOLICA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "643": {
-        "budget": 0,
         "leagueID": 37,
-        "name": "UNIVERSIDAD TECNICA DE CAJAMARCA"
+        "name": "UNIVERSIDAD TECNICA DE CAJAMARCA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "644": {
-        "budget": 0,
         "leagueID": 41,
-        "name": "UNIVERSITATEA CRAIOVA"
+        "name": "UNIVERSITATEA CRAIOVA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "645": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "UNION DE SANTA FE"
+        "name": "UNION DE SANTA FE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "646": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "UNION DEPORTIVA ALMERIA"
+        "name": "UNION DEPORTIVA ALMERIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "647": {
-        "budget": 0,
         "leagueID": 47,
-        "name": "UNION DEPORTIVA LAS PALMAS"
+        "name": "UNION DEPORTIVA LAS PALMAS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "648": {
-        "budget": 0,
         "leagueID": 6,
-        "name": "UNION LA CALERA"
+        "name": "UNION LA CALERA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "649": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "URAWA RED DIAMONDS"
+        "name": "URAWA RED DIAMONDS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "65": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "ATLANTA UNITED"
+        "name": "ATLANTA UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "650": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "US QUEVILLY ROUEN METROPOLE"
+        "name": "US QUEVILLY ROUEN METROPOLE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "651": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "US SALERNITANA 1919"
+        "name": "US SALERNITANA 1919",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "652": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "USL DUNKERQUE"
+        "name": "USL DUNKERQUE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "653": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "VALENCIA CF"
+        "name": "VALENCIA CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "654": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "VANCOUVER WHITECAPS FC"
+        "name": "VANCOUVER WHITECAPS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "655": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "VARBERGS BOIS FC"
+        "name": "VARBERGS BOIS FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "656": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "VEGALTA SENDAI"
+        "name": "VEGALTA SENDAI",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "657": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "VEJLE BOLDKLUB"
+        "name": "VEJLE BOLDKLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "658": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "VENEZIA FC"
+        "name": "VENEZIA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "659": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "VFB STUTTGART"
+        "name": "VFB STUTTGART",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "66": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "ATLETICO CLUBE GOIANIENSE"
+        "name": "ATLETICO CLUBE GOIANIENSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "660": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "VFL BOCHUM 1848"
+        "name": "VFL BOCHUM 1848",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "661": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "VFL OSNABRUCK"
+        "name": "VFL OSNABRUCK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "662": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "VFL WOLFSBURG"
+        "name": "VFL WOLFSBURG",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "663": {
-        "budget": 0,
         "leagueID": 12,
-        "name": "VIBORG FF"
+        "name": "VIBORG FF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "664": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "VIKING FK"
+        "name": "VIKING FK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "665": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "VIKTORIA KOLN"
+        "name": "VIKTORIA KOLN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "666": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "VILLARREAL CF"
+        "name": "VILLARREAL CF",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "667": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "VISSEL KOBE"
+        "name": "VISSEL KOBE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "668": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "VITESSE"
+        "name": "VITESSE",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "669": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "VITORIA DE GUIMARAES"
+        "name": "VITORIA DE GUIMARAES",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "67": {
-        "budget": 0,
         "leagueID": 46,
-        "name": "ATLETICO DE MADRID"
+        "name": "ATLETICO DE MADRID",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "670": {
-        "budget": 0,
         "leagueID": 35,
-        "name": "VALERENGA FOTBALL"
+        "name": "VALERENGA FOTBALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "671": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "VELEZ SARSFIELD"
+        "name": "VELEZ SARSFIELD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "672": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "WALSALL"
+        "name": "WALSALL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "673": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "WARTA POZNAN"
+        "name": "WARTA POZNAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "674": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "WATERFORD FC"
+        "name": "WATERFORD FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "675": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "WATFORD"
+        "name": "WATFORD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "676": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "WELLINGTON PHOENIX"
+        "name": "WELLINGTON PHOENIX",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "677": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "WEST BROMWICH ALBION"
+        "name": "WEST BROMWICH ALBION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "678": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "WEST HAM UNITED"
+        "name": "WEST HAM UNITED",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "679": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "WESTERN SYDNEY WANDERERS"
+        "name": "WESTERN SYDNEY WANDERERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "68": {
-        "budget": 0,
         "leagueID": 8,
-        "name": "ATLETICO NACIONAL"
+        "name": "ATLETICO NACIONAL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "680": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "WESTERN UNITED FC"
+        "name": "WESTERN UNITED FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "681": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "WIGAN ATHLETIC"
+        "name": "WIGAN ATHLETIC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "682": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "WILLEM II"
+        "name": "WILLEM II",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "683": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "WISLA KRAKOW"
+        "name": "WISLA KRAKOW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "684": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "WISLA PLOCK"
+        "name": "WISLA PLOCK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "685": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "WOLVERHAMPTON WANDERERS"
+        "name": "WOLVERHAMPTON WANDERERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "686": {
-        "budget": 0,
         "leagueID": 17,
-        "name": "WREXHAM AFC"
+        "name": "WREXHAM AFC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "687": {
-        "budget": 0,
         "leagueID": 3,
-        "name": "WSG TIROL"
+        "name": "WSG TIROL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "688": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "WUHAN FC"
+        "name": "WUHAN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "689": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "WYCOMBE WANDERERS"
+        "name": "WYCOMBE WANDERERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "69": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "ATLETICO TUCUMAN"
+        "name": "ATLETICO TUCUMAN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "690": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "YENI MALATYASPOR"
+        "name": "YENI MALATYASPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "691": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "YOKOHAMA F. MARINOS"
+        "name": "YOKOHAMA F. MARINOS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "692": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "YOKOHAMA FC"
+        "name": "YOKOHAMA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "693": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "YUKATEL KAYSERISPOR"
+        "name": "YUKATEL KAYSERISPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "694": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "ZAGLEBIE LUBIN"
+        "name": "ZAGLEBIE LUBIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "695": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "CAYKUR RIZESPOR"
+        "name": "CAYKUR RIZESPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "696": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "OREBRO SK"
+        "name": "OREBRO SK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "697": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "OSTERSUNDS FK"
+        "name": "OSTERSUNDS FK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "698": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ISTANBUL BASAKSEHIR FK"
+        "name": "ISTANBUL BASAKSEHIR FK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "699": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "ITTIFAK HOLDING KONYASPOR"
+        "name": "ITTIFAK HOLDING KONYASPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "7": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "1. FC UNION BERLIN"
+        "name": "1. FC UNION BERLIN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "70": {
-        "budget": 0,
         "leagueID": 52,
-        "name": "AUSTIN FC"
+        "name": "AUSTIN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "700": {
-        "budget": 0,
         "leagueID": 38,
-        "name": "SLASK WROCLAW"
+        "name": "SLASK WROCLAW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "701": {
-        "budget": 0,
         "leagueID": 21,
-        "name": "VALENCIENNES FC"
+        "name": "VALENCIENNES FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "71": {
-        "budget": 0,
         "leagueID": 31,
-        "name": "AVISPA FUKUOKA"
+        "name": "AVISPA FUKUOKA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "72": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "AYTEMIZ ALANYASPOR"
+        "name": "AYTEMIZ ALANYASPOR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "73": {
-        "budget": 0,
         "leagueID": 26,
-        "name": "AZ ALKMAAR"
+        "name": "AZ ALKMAAR",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "74": {
-        "budget": 0,
         "leagueID": 5,
-        "name": "BAHIA"
+        "name": "BAHIA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "75": {
-        "budget": 0,
         "leagueID": 13,
-        "name": "BARCELONA SPORTING CLUB"
+        "name": "BARCELONA SPORTING CLUB",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "76": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "BARNSLEY"
+        "name": "BARNSLEY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "77": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "BARROW"
+        "name": "BARROW",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "78": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "BAYER 04 LEVERKUSEN"
+        "name": "BAYER 04 LEVERKUSEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "79": {
-        "budget": 0,
         "leagueID": 7,
-        "name": "BEIJING GUOAN FC"
+        "name": "BEIJING GUOAN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "8": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "1. FSV MAINZ 05"
+        "name": "1. FSV MAINZ 05",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "80": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "BELENENSES SAD"
+        "name": "BELENENSES SAD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "81": {
-        "budget": 0,
         "leagueID": 30,
-        "name": "BENEVENTO"
+        "name": "BENEVENTO",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "82": {
-        "budget": 0,
         "leagueID": 28,
-        "name": "BENGALURU FC"
+        "name": "BENGALURU FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "83": {
-        "budget": 0,
         "leagueID": 50,
-        "name": "BESIKTAS JK"
+        "name": "BESIKTAS JK",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "84": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "BIRMINGHAM CITY"
+        "name": "BIRMINGHAM CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "85": {
-        "budget": 0,
         "leagueID": 48,
-        "name": "BK HACKEN"
+        "name": "BK HACKEN",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "86": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "BLACKBURN ROVERS"
+        "name": "BLACKBURN ROVERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "87": {
-        "budget": 0,
         "leagueID": 14,
-        "name": "BLACKPOOL"
+        "name": "BLACKPOOL",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "88": {
-        "budget": 0,
         "leagueID": 39,
-        "name": "BOAVISTA FC"
+        "name": "BOAVISTA FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "89": {
-        "budget": 0,
         "leagueID": 1,
-        "name": "BOCA JUNIORS"
+        "name": "BOCA JUNIORS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "9": {
-        "budget": 0,
         "leagueID": 36,
-        "name": "12 DE OCTUBRE FC"
+        "name": "12 DE OCTUBRE FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "90": {
-        "budget": 0,
         "leagueID": 40,
-        "name": "BOHEMIAN FC"
+        "name": "BOHEMIAN FC",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "91": {
-        "budget": 0,
         "leagueID": 29,
-        "name": "BOLOGNA"
+        "name": "BOLOGNA",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "92": {
-        "budget": 0,
         "leagueID": 15,
-        "name": "BOLTON WANDERERS"
+        "name": "BOLTON WANDERERS",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "93": {
-        "budget": 0,
         "leagueID": 24,
-        "name": "BORUSSIA DORTMUND II"
+        "name": "BORUSSIA DORTMUND II",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "94": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "BORUSSIA DORTMUND"
+        "name": "BORUSSIA DORTMUND",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "95": {
-        "budget": 0,
         "leagueID": 22,
-        "name": "BORUSSIA MONCHENGLADBACH"
+        "name": "BORUSSIA MONCHENGLADBACH",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "96": {
-        "budget": 0,
         "leagueID": 16,
-        "name": "BRADFORD CITY"
+        "name": "BRADFORD CITY",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "97": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "BRENTFORD"
+        "name": "BRENTFORD",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "98": {
-        "budget": 0,
         "leagueID": 18,
-        "name": "BRIGHTON & HOVE ALBION"
+        "name": "BRIGHTON & HOVE ALBION",
+        "transferBudget": 0,
+        "wageBudget": 0
     },
     "99": {
-        "budget": 0,
         "leagueID": 2,
-        "name": "BRISBANE ROAR"
+        "name": "BRISBANE ROAR",
+        "transferBudget": 0,
+        "wageBudget": 0
     }
 }
