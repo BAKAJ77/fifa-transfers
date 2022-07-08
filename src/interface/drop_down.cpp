@@ -19,18 +19,19 @@ DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, uint16_t maxSele
 }
 
 DropDown::DropDown(DropDown&& temp) noexcept :
-    font(temp.font), position(temp.position), size(temp.size), fontSize(temp.fontSize), opacity(temp.opacity), selections(std::move(temp.selections)),
-    currentSelected(std::move(temp.currentSelected)), clicked(false), released(false), doDropDown(false)
+    font(std::move(temp.font)), position(std::move(temp.position)), size(std::move(temp.size)), fontSize(std::move(temp.fontSize)), 
+    opacity(std::move(temp.opacity)), selections(std::move(temp.selections)), currentSelected(std::move(temp.currentSelected)), clicked(false), 
+    released(false), doDropDown(false)
 {}
 
 DropDown& DropDown::operator=(DropDown&& temp) noexcept
 {
-    this->font = temp.font;
-    this->position = temp.position;
-    this->size = temp.size;
-    this->fontSize = temp.fontSize;
-    this->opacity = temp.opacity;
-
+    this->font = std::move(temp.font);
+    this->position = std::move(temp.position);
+    this->size = std::move(temp.size);
+    this->fontSize = std::move(temp.fontSize);
+    this->opacity = std::move(temp.opacity);
+    
     this->selections = std::move(temp.selections);
     this->currentSelected = std::move(temp.currentSelected);
 
