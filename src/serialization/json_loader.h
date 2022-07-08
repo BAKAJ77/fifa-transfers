@@ -26,6 +26,9 @@ public:
 	// is destroyed.
 	void Close();
 
+	// Clears the JSON contents.
+	void Clear();
+
 	// Returns the root of the loaded JSON data structure.
 	nlohmann::json& GetRoot();
 

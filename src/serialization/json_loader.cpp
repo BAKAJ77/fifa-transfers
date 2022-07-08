@@ -66,6 +66,11 @@ void JSONLoader::Close()
 	this->fileStream.close();
 }
 
+void JSONLoader::Clear()
+{
+	this->root.clear();
+}
+
 nlohmann::json& JSONLoader::GetRoot()
 {
 	return this->root;
