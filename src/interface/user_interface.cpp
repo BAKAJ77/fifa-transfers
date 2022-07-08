@@ -55,7 +55,7 @@ void UserInterface::AddRadioButtonGroup(const std::string_view& id, const RadioB
     this->radioButtonGroups[id.data()] = group;
 }
 
-void UserInterface::AddDropDown(const std::string_view& id, DropDown&& dropDown)
+void UserInterface::AddDropDown(const std::string_view& id, const DropDown& dropDown)
 {
     // Don't add the drop down to the interface if another with the ID given already exists
     if (this->dropDowns.find(id.data()) != this->dropDowns.end())
@@ -64,7 +64,7 @@ void UserInterface::AddDropDown(const std::string_view& id, DropDown&& dropDown)
         return;
     }
 
-    this->dropDowns[id.data()] = std::move(dropDown);
+    this->dropDowns[id.data()] = dropDown;
 }
 
 void UserInterface::Update(const float& deltaTime)

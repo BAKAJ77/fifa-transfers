@@ -26,7 +26,7 @@ private:
 	Element currentSelected;
 public:
 	DropDown();
-	DropDown(const glm::vec2& pos, const glm::vec2& size, uint16_t maxSelections, float opacity = 255.0f);
+	DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity = 255.0f);
 	DropDown(const DropDown& other) = default;
 	DropDown(DropDown&& temp) noexcept;
 

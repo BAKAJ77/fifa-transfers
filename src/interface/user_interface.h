@@ -45,7 +45,7 @@ public:
 	void AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group);
 
 	// Adds a drop down to the interface.
-	void AddDropDown(const std::string_view& id, DropDown&& dropDown);
+	void AddDropDown(const std::string_view& id, const DropDown& dropDown);
 
 	// Updates the interface.
 	void Update(const float& deltaTime);
