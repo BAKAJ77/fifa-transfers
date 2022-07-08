@@ -56,6 +56,9 @@ public:
 	// Returns the value of the current selected option element.
 	int GetCurrentSelected() const;
 
+	// Returns TRUE if the drop down is active i.e the selection options have dropped down.
+	bool IsDroppedDown() const;
+
 	// Returns the position of the drop down.
 	const glm::vec2& GetPosition() const;
 

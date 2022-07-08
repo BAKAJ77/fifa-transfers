@@ -134,6 +134,11 @@ int DropDown::GetCurrentSelected() const
     return this->currentSelected.value;
 }
 
+bool DropDown::IsDroppedDown() const
+{
+    return this->doDropDown;
+}
+
 const glm::vec2& DropDown::GetPosition() const
 {
     return this->position;

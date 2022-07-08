@@ -104,8 +104,12 @@ void UserInterface::Render() const
         group.second.Render(this->opacity);
 
     // Render the drop downs
+    const DropDown* activeDropDown = nullptr;
     for (auto& dropDown : this->dropDowns)
-        dropDown.second.Render(this->opacity);
+        dropDown.second.IsDroppedDown() ? activeDropDown = &dropDown.second : dropDown.second.Render(this->opacity);
+
+    if (activeDropDown) // This is to make sure the active drop down renders over other inactive drop downs
+        activeDropDown->Render(this->opacity);
 }
 
 TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
