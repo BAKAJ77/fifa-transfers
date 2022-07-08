@@ -36,6 +36,9 @@ public:
 	// Adds a new radio button into the group.
 	void Add(const std::string_view& id, int value);
 
+	// Resets the current selected to null.
+	void Reset();
+
 	// Updates the radio button group.
 	void Update(const float& deltaTime);
 

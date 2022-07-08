@@ -74,6 +74,12 @@ void DropDown::Clear()
         { this->position, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1 };
 }
 
+void DropDown::Reset()
+{
+    this->currentSelected = { std::string(),
+        { this->position, this->size, this->size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1 };
+}
+
 void DropDown::Update(const float& deltaTime)
 {
     // Update the selections offset via the user scrolling

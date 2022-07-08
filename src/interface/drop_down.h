@@ -51,6 +51,9 @@ public:
 	// Clears all the selection option elements.
 	void Clear();
 
+	// Resets the selected option to empty.
+	void Reset();
+
 	// Updates the drop down.
 	void Update(const float& deltaTime);
 

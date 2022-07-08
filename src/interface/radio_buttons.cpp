@@ -40,6 +40,11 @@ void RadioButtonGroup::Add(const std::string_view& id, int value)
     this->currentOffset += idTextSize.x + (this->buttonSize.x / 2) + 70;
 }
 
+void RadioButtonGroup::Reset()
+{
+    this->currentSelected = nullptr;
+}
+
 void RadioButtonGroup::Update(const float& deltaTime)
 {
     for (RadioButton& button : this->radioButtons)
