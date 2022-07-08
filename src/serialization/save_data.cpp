@@ -113,6 +113,11 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot)
     }
 }
 
+std::vector<UserProfile>& SaveData::GetUsers()
+{
+    return this->users;
+}
+
 std::vector<Player>& SaveData::GetPlayerDatabase()
 {
     return this->playerDatabase;

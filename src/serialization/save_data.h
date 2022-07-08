@@ -5,6 +5,7 @@
 #include <serialization/league_group.h>
 #include <serialization/club_entity.h>
 #include <serialization/player_entity.h>
+#include <serialization/user_profile.h>
 
 #include <nlohmann/json.hpp>
 #include <string>
@@ -22,6 +23,8 @@ private:
 	std::string name;
 	uint8_t playerCount;
 	GrowthSystemType growthSystemType;
+
+	std::vector<UserProfile> users;
 
 	std::vector<KnockoutCup> cupDatabase;
 	std::vector<League> leagueDatabase;
@@ -55,6 +58,9 @@ public:
 	// Loads every player's data in the JSON structure into the vector.
 	void LoadPlayersFromJSON(const nlohmann::json& dataRoot);
 	
+	// Returns the save's user profiles.
+	std::vector<UserProfile>& GetUsers();
+
 	// Returns the save's player database.
 	std::vector<Player>& GetPlayerDatabase();
 
