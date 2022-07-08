@@ -55,15 +55,18 @@ void JSONLoader::Open(const std::string_view& fileName)
 
 void JSONLoader::Close()
 {
-	// Open the JSON file
-	this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
-	if (this->fileStream.fail())
-		LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
+	if (!this->root.empty())
+	{
+		// Open the JSON file
+		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
+		if (this->fileStream.fail())
+			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
-	this->fileStream.seekp(0); // Make sure the write pointer is positioned at the beginning of the file
+		this->fileStream.seekp(0); // Make sure the write pointer is positioned at the beginning of the file
 
-	this->fileStream << std::setw(4) << this->root;
-	this->fileStream.close();
+		this->fileStream << std::setw(4) << this->root;
+		this->fileStream.close();
+	}
 }
 
 void JSONLoader::Clear()
