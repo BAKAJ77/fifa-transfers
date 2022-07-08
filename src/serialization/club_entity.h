@@ -10,12 +10,12 @@ class Club
 private:
 	std::string name;
 	uint16_t id, leagueID;
-	int transferBudget;
+	int transferBudget, wageBudget;
 
 	std::vector<Player*> players;
 public:
 	Club();
-	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, const std::vector<Player*>& players);
+	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players);
 
 	~Club() = default;
 
@@ -27,6 +27,9 @@ public:
 
 	// Sets the transfer budget of the club.
 	void SetTransferBudget(int budget);
+
+	// Sets the wage budget of the club.
+	void SetWageBudget(int budget);
 
 	// Adds the player given to the club.
 	void AddPlayer(Player* player, bool onLoan);
@@ -48,6 +51,9 @@ public:
 
 	// Returns the club's transfer budget.
 	const int& GetTransferBudget() const;
+
+	// Returns the club's wage budget.
+	const int& GetWageBudget() const;
 };
 
 #endif

@@ -85,7 +85,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot)
         const std::string clubIDStr = std::to_string(clubID);
 
         Club club = { dataRoot[clubIDStr]["name"].get<std::string>(), clubID, dataRoot[clubIDStr]["leagueID"].get<uint16_t>(),
-            dataRoot[clubIDStr]["budget"].get<int>(), players };
+            dataRoot[clubIDStr]["transferBudget"].get<int>(), dataRoot[clubIDStr]["wageBudget"].get<int>(), players };
 
         this->clubDatabase.emplace_back(club);
         ++clubID;

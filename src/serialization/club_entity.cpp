@@ -4,11 +4,11 @@
 #include <cassert>
 
 Club::Club() :
-    id(0), leagueID(0), transferBudget(0)
+    id(0), leagueID(0), transferBudget(0), wageBudget(0)
 {}
 
-Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, const std::vector<Player*>& players) :
-    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), players(players)
+Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players) :
+    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players)
 {}
 
 void Club::SetName(const std::string_view& name)
@@ -24,6 +24,11 @@ void Club::SetLeague(uint16_t id)
 void Club::SetTransferBudget(int budget)
 {
     this->transferBudget = budget;
+}
+
+void Club::SetWageBudget(int budget)
+{
+    this->wageBudget = budget;
 }
 
 void Club::AddPlayer(Player* player, bool onLoan)
@@ -93,4 +98,9 @@ const uint16_t& Club::GetLeague() const
 const int& Club::GetTransferBudget() const
 {
     return this->transferBudget;
+}
+
+const int& Club::GetWageBudget() const
+{
+    return this->wageBudget;
 }
