@@ -18,7 +18,7 @@ DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity) :
 
     // Set empty selection as default
     this->currentSelected = { std::string(), 
-        { pos, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1};
+        { pos, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1 };
 }
 
 DropDown::DropDown(DropDown&& temp) noexcept :
@@ -61,6 +61,17 @@ void DropDown::AddSelection(const std::string_view& id, int value)
 {
     this->selections.push_back({ id.data(), { this->position, this->size, this->size, glm::vec3(85), glm::vec3(115), glm::vec3(85), this->opacity, 2.5f }, 
         Renderer::GetInstance().GetTextSize(this->font, (uint32_t)this->fontSize, id), value });
+}
+
+void DropDown::Clear()
+{
+    this->selections.clear();
+    this->selectionsOffset = 0;
+    this->doDropDown = false;
+
+    // Set empty selection as default
+    this->currentSelected = { std::string(),
+        { this->position, size, size, glm::vec3(60), glm::vec3(90), glm::vec3(120), this->opacity, 2.5f }, glm::vec2(0), -1 };
 }
 
 void DropDown::Update(const float& deltaTime)

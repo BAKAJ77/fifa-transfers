@@ -48,6 +48,9 @@ public:
 	// Adds a selection option element to the drop down.
 	void AddSelection(const std::string_view& id, int value);
 
+	// Clears all the selection option elements.
+	void Clear();
+
 	// Updates the drop down.
 	void Update(const float& deltaTime);
 
