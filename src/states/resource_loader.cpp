@@ -51,6 +51,10 @@ void ResourceLoader::Render() const
 
     if (!this->splashScreenStarted)
     {
+        // Render loading text
+        Renderer::GetInstance().RenderText({ 300, 450 }, glm::vec4(255), FontLoader::GetInstance().GetFont("Bahnschrift Bold"), 75,
+            "LOADING RESOURCES, PLEASE WAIT...");
+
         // Render the loading bar edge
         Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1000, 100 }, { 255, 255, 255, 255 });
 
@@ -167,6 +171,8 @@ void ResourceLoader::LoadDefaultDatabase()
         this->workDonePercentage = 50;
     }
 
+    playersFile.Clear();
+
     // Open the clubs JSON file and load every clubs's data
     JSONLoader clubsFile("data/clubs.json");
     SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
@@ -177,6 +183,8 @@ void ResourceLoader::LoadDefaultDatabase()
         this->workDonePercentage = 80;
     }
 
+    clubsFile.Clear();
+
     // Open the leagues JSON file and load every league's data
     JSONLoader leaguesFile("data/leagues.json");
     SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
@@ -186,6 +194,8 @@ void ResourceLoader::LoadDefaultDatabase()
         std::scoped_lock lock(Threading::mutex);
         this->workDonePercentage = 90;
     }
+
+    leaguesFile.Clear();
 
     // Open the cup competitions JSON file and load every cup's data
     JSONLoader cupsFile("data/cup_competitions.json");
