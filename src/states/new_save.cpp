@@ -38,6 +38,7 @@ void NewSave::Update(const float& deltaTime)
 {
     if (!this->goBackToPlayMenu)
     {
+        // Update the user interface
         this->userInterface.Update(deltaTime);
 
         // Get the interface standalone buttons
@@ -107,7 +108,7 @@ void NewSave::Render() const
     Renderer::GetInstance().RenderSquare({ 169, 63 }, { 288, 78 }, TextureLoader::GetInstance().GetTexture("Title Logo Small"), 
         { glm::vec3(255), this->logoOpacity });
 
-    // Render the text field descriptions
+    // Render the text descriptions
     Renderer::GetInstance().RenderShadowedText({ 25, 225 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
         "Enter a name for this save:", 5);
 
