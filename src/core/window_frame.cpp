@@ -29,6 +29,7 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_SAMPLES, this->samplesPerPixel);
+	glfwWindowHint(GLFW_RESIZABLE, false);
 		
 	// Create and setup the window
 	fullscreen ? 
