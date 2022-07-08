@@ -10,6 +10,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
+#include <mutex>
 
 class SaveData
 {
@@ -30,6 +31,15 @@ private:
 	std::vector<League> leagueDatabase;
 	std::vector<Club> clubDatabase;
 	std::vector<Player> playerDatabase;
+private:
+	// Converts the data of the club given into JSON and inserts it into the JSON object given.
+	void ConvertClubToJSON(nlohmann::json& root, const Club& club) const;
+
+	// Converts the data of the player given into JSON and inserts it into the JSON object given.
+	void ConvertPlayerToJSON(nlohmann::json& root, const Player& player) const;
+
+	// Converts the data of the user given into JSON and inserts it into the JSON object given.
+	void ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile& user) const;
 public:
 	SaveData();
 	SaveData(const SaveData& other) = delete;
@@ -53,11 +63,34 @@ public:
 	void LoadLeaguesFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every club's data in the JSON structure into the vector. 
-	void LoadClubsFromJSON(const nlohmann::json& dataRoot);
+	void LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
 
 	// Loads every player's data in the JSON structure into the vector.
-	void LoadPlayersFromJSON(const nlohmann::json& dataRoot);
+	void LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
+
+	// Writes the contained save data into a save file.
+	void Write(int& currentProgress, std::mutex& mutex);
 	
+	// Returns the user profile matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	UserProfile* GetUser(uint16_t id);
+
+	// Returns the player matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	Player* GetPlayer(uint16_t id);
+
+	// Returns the club matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	Club* GetClub(uint16_t id);
+
+	// Returns the league matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	League* GetLeague(uint16_t id);
+
+	// Returns the cup matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	KnockoutCup* GetCup(uint16_t id);
+
 	// Returns the save's user profiles.
 	std::vector<UserProfile>& GetUsers();
 
