@@ -73,7 +73,7 @@ void DropDown::Update(const float& deltaTime)
         if (scrollOffsetY > 0.0f)
             this->selectionsOffset = std::max(--this->selectionsOffset, 0);
         else if (scrollOffsetY < 0.0f)
-            this->selectionsOffset = std::min(++this->selectionsOffset, (int)(this->selections.size() - this->maxSelectionsVisible));
+            this->selectionsOffset = std::min(++this->selectionsOffset, (int)std::max((int)this->selections.size() - this->maxSelectionsVisible, 0));
     }
     
     // Update the clicked and released boolean flags
