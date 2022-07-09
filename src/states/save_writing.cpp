@@ -1,5 +1,7 @@
 #include <states/save_writing.h>
 #include <states/new_save.h>
+#include <states/main_game.h>
+
 #include <serialization/save_data.h>
 
 #include <util/directory_system.h>
@@ -95,7 +97,7 @@ void SaveWriting::Update(const float& deltaTime)
     
     // Check if the saving process is complete
     if (this->savingProgress == 100.0f)
-        this->PopState();
+        this->SwitchState(MainGame::GetAppState());
 }
 
 void SaveWriting::Render() const
