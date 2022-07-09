@@ -135,22 +135,50 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
     }
 }
 
-void SaveData::Write(int& currentProgress, std::mutex& mutex)
+void SaveData::Write(float& currentProgress, std::mutex& mutex)
 {
     // Open the save file (it will be generated if it's a new save file)
     JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
     
+    // Calculate the progress increase per action
+    const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size());
+    const float progressPerAction = 95.0f / (float)numActions;
+
     // Write the data of all clubs into the JSON structure
     for (const Club& club : this->clubDatabase)
+    {
         this->ConvertClubToJSON(file.GetRoot(), club);
+
+        // Update the current progress tracker
+        {
+            std::scoped_lock lock(mutex);
+            currentProgress += progressPerAction;
+        }
+    }
 
     // Write the data of all players into the JSON structure
     for (const Player& player : this->playerDatabase)
+    {
         this->ConvertPlayerToJSON(file.GetRoot(), player);
+
+        // Update the current progress tracker
+        {
+            std::scoped_lock lock(mutex);
+            currentProgress += progressPerAction;
+        }
+    }
 
     // Write the data of all users into the JSON structure
     for (const UserProfile& user : this->users)
+    {
         this->ConvertUserProfileToJSON(file.GetRoot(), user);
+
+        // Update the current progress tracker
+        {
+            std::scoped_lock lock(mutex);
+            currentProgress += progressPerAction;
+        }
+    }
 
     file.Close();
     file.Clear();
@@ -165,6 +193,12 @@ void SaveData::Write(int& currentProgress, std::mutex& mutex)
 
     // Write the new save filename to the saves metadata file
     file.GetRoot()[std::to_string(nextID)]["filename"] = this->name + ".json";
+
+    // Update the current progress tracker
+    {
+        std::scoped_lock lock(mutex);
+        currentProgress = 100.0f;
+    }
 }
 
 void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const

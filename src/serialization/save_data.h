@@ -69,7 +69,7 @@ public:
 	void LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
 
 	// Writes the contained save data into a save file.
-	void Write(int& currentProgress, std::mutex& mutex);
+	void Write(float& currentProgress, std::mutex& mutex);
 	
 	// Returns the user profile matching the ID given.
 	// If none is found matching the ID, then nullptr is returned.
