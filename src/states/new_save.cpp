@@ -139,7 +139,7 @@ void NewSave::Render() const
     // Render any input validation errors that occur
     if (this->saveNameInvalid)
         Renderer::GetInstance().RenderText({ 660, 310 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*At least one character must be entered for the save name, and it must not be already used by another save.");
+            "*Make sure you've entered a save name that isn't already in use.");
 
     if (this->playerCountInvalid)
         Renderer::GetInstance().RenderText({ 137, 530 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
