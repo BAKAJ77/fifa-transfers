@@ -33,7 +33,8 @@ void JSONLoader::Open(const std::string_view& fileName)
 		try
 		{
 			// Parse the loaded json data
-			this->root = nlohmann::json::parse(loadedJsonData, nullptr, true, true);
+			if (!loadedJsonData.empty())
+				this->root = nlohmann::json::parse(loadedJsonData, nullptr, true, true);
 		}
 		catch (nlohmann::json::exception& exception) // Catch potential json exceptions thrown
 		{
