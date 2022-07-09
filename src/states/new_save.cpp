@@ -71,6 +71,8 @@ void NewSave::Update(const float& deltaTime)
                         this->saveNameInvalid = true;
                         break;
                     }
+
+                    ++id;
                 }
 
                 this->growthSystemInvalid = growthSystemType == -1;
