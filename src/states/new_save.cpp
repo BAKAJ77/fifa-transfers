@@ -4,6 +4,8 @@
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
+#include <serialization/json_loader.h>
+#include <util/directory_system.h>
 
 void NewSave::Init()
 {
@@ -58,6 +60,19 @@ void NewSave::Update(const float& deltaTime)
 
                 // Make sure all the data entered is valid
                 this->saveNameInvalid = saveNameStr.empty();
+                
+                JSONLoader savesFile(Util::GetAppDataDirectory() + "data/saves.json");
+                uint16_t id = 1;
+
+                while (savesFile.GetRoot().contains(std::to_string(id))) 
+                {
+                    if (savesFile.GetRoot()[std::to_string(id)]["filename"].get<std::string>().find(saveNameStr) != std::string::npos)
+                    {
+                        this->saveNameInvalid = true;
+                        break;
+                    }
+                }
+
                 this->growthSystemInvalid = growthSystemType == -1;
                 this->randomisePotentialInvalid = this->randomisePotentials == -1;
 
@@ -124,7 +139,7 @@ void NewSave::Render() const
     // Render any input validation errors that occur
     if (this->saveNameInvalid)
         Renderer::GetInstance().RenderText({ 660, 310 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*At least one character must be entered for the save name.");
+            "*At least one character must be entered for the save name, and it must not be already used by another save.");
 
     if (this->playerCountInvalid)
         Renderer::GetInstance().RenderText({ 137, 530 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
