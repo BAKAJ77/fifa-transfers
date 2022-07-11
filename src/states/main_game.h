@@ -9,6 +9,8 @@ class MainGame : public AppState
 private:
 	UserInterface userInterface;
 	FontPtr font;
+
+	float bkgOpacity;
 protected:
 	void Init() override;
 	void Destroy() override;
