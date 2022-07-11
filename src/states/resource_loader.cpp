@@ -161,6 +161,16 @@ void ResourceLoader::LoadAudio()
 
 void ResourceLoader::LoadDefaultDatabase()
 {
+    // Open the positions JSON file and load every position's data
+    JSONLoader positionsFile("data/positions.json");
+    SaveData::GetInstance().LoadPositionsFromJSON(positionsFile.GetRoot());
+
+    // Update the work done percentage counter
+    {
+        std::scoped_lock lock(Threading::mutex);
+        this->workDonePercentage = 30;
+    }
+    
     // Open the players JSON file and load every player's data
     JSONLoader playersFile("data/players.json");
     SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
@@ -185,9 +195,9 @@ void ResourceLoader::LoadDefaultDatabase()
 
     clubsFile.Clear();
 
-    // Open the leagues JSON file and load every league's data
-    JSONLoader leaguesFile("data/leagues.json");
-    SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
+    // Open the cup competitions JSON file and load every cup's data
+    JSONLoader cupsFile("data/cup_competitions.json");
+    SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
 
     // Update the work done percentage counter
     {
@@ -195,11 +205,11 @@ void ResourceLoader::LoadDefaultDatabase()
         this->workDonePercentage = 90;
     }
 
-    leaguesFile.Clear();
+    cupsFile.Clear();
 
-    // Open the cup competitions JSON file and load every cup's data
-    JSONLoader cupsFile("data/cup_competitions.json");
-    SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
+    // Open the leagues JSON file and load every league's data
+    JSONLoader leaguesFile("data/leagues.json");
+    SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
 
     // Update the work done percentage counter
     {

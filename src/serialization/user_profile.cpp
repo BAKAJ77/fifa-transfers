@@ -4,8 +4,8 @@ UserProfile::UserProfile() :
     club(nullptr), id(0)
 {}
 
-UserProfile::UserProfile(uint16_t id, const std::string_view& name, Club& club) :
-    managerName(name), club(&club), id(id)
+UserProfile::UserProfile(uint16_t id, const std::string_view& name, Club& club, const std::vector<CompetitionData>& compData) :
+    managerName(name), club(&club), id(id), competitionData(compData)
 {}
 
 void UserProfile::SetName(const std::string_view& name)
@@ -18,19 +18,14 @@ void UserProfile::SetClub(Club& club)
     this->club = &club;
 }
 
-void UserProfile::AddCompetitionData(const CompetitionData& comp)
-{
-    this->compData.emplace_back(comp);
-}
-
 std::vector<UserProfile::CompetitionData>& UserProfile::GetCompetitionData()
 {
-    return this->compData;
+    return this->competitionData;
 }
 
 const std::vector<UserProfile::CompetitionData>& UserProfile::GetCompetitionData() const
 {
-    return this->compData;
+    return this->competitionData;
 }
 
 Club* UserProfile::GetClub()

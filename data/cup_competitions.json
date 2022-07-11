@@ -1,9 +1,8 @@
 {
     "1": {
+        "autoQualificationCompID": -1,
         "name": "INTERNATIONAL PRESEASON CUP",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "GLOBAL",
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -11,13 +10,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": -1,
         "winnerBonus": 1.5
     },
     "2": {
+        "autoQualificationCompID": 3,
         "name": "UEFA CONFERENCE LEAGUE",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "EUROPE",
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -26,13 +25,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": 3,
         "winnerBonus": 12.5
     },
     "3": {
+        "autoQualificationCompID": 4,
         "name": "UEFA EUROPA LEAGUE",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "EUROPE",
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -41,13 +40,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": 2,
         "winnerBonus": 20.0
     },
     "4": {
+        "autoQualificationCompID": 4,
         "name": "UEFA CHAMPIONS LEAGUE",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "EUROPE",
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -55,21 +54,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": 1,
         "winnerBonus": 30.0
     },
     "5": {
-        "name": "UEFA SUPER CUP",
-        "nations": [
-            "ENGLAND"
-        ],
-        "rounds": [],
-        "winnerBonus": 15.0
-    },
-    "6": {
+        "autoQualificationCompID": -1,
         "name": "EFL PAPA JOHN CUP",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "ENGLAND",
         "rounds": [
             "Group Stage",
             "Round 2",
@@ -78,14 +69,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": -1,
         "winnerBonus": 7.5
     },
-    "7": {
+    "6": {
+        "autoQualificationCompID": 2,
         "name": "EFL CARABAO CUP",
-        "nations": [
-            "ENGLAND"
-        ],
-        "numRounds": 7,
+        "region": "ENGLAND",
         "rounds": [
             "Round 1",
             "Round 2",
@@ -95,13 +85,13 @@
             "Semi Final",
             "Final"
         ],
+        "tier": -1,
         "winnerBonus": 15.0
     },
-    "8": {
+    "7": {
+        "autoQualificationCompID": 3,
         "name": "EMIRATES FA CUP",
-        "nations": [
-            "ENGLAND"
-        ],
+        "region": "ENGLAND",
         "rounds": [
             "Round 1",
             "Round 2",
@@ -112,6 +102,7 @@
             "Semi Final",
             "Final"
         ],
+        "tier": -1,
         "winnerBonus": 20.0
     }
 }

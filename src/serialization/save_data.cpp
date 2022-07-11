@@ -24,114 +24,209 @@ void SaveData::SetGrowthSystem(GrowthSystemType type)
 
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t cupID = 1;
-    while (dataRoot.contains(std::to_string(cupID)))
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
     {
+        const std::string idStr = std::to_string(id);
+        
+        // Fetch the cup's data from the JSON element
+        const std::string name = dataRoot[idStr]["name"].get<std::string>();
+        const std::string region = dataRoot[idStr]["region"].get<std::string>();
+        const std::vector<std::string> rounds = dataRoot[idStr]["rounds"].get<std::vector<std::string>>();
+
+        const float winnerBonus = dataRoot[idStr]["winnerBonus"].get<float>();
+        const int autoQualificationCompID = dataRoot[idStr]["autoQualificationCompID"].get<int>();
+        const int tier = dataRoot[idStr]["tier"].get<int>();
+
         // Add the cup competition to the database
-        const std::string cupIDStr = std::to_string(cupID);
+        this->cupDatabase.emplace_back(KnockoutCup(id, name, region, rounds, winnerBonus, autoQualificationCompID, tier));
 
-        KnockoutCup cup = { cupID, dataRoot[cupIDStr]["name"].get<std::string>(), dataRoot[cupIDStr]["nations"].get<std::vector<std::string>>(),
-            dataRoot[cupIDStr]["rounds"].get<std::vector<std::string>>(), dataRoot[cupIDStr]["winnerBonus"].get<float>() };
-
-        this->cupDatabase.emplace_back(cup);
-        ++cupID;
+        ++id;
     }
 }
 
 void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t leagueID = 1;
-    while (dataRoot.contains(std::to_string(leagueID)))
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
     {
-        if (dataRoot[std::to_string(leagueID)]["supported"].get<bool>())
+        if (dataRoot[std::to_string(id)]["supported"].get<bool>())
         {
+            const std::string idStr = std::to_string(id);
+
+            // Fetch the league's data from the JSON element
+            const std::string name = dataRoot[idStr]["name"].get<std::string>();
+            const std::string nation = dataRoot[idStr]["nation"].get<std::string>();
+            const uint16_t tier = dataRoot[idStr]["tier"].get<uint16_t>();
+
+            const int autoPromotionThreshold = dataRoot[idStr]["autoPromotionThreshold"].get<int>();
+            const int playoffsThreshold = dataRoot[idStr]["playoffsThreshold"].get<int>();
+            const int relegationThreshold = dataRoot[idStr]["relegationThreshold"].get<int>();
+            const float titleBonus = dataRoot[idStr]["titleBonus"].get<float>();
+
+            std::vector<League::CompetitionLink> linkedCompetitions;
+
+            for (const auto& comp : dataRoot[idStr]["linkedCompetitions"])
+                linkedCompetitions.push_back({ comp["competitionID"].get<uint16_t>(), comp["qualifyingPositions"].get<std::vector<uint8_t>>() });
+
             // Fetch the clubs which are in the league
             std::vector<Club*> clubs;
             for (auto& club : this->clubDatabase)
             {
-                if (club.GetLeague() == leagueID)
+                if (club.GetLeague() == id)
                     clubs.emplace_back(&club);
             }
 
             // Add the league to the database
-            const std::string leagueIDStr = std::to_string(leagueID);
-
-            League league = { dataRoot[leagueIDStr]["name"].get<std::string>(), dataRoot[leagueIDStr]["nation"].get<std::string>(), leagueID,
-                dataRoot[leagueIDStr]["tier"].get<uint16_t>(), dataRoot[leagueIDStr]["championsLeagueThreshold"].get<int>(),
-                dataRoot[leagueIDStr]["europaLeagueThreshold"].get<int>(), dataRoot[leagueIDStr]["conferenceLeagueThreshold"].get<int>(),
-                dataRoot[leagueIDStr]["autoPromotionThreshold"].get<int>(), dataRoot[leagueIDStr]["playoffsThreshold"].get<int>(),
-                dataRoot[leagueIDStr]["relegationThreshold"].get<int>(), dataRoot[leagueIDStr]["titleBonus"].get<float>(), clubs };
-
-            this->leagueDatabase.emplace_back(league);
+            this->leagueDatabase.emplace_back(League(name, nation, id, tier, autoPromotionThreshold, playoffsThreshold, relegationThreshold, titleBonus,
+                linkedCompetitions, clubs));
         }
 
-        ++leagueID;
+        ++id;
+    }
+}
+
+void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
+{
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
+    {
+        const std::string idStr = std::to_string(id);
+
+        // Fetch the user profile's data from the JSON element
+        const std::string name = dataRoot["users"][idStr]["name"].get<std::string>();
+        const uint16_t clubID = dataRoot["users"][idStr]["clubID"].get<uint16_t>();
+        
+        std::vector<UserProfile::CompetitionData> competitionTrackingData;
+
+        for (const nlohmann::json& compTrackData : dataRoot["users"][idStr]["competitionData"])
+        {
+            const uint16_t competitionID = compTrackData["competitionID"].get<uint16_t>();
+
+            const int titlesWon = compTrackData["titlesWon"].get<int>();
+
+            const int currentWins = compTrackData["currentWins"].get<int>();
+            const int currentDraws = compTrackData["currentDraws"].get<int>();
+            const int currentLosses = compTrackData["currentLosses"].get<int>();
+            const int currentScored = compTrackData["currentScored"].get<int>();
+            const int currentConceded = compTrackData["currentConceded"].get<int>();
+
+            const int mostWins = compTrackData["mostWins"].get<int>();
+            const int mostDraws = compTrackData["mostDraws"].get<int>();
+            const int mostLosses = compTrackData["mostLosses"].get<int>();
+            const int mostScored = compTrackData["mostScored"].get<int>();
+            const int mostConceded = compTrackData["mostConceded"].get<int>();
+
+            const int totalWins = compTrackData["totalWins"].get<int>();
+            const int totalDraws = compTrackData["totalDraws"].get<int>();
+            const int totalLosses = compTrackData["totalLosses"].get<int>();
+            const int totalScored = compTrackData["totalScored"].get<int>();
+            const int totalConceded = compTrackData["totalConceded"].get<int>();
+        }
+
+        // Add the user profile to the database
+        this->users.emplace_back(UserProfile(id, name, *this->GetClub(clubID), competitionTrackingData));
+
+        ++id;
     }
 }
 
 void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDefault)
 {
-    uint16_t clubID = 1;
-    while (dataRoot.contains(std::to_string(clubID)))
+    const nlohmann::json* root = &dataRoot;
+    if (!loadingDefault)
+        root = &dataRoot["clubs"];
+
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
     {
+        const std::string idStr = std::to_string(id);
+
+        // Fetch the club's data from the JSON element
+        const std::string name = (*root)[idStr]["name"].get<std::string>();
+        const uint16_t leagueID = (*root)[idStr]["leagueID"].get<uint16_t>();
+        int transferBudget = 0, wageBudget = 0;
+
+        if (!loadingDefault)
+        {
+            transferBudget = (*root)[idStr]["transferBudget"].get<int>();
+            wageBudget = (*root)[idStr]["wageBudget"].get<int>();
+        }
+
         // Fetch the players which are in the club
         std::vector<Player*> players;
         for (auto& player : this->playerDatabase)
         {
-            if (player.GetCurrentClub() == clubID)
+            if (player.GetCurrentClub() == id)
                 players.emplace_back(&player);
         }
 
         // Add the club to the database
-        const std::string clubIDStr = std::to_string(clubID);
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players));
 
-        if (loadingDefault)
-        {
-            this->clubDatabase.push_back({ dataRoot[clubIDStr]["name"].get<std::string>(), clubID, dataRoot[clubIDStr]["leagueID"].get<uint16_t>(), 0, 
-                0, players });
-        }
-        else
-        {
-            this->clubDatabase.push_back({ dataRoot["clubs"][clubIDStr]["name"].get<std::string>(), clubID,
-                dataRoot["clubs"][clubIDStr]["leagueID"].get<uint16_t>(), dataRoot["clubs"][clubIDStr]["transferBudget"].get<int>(),
-                dataRoot["clubs"][clubIDStr]["wageBudget"].get<int>(), players });
-        }
-
-        ++clubID;
+        ++id;
     }
 }
 
 void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault)
 {
-    uint16_t playerID = 1;
-    while (dataRoot.contains(std::to_string(playerID)))
+    const nlohmann::json* root = &dataRoot;
+    if (!loadingDefault)
+        root = &dataRoot["players"];
+
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
     {
-        // Add the player to the database
-        const std::string playerIDStr = std::to_string(playerID);
-        
-        if (loadingDefault)
+        const std::string idStr = std::to_string(id);
+
+        // Fetch the player's data from the JSON element
+        const std::string name = (*root)[idStr]["name"].get<std::string>();
+        const std::string nation = (*root)[idStr]["nation"].get<std::string>();
+        const std::string preferredFoot = (*root)[idStr]["preferredFoot"].get<std::string>();
+
+        const uint16_t currentClubID = (*root)[idStr]["currentClubID"].get<uint16_t>();
+        const uint16_t parentClubID = (*root)[idStr]["parentClubID"].get<uint16_t>();
+        const uint16_t positionID = (*root)[idStr]["positionID"].get<uint16_t>();
+
+        const int age = (*root)[idStr]["age"].get<int>();
+        const int overall = (*root)[idStr]["overall"].get<int>();
+        const int potential = (*root)[idStr]["potential"].get<int>();
+        const int value = (*root)[idStr]["value"].get<int>();
+        const int wage = (*root)[idStr]["wage"].get<int>();
+        const int releaseClause = (*root)[idStr]["releaseClause"].get<int>();
+        const int expiryYear = (*root)[idStr]["expiryYear"].get<int>();
+
+        bool loanListed = false, transferListed = false, transfersBlocked = false;
+
+        if (!loadingDefault)
         {
-            this->playerDatabase.push_back({ dataRoot[playerIDStr]["name"].get<std::string>(), dataRoot[playerIDStr]["nation"].get<std::string>(),
-                dataRoot[playerIDStr]["preferredFoot"].get<std::string>(), playerID, dataRoot[playerIDStr]["currentClubID"].get<uint16_t>(),
-                dataRoot[playerIDStr]["parentClubID"].get<uint16_t>(), dataRoot[playerIDStr]["positionID"].get<uint16_t>(),
-                dataRoot[playerIDStr]["age"].get<int>(), dataRoot[playerIDStr]["overall"].get<int>(), dataRoot[playerIDStr]["potential"].get<int>(),
-                dataRoot[playerIDStr]["value"].get<int>(), dataRoot[playerIDStr]["wage"].get<int>(), dataRoot[playerIDStr]["releaseClause"].get<int>(),
-                dataRoot[playerIDStr]["expiryYear"].get<int>(), false, false, false });
-        }
-        else
-        {
-            this->playerDatabase.push_back({ dataRoot["players"][playerIDStr]["name"].get<std::string>(), 
-                dataRoot["players"][playerIDStr]["nation"].get<std::string>(), dataRoot["players"][playerIDStr]["preferredFoot"].get<std::string>(), 
-                playerID, dataRoot["players"][playerIDStr]["currentClubID"].get<uint16_t>(), 
-                dataRoot["players"][playerIDStr]["parentClubID"].get<uint16_t>(), dataRoot["players"][playerIDStr]["positionID"].get<uint16_t>(),
-                dataRoot["players"][playerIDStr]["age"].get<int>(), dataRoot["players"][playerIDStr]["overall"].get<int>(), 
-                dataRoot["players"][playerIDStr]["potential"].get<int>(), dataRoot["players"][playerIDStr]["value"].get<int>(), 
-                dataRoot["players"][playerIDStr]["wage"].get<int>(), dataRoot["players"][playerIDStr]["releaseClause"].get<int>(),
-                dataRoot["players"][playerIDStr]["expiryYear"].get<int>(), dataRoot["players"][playerIDStr]["loanListed"].get<bool>(),
-                dataRoot["players"][playerIDStr]["transferListed"].get<bool>(), dataRoot["players"][playerIDStr]["transfersBlocked"].get<bool>() });
+            loanListed = (*root)[idStr]["loanListed"].get<bool>();
+            transferListed = (*root)[idStr]["transferListed"].get<bool>();
+            transfersBlocked = (*root)[idStr]["transfersBlocked"].get<bool>();
         }
 
-        ++playerID;
+        // Add the player to the database
+        this->playerDatabase.emplace_back(Player(name, nation, preferredFoot, id, currentClubID, parentClubID, positionID, age, overall, potential,
+            value, wage, releaseClause, expiryYear, loanListed, transferListed, transfersBlocked));
+        
+        ++id;
+    }
+}
+
+void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
+{
+    uint16_t id = 1;
+    while (dataRoot.contains(std::to_string(id)))
+    {
+        const std::string idStr = std::to_string(id);
+
+        // Fetch the position's data from the JSON element
+        const std::string positionType = dataRoot[idStr]["position"].get<std::string>();
+
+        // Add the position to the database
+        this->positionDatabase.push_back({ id, positionType });
+
+        ++id;
     }
 }
 
@@ -191,8 +286,10 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     while (file.GetRoot().contains(std::to_string(nextID)))
         nextID++;
 
-    // Write the new save filename to the saves metadata file
+    // Write the new save metadata to the saves list file
     file.GetRoot()[std::to_string(nextID)]["filename"] = this->name + ".json";
+    file.GetRoot()[std::to_string(nextID)]["playerCount"] = this->playerCount;
+    file.GetRoot()[std::to_string(nextID)]["growthSystem"] = (int)this->growthSystemType;
 
     // Update the current progress tracker
     {
@@ -274,6 +371,18 @@ UserProfile* SaveData::GetUser(uint16_t id)
     return nullptr;
 }
 
+SaveData::Position* SaveData::GetPosition(uint16_t id)
+{
+    for (Position& position : this->positionDatabase)
+    {
+        if (position.id == id)
+            return &position;
+    }
+
+    LogSystem::GetInstance().OutputLog("No position was found matching the ID: " + std::to_string(id), Severity::WARNING);
+    return nullptr;
+}
+
 Player* SaveData::GetPlayer(uint16_t id)
 {
     for (Player& player : this->playerDatabase)
@@ -325,6 +434,11 @@ KnockoutCup* SaveData::GetCup(uint16_t id)
 std::vector<UserProfile>& SaveData::GetUsers()
 {
     return this->users;
+}
+
+std::vector<SaveData::Position>& SaveData::GetPositionDatabase()
+{
+    return this->positionDatabase;
 }
 
 std::vector<Player>& SaveData::GetPlayerDatabase()

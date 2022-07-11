@@ -2,30 +2,6 @@
     "1": {
         "position": "GK"
     },
-    "2": {
-        "position": "LB"
-    },
-    "3": {
-        "position": "LWB"
-    },
-    "4": {
-        "position": "LCB"
-    },
-    "5": {
-        "position": "CB"
-    },
-    "6": {
-        "position": "RCB"
-    },
-    "7": {
-        "position": "RWB"
-    },
-    "8": {
-        "position": "RB"
-    },
-    "9": {
-        "position": "LCM"
-    },
     "10": {
         "position": "RCM"
     },
@@ -56,6 +32,9 @@
     "19": {
         "position": "RM"
     },
+    "2": {
+        "position": "LB"
+    },
     "20": {
         "position": "LW"
     },
@@ -73,5 +52,26 @@
     },
     "25": {
         "position": "ST"
+    },
+    "3": {
+        "position": "LWB"
+    },
+    "4": {
+        "position": "LCB"
+    },
+    "5": {
+        "position": "CB"
+    },
+    "6": {
+        "position": "RCB"
+    },
+    "7": {
+        "position": "RWB"
+    },
+    "8": {
+        "position": "RB"
+    },
+    "9": {
+        "position": "LCM"
     }
 }

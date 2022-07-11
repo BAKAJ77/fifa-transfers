@@ -23,8 +23,10 @@ void UserSetup::Init()
     this->userInterface.AddDropDown("League", { { 280, 515 }, { 500, 75 } });
 
     for (size_t i = 0; i < SaveData::GetInstance().GetLeagueDatabase().size(); i++)
-        this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(), 
+    {
+        this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
             (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
+    }
 
     this->userInterface.AddDropDown("Club", { { 280, 735 }, { 500, 75 } });
 }
@@ -73,32 +75,19 @@ void UserSetup::UpdateClubDropDownList()
 
 UserProfile UserSetup::SetupUserProfile(uint16_t id, const std::string_view& name, Club& club)
 {
-    // Create the new user profile
-    UserProfile user = { id, name, club };
+    std::vector<UserProfile::CompetitionData> competitionTrackingData;
 
     // Setup new competition tracking data
-    user.AddCompetitionData({ 1, (uint16_t)this->userInterface.GetDropDown("League")->GetCurrentSelected() });
+    competitionTrackingData.push_back({ 1, (uint16_t)this->userInterface.GetDropDown("League")->GetCurrentSelected() });
 
     const League* selectedLeague =
         SaveData::GetInstance().GetLeague((uint16_t)this->userInterface.GetDropDown("League")->GetCurrentSelected());
 
-    for (size_t i = 0; i < SaveData::GetInstance().GetCupDatabase().size(); i++)
-    {
-        bool clubCompatibleWithCup = false;
-        for (const std::string& nation : SaveData::GetInstance().GetCupDatabase()[i].GetNations())
-        {
-            if (selectedLeague->GetNation() == nation)
-            {
-                clubCompatibleWithCup = true;
-                break;
-            }
-        }
+    for (size_t i = 0; i < selectedLeague->GetLinkedCompetitions().size(); i++)
+        competitionTrackingData.push_back({ (uint16_t)(i + 2), selectedLeague->GetLinkedCompetitions()[i].competitionID });
 
-        if (clubCompatibleWithCup)
-            user.AddCompetitionData({ (uint16_t)(i + 2), SaveData::GetInstance().GetCupDatabase()[i].GetID() });
-    }
-
-    return user;
+    // Create the new user profile
+    return UserProfile(id, name, club, competitionTrackingData);
 }
 
 void UserSetup::Update(const float& deltaTime)

@@ -4,13 +4,13 @@
 #include <cassert>
 
 League::League() :
-    id(0), tier(0), championsLeague(-1), europaLeague(-1), conferenceLeague(-1), autoPromotion(-1), playoffs(-1), relegation(-1), titleBonus(0.0f)
+    id(0), tier(0), autoPromotion(-1), playoffs(-1), relegation(-1), titleBonus(0.0f)
 {}
 
-League::League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int championsLeague, int europaLeague, 
-    int conferenceLeague, int autoPromotion, int playoffs, int relegation, float titleBonus, const std::vector<Club*> clubs) :
-    name(name), nation(nation), id(id), tier(tier), championsLeague(championsLeague), europaLeague(europaLeague), conferenceLeague(conferenceLeague),
-    autoPromotion(autoPromotion), playoffs(playoffs), relegation(relegation), titleBonus(titleBonus), clubs(clubs)
+League::League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int autoPromotion, int playoffs, int relegation,
+    float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs) :
+    name(name), nation(nation), id(id), tier(tier), autoPromotion(autoPromotion), playoffs(playoffs), relegation(relegation), titleBonus(titleBonus), 
+    clubs(clubs), linkedCompetitions(linkedComps)
 {}
 
 void League::SetName(const std::string_view& name)
@@ -26,21 +26,6 @@ void League::SetNation(const std::string_view& nation)
 void League::SetTier(uint16_t tier)
 {
     this->tier = tier;
-}
-
-void League::SetChampionsLeagueThreshold(int threshold)
-{
-    this->championsLeague = threshold;
-}
-
-void League::SetEuropaLeagueThreshold(int threshold)
-{
-    this->europaLeague = threshold;
-}
-
-void League::SetConferenceLeagueThreshold(int threshold)
-{
-    this->conferenceLeague = threshold;
 }
 
 void League::SetAutoPromotionThreshold(int threshold)
@@ -129,21 +114,6 @@ const uint16_t& League::GetTier() const
     return this->tier;
 }
 
-const int& League::GetChampionsLeagueThreshold() const
-{
-    return this->championsLeague;
-}
-
-const int& League::GetEuropaLeagueThreshold() const
-{
-    return this->europaLeague;
-}
-
-const int& League::GetConferenceLeagueThreshold() const
-{
-    return this->conferenceLeague;
-}
-
 const int& League::GetAutoPromotionThreshold() const
 {
     return this->autoPromotion;
@@ -157,4 +127,9 @@ const int& League::GetPlayoffsThreshold() const
 const int& League::GetRelegationThreshold() const
 {
     return this->relegation;
+}
+
+const std::vector<League::CompetitionLink>& League::GetLinkedCompetitions() const
+{
+    return this->linkedCompetitions;
 }

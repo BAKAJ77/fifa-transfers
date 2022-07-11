@@ -20,6 +20,12 @@ public:
 		OVERALL_RATING,
 		SKILL_POINTS
 	};
+
+	struct Position
+	{
+		uint16_t id;
+		std::string type;
+	};
 private:
 	std::string name;
 	uint8_t playerCount;
@@ -31,6 +37,7 @@ private:
 	std::vector<League> leagueDatabase;
 	std::vector<Club> clubDatabase;
 	std::vector<Player> playerDatabase;
+	std::vector<Position> positionDatabase;
 private:
 	// Converts the data of the club given into JSON and inserts it into the JSON object given.
 	void ConvertClubToJSON(nlohmann::json& root, const Club& club) const;
@@ -56,17 +63,27 @@ public:
 	// Sets the type of growth system used in the save.
 	void SetGrowthSystem(GrowthSystemType type);
 
+	// Loads every user profile's data in the JSON structure into the vector.
+	// You must call the functions 'LoadClubsFromJSON()' and 'LoadCupsFromJSON()' before calling this one.
+	void LoadUsersFromJSON(const nlohmann::json& dataRoot);
+
 	// Loads every cup competition's data in the JSON structure into the vector.
 	void LoadCupsFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every league's data in the JSON structure into the vector. 
+	// You must call the functions 'LoadClubsFromJSON()' and 'LoadCupsFromJSON()' before calling this one.
 	void LoadLeaguesFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every club's data in the JSON structure into the vector. 
+	// You must call the function 'LoadPlayersFromJSON()' before calling this one.
 	void LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
 
 	// Loads every player's data in the JSON structure into the vector.
+	// You must call the function 'LoadPositionsFromJSON()' before calling this one.
 	void LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
+
+	// Loads every position's data in the JSON structure into the vector.
+	void LoadPositionsFromJSON(const nlohmann::json& dataRoot);
 
 	// Writes the contained save data into a save file.
 	void Write(float& currentProgress, std::mutex& mutex);
@@ -74,6 +91,10 @@ public:
 	// Returns the user profile matching the ID given.
 	// If none is found matching the ID, then nullptr is returned.
 	UserProfile* GetUser(uint16_t id);
+
+	// Returns the position matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	Position* GetPosition(uint16_t id);
 
 	// Returns the player matching the ID given.
 	// If none is found matching the ID, then nullptr is returned.
@@ -93,6 +114,9 @@ public:
 
 	// Returns the save's user profiles.
 	std::vector<UserProfile>& GetUsers();
+
+	// Returns the save's position database.
+	std::vector<Position>& GetPositionDatabase();
 
 	// Returns the save's player database.
 	std::vector<Player>& GetPlayerDatabase();

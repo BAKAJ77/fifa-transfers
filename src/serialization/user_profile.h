@@ -21,11 +21,11 @@ public:
 private:
 	uint16_t id;
 	std::string managerName;
-	std::vector<CompetitionData> compData;
+	std::vector<CompetitionData> competitionData;
 	Club* club;
 public:
 	UserProfile();
-	UserProfile(uint16_t id, const std::string_view& name, Club& club);
+	UserProfile(uint16_t id, const std::string_view& name, Club& club, const std::vector<CompetitionData>& compData);
 
 	~UserProfile() = default;
 
@@ -34,9 +34,6 @@ public:
 
 	// Sets the club which the user is managing.
 	void SetClub(Club& club);
-
-	// Adds the competition to the profile records so the user's performance can be tracked.
-	void AddCompetitionData(const CompetitionData& comp);
 
 	// Returns data on how the user has performed in competitions.
 	std::vector<CompetitionData>& GetCompetitionData();

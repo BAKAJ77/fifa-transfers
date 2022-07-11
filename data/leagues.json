@@ -1,9 +1,7 @@
 {
     "1": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA PROFESIONAL DE FUTBOL",
         "nation": "ARGENTINA",
         "playoffsThreshold": -1,
@@ -14,9 +12,7 @@
     },
     "10": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "CYTA CHAMPIONSHIP",
         "nation": "CYPRUS",
         "playoffsThreshold": -1,
@@ -27,9 +23,7 @@
     },
     "11": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "FORTUNA LIGA",
         "nation": "CZECH REPUBLIC",
         "playoffsThreshold": -1,
@@ -40,9 +34,7 @@
     },
     "12": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "3F SUPERLIGA",
         "nation": "DENMARK",
         "playoffsThreshold": -1,
@@ -53,9 +45,7 @@
     },
     "13": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA PRO BANCO PICHINCHA",
         "nation": "ECUADOR",
         "playoffsThreshold": -1,
@@ -66,9 +56,20 @@
     },
     "14": {
         "autoPromotionThreshold": 2,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 6,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 7,
+                "qualifyingPositions": []
+            }
+        },
         "name": "EFL CHAMPIONSHIP",
         "nation": "ENGLAND",
         "playoffsThreshold": 6,
@@ -79,9 +80,24 @@
     },
     "15": {
         "autoPromotionThreshold": 2,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 6,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 7,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 5,
+                "qualifyingPositions": []
+            }
+        },
         "name": "EFL LEAGUE ONE",
         "nation": "ENGLAND",
         "playoffsThreshold": 6,
@@ -92,9 +108,24 @@
     },
     "16": {
         "autoPromotionThreshold": 3,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 6,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 7,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 5,
+                "qualifyingPositions": []
+            }
+        },
         "name": "EFL LEAGUE TWO",
         "nation": "ENGLAND",
         "playoffsThreshold": 7,
@@ -105,9 +136,7 @@
     },
     "17": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "EFL NATIONAL LEAGUE",
         "nation": "ENGLAND",
         "playoffsThreshold": -1,
@@ -118,9 +147,42 @@
     },
     "18": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": 4,
-        "conferenceLeagueThreshold": 7,
-        "europaLeagueThreshold": 6,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 6,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 7,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 2,
+                "qualifyingPositions": [
+                    7
+                ]
+            },
+            "5": {
+                "competitionID": 3,
+                "qualifyingPositions": [
+                    5,
+                    6
+                ]
+            },
+            "6": {
+                "competitionID": 4,
+                "qualifyingPositions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            }
+        },
         "name": "BARCLAYS PREMIER LEAGUE",
         "nation": "ENGLAND",
         "playoffsThreshold": -1,
@@ -131,9 +193,7 @@
     },
     "19": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "VEIKKAUSLIIGA",
         "nation": "FINLAND",
         "playoffsThreshold": -1,
@@ -144,9 +204,7 @@
     },
     "2": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "HYUNDAI A-LEAGUE",
         "nation": "AUSTRALIA",
         "playoffsThreshold": -1,
@@ -157,9 +215,7 @@
     },
     "20": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGUE 1 UBER EATS",
         "nation": "FRANCE",
         "playoffsThreshold": -1,
@@ -170,9 +226,7 @@
     },
     "21": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGUE 2 BKT",
         "nation": "FRANCE",
         "playoffsThreshold": -1,
@@ -183,9 +237,7 @@
     },
     "22": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "BUNDESLIGA",
         "nation": "GERMANY",
         "playoffsThreshold": -1,
@@ -196,9 +248,7 @@
     },
     "23": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "BUNDESLIGA 2",
         "nation": "GERMANY",
         "playoffsThreshold": -1,
@@ -209,9 +259,7 @@
     },
     "24": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "3. LIGA",
         "nation": "GERMANY",
         "playoffsThreshold": -1,
@@ -222,9 +270,7 @@
     },
     "25": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "SUPER LEAGUE 1 INTERWETTEN",
         "nation": "GREECE",
         "playoffsThreshold": -1,
@@ -235,9 +281,7 @@
     },
     "26": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "EREDIVISIE",
         "nation": "NETHERLANDS",
         "playoffsThreshold": -1,
@@ -248,9 +292,7 @@
     },
     "27": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "NEMZETI BAJNOKSAG I",
         "nation": "HUNGARY",
         "playoffsThreshold": -1,
@@ -261,9 +303,7 @@
     },
     "28": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "HERO ISL",
         "nation": "INDIA",
         "playoffsThreshold": -1,
@@ -274,9 +314,7 @@
     },
     "29": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "SERIE A TIM",
         "nation": "ITALY",
         "playoffsThreshold": -1,
@@ -287,9 +325,7 @@
     },
     "3": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "O. BUNDESLIGA",
         "nation": "AUSTRIA",
         "playoffsThreshold": -1,
@@ -300,9 +336,7 @@
     },
     "30": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "SERIE B BKT",
         "nation": "ITALY",
         "playoffsThreshold": -1,
@@ -313,9 +347,7 @@
     },
     "31": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "MEIJI YASUDA J1",
         "nation": "JAPAN",
         "playoffsThreshold": -1,
@@ -326,9 +358,7 @@
     },
     "32": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "K LEAGUE 1",
         "nation": "KOREA REPUBLIC",
         "playoffsThreshold": -1,
@@ -339,9 +369,7 @@
     },
     "33": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "DIVISION DE FUTBOL PROFESIONAL",
         "nation": "BOLIVIA",
         "playoffsThreshold": -1,
@@ -352,9 +380,7 @@
     },
     "34": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA BBVA MX",
         "nation": "MEXICO",
         "playoffsThreshold": -1,
@@ -365,9 +391,7 @@
     },
     "35": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "ELITESERIEN",
         "nation": "NORWAY",
         "playoffsThreshold": -1,
@@ -378,9 +402,7 @@
     },
     "36": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "COPA DE PRIMERA TIGO-VISION BANCO",
         "nation": "PARAGUAY",
         "playoffsThreshold": -1,
@@ -391,9 +413,7 @@
     },
     "37": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA 1 BETSSON",
         "nation": "PERU",
         "playoffsThreshold": -1,
@@ -404,9 +424,7 @@
     },
     "38": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "PKO EKSTRAKLASA",
         "nation": "POLAND",
         "playoffsThreshold": -1,
@@ -417,9 +435,7 @@
     },
     "39": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA PORTUGAL",
         "nation": "PORTUGAL",
         "playoffsThreshold": -1,
@@ -430,9 +446,7 @@
     },
     "4": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "1A PRO LEAGUE",
         "nation": "BELGIUM",
         "playoffsThreshold": -1,
@@ -443,9 +457,7 @@
     },
     "40": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "SSE AIRTRICITY PD",
         "nation": "REPUBLIC OF IRELAND",
         "playoffsThreshold": -1,
@@ -456,9 +468,7 @@
     },
     "41": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA I",
         "nation": "ROMANIA",
         "playoffsThreshold": -1,
@@ -469,9 +479,7 @@
     },
     "42": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "RUSSIAN PREMIER LIGA",
         "nation": "RUSSIA",
         "playoffsThreshold": -1,
@@ -482,9 +490,7 @@
     },
     "43": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "MBA PRO LEAGUE",
         "nation": "SAUDI ARABIA",
         "playoffsThreshold": -1,
@@ -495,9 +501,7 @@
     },
     "44": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "CINCH PREMIERSHIP",
         "nation": "SCOTLAND",
         "playoffsThreshold": -1,
@@ -508,9 +512,7 @@
     },
     "45": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "DSTV PREMIERSHIP",
         "nation": "SOUTH AFRICA",
         "playoffsThreshold": -1,
@@ -521,9 +523,7 @@
     },
     "46": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LALIGA SANTANDER",
         "nation": "SPAIN",
         "playoffsThreshold": -1,
@@ -534,9 +534,7 @@
     },
     "47": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LALIGA SMARTBANK",
         "nation": "SPAIN",
         "playoffsThreshold": -1,
@@ -547,9 +545,7 @@
     },
     "48": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "ALLSVENSKAN",
         "nation": "SWEDEN",
         "playoffsThreshold": -1,
@@ -560,9 +556,7 @@
     },
     "49": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "CREDIT SUISSE SUPER LEAGUE",
         "nation": "SWITZERLAND",
         "playoffsThreshold": -1,
@@ -573,9 +567,7 @@
     },
     "5": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA DO BRASIL",
         "nation": "BRAZIL",
         "playoffsThreshold": -1,
@@ -586,9 +578,7 @@
     },
     "50": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "SUPER LIG",
         "nation": "TURKEY",
         "playoffsThreshold": -1,
@@ -599,9 +589,7 @@
     },
     "51": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "ADNOC PRO LEAGUE",
         "nation": "UNITED ARAB EMIRATES",
         "playoffsThreshold": -1,
@@ -612,9 +600,7 @@
     },
     "52": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "MAJOR LEAGUE SOCCER",
         "nation": "UNITED STATES OF AMERICA",
         "playoffsThreshold": -1,
@@ -625,9 +611,7 @@
     },
     "53": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "UKRAINIAN PREMIER LEAGUE",
         "nation": "UKRAINE",
         "playoffsThreshold": -1,
@@ -638,9 +622,7 @@
     },
     "54": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "TORNEO URUGUAYO COPA COCA-COLA",
         "nation": "URUGUAY",
         "playoffsThreshold": -1,
@@ -651,9 +633,7 @@
     },
     "55": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA VENEZOLANA",
         "nation": "VENEZUELA",
         "playoffsThreshold": -1,
@@ -664,9 +644,7 @@
     },
     "6": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "CAMPEONATO AFP PLANVITAL",
         "nation": "CHILE",
         "playoffsThreshold": -1,
@@ -677,9 +655,7 @@
     },
     "7": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "CHINESE SUPER LEAGUE",
         "nation": "CHINA PR",
         "playoffsThreshold": -1,
@@ -690,9 +666,7 @@
     },
     "8": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "LIGA BETPLAY DIMAYOR",
         "nation": "COLOMBIA",
         "playoffsThreshold": -1,
@@ -703,9 +677,7 @@
     },
     "9": {
         "autoPromotionThreshold": -1,
-        "championsLeagueThreshold": -1,
-        "conferenceLeagueThreshold": -1,
-        "europaLeagueThreshold": -1,
+        "linkedCompetitions": {},
         "name": "PRVA HNL",
         "nation": "CROATIA",
         "playoffsThreshold": -1,

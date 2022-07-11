@@ -6,17 +6,24 @@
 
 class League
 {
+public:
+	struct CompetitionLink
+	{
+		uint16_t competitionID;
+		std::vector<uint8_t> qualifyingTablePositions;
+	};
 private:
 	std::string name, nation;
 	uint16_t id, tier;
-	int championsLeague, europaLeague, conferenceLeague, autoPromotion, playoffs, relegation;
+	int autoPromotion, playoffs, relegation;
 	float titleBonus;
 
+	std::vector<CompetitionLink> linkedCompetitions;
 	std::vector<Club*> clubs;
 public:
 	League();
-	League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int championsLeague, int europaLeague,
-		int conferenceLeague, int autoPromotion, int playoffs, int relegation, float titleBonus, const std::vector<Club*> clubs);
+	League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int autoPromotion, int playoffs, int relegation, 
+		float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs);
 
 	~League() = default;
 
@@ -28,15 +35,6 @@ public:
 
 	// Sets the tier of the league.
 	void SetTier(uint16_t tier);
-
-	// Set the threshold for clubs in the league to qualify for the Champions League.
-	void SetChampionsLeagueThreshold(int threshold);
-
-	// Set the threshold for clubs in the league to qualify for the Europa League.
-	void SetEuropaLeagueThreshold(int threshold);
-
-	// Set the threshold for clubs in the league to qualify for the Conference League.
-	void SetConferenceLeagueThreshold(int threshold);
 
 	// Set the threshold for clubs in the league to qualify for Automatic Promotion.
 	void SetAutoPromotionThreshold(int threshold);
@@ -71,15 +69,6 @@ public:
 	// Returns the tier of the league.
 	const uint16_t& GetTier() const;
 
-	// Returns the threshold for clubs in the league to qualify for the Champions League.
-	const int& GetChampionsLeagueThreshold() const;
-
-	// Returns the threshold for clubs in the league to qualify for the Europa League.
-	const int& GetEuropaLeagueThreshold() const;
-
-	// Returns the threshold for clubs in the league to qualify for the Conference League.
-	const int& GetConferenceLeagueThreshold() const;
-
 	// Returns the threshold for clubs in the league to qualify for Automatic Promotion.
 	const int& GetAutoPromotionThreshold() const;
 
@@ -88,6 +77,10 @@ public:
 
 	// Returns the threshold for clubs in the league to qualify for Relegation.
 	const int& GetRelegationThreshold() const;
+
+	// Returns the domestic competitions that clubs in the league can participate in and international competitions that clubs 
+	// in the league can qualify for e.g. UCL, UEL etc.
+	const std::vector<CompetitionLink>& GetLinkedCompetitions() const;
 };
 
 #endif
