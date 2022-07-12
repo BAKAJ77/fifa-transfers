@@ -1,5 +1,7 @@
 #include <states/play_menu.h>
 #include <states/new_save.h>
+#include <states/load_save.h>
+
 #include <interface/menu_button.h>
 
 void PlayMenu::Init()
@@ -29,8 +31,11 @@ void PlayMenu::Update(const float& deltaTime)
         for (size_t index = 0; index < buttons.size(); index++)
         {
             const MenuButton* menuButton = (MenuButton*)buttons[index];
+
             if (menuButton->GetText() == "NEW SAVE" && menuButton->WasClicked())
                 this->PushState(NewSave::GetAppState());
+            else if (menuButton->GetText() == "LOAD SAVE" && menuButton->WasClicked())
+                this->PushState(LoadSave::GetAppState());
             else if (menuButton->GetText() == "BACK" && menuButton->WasClicked())
                 this->goBackToMainMenu = true;
         }
