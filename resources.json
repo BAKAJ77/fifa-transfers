@@ -18,8 +18,8 @@
     },
     "sfx": {
         "1": {
-            "filename": "button.wav",
-            "id": "Button"
+            "filename": "switch.wav",
+            "id": "Switch"
         }
     },
     "textures": {

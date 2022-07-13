@@ -10,7 +10,7 @@ MenuButton::MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const gl
 	ButtonBase(pos, baseSize, maxSize, glm::vec3(60), glm::vec3(90), glm::vec3(120), opacity), text(text), 
 	baseFontSize(baseSize.y / 2.5f), currentFontSize(baseSize.y / 2.5f), sfxPlayed(false)
 {
-	this->sfx = AudioSystem::GetInstance().GetAudio("Button");
+	this->sfx = AudioSystem::GetInstance().GetAudio("Switch");
 
 	this->textFont = FontLoader::GetInstance().GetFont("Cascadia Code Bold");
 	this->textSize = Renderer::GetInstance().GetTextSize(this->textFont, (uint32_t)this->currentFontSize, text);
