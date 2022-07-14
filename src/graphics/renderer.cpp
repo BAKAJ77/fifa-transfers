@@ -36,7 +36,7 @@ void Renderer::Init(WindowFramePtr window)
 	};
 
 	const float triangleVertexData[] = { 
-		-0.5f, -0.5f, 0.0f, 0.0f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.5f, 0.5f, 1.0f 
+		-0.5f, -0.5f, 0.0f, 0.0f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.5f, 1.0f 
 	};
 
 	this->squareGeometryVbo = Memory::CreateVertexBuffer(squareVertexData, sizeof(squareVertexData), GL_STATIC_DRAW);
