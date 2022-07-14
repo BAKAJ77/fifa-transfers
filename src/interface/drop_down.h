@@ -36,12 +36,6 @@ public:
 	DropDown& operator=(const DropDown& other) = default;
 	DropDown& operator=(DropDown&& temp) noexcept;
 	
-	// Sets the position of the drop down.
-	void SetPosition(const glm::vec2& pos);
-
-	// Sets the size of the drop down.
-	void SetSize(const glm::vec2& size);
-
 	// Sets the opacity of the drop down.
 	void SetOpacity(float opacity);
 

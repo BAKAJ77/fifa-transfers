@@ -42,16 +42,6 @@ DropDown& DropDown::operator=(DropDown&& temp) noexcept
     return *this;
 }
 
-void DropDown::SetPosition(const glm::vec2& pos)
-{
-    this->position = pos;
-}
-
-void DropDown::SetSize(const glm::vec2& size)
-{
-    this->size = size;
-}
-
 void DropDown::SetOpacity(float opacity)
 {
     for (Element& element : this->selections)
