@@ -54,7 +54,11 @@ void DropDown::SetSize(const glm::vec2& size)
 
 void DropDown::SetOpacity(float opacity)
 {
+    for (Element& element : this->selections)
+        element.button.SetOpacity(opacity);
+
     this->opacity = opacity;
+    this->currentSelected.button.SetOpacity(opacity);
 }
 
 void DropDown::AddSelection(const std::string_view& id, int value)
@@ -166,11 +170,12 @@ void DropDown::Render(float masterOpacity) const
         {
             if (this->selectionsOffset > 0)
                 Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, this->position.y + (this->size.y / 2) + 20 },
-                    glm::vec2(20, 25), { 50, 50, 50, 255 }, 180);
+                    glm::vec2(20, 25), { 50, 50, 50, (this->opacity * masterOpacity) / 255 }, 180);
 
             if ((this->selectionsOffset + this->maxSelectionsVisible) < this->selections.size())
                 Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, 
-                    this->position.y + ((this->maxSelectionsVisible * this->size.y) + (this->size.y / 2)) - 20}, glm::vec2(20, 25), { 50, 50, 50, 255 });
+                    this->position.y + ((this->maxSelectionsVisible * this->size.y) + (this->size.y / 2)) - 20}, glm::vec2(20, 25), 
+                    { 50, 50, 50, (this->opacity * masterOpacity) / 255 });
         }
     }
 }
