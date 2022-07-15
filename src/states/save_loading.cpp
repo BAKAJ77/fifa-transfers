@@ -32,6 +32,11 @@ void SaveLoading::ExecuteLoadingProcess()
     SaveData::GetInstance().SetPlayerCount((uint8_t)saveMetadata.playerCount);
     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)saveMetadata.growthSystemID);
 
+    // Clear the data already in the player, club and user databases before loading
+    SaveData::GetInstance().GetPlayerDatabase().clear();
+    SaveData::GetInstance().GetClubDatabase().clear();
+    SaveData::GetInstance().GetUsers().clear();
+
     // Now load the save data from the save file
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
 
@@ -39,53 +44,24 @@ void SaveLoading::ExecuteLoadingProcess()
 
     {
         std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 40;
+        this->loadingProgress = 50;
     }
 
     SaveData::GetInstance().LoadClubsFromJSON(saveFileLoader.GetRoot(), false);
 
     {
         std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 75;
+        this->loadingProgress = 90;
     }
 
     SaveData::GetInstance().LoadUsersFromJSON(saveFileLoader.GetRoot());
 
     {
         std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 80;
+        this->loadingProgress = 100;
     }
 
     saveFileLoader.Clear();
-
-    // Next load the positions, cups and leagues from their respective json files
-    JSONLoader positionsFile(Util::GetAppDataDirectory() + "data/positions.json");
-    SaveData::GetInstance().LoadPositionsFromJSON(positionsFile.GetRoot());
-
-    {
-        std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 85;
-    }
-
-    positionsFile.Clear();
-
-    JSONLoader cupsFile(Util::GetAppDataDirectory() + "data/cup_competitions.json");
-    SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
-
-    {
-        std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 90;
-    }
-
-    cupsFile.Clear();
-
-    JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
-    SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
-
-    {
-        std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 100;
-    }
 }
 
 void SaveLoading::Update(const float& deltaTime)
