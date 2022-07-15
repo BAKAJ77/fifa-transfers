@@ -11,10 +11,10 @@ void MainMenu::Init()
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
-    this->userInterface.AddStandaloneButton(new MenuButton({ 250, 750 }, { 450, 200 }, { 465, 215 }, "PLAY"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 720, 750 }, { 450, 200 }, { 465, 215 }, "SETTINGS"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1190, 750 }, { 450, 200 }, { 465, 215 }, "HELP"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1660, 750 }, { 450, 200 }, { 465, 215 }, "EXIT"));
+    this->userInterface.AddButton(new MenuButton({ 250, 750 }, { 450, 200 }, { 465, 215 }, "PLAY"));
+    this->userInterface.AddButton(new MenuButton({ 720, 750 }, { 450, 200 }, { 465, 215 }, "SETTINGS"));
+    this->userInterface.AddButton(new MenuButton({ 1190, 750 }, { 450, 200 }, { 465, 215 }, "HELP"));
+    this->userInterface.AddButton(new MenuButton({ 1660, 750 }, { 450, 200 }, { 465, 215 }, "EXIT"));
 }
 
 void MainMenu::Destroy() {}
@@ -25,7 +25,7 @@ void MainMenu::Update(const float& deltaTime)
     this->userInterface.Update(deltaTime);
 
     // Check and respond if any of the standalone buttons are pressed
-    const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+    const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
     for (size_t index = 0; index < buttons.size(); index++)
     {
@@ -70,7 +70,7 @@ bool MainMenu::OnPauseTransitionUpdate(const float deltaTime)
     constexpr float transitionSpeed = 1500.0f;
 
     // Get the interface standalone buttons
-    const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+    const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
     
     // Move the buttons towards the left of the screen
     for (size_t index = 0; index < buttons.size(); index++)
@@ -93,7 +93,7 @@ bool MainMenu::OnResumeTransitionUpdate(const float deltaTime)
     static bool startedTransition = false, finishedMovingButtons = false;
 
     // Get the interface standalone buttons
-    const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+    const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
     // Set the position of the buttons towards the right of the screen
     if (!startedTransition)

@@ -12,7 +12,7 @@ UserInterface::UserInterface(WindowFramePtr window, float animationSpeed, float 
 UserInterface::~UserInterface()
 {
     // Deallocate all the standalone buttons
-    for (auto iterator = this->standaloneButtons.begin(); iterator != this->standaloneButtons.end(); iterator++)
+    for (auto iterator = this->buttons.begin(); iterator != this->buttons.end(); iterator++)
         delete *iterator;
 }
 
@@ -26,21 +26,21 @@ void UserInterface::SetOpacity(float opacity)
     this->opacity = opacity;
 }
 
-void UserInterface::AddStandaloneButton(ButtonBase* button)
+void UserInterface::AddButton(ButtonBase* button)
 {
-    this->standaloneButtons.emplace_back(button);
+    this->buttons.emplace_back(button);
 }
 
-void UserInterface::AddStandaloneTextField(const std::string_view& id, const TextInputField& field)
+void UserInterface::AddTextField(const std::string_view& id, const TextInputField& field)
 {
     // Don't add the text field to the interface if another with the ID given already exists
-    if (this->standaloneTextFields.find(id.data()) != this->standaloneTextFields.end())
+    if (this->textFields.find(id.data()) != this->textFields.end())
     {
-        LogSystem::GetInstance().OutputLog("There's already a standalone text field with the ID: " + std::string(id), Severity::WARNING);
+        LogSystem::GetInstance().OutputLog("There's already a text field with the ID: " + std::string(id), Severity::WARNING);
         return;
     }
 
-    this->standaloneTextFields[id.data()] = field;
+    this->textFields[id.data()] = field;
 }
 
 void UserInterface::AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group)
@@ -84,11 +84,11 @@ void UserInterface::Update(const float& deltaTime)
     if (this->appWindow->IsFocused()) // Only update if the window is focused
     {
         // Update the standalone buttons
-        for (ButtonBase* button : this->standaloneButtons)
+        for (ButtonBase* button : this->buttons)
             button->Update(deltaTime, this->animationSpeed);
 
         // Update the standalone text fields
-        for (auto& field : this->standaloneTextFields)
+        for (auto& field : this->textFields)
             field.second.Update(deltaTime);
 
         // Update the radio button groups
@@ -110,11 +110,11 @@ void UserInterface::Render() const
     if (this->opacity > 0.0f)
     {
         // Render the standalone buttons
-        for (const ButtonBase* button : this->standaloneButtons)
+        for (const ButtonBase* button : this->buttons)
             button->Render(this->opacity);
 
         // Render the standalone text fields
-        for (const auto& field : this->standaloneTextFields)
+        for (const auto& field : this->textFields)
             field.second.Render(this->opacity);
 
         // Render the radio button groups
@@ -135,20 +135,20 @@ void UserInterface::Render() const
     }
 }
 
-TextInputField* UserInterface::GetStandaloneTextField(const std::string_view& id)
+TextInputField* UserInterface::GetTextField(const std::string_view& id)
 {
-    auto iterator = this->standaloneTextFields.find(id.data());
-    if (iterator != this->standaloneTextFields.end())
+    auto iterator = this->textFields.find(id.data());
+    if (iterator != this->textFields.end())
         return &iterator->second;
 
-    // No standalone text field has been found matching the ID given
-    LogSystem::GetInstance().OutputLog("No standalone text field exists with the ID: " + std::string(id), Severity::WARNING);
+    // No text field has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No text field exists with the ID: " + std::string(id), Severity::WARNING);
     return nullptr;
 }
 
-const std::vector<ButtonBase*>& UserInterface::GetStandaloneButtons()
+const std::vector<ButtonBase*>& UserInterface::GetButtons()
 {
-    return this->standaloneButtons;
+    return this->buttons;
 }
 
 RadioButtonGroup* UserInterface::GetRadioButtonGroup(const std::string_view& id)

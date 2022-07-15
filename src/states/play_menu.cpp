@@ -11,9 +11,9 @@ void PlayMenu::Init()
 
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
-    this->userInterface.AddStandaloneButton(new MenuButton({ 640, 750 }, { 450, 200 }, { 465, 215 }, "NEW SAVE"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1110, 750 }, { 450, 200 }, { 465, 215 }, "LOAD SAVE"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1580, 750 }, { 450, 200 }, { 465, 215 }, "BACK"));
+    this->userInterface.AddButton(new MenuButton({ 640, 750 }, { 450, 200 }, { 465, 215 }, "NEW SAVE"));
+    this->userInterface.AddButton(new MenuButton({ 1110, 750 }, { 450, 200 }, { 465, 215 }, "LOAD SAVE"));
+    this->userInterface.AddButton(new MenuButton({ 1580, 750 }, { 450, 200 }, { 465, 215 }, "BACK"));
 }
 
 void PlayMenu::Destroy() {}
@@ -25,7 +25,7 @@ void PlayMenu::Update(const float& deltaTime)
         this->userInterface.Update(deltaTime);
 
         // Get the interface standalone buttons
-        const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+        const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
         // Check and respond if any of the standalone buttons are pressed
         for (size_t index = 0; index < buttons.size(); index++)
@@ -58,7 +58,7 @@ bool PlayMenu::OnStartupTransitionUpdate(const float deltaTime)
     static bool startedTransition = false, finishedMovingButtons = false;
 
     // Get the interface standalone buttons
-    const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+    const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
     // Set the position of the buttons towards the right of the screen
     if (!startedTransition)
@@ -95,7 +95,7 @@ bool PlayMenu::OnPauseTransitionUpdate(const float deltaTime)
     constexpr float transitionSpeed = 1500.0f;
 
     // Get the interface standalone buttons
-    const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+    const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
     // Move the buttons towards the left of the screen
     for (size_t index = 0; index < buttons.size(); index++)

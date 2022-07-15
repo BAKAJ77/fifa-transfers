@@ -16,8 +16,8 @@ class UserInterface
 {
 private:
 	WindowFramePtr appWindow;
-	std::vector<ButtonBase*> standaloneButtons;
-	std::unordered_map<std::string, TextInputField> standaloneTextFields;
+	std::vector<ButtonBase*> buttons;
+	std::unordered_map<std::string, TextInputField> textFields;
 
 	std::unordered_map<std::string, RadioButtonGroup> radioButtonGroups;
 	std::unordered_map<std::string, SelectionList> selectionLists;
@@ -36,12 +36,12 @@ public:
 	// Sets the master opacity of the user interface.
 	void SetOpacity(float opacity);
 
-	// Adds a standalone button to the interface.
+	// Adds a button to the interface.
 	// NOTE: The button object given must be heap allocated i.e with the 'new' keyword.
-	void AddStandaloneButton(ButtonBase* button);
+	void AddButton(ButtonBase* button);
 
-	// Adds a standalone text field to the interface.
-	void AddStandaloneTextField(const std::string_view& id, const TextInputField& field);
+	// Adds a text field to the interface.
+	void AddTextField(const std::string_view& id, const TextInputField& field);
 
 	// Adds a radio button group to the interface.
 	void AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group);
@@ -58,11 +58,11 @@ public:
 	// Renders the interface.
 	void Render() const;
 
-	// Returns the vector containing the standalone buttons in the interface.
-	const std::vector<ButtonBase*>& GetStandaloneButtons();
+	// Returns the vector containing the buttons in the interface.
+	const std::vector<ButtonBase*>& GetButtons();
 
-	// Returns the standalone text field matching the ID given.
-	TextInputField* GetStandaloneTextField(const std::string_view& id);
+	// Returns the text field matching the ID given.
+	TextInputField* GetTextField(const std::string_view& id);
 
 	// Returns the radio button group matching the ID given.
 	RadioButtonGroup* GetRadioButtonGroup(const std::string_view& id);

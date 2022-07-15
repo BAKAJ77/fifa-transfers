@@ -18,11 +18,11 @@ void NewSave::Init()
 
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1420, 1005 }, { 300, 100 }, { 315, 115 }, "CONFIRM"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
+    this->userInterface.AddButton(new MenuButton({ 1420, 1005 }, { 300, 100 }, { 315, 115 }, "CONFIRM"));
+    this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    this->userInterface.AddStandaloneTextField("Save Name", TextInputField({ 330, 295 }, { 600, 75 }));
-    this->userInterface.AddStandaloneTextField("Player Count", TextInputField({ 70, 515 }, { 75, 75 }, 
+    this->userInterface.AddTextField("Save Name", TextInputField({ 330, 295 }, { 600, 75 }));
+    this->userInterface.AddTextField("Player Count", TextInputField({ 70, 515 }, { 75, 75 }, 
         TextInputField::Restrictions::NO_ALPHABETIC | TextInputField::Restrictions::NO_SPACES));
 
     this->userInterface.AddRadioButtonGroup("Growth System", RadioButtonGroup({ 50, 735 }, { 50, 50 }));
@@ -44,7 +44,7 @@ void NewSave::Update(const float& deltaTime)
         this->userInterface.Update(deltaTime);
 
         // Get the interface standalone buttons
-        const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+        const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
         // Check and respond if any of the standalone buttons are pressed
         for (size_t index = 0; index < buttons.size(); index++)
@@ -53,8 +53,8 @@ void NewSave::Update(const float& deltaTime)
             if (menuButton->GetText() == "CONFIRM" && menuButton->WasClicked())
             {
                 // Retrieve the inputted data
-                const std::string& saveNameStr = this->userInterface.GetStandaloneTextField("Save Name")->GetInputtedText();
-                const std::string& playerCountStr = this->userInterface.GetStandaloneTextField("Player Count")->GetInputtedText();
+                const std::string& saveNameStr = this->userInterface.GetTextField("Save Name")->GetInputtedText();
+                const std::string& playerCountStr = this->userInterface.GetTextField("Player Count")->GetInputtedText();
                 const int growthSystemType = this->userInterface.GetRadioButtonGroup("Growth System")->GetSelected();
                 this->randomisePotentials = this->userInterface.GetRadioButtonGroup("Randomise Potentials")->GetSelected();
 

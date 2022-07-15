@@ -1,5 +1,5 @@
-#ifndef BUTTON_LIST_H
-#define BUTTON_LIST_H
+#ifndef SELECTION_LIST_H
+#define SELECTION_LIST_H
 
 #include <interface/button_base.h>
 #include <graphics/font_loader.h>

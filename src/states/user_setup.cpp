@@ -16,9 +16,9 @@ void UserSetup::Init()
 
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1420, 1005 }, { 300, 100 }, { 315, 115 }, "CONFIRM"));
-    this->userInterface.AddStandaloneButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
-    this->userInterface.AddStandaloneTextField("Manager Name", TextInputField({ 330, 295 }, { 600, 75 }));
+    this->userInterface.AddButton(new MenuButton({ 1420, 1005 }, { 300, 100 }, { 315, 115 }, "CONFIRM"));
+    this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
+    this->userInterface.AddTextField("Manager Name", TextInputField({ 330, 295 }, { 600, 75 }));
 
     this->userInterface.AddDropDown("League", { { 280, 515 }, { 500, 75 } });
 
@@ -35,7 +35,7 @@ void UserSetup::Destroy() {}
 
 bool UserSetup::CheckInputsValid()
 {
-    this->managerNameInvalid = this->userInterface.GetStandaloneTextField("Manager Name")->GetInputtedText().empty();
+    this->managerNameInvalid = this->userInterface.GetTextField("Manager Name")->GetInputtedText().empty();
     this->noLeagueSelected = this->userInterface.GetDropDown("League")->GetCurrentSelected() == -1;
     this->noClubSelected = this->userInterface.GetDropDown("Club")->GetCurrentSelected() == -1;
 
@@ -101,7 +101,7 @@ void UserSetup::Update(const float& deltaTime)
         this->UpdateClubDropDownList();
 
         // Check and respond if any of the standalone buttons are pressed
-        const std::vector<ButtonBase*>& buttons = this->userInterface.GetStandaloneButtons();
+        const std::vector<ButtonBase*>& buttons = this->userInterface.GetButtons();
 
         for (size_t index = 0; index < buttons.size(); index++)
         {
@@ -117,7 +117,7 @@ void UserSetup::Update(const float& deltaTime)
                         {
                             // Setup the new user profile
                             UserProfile user = this->SetupUserProfile((uint16_t)(SaveData::GetInstance().GetUsers().size() + 1),
-                                this->userInterface.GetStandaloneTextField("Manager Name")->GetInputtedText(), club);
+                                this->userInterface.GetTextField("Manager Name")->GetInputtedText(), club);
 
                             // Push the created user profile into the save data
                             SaveData::GetInstance().GetUsers().emplace_back(user);
@@ -126,7 +126,7 @@ void UserSetup::Update(const float& deltaTime)
                     }
 
                     // Reset the drop downs and text field
-                    this->userInterface.GetStandaloneTextField("Manager Name")->Clear();
+                    this->userInterface.GetTextField("Manager Name")->Clear();
                     this->userInterface.GetDropDown("League")->Reset();
                     this->userInterface.GetDropDown("Club")->Reset();
 
