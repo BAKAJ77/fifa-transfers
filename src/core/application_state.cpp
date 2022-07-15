@@ -46,6 +46,11 @@ void AppState::PopState()
 	AppStateSystem::GetInstance().PopState();
 }
 
+const AppState* AppState::GetActiveAppState() const
+{
+	return AppStateSystem::GetInstance().GetActiveAppState();
+}
+
 WindowFramePtr AppState::GetAppWindow() const
 {
 	return AppStateSystem::GetInstance().GetAppWindow();
@@ -222,6 +227,11 @@ void AppStateSystem::Render() const
 	// Render the in-transition game state (if any)
 	if (this->pendingAppState)
 		this->pendingAppState->Render();
+}
+
+const AppState* AppStateSystem::GetActiveAppState() const
+{
+	return this->stateStack.back();
 }
 
 WindowFramePtr AppStateSystem::GetAppWindow() const

@@ -52,6 +52,8 @@ protected:
 	void RollBack(AppState* appState);
 	void PopState();
 
+	const AppState* GetActiveAppState() const;
+
 	WindowFramePtr GetAppWindow() const;
 	uint32_t GetStackSize() const;
 };
@@ -102,6 +104,9 @@ public:
 
 	// Renders the current active application state and other application states which are instructed to keep rendering even when paused.
 	void Render() const;
+
+	// Returns the app state in the stack which is currently active.
+	const AppState* GetActiveAppState() const;
 
 	// Returns the application window.
 	WindowFramePtr GetAppWindow() const;
