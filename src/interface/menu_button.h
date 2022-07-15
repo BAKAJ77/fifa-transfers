@@ -18,7 +18,8 @@ private:
 public:
 	MenuButton();
 	MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const std::string_view& text, 
-		float opacity = 255.0f);
+		const glm::vec3& baseColor = glm::vec3(60), const glm::vec3& highlightColor = glm::vec3(90), const glm::vec3& edgeColor = glm::vec3(120), 
+		float opacity = 255.0f, bool noShadow = false);
 
 	~MenuButton() = default;
 

@@ -5,9 +5,9 @@ MenuButton::MenuButton() :
 	currentFontSize(0.0f), baseFontSize(0.0f), sfxPlayed(false)
 {}
 
-MenuButton::MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const std::string_view& text,
-	float opacity) :
-	ButtonBase(pos, baseSize, maxSize, glm::vec3(60), glm::vec3(90), glm::vec3(120), opacity), text(text), 
+MenuButton::MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const std::string_view& text, const glm::vec3& baseColor, 
+	const glm::vec3& highlightColor, const glm::vec3& edgeColor, float opacity, bool noShadow) :
+	ButtonBase(pos, baseSize, maxSize, baseColor, highlightColor, edgeColor, opacity, 5.0f * (int)(!noShadow)), text(text), 
 	baseFontSize(baseSize.y / 2.5f), currentFontSize(baseSize.y / 2.5f), sfxPlayed(false)
 {
 	this->sfx = AudioSystem::GetInstance().GetAudio("Switch");
