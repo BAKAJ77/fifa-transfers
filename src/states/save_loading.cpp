@@ -81,7 +81,7 @@ void SaveLoading::Render() const
         { 255, 255, 255, this->opacity });
 
     // Render loading text
-    Renderer::GetInstance().RenderText({ 450, 450 }, { 255, 255, 255, this->opacity }, FontLoader::GetInstance().GetFont("Bahnschrift Bold"), 75,
+    Renderer::GetInstance().RenderText({ 425, 450 }, { 255, 255, 255, this->opacity }, FontLoader::GetInstance().GetFont("Bahnschrift Bold"), 75,
         "LOADING DATA, PLEASE WAIT...");
 
     // Render the progress bar edge
