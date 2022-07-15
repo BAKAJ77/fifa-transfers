@@ -1,5 +1,6 @@
 #include <states/user_setup.h>
 #include <states/save_writing.h>
+#include <states/main_game.h>
 
 #include <core/input_system.h>
 #include <serialization/save_data.h>
@@ -132,7 +133,10 @@ void UserSetup::Update(const float& deltaTime)
 
                     // Write the save data to new save file
                     if (SaveData::GetInstance().GetUsers().size() == SaveData::GetInstance().GetPlayerCount())
+                    {
+                        SaveWriting::GetAppState()->SetNextState(MainGame::GetAppState());
                         this->SwitchState(SaveWriting::GetAppState());
+                    }
                 }
             }
             else if (button->GetText() == "BACK" && button->WasClicked())

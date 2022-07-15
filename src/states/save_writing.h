@@ -12,6 +12,8 @@ private:
 	FontPtr font;
 	mutable std::mutex mutex;
 	float savingProgress, opacity;
+
+	AppState* nextAppState;
 private:
 	// Starts the process of writing the save data to file.
 	void ExecuteSavingProcess();
@@ -25,5 +27,9 @@ protected:
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
 public:
 	static SaveWriting* GetAppState();
+
+	// Sets the next state that is executed after the save writting process is complete.
+	// If nullptr is passed, the save writting app state will only be popped from the app state stack.
+	void SetNextState(AppState* appState);
 };
 #endif

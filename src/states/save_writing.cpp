@@ -1,6 +1,5 @@
 #include <states/save_writing.h>
 #include <states/new_save.h>
-#include <states/main_game.h>
 
 #include <serialization/save_data.h>
 
@@ -95,9 +94,14 @@ void SaveWriting::Update(const float& deltaTime)
 {
     std::scoped_lock lock(this->mutex);
     
-    // Once the saving process is complete, switch to the main game state
-    if (this->savingProgress == 100.0f)
-        this->SwitchState(MainGame::GetAppState());
+    // Check if the save writting process is complete
+	if (this->savingProgress == 100.0f)
+	{
+		if (this->nextAppState) // If an app state has been provided, then switch to that state
+			this->SwitchState(this->nextAppState);
+		else // No app state have been provided so just pop this state
+			this->PopState();
+	}
 }
 
 void SaveWriting::Render() const
@@ -136,4 +140,9 @@ SaveWriting* SaveWriting::GetAppState()
 {
     static SaveWriting appState;
     return &appState;
+}
+
+void SaveWriting::SetNextState(AppState* appState)
+{
+	this->nextAppState = appState;
 }
