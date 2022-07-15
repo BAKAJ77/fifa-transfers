@@ -49,6 +49,7 @@ protected:
 	
 	void SwitchState(AppState* appState);
 	void PushState(AppState* appState);
+	void RollBack(AppState* appState);
 	void PopState();
 
 	WindowFramePtr GetAppWindow() const;
@@ -88,6 +89,10 @@ public:
 
 	// Pauses the most recent application state (if any) and starts up the new application state given.
 	void PushState(AppState* appState);
+
+	// Pops all app states in the stack which are ahead of the app state given.
+	// Note that if the app state given isn't in the stack then no app states will be popped.
+	void RollBack(AppState* appState);
 
 	// Destroys the last active application state in the stack.
 	void PopState();

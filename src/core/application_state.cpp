@@ -1,4 +1,5 @@
 #include <core/application_state.h>
+#include <util/logging_system.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -33,6 +34,11 @@ void AppState::SwitchState(AppState* appState)
 void AppState::PushState(AppState* appState)
 {
 	AppStateSystem::GetInstance().PushState(appState);
+}
+
+void AppState::RollBack(AppState* appState)
+{
+	AppStateSystem::GetInstance().RollBack(appState);
 }
 
 void AppState::PopState()
@@ -77,6 +83,34 @@ void AppStateSystem::PushState(AppState* appState)
 	// Start the application state given
 	appState->Init();
 	this->pendingAppState = appState;
+}
+
+void AppStateSystem::RollBack(AppState* appState)
+{
+	// Make sure the given app state currently is in the stack
+	bool foundInStack = false;
+	for (const AppState* state : this->stateStack)
+	{
+		if (state == appState)
+		{
+			foundInStack = true;
+			break;
+		}
+	}
+
+	if (foundInStack)
+	{
+		// Keep popping states ahead in the stack until the app state given is reached
+		for (auto it = this->stateStack.rbegin(); it != this->stateStack.rend(); it++)
+		{
+			if (*it == appState)
+				break;
+
+			this->stateStack.pop_back();
+		}
+	}
+	else
+		LogSystem::GetInstance().OutputLog("Rollback operation failure, state given is not in stack", Severity::WARNING);
 }
 
 void AppStateSystem::PopState()
