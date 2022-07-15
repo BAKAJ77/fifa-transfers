@@ -39,7 +39,10 @@ void LoadSave::Init()
     }
 }
 
-void LoadSave::Destroy() {}
+void LoadSave::Destroy() 
+{
+    this->existingSaves.clear();
+}
 
 void LoadSave::Update(const float& deltaTime)
 {
