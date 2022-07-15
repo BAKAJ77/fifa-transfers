@@ -9,9 +9,7 @@
 class SaveWriting : public AppState
 {
 private:
-	UserInterface userInterface;
 	FontPtr font;
-
 	mutable std::mutex mutex;
 	float savingProgress, opacity;
 private:
