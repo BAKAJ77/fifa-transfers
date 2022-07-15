@@ -1,7 +1,10 @@
 #include <states/resource_loader.h>
 #include <states/splash_screen.h>
+
 #include <serialization/save_data.h>
 #include <serialization/json_loader.h>
+
+#include <util/directory_system.h>
 #include <util/timestamp.h>
 
 #include <thread>
@@ -19,7 +22,7 @@ void ResourceLoader::Init()
     this->splashScreenStarted = false;
 
     // Load the resources list JSON file
-    this->resourcesListFile.Open("resources.json");
+    this->resourcesListFile.Open(Util::GetAppDataDirectory() + "resources.json");
 
     // Load the application resources
     this->LoadTextures();
@@ -162,7 +165,7 @@ void ResourceLoader::LoadAudio()
 void ResourceLoader::LoadDefaultDatabase()
 {
     // Open the positions JSON file and load every position's data
-    JSONLoader positionsFile("data/positions.json");
+    JSONLoader positionsFile(Util::GetAppDataDirectory() + "data/positions.json");
     SaveData::GetInstance().LoadPositionsFromJSON(positionsFile.GetRoot());
 
     // Update the work done percentage counter
@@ -172,7 +175,7 @@ void ResourceLoader::LoadDefaultDatabase()
     }
     
     // Open the players JSON file and load every player's data
-    JSONLoader playersFile("data/players.json");
+    JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
     SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
 
     // Update the work done percentage counter
@@ -184,7 +187,7 @@ void ResourceLoader::LoadDefaultDatabase()
     playersFile.Clear();
 
     // Open the clubs JSON file and load every clubs's data
-    JSONLoader clubsFile("data/clubs.json");
+    JSONLoader clubsFile(Util::GetAppDataDirectory() + "data/clubs.json");
     SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
 
     // Update the work done percentage counter
@@ -196,7 +199,7 @@ void ResourceLoader::LoadDefaultDatabase()
     clubsFile.Clear();
 
     // Open the cup competitions JSON file and load every cup's data
-    JSONLoader cupsFile("data/cup_competitions.json");
+    JSONLoader cupsFile(Util::GetAppDataDirectory() + "data/cup_competitions.json");
     SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
 
     // Update the work done percentage counter
@@ -208,7 +211,7 @@ void ResourceLoader::LoadDefaultDatabase()
     cupsFile.Clear();
 
     // Open the leagues JSON file and load every league's data
-    JSONLoader leaguesFile("data/leagues.json");
+    JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
     SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
 
     // Update the work done percentage counter
