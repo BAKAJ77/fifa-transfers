@@ -11,6 +11,7 @@ void SaveLoading::Init()
 {
     // Initialize the member variables
     this->loadingProgress = 0.0f;
+    this->opacity = 0.0f;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");

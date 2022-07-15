@@ -14,6 +14,7 @@ private:
 	float savingProgress, opacity;
 
 	AppState* nextAppState;
+	bool shouldPopState;
 private:
 	// Starts the process of writing the save data to file.
 	void ExecuteSavingProcess();

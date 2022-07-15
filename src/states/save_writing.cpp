@@ -12,7 +12,9 @@
 void SaveWriting::Init()
 {
     // Initialize the member variables
+	this->shouldPopState = false;
     this->savingProgress = 0.0f;
+	this->opacity = 0.0f;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -100,6 +102,17 @@ void SaveWriting::Update(const float& deltaTime)
 		if (this->nextAppState) // If an app state has been provided, then switch to that state
 			this->SwitchState(this->nextAppState);
 		else // No app state have been provided so just pop this state
+			this->shouldPopState = true;
+	}
+
+	if (this->shouldPopState)
+	{
+		constexpr float transitionSpeed = 1000.0f;
+
+		// Update fade out effect
+		this->opacity = std::max(this->opacity - (transitionSpeed * deltaTime), 0.0f);
+
+		if (this->opacity == 0.0f)
 			this->PopState();
 	}
 }
