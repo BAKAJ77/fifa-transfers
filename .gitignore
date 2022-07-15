@@ -402,3 +402,5 @@ FodyWeavers.xsd
 /bin/release
 /bin/debug
 config.json
+data/saves.json
+data/saves
