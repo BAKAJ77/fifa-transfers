@@ -64,7 +64,7 @@ public:
 	void SetGrowthSystem(GrowthSystemType type);
 
 	// Loads every user profile's data in the JSON structure into the vector.
-	// You must call the functions 'LoadClubsFromJSON()' and 'LoadCupsFromJSON()' before calling this one.
+	// You must call the functions 'LoadClubsFromJSON()' before calling this one.
 	void LoadUsersFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every cup competition's data in the JSON structure into the vector.
@@ -79,7 +79,6 @@ public:
 	void LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
 
 	// Loads every player's data in the JSON structure into the vector.
-	// You must call the function 'LoadPositionsFromJSON()' before calling this one.
 	void LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault = true);
 
 	// Loads every position's data in the JSON structure into the vector.

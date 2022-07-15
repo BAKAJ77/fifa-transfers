@@ -95,7 +95,7 @@ void SaveWriting::Update(const float& deltaTime)
 {
     std::scoped_lock lock(this->mutex);
     
-    // Check if the saving process is complete
+    // Once the saving process is complete, switch to the main game state
     if (this->savingProgress == 100.0f)
         this->SwitchState(MainGame::GetAppState());
 }
@@ -110,10 +110,10 @@ void SaveWriting::Render() const
     Renderer::GetInstance().RenderText({ 450, 450 }, { 255, 255, 255, this->opacity }, FontLoader::GetInstance().GetFont("Bahnschrift Bold"), 75,
         "SAVING DATA, PLEASE WAIT...");
 
-    // Render the loading bar edge
+    // Render the progress bar edge
     Renderer::GetInstance().RenderSquare({ 960, 540 }, { 1000, 100 }, { 255, 255, 255, 255 });
 
-    // Render the loading bar progress
+    // Render the progress bar
     std::scoped_lock lock(this->mutex);
     Renderer::GetInstance().RenderSquare({ 470 + (490 * (this->savingProgress / 100)), 540 },
         { (990 * (this->savingProgress / 100)), 90 }, { 128, 128, 128, 255 });
