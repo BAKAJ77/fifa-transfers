@@ -281,15 +281,28 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     // Open the saves metadata file
     file.Open(Util::GetAppDataDirectory() + "data/saves.json");
 
-    // Get the next free save ID
+    // Get the next free save ID, also search if the save written is new or not
     uint16_t nextID = 1;
-    while (file.GetRoot().contains(std::to_string(nextID)))
-        nextID++;
+    bool isNewSave = true;
 
-    // Write the new save metadata to the saves list file
-    file.GetRoot()[std::to_string(nextID)]["filename"] = this->name + ".json";
-    file.GetRoot()[std::to_string(nextID)]["playerCount"] = this->playerCount;
-    file.GetRoot()[std::to_string(nextID)]["growthSystem"] = (int)this->growthSystemType;
+    while (file.GetRoot().contains(std::to_string(nextID)))
+    {
+        if (file.GetRoot()[std::to_string(nextID)]["filename"].get<std::string>() == (this->name + ".json"))
+        {
+            isNewSave = false;
+            break;
+        }
+
+        nextID++;
+    }
+
+    // Write the save metadata to the saves list file if it is a new save
+    if (isNewSave)
+    {
+        file.GetRoot()[std::to_string(nextID)]["filename"] = this->name + ".json";
+        file.GetRoot()[std::to_string(nextID)]["playerCount"] = this->playerCount;
+        file.GetRoot()[std::to_string(nextID)]["growthSystem"] = (int)this->growthSystemType;
+    }
 
     // Update the current progress tracker
     {
