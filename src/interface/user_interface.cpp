@@ -67,6 +67,18 @@ void UserInterface::AddDropDown(const std::string_view& id, const DropDown& drop
     this->dropDowns[id.data()] = dropDown;
 }
 
+void UserInterface::AddSelectionList(const std::string_view& id, const SelectionList& list)
+{
+    // Don't add the selection list to the interface if another with the ID given already exists
+    if (this->selectionLists.find(id.data()) != this->selectionLists.end())
+    {
+        LogSystem::GetInstance().OutputLog("There's already a selection list with the ID: " + std::string(id), Severity::WARNING);
+        return;
+    }
+
+    this->selectionLists[id.data()] = list;
+}
+
 void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
@@ -82,6 +94,10 @@ void UserInterface::Update(const float& deltaTime)
         // Update the radio button groups
         for (auto& group : this->radioButtonGroups)
             group.second.Update(deltaTime);
+
+        // Update the selection lists
+        for (auto& list : this->selectionLists)
+            list.second.Update(deltaTime);
 
         // Update the drop downs
         for (auto& dropDown : this->dropDowns)
@@ -104,6 +120,10 @@ void UserInterface::Render() const
         // Render the radio button groups
         for (auto& group : this->radioButtonGroups)
             group.second.Render(this->opacity);
+
+        // Render the selection lists
+        for (auto& list : this->selectionLists)
+            list.second.Render(this->opacity);
 
         // Render the drop downs
         const DropDown* activeDropDown = nullptr;
@@ -150,6 +170,17 @@ DropDown* UserInterface::GetDropDown(const std::string_view& id)
 
     // No drop down has been found matching the ID given
     LogSystem::GetInstance().OutputLog("No drop down exists with the ID: " + std::string(id), Severity::WARNING);
+    return nullptr;
+}
+
+SelectionList* UserInterface::GetSelectionList(const std::string_view& id)
+{
+    auto iterator = this->selectionLists.find(id.data());
+    if (iterator != this->selectionLists.end())
+        return &iterator->second;
+
+    // No selection list has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No selection list exists with the ID: " + std::string(id), Severity::WARNING);
     return nullptr;
 }
 

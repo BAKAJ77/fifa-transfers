@@ -6,6 +6,7 @@
 #include <interface/text_input_field.h>
 #include <interface/radio_buttons.h>
 #include <interface/drop_down.h>
+#include <interface/selection_list.h>
 
 #include <string>
 #include <vector>
@@ -19,6 +20,7 @@ private:
 	std::unordered_map<std::string, TextInputField> standaloneTextFields;
 
 	std::unordered_map<std::string, RadioButtonGroup> radioButtonGroups;
+	std::unordered_map<std::string, SelectionList> selectionLists;
 	std::unordered_map<std::string, DropDown> dropDowns;
 
 	float animationSpeed, opacity;
@@ -47,23 +49,29 @@ public:
 	// Adds a drop down to the interface.
 	void AddDropDown(const std::string_view& id, const DropDown& dropDown);
 
+	// Adds a selection list to the interface.
+	void AddSelectionList(const std::string_view& id, const SelectionList& list);
+
 	// Updates the interface.
 	void Update(const float& deltaTime);
 
 	// Renders the interface.
 	void Render() const;
 
+	// Returns the vector containing the standalone buttons in the interface.
+	const std::vector<ButtonBase*>& GetStandaloneButtons();
+
 	// Returns the standalone text field matching the ID given.
 	TextInputField* GetStandaloneTextField(const std::string_view& id);
-
-	// Returns the vector containing the standalone buttons in the interface.
-	const std::vector<ButtonBase*>& GetStandaloneButtons(); 
 
 	// Returns the radio button group matching the ID given.
 	RadioButtonGroup* GetRadioButtonGroup(const std::string_view& id);
 
 	// Returns the drop down matching the ID given.
 	DropDown* GetDropDown(const std::string_view& id);
+
+	// Returns the selection list matching the ID given.
+	SelectionList* GetSelectionList(const std::string_view& id);
 
 	// Returns the master opacity of the user interface. 
 	const float& GetOpacity() const;
