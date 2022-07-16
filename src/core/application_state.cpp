@@ -152,11 +152,16 @@ void AppStateSystem::Update(const float& deltaTime)
 				{
 					// Resume the application state at the top of the stack
 					this->stateStack.back()->Resume();
+
+					// Pop the pending operation from the queue
+					this->pendingOperations.pop();
 				}
 			}
-
-			// Pop the pending operation from the queue
-			this->pendingOperations.pop();
+			else
+			{
+				// Pop the pending operation from the queue
+				this->pendingOperations.pop();
+			}
 			break;
 		case SystemCommand::PUSH: // HANDLE PUSH OPERATION
 			static bool pauseTransitionComplete = false;
