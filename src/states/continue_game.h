@@ -1,17 +1,13 @@
-#ifndef MAIN_GAME_H
-#define MAIN_GAME_H
+#ifndef CONTINUE_GAME_H
+#define CONTINUE_GAME_H
 
 #include <core/application_state.h>
 #include <interface/user_interface.h>
 
-class MainGame : public AppState
+class ContinueGame : public AppState
 {
 private:
 	UserInterface userInterface;
-	float bkgOpacity;
-
-	AppState* currentParallelState;
-	bool changeParallelState, savingProgress;
 protected:
 	void Init() override;
 	void Destroy() override;
@@ -20,11 +16,10 @@ protected:
 	void Render() const override;
 
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
+	bool OnPauseTransitionUpdate(const float deltaTime) override;
+	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
-	static MainGame* GetAppState();
-
-	// Returns TRUE if the parallel state has been requested to change.
-	bool ShouldChangeParallelState() const;
+	static ContinueGame* GetAppState();
 };
 
 #endif
