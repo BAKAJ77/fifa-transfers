@@ -2,13 +2,14 @@
 #include <graphics/renderer.h>
 
 MenuButton::MenuButton() :
-	currentFontSize(0.0f), baseFontSize(0.0f), sfxPlayed(false)
+	currentFontSize(0.0f), baseFontSize(0.0f), textOffset(0.0f), sfxPlayed(false)
 {}
 
 MenuButton::MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const std::string_view& text, const glm::vec3& baseColor, 
-	const glm::vec3& highlightColor, const glm::vec3& edgeColor, float opacity, bool noShadow) :
+	const glm::vec3& highlightColor, const glm::vec3& edgeColor, float opacity, bool noShadow, float baseFontSize, float textOffset) :
 	ButtonBase(pos, baseSize, maxSize, baseColor, highlightColor, edgeColor, opacity, 5.0f * (int)(!noShadow)), text(text), 
-	baseFontSize(baseSize.y / 2.5f), currentFontSize(baseSize.y / 2.5f), sfxPlayed(false)
+	baseFontSize(baseFontSize <= 0 ? baseSize.y / 2.5f : baseFontSize), currentFontSize(baseFontSize <= 0 ? baseSize.y / 2.5f : baseFontSize), 
+	sfxPlayed(false), textOffset(textOffset)
 {
 	this->sfx = AudioSystem::GetInstance().GetAudio("Switch");
 
@@ -47,8 +48,7 @@ void MenuButton::Render(float masterOpacity) const
 	this->RenderButtonSurface(masterOpacity);
 
 	// Render the button text
-	constexpr float offset = 7.5f;
-	Renderer::GetInstance().RenderText({ this->position.x - (this->textSize.x / 2) + offset, this->position.y + (this->textSize.y / 2) }, 
+	Renderer::GetInstance().RenderText({ this->position.x - (this->textSize.x / 2) + this->textOffset, this->position.y + (this->textSize.y / 2) }, 
 		glm::vec4(255, 255, 255, (this->opacity * masterOpacity) / 255.0f), this->textFont, (uint32_t)this->currentFontSize, this->text);
 }
 

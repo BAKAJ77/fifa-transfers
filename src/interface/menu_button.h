@@ -13,13 +13,13 @@ private:
 
 	std::string text;
 	glm::vec2 textSize;
-	float currentFontSize, baseFontSize;
+	float currentFontSize, baseFontSize, textOffset;
 	bool sfxPlayed;
 public:
 	MenuButton();
 	MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const std::string_view& text, 
 		const glm::vec3& baseColor = glm::vec3(60), const glm::vec3& highlightColor = glm::vec3(90), const glm::vec3& edgeColor = glm::vec3(120), 
-		float opacity = 255.0f, bool noShadow = false);
+		float opacity = 255.0f, bool noShadow = false, float baseFontSize = 0.0f, float textOffset = 7.5f);
 
 	~MenuButton() = default;
 
