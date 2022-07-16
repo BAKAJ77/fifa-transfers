@@ -43,6 +43,8 @@ void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 
         ++id;
     }
+
+    this->cupDatabase.shrink_to_fit();
 }
 
 void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
@@ -84,12 +86,14 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
 
         ++id;
     }
+
+    this->leagueDatabase.shrink_to_fit();
 }
 
 void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
 {
     uint16_t id = 1;
-    while (dataRoot.contains(std::to_string(id)))
+    while (dataRoot["users"].contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
 
@@ -126,9 +130,11 @@ void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
 
         // Add the user profile to the database
         this->users.emplace_back(UserProfile(id, name, *this->GetClub(clubID), competitionTrackingData));
-
+        
         ++id;
     }
+
+    this->users.shrink_to_fit();
 }
 
 void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDefault)
@@ -138,7 +144,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         root = &dataRoot["clubs"];
 
     uint16_t id = 1;
-    while (dataRoot.contains(std::to_string(id)))
+    while (root->contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
 
@@ -164,8 +170,11 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         // Add the club to the database
         this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players));
 
+
         ++id;
     }
+
+    this->clubDatabase.shrink_to_fit();
 }
 
 void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingDefault)
@@ -175,7 +184,7 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
         root = &dataRoot["players"];
 
     uint16_t id = 1;
-    while (dataRoot.contains(std::to_string(id)))
+    while (root->contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
 
@@ -211,6 +220,8 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
         
         ++id;
     }
+
+    this->playerDatabase.shrink_to_fit();
 }
 
 void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
@@ -228,6 +239,8 @@ void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
 
         ++id;
     }
+
+    this->positionDatabase.shrink_to_fit();
 }
 
 void SaveData::Write(float& currentProgress, std::mutex& mutex)
