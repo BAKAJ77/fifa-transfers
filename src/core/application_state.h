@@ -6,6 +6,7 @@
 #include <graphics/texture_loader.h>
 
 #include <vector>
+#include <queue>
 
 class AppState
 {
@@ -67,14 +68,18 @@ class AppStateSystem
 		PUSH,
 		POP
 	};
+
+	struct PendingOperation
+	{
+		SystemCommand command;
+		AppState* pendingAppState;
+	};
 private:
 	WindowFramePtr appWindow;
-
 	std::vector<AppState*> stateStack;
-	SystemCommand currentCommand;
-	AppState* pendingAppState;
+	std::queue<PendingOperation> pendingOperations;
 private:
-	AppStateSystem();
+	AppStateSystem() = default;
 public:
 	AppStateSystem(const AppStateSystem& other) = delete;
 	AppStateSystem(AppStateSystem&& temp) noexcept = delete;
