@@ -166,6 +166,11 @@ int SelectionList::GetCurrentSelected() const
     return -1;
 }
 
+std::vector<SelectionList::Element>& SelectionList::GetListElements()
+{
+    return this->listElements;
+}
+
 const glm::vec2& SelectionList::GetPosition() const
 {
     return this->position;

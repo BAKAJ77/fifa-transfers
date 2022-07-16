@@ -15,7 +15,7 @@ private:
 		std::string text;
 		glm::vec2 textSize;
 	};
-
+public:
 	struct Element
 	{
 		std::vector<Category> categoryValues;
@@ -63,6 +63,9 @@ public:
 	// Returns the value contained by the current selected list element.
 	// If no element in the list is selected, -1 is returned.
 	int GetCurrentSelected() const;
+
+	// Returns the vector containing the list elements.
+	std::vector<Element>& GetListElements();
 
 	// Returns the position of the selection list.
 	const glm::vec2& GetPosition() const;
