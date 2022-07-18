@@ -41,6 +41,7 @@ void SaveLoading::ExecuteLoadingProcess()
     // Now load the save data from the save file
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
 
+    SaveData::GetInstance().SetCurrentYear(saveFileLoader.GetRoot()["currentYear"].get<uint16_t>());
     SaveData::GetInstance().LoadPlayersFromJSON(saveFileLoader.GetRoot(), false);
 
     {

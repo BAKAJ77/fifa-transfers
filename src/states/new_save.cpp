@@ -92,6 +92,7 @@ void NewSave::Update(const float& deltaTime)
                     SaveData::GetInstance().SetSaveName(saveNameStr);
                     SaveData::GetInstance().SetPlayerCount((uint8_t)std::stoi(playerCountStr));
                     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)growthSystemType);
+                    SaveData::GetInstance().SetCurrentYear(2022);
 
                     // Finally, continue onto the user setup app state
                     this->PushState(UserSetup::GetAppState());

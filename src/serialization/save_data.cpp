@@ -4,7 +4,7 @@
 #include <util/logging_system.h>
 
 SaveData::SaveData() :
-    playerCount(0), growthSystemType(GrowthSystemType::SKILL_POINTS)
+    playerCount(0), growthSystemType(GrowthSystemType::SKILL_POINTS), currentYear(0)
 {}
 
 void SaveData::SetSaveName(const std::string_view& name)
@@ -20,6 +20,11 @@ void SaveData::SetPlayerCount(uint8_t count)
 void SaveData::SetGrowthSystem(GrowthSystemType type)
 {
     this->growthSystemType = type;
+}
+
+void SaveData::SetCurrentYear(uint16_t year)
+{
+    this->currentYear = year;
 }
 
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
@@ -252,6 +257,9 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size());
     const float progressPerAction = 95.0f / (float)numActions;
 
+    // Write the save's current year
+    file.GetRoot()["currentYear"] = this->currentYear;
+
     // Write the data of all clubs into the JSON structure
     for (const Club& club : this->clubDatabase)
     {
@@ -322,6 +330,11 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
         std::scoped_lock lock(mutex);
         currentProgress = 100.0f;
     }
+}
+
+const uint16_t& SaveData::GetCurrentYear() const
+{
+    return this->currentYear;
 }
 
 void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
