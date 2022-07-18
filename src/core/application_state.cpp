@@ -77,6 +77,7 @@ void AppStateSystem::SwitchState(AppState* appState)
 void AppStateSystem::PushState(AppState* appState)
 {
 	this->pendingOperations.push({ SystemCommand::PUSH, appState });
+	this->stateStack.back()->Pause();
 	appState->Init();
 }
 
@@ -99,7 +100,10 @@ void AppStateSystem::RollBack(AppState* appState)
 		for (auto it = this->stateStack.rbegin(); it != this->stateStack.rend(); it++)
 		{
 			if (*it == appState)
+			{
+				appState->Resume();
 				break;
+			}
 
 			this->stateStack.pop_back();
 			it = this->stateStack.rbegin();
@@ -119,6 +123,10 @@ void AppStateSystem::PopState()
 		this->stateStack.back()->Destroy();
 		this->stateStack.pop_back();
 	}
+
+	// Resume the now current active state
+	if (!this->stateStack.empty())
+		this->stateStack.back()->Resume();
 }
 
 void AppStateSystem::Update(const float& deltaTime)
@@ -151,9 +159,6 @@ void AppStateSystem::Update(const float& deltaTime)
 			{
 				if (this->stateStack.back()->OnResumeTransitionUpdate(deltaTime))
 				{
-					// Resume the application state at the top of the stack
-					this->stateStack.back()->Resume();
-
 					// Pop the pending operation from the queue
 					this->pendingOperations.pop();
 				}
@@ -172,10 +177,7 @@ void AppStateSystem::Update(const float& deltaTime)
 				static bool calledPauseFunc = false;
 
 				if (!calledPauseFunc) // This is to prevent the pause function from being called multiple times
-				{
-					this->stateStack.back()->Pause();
 					calledPauseFunc = true;
-				}
 
 				// Pause the last active application state in the stack
 				if ((pauseTransitionComplete = this->stateStack.back()->OnPauseTransitionUpdate(deltaTime)))
