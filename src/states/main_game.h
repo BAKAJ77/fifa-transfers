@@ -28,6 +28,9 @@ public:
 
 	// Returns TRUE if the parallel state has been requested to change.
 	bool ShouldChangeParallelState() const;
+
+	// Returns the app state's user interface.
+	UserInterface& GetUserInterface();
 };
 
 #endif

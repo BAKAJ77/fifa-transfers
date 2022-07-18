@@ -131,3 +131,8 @@ bool MainGame::ShouldChangeParallelState() const
 {
     return this->changeParallelState;
 }
+
+UserInterface& MainGame::GetUserInterface()
+{
+    return this->userInterface;
+}
