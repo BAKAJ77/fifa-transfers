@@ -23,6 +23,9 @@ protected:
 public:
 	static MainGame* GetAppState();
 
+	// Sets whether the app state should continue updating while paused.
+	void SetUpdateWhilePaused(bool enable);
+
 	// Returns TRUE if the parallel state has been requested to change.
 	bool ShouldChangeParallelState() const;
 };

@@ -122,6 +122,11 @@ MainGame* MainGame::GetAppState()
     return &appState;
 }
 
+void MainGame::SetUpdateWhilePaused(bool enable)
+{
+    this->updateWhilePaused = enable;
+}
+
 bool MainGame::ShouldChangeParallelState() const
 {
     return this->changeParallelState;
