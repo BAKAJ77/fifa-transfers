@@ -101,7 +101,8 @@ void NewSave::Update(const float& deltaTime)
                 this->selectedLeagueInvalid = selectedLeagueID == -1;
                 
                 // Once all the inputted data is valid, continue onto the next steps
-                if (!this->saveNameInvalid && !this->playerCountInvalid && !this->growthSystemInvalid && !this->randomisePotentialInvalid)
+                if (!this->saveNameInvalid && !this->playerCountInvalid && !this->growthSystemInvalid && !this->randomisePotentialInvalid &&
+                    !this->selectedLeagueInvalid)
                 {
                     // Assign all the retrieved values into the new save data
                     SaveData::GetInstance().SetSaveName(saveNameStr);
@@ -171,6 +172,9 @@ void NewSave::Render() const
 
     if (this->randomisePotentialInvalid)
         Renderer::GetInstance().RenderText({ 365, 920 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->selectedLeagueInvalid)
+        Renderer::GetInstance().RenderText({ 1830, 260 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
 
     // Render the user interface
     this->userInterface.Render();
