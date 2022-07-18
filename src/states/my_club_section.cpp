@@ -1,13 +1,9 @@
 #include <states/my_club_section.h>
 #include <states/main_game.h>
 #include <interface/menu_button.h>
-#include <serialization/save_data.h>
 
 void MyClub::Init()
 {
-    // Initialize the member variables
-    this->currentUser = &SaveData::GetInstance().GetUsers().front();
-
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
@@ -52,10 +48,10 @@ void MyClub::Render() const
 
     // Render text detailing the current user
     Renderer::GetInstance().RenderShadowedText({ 25, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
-        std::string("CURRENT USER: ") + this->currentUser->GetName().data(), 5);
+        std::string("CURRENT USER: ") + MainGame::GetAppState()->GetCurrentUser()->GetName().data(), 5);
 
     Renderer::GetInstance().RenderShadowedText({ 25, 265 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
-        std::string("CLUB: ") + this->currentUser->GetClub()->GetName().data(), 5);
+        std::string("CLUB: ") + MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetName().data(), 5);
 }
 
 bool MyClub::OnStartupTransitionUpdate(const float deltaTime)

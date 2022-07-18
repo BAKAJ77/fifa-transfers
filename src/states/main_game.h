@@ -3,6 +3,7 @@
 
 #include <core/application_state.h>
 #include <interface/user_interface.h>
+#include <serialization/user_profile.h>
 
 class MainGame : public AppState
 {
@@ -11,6 +12,7 @@ private:
 	float bkgOpacity;
 
 	AppState* currentParallelState;
+	UserProfile* currentUser;
 	bool changeParallelState, savingProgress;
 protected:
 	void Init() override;
@@ -31,6 +33,9 @@ public:
 
 	// Returns the app state's user interface.
 	UserInterface& GetUserInterface();
+
+	// Returns the current active user.
+	UserProfile* GetCurrentUser();
 };
 
 #endif

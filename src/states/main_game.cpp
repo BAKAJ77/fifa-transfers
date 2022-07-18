@@ -5,14 +5,17 @@
 #include <states/my_club_section.h>
 
 #include <interface/menu_button.h>
+#include <serialization/save_data.h>
 
 void MainGame::Init()
 {
     this->updateWhilePaused = true;
 
     // Initialize the member variables
+    this->currentUser = &SaveData::GetInstance().GetUsers().front();
     this->changeParallelState = this->savingProgress = false;
     this->bkgOpacity = 0.0f;
+
 
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
@@ -91,7 +94,7 @@ void MainGame::Render() const
 
     // Render the small title logo
     Renderer::GetInstance().RenderSquare({ 157, 60 }, { 240, 65 }, TextureLoader::GetInstance().GetTexture("Title Logo Small"),
-        { glm::vec3(255), this->userInterface.GetOpacity() });
+        { glm::vec3(255), this->bkgOpacity });
 
     // Render the user interface
     this->userInterface.Render();
@@ -135,4 +138,9 @@ bool MainGame::ShouldChangeParallelState() const
 UserInterface& MainGame::GetUserInterface()
 {
     return this->userInterface;
+}
+
+UserProfile* MainGame::GetCurrentUser()
+{
+    return this->currentUser;
 }
