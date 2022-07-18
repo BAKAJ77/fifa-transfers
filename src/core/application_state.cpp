@@ -102,6 +102,7 @@ void AppStateSystem::RollBack(AppState* appState)
 				break;
 
 			this->stateStack.pop_back();
+			it = this->stateStack.rbegin();
 		}
 	}
 	else
