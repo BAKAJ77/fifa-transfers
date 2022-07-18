@@ -2,14 +2,23 @@
 #include <states/main_game.h>
 #include <interface/menu_button.h>
 
+#include <serialization/save_data.h>
+
 void ContinueGame::Init()
 {
+    // Fetch the Bahnschrift Bold font
+    this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
+
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
-    this->userInterface.AddButton(new MenuButton({ 486.25f, 370 }, { 922.5f, 440 }, { 932.5f, 450 }, "END COMPETITION", glm::vec3(60), glm::vec3(90),
+
+    this->userInterface.AddButton(new MenuButton({ 486.25f, 482.5f }, { 922.5f, 365 }, { 932.5f, 375 }, "END COMPETITION", glm::vec3(60), glm::vec3(90),
         glm::vec3(120), 255, false, 90, 25));
-    this->userInterface.AddButton(new MenuButton({ 486.25f, 835 }, { 922.5f, 440 }, { 932.5f, 450 }, "END SEASON", glm::vec3(60), glm::vec3(90),
+    this->userInterface.AddButton(new MenuButton({ 486.25f, 872.5f }, { 922.5f, 365 }, { 932.5f, 375 }, "END SEASON", glm::vec3(60), glm::vec3(90),
         glm::vec3(120), 255, false, 90, 25));
+
+    this->userInterface.AddSelectionList("Transfer News", SelectionList({ 1433.75f, 550 }, { 922.5f, 800 }, 80));
+    this->userInterface.GetSelectionList("Transfer News")->AddCategory("Transfer News");
 }
 
 void ContinueGame::Destroy() {}
@@ -31,6 +40,10 @@ void ContinueGame::Render() const
 {
     // Render the user interface
     this->userInterface.Render();
+
+    // Render the season count text
+    Renderer::GetInstance().RenderShadowedText({ 25, 245 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 100, 
+        "YEAR: " + std::to_string(SaveData::GetInstance().GetCurrentYear()), 5);
 }
 
 bool ContinueGame::OnStartupTransitionUpdate(const float deltaTime)

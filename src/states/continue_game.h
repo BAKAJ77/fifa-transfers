@@ -8,6 +8,7 @@ class ContinueGame : public AppState
 {
 private:
 	UserInterface userInterface;
+	FontPtr font;
 protected:
 	void Init() override;
 	void Destroy() override;
