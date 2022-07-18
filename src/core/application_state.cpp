@@ -123,10 +123,6 @@ void AppStateSystem::PopState()
 		this->stateStack.back()->Destroy();
 		this->stateStack.pop_back();
 	}
-
-	// Resume the now current active state
-	if (!this->stateStack.empty())
-		this->stateStack.back()->Resume();
 }
 
 void AppStateSystem::Update(const float& deltaTime)
@@ -159,6 +155,9 @@ void AppStateSystem::Update(const float& deltaTime)
 			{
 				if (this->stateStack.back()->OnResumeTransitionUpdate(deltaTime))
 				{
+					// Resume the application state at the top of the stack
+					this->stateStack.back()->Resume();
+
 					// Pop the pending operation from the queue
 					this->pendingOperations.pop();
 				}
