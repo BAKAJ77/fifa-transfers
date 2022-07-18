@@ -2,6 +2,7 @@
 #include <states/main_menu.h>
 #include <states/save_writing.h>
 #include <states/continue_game.h>
+#include <states/my_club_section.h>
 
 #include <interface/menu_button.h>
 
@@ -48,9 +49,10 @@ void MainGame::Update(const float& deltaTime)
             this->changeParallelState = true;
             this->currentParallelState = ContinueGame::GetAppState();
         }
-        else if (button->GetText() == "MY CLUB" && button->WasClicked()) // MY CLUB button was clicked
+        else if (button->GetText() == "MY CLUB" && button->WasClicked() && this->currentParallelState != MyClub::GetAppState()) // MY CLUB button was clicked
         {
-            // TODO
+            this->changeParallelState = true;
+            this->currentParallelState = MyClub::GetAppState();
         }
         else if (button->GetText() == "SAVE" && button->WasClicked()) // SAVE button was clicked
         {
