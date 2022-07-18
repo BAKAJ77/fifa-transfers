@@ -32,6 +32,7 @@ private:
 	GrowthSystemType growthSystemType;
 
 	uint16_t currentYear;
+	League* currentLeague;
 	std::vector<UserProfile> users;
 
 	std::vector<KnockoutCup> cupDatabase;
@@ -67,6 +68,9 @@ public:
 	// Sets the save's current year.
 	void SetCurrentYear(uint16_t year);
 
+	// Sets the league the users are currently competing for in this save.
+	void SetCurrentLeague(League* league);
+
 	// Loads every user profile's data in the JSON structure into the vector.
 	// You must call the functions 'LoadClubsFromJSON()' before calling this one.
 	void LoadUsersFromJSON(const nlohmann::json& dataRoot);
@@ -93,6 +97,9 @@ public:
 	
 	// Returns the save's current year.
 	const uint16_t& GetCurrentYear() const;
+
+	// Returns the league the users are currently competing for in this save.
+	const League* GetCurrentLeague() const;
 
 	// Returns the user profile matching the ID given.
 	// If none is found matching the ID, then nullptr is returned.

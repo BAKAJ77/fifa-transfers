@@ -10,9 +10,7 @@ class UserSetup : public AppState
 private:
 	UserInterface userInterface;
 	FontPtr font;
-
-	int lastSelectedLeague;
-	bool goBack, managerNameInvalid, noLeagueSelected, noClubSelected;
+	bool goBack, fetchAvailableClubs, managerNameInvalid, noClubSelected;
 private:
 	// Checks if the inputs for the manager name, league and club are valid.
 	// Returns TRUE if all the inputs are valid.

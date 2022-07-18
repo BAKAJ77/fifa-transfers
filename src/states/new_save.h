@@ -7,12 +7,12 @@
 class NewSave : public AppState
 {
 private:
-	UserInterface userInterface;
+	mutable UserInterface userInterface;
 	FontPtr font;
 	float logoOpacity;
 
 	int randomisePotentials;
-	bool goBackToPlayMenu, saveNameInvalid, playerCountInvalid, growthSystemInvalid, randomisePotentialInvalid;
+	bool goBackToPlayMenu, saveNameInvalid, playerCountInvalid, growthSystemInvalid, randomisePotentialInvalid, selectedLeagueInvalid;
 protected:
 	void Init() override;
 	void Destroy() override;

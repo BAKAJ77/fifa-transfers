@@ -10,7 +10,9 @@
 void NewSave::Init()
 {
     // Initialize the member variables
-    this->goBackToPlayMenu = this->saveNameInvalid = this->playerCountInvalid = this->growthSystemInvalid = this->randomisePotentialInvalid = false;
+    this->goBackToPlayMenu = this->saveNameInvalid = this->playerCountInvalid = this->growthSystemInvalid = this->randomisePotentialInvalid = 
+        this->selectedLeagueInvalid = false;
+
     this->logoOpacity = 0.0f;
 
     // Fetch the Bahnschrift Bold font
@@ -21,17 +23,26 @@ void NewSave::Init()
     this->userInterface.AddButton(new MenuButton({ 1420, 1005 }, { 300, 100 }, { 315, 115 }, "CONFIRM"));
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    this->userInterface.AddTextField("Save Name", TextInputField({ 330, 295 }, { 600, 75 }));
-    this->userInterface.AddTextField("Player Count", TextInputField({ 70, 515 }, { 75, 75 }, 
+    this->userInterface.AddTextField("Save Name", TextInputField({ 330, 245 }, { 600, 75 }));
+    this->userInterface.AddTextField("Player Count", TextInputField({ 70, 465 }, { 75, 75 }, 
         TextInputField::Restrictions::NO_ALPHABETIC | TextInputField::Restrictions::NO_SPACES));
 
-    this->userInterface.AddRadioButtonGroup("Growth System", RadioButtonGroup({ 50, 735 }, { 50, 50 }));
+    this->userInterface.AddRadioButtonGroup("Growth System", RadioButtonGroup({ 50, 665 }, { 50, 50 }));
     this->userInterface.GetRadioButtonGroup("Growth System")->Add("Overall Rating", 0);
     this->userInterface.GetRadioButtonGroup("Growth System")->Add("Skill Points", 1);
 
-    this->userInterface.AddRadioButtonGroup("Randomise Potentials", RadioButtonGroup({ 50, 955 }, { 50, 50 }));
+    this->userInterface.AddRadioButtonGroup("Randomise Potentials", RadioButtonGroup({ 50, 885 }, { 50, 50 }));
     this->userInterface.GetRadioButtonGroup("Randomise Potentials")->Add("Yes", 1);
     this->userInterface.GetRadioButtonGroup("Randomise Potentials")->Add("No", 0);
+
+    this->userInterface.AddDropDown("League", DropDown({ 1500, 245 }, { 600, 75 }));
+
+    for (size_t i = 0; i < SaveData::GetInstance().GetLeagueDatabase().size(); i++)
+    {
+        // Fetch all the supported leagues in the database
+        this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
+            (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
+    }
 }
 
 void NewSave::Destroy() {}
@@ -56,6 +67,8 @@ void NewSave::Update(const float& deltaTime)
                 const std::string& saveNameStr = this->userInterface.GetTextField("Save Name")->GetInputtedText();
                 const std::string& playerCountStr = this->userInterface.GetTextField("Player Count")->GetInputtedText();
                 const int growthSystemType = this->userInterface.GetRadioButtonGroup("Growth System")->GetSelected();
+                const int selectedLeagueID = this->userInterface.GetDropDown("League")->GetCurrentSelected();
+                
                 this->randomisePotentials = this->userInterface.GetRadioButtonGroup("Randomise Potentials")->GetSelected();
 
                 // Make sure all the data entered is valid
@@ -84,6 +97,8 @@ void NewSave::Update(const float& deltaTime)
                     this->playerCountInvalid = true;
                 else
                     this->playerCountInvalid = false;
+
+                this->selectedLeagueInvalid = selectedLeagueID == -1;
                 
                 // Once all the inputted data is valid, continue onto the next steps
                 if (!this->saveNameInvalid && !this->playerCountInvalid && !this->growthSystemInvalid && !this->randomisePotentialInvalid)
@@ -93,6 +108,8 @@ void NewSave::Update(const float& deltaTime)
                     SaveData::GetInstance().SetPlayerCount((uint8_t)std::stoi(playerCountStr));
                     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)growthSystemType);
                     SaveData::GetInstance().SetCurrentYear(2022);
+
+                    SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague((uint16_t)selectedLeagueID));
 
                     // Finally, continue onto the user setup app state
                     this->PushState(UserSetup::GetAppState());
@@ -127,34 +144,33 @@ void NewSave::Render() const
         { glm::vec3(255), this->logoOpacity });
 
     // Render the text descriptions
-    Renderer::GetInstance().RenderShadowedText({ 25, 225 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 175 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Enter a name for this save:", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 25, 440 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 390 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Enter the number of users in this save (between 1 to 8):", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 25, 655 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 605 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Choose the growth system to use in this save:", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 25, 870 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 820 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Do you want to randomise the potentials of players in this save?", 5);
+
+    Renderer::GetInstance().RenderShadowedText({ 1200, 175 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+        "Select your preferred league", 5);
 
     // Render any input validation errors that occur
     if (this->saveNameInvalid)
-        Renderer::GetInstance().RenderText({ 660, 310 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*Make sure you've entered a save name that isn't already in use.");
+        Renderer::GetInstance().RenderText({ 660, 260 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
 
     if (this->playerCountInvalid)
-        Renderer::GetInstance().RenderText({ 137, 530 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*Make sure you've entered a number and it is between 1 and 8.");
+        Renderer::GetInstance().RenderText({ 137, 480 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
 
     if (this->growthSystemInvalid)
-        Renderer::GetInstance().RenderText({ 820, 750 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*You have to select one of these options.");
+        Renderer::GetInstance().RenderText({ 820, 700 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
 
     if (this->randomisePotentialInvalid)
-        Renderer::GetInstance().RenderText({ 365, 970 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30,
-            "*You have to select one of these options.");
+        Renderer::GetInstance().RenderText({ 365, 920 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
 
     // Render the user interface
     this->userInterface.Render();

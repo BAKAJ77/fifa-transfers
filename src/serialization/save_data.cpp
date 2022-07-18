@@ -4,7 +4,7 @@
 #include <util/logging_system.h>
 
 SaveData::SaveData() :
-    playerCount(0), growthSystemType(GrowthSystemType::SKILL_POINTS), currentYear(0)
+    playerCount(0), growthSystemType(GrowthSystemType::SKILL_POINTS), currentYear(0), currentLeague(nullptr)
 {}
 
 void SaveData::SetSaveName(const std::string_view& name)
@@ -25,6 +25,11 @@ void SaveData::SetGrowthSystem(GrowthSystemType type)
 void SaveData::SetCurrentYear(uint16_t year)
 {
     this->currentYear = year;
+}
+
+void SaveData::SetCurrentLeague(League* league)
+{
+    this->currentLeague = league;
 }
 
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
@@ -344,6 +349,11 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
 const uint16_t& SaveData::GetCurrentYear() const
 {
     return this->currentYear;
+}
+
+const League* SaveData::GetCurrentLeague() const
+{
+    return this->currentLeague;
 }
 
 void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
