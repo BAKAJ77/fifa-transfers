@@ -42,6 +42,8 @@ void SaveLoading::ExecuteLoadingProcess()
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
 
     SaveData::GetInstance().SetCurrentYear(saveFileLoader.GetRoot()["currentYear"].get<uint16_t>());
+    SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague(saveFileLoader.GetRoot()["currentLeagueID"].get<uint16_t>()));
+
     SaveData::GetInstance().LoadPlayersFromJSON(saveFileLoader.GetRoot(), false);
 
     {

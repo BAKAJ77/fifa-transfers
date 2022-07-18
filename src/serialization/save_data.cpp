@@ -271,8 +271,9 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size());
     const float progressPerAction = 95.0f / (float)numActions;
 
-    // Write the save's current year
+    // Write the save's current year and league
     file.GetRoot()["currentYear"] = this->currentYear;
+    file.GetRoot()["currentLeagueID"] = this->currentLeague->GetID();
 
     // Write the data of all clubs into the JSON structure
     for (const Club& club : this->clubDatabase)
