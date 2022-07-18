@@ -53,44 +53,47 @@ void TextInputField::Clear()
 
 void TextInputField::Update(const float& deltaTime)
 {
-    if (this->IsFocused())
+    if (this->opacity > 0)
     {
-        // Poll for any character that has been inputted
-        const uint32_t character = InputSystem::GetInstance().GetInputtedCharacter();
-
-        // Accept only spaces, numerical and alphabetic characters based on the input restriction flags given
-        // Also only accept characters if the text box field is not full
-        if (this->textSize.x + 30 < this->size.x - 40)
+        if (this->IsFocused())
         {
-            if ((character == 32 && (this->inputFlags & Restrictions::NO_SPACES) != Restrictions::NO_SPACES) ||
-                ((character >= 48 && character <= 57) && (this->inputFlags & Restrictions::NO_NUMERIC) != Restrictions::NO_NUMERIC) ||
-                (((character >= 65 && character <= 90) || (character >= 97 && character <= 122)) &&
-                    (this->inputFlags & Restrictions::NO_ALPHABETIC) != Restrictions::NO_ALPHABETIC))
+            // Poll for any character that has been inputted
+            const uint32_t character = InputSystem::GetInstance().GetInputtedCharacter();
+
+            // Accept only spaces, numerical and alphabetic characters based on the input restriction flags given
+            // Also only accept characters if the text box field is not full
+            if (this->textSize.x + 30 < this->size.x - 40)
             {
-                this->inputtedText.push_back((char)character);
+                if ((character == 32 && (this->inputFlags & Restrictions::NO_SPACES) != Restrictions::NO_SPACES) ||
+                    ((character >= 48 && character <= 57) && (this->inputFlags & Restrictions::NO_NUMERIC) != Restrictions::NO_NUMERIC) ||
+                    (((character >= 65 && character <= 90) || (character >= 97 && character <= 122)) &&
+                        (this->inputFlags & Restrictions::NO_ALPHABETIC) != Restrictions::NO_ALPHABETIC))
+                {
+                    this->inputtedText.push_back((char)character);
+                }
             }
+
+            // Pop the last character if the user presses BACKSPACE
+            static float previousTime = Util::GetSecondsSinceEpoch();
+            if (Util::GetSecondsSinceEpoch() - previousTime >= 0.2f)
+            {
+                if (InputSystem::GetInstance().WasKeyPressed(KeyCode::KEY_BACKSPACE) && !this->inputtedText.empty())
+                {
+                    this->inputtedText.pop_back();
+                    previousTime = Util::GetSecondsSinceEpoch();
+                }
+            }
+
+            // Get the size of the text to be rendered
+            this->textSize = Renderer::GetInstance().GetTextSize(this->textFont, (uint32_t)this->fontSize, this->inputtedText);
         }
 
-        // Pop the last character if the user presses BACKSPACE
-        static float previousTime = Util::GetSecondsSinceEpoch();
-        if (Util::GetSecondsSinceEpoch() - previousTime >= 0.2f)
+        // Set this text field as focused if it has been clicked
+        if (this->WasClicked())
         {
-            if (InputSystem::GetInstance().WasKeyPressed(KeyCode::KEY_BACKSPACE) && !this->inputtedText.empty())
-            {
-                this->inputtedText.pop_back();
-                previousTime = Util::GetSecondsSinceEpoch();
-            }
+            this->SetFocus(true);
+            InputSystem::GetInstance().GetInputtedCharacter(); // Clear any pending inputted characters
         }
-
-        // Get the size of the text to be rendered
-        this->textSize = Renderer::GetInstance().GetTextSize(this->textFont, (uint32_t)this->fontSize, this->inputtedText);
-    }
-
-    // Set this text field as focused if it has been clicked
-    if (this->WasClicked())
-    {
-        this->SetFocus(true);
-        InputSystem::GetInstance().GetInputtedCharacter(); // Clear any pending inputted characters
     }
 }
 

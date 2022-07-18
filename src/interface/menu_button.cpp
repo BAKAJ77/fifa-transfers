@@ -19,28 +19,31 @@ MenuButton::MenuButton(const glm::vec2& pos, const glm::vec2& baseSize, const gl
 
 void MenuButton::Update(const float& deltaTime, float animationSpeed)
 {
-	this->UpdateButtonAnimation(deltaTime, animationSpeed);
-
-	// Play sound effect when the button is hovered over
-	if (this->hovering && !this->sfxPlayed)
+	if (this->opacity > 0)
 	{
-		this->sfx->Play();
-		this->sfxPlayed = true;
+		this->UpdateButtonAnimation(deltaTime, animationSpeed);
+
+		// Play sound effect when the button is hovered over
+		if (this->hovering && !this->sfxPlayed)
+		{
+			this->sfx->Play();
+			this->sfxPlayed = true;
+		}
+		else if (!this->hovering)
+			this->sfxPlayed = false;
+
+		// Animate the size of the text based on if the button is being hovered over
+		const float sizeChangeLimit = (this->maxSize.y - this->baseSize.y) / 3.0f;
+
+		if (this->hovering)
+			this->currentFontSize = std::min(this->currentFontSize + (sizeChangeLimit * animationSpeed * deltaTime),
+				this->baseFontSize + sizeChangeLimit);
+		else
+			this->currentFontSize = std::max(this->currentFontSize + (-sizeChangeLimit * animationSpeed * deltaTime), this->baseFontSize);
+
+		// Get the current size of the button text
+		this->textSize = Renderer::GetInstance().GetTextSize(this->textFont, (uint32_t)this->currentFontSize, text);
 	}
-	else if (!this->hovering)
-		this->sfxPlayed = false;
-
-	// Animate the size of the text based on if the button is being hovered over
-	const float sizeChangeLimit = (this->maxSize.y - this->baseSize.y) / 3.0f;
-
-	if (this->hovering)
-		this->currentFontSize = std::min(this->currentFontSize + (sizeChangeLimit * animationSpeed * deltaTime),
-			this->baseFontSize + sizeChangeLimit);
-	else
-		this->currentFontSize = std::max(this->currentFontSize + (-sizeChangeLimit * animationSpeed * deltaTime), this->baseFontSize);
-
-	// Get the current size of the button text
-	this->textSize = Renderer::GetInstance().GetTextSize(this->textFont, (uint32_t)this->currentFontSize, text);
 }
 
 void MenuButton::Render(float masterOpacity) const

@@ -61,7 +61,8 @@ void ButtonBase::SetOpacity(float opacity)
 
 void ButtonBase::Update(const float& deltaTime, float animationSpeed)
 {
-    this->UpdateButtonAnimation(deltaTime, animationSpeed);
+    if (this->opacity > 0)
+        this->UpdateButtonAnimation(deltaTime, animationSpeed);
 }
 
 void ButtonBase::Render(float masterOpacity) const

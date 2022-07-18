@@ -66,29 +66,32 @@ void SelectionList::Reset()
 
 void SelectionList::Update(const float& deltaTime)
 {
-    for (int index = this->listOffset; index < std::min(this->listOffset + this->maxListSelectionsVisible, (int)this->listElements.size()); index++)
+    if (this->opacity > 0)
     {
-        // Update the list buttons
-        this->listElements[index].button.Update(deltaTime, 8.0f);
+        for (int index = this->listOffset; index < std::min(this->listOffset + this->maxListSelectionsVisible, (int)this->listElements.size()); index++)
+        {
+            // Update the list buttons
+            this->listElements[index].button.Update(deltaTime, 8.0f);
 
-        // Check if a list button has been clicked
-        if (this->listElements[index].button.WasClicked())
-            this->currentSelected = &this->listElements[index];
-    }
+            // Check if a list button has been clicked
+            if (this->listElements[index].button.WasClicked())
+                this->currentSelected = &this->listElements[index];
+        }
 
-    // Update the page navigation buttons
-    if (this->listOffset > 0)
-    {
-        this->previousPageButton.Update(deltaTime, 8.0f);
-        if (this->previousPageButton.WasClicked())
-            this->listOffset -= this->maxListSelectionsVisible;
-    }
-    
-    if (this->listOffset + this->maxListSelectionsVisible < (int)this->listElements.size())
-    {
-        this->nextPageButton.Update(deltaTime, 8.0f);
-        if (this->nextPageButton.WasClicked())
-            this->listOffset += this->maxListSelectionsVisible;
+        // Update the page navigation buttons
+        if (this->listOffset > 0)
+        {
+            this->previousPageButton.Update(deltaTime, 8.0f);
+            if (this->previousPageButton.WasClicked())
+                this->listOffset -= this->maxListSelectionsVisible;
+        }
+
+        if (this->listOffset + this->maxListSelectionsVisible < (int)this->listElements.size())
+        {
+            this->nextPageButton.Update(deltaTime, 8.0f);
+            if (this->nextPageButton.WasClicked())
+                this->listOffset += this->maxListSelectionsVisible;
+        }
     }
 }
 

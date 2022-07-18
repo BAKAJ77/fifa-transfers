@@ -44,11 +44,11 @@ DropDown& DropDown::operator=(DropDown&& temp) noexcept
 
 void DropDown::SetOpacity(float opacity)
 {
-    for (Element& element : this->selections)
-        element.button.SetOpacity(opacity);
-
     this->opacity = opacity;
     this->currentSelected.button.SetOpacity(opacity);
+
+    for (Element& element : this->selections)
+        element.button.SetOpacity(opacity);
 }
 
 void DropDown::AddSelection(const std::string_view& id, int value)
@@ -76,58 +76,61 @@ void DropDown::Reset()
 
 void DropDown::Update(const float& deltaTime)
 {
-    // Update the selections offset via the user scrolling
-    if (this->doDropDown)
+    if (this->opacity > 0)
     {
-        const float scrollOffsetY = InputSystem::GetInstance().GetScrollOffset().y;
-
-        if (scrollOffsetY > 0.0f)
-            this->selectionsOffset = std::max(--this->selectionsOffset, 0);
-        else if (scrollOffsetY < 0.0f)
-            this->selectionsOffset = std::min(++this->selectionsOffset, (int)std::max((int)this->selections.size() - this->maxSelectionsVisible, 0));
-    }
-    
-    // Update the clicked and released boolean flags
-    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && this->released)
-    {
-        this->clicked = true;
-        this->released = false;
-    }
-    else
-        this->clicked = false;
-
-    if (!InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && !this->released)
-        this->released = true;
-
-    // Update the selection element buttons if the drop down has been activated
-    if (this->doDropDown)
-    {
-        bool buttonClicked = false;
-        for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
+        // Update the selections offset via the user scrolling
+        if (this->doDropDown)
         {
-            this->selections[i].button.SetPosition({ this->position.x, this->position.y + ((float)((i - this->selectionsOffset) + 1) * this->size.y) });
-            this->selections[i].button.Update(deltaTime, 8.0f);
+            const float scrollOffsetY = InputSystem::GetInstance().GetScrollOffset().y;
 
-            if (this->selections[i].button.WasClicked())
-            {
-                this->currentSelected.id = this->selections[i].id;
-                this->currentSelected.textSize = this->selections[i].textSize;
-                this->currentSelected.value = this->selections[i].value;
-
-                this->doDropDown = false;
-                buttonClicked = true;
-                break;
-            }
+            if (scrollOffsetY > 0.0f)
+                this->selectionsOffset = std::max(--this->selectionsOffset, 0);
+            else if (scrollOffsetY < 0.0f)
+                this->selectionsOffset = std::min(++this->selectionsOffset, (int)std::max((int)this->selections.size() - this->maxSelectionsVisible, 0));
         }
 
-        if (this->clicked && !buttonClicked)
-            this->doDropDown = false; // The drop down has lost focus so deactivate it
-    }
+        // Update the clicked and released boolean flags
+        if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && this->released)
+        {
+            this->clicked = true;
+            this->released = false;
+        }
+        else
+            this->clicked = false;
 
-    // Update the current selection button
-    this->currentSelected.button.Update(deltaTime, 8.0f);
-    if (this->currentSelected.button.WasClicked())
-        this->doDropDown = true;
+        if (!InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && !this->released)
+            this->released = true;
+
+        // Update the selection element buttons if the drop down has been activated
+        if (this->doDropDown)
+        {
+            bool buttonClicked = false;
+            for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
+            {
+                this->selections[i].button.SetPosition({ this->position.x, this->position.y + ((float)((i - this->selectionsOffset) + 1) * this->size.y) });
+                this->selections[i].button.Update(deltaTime, 8.0f);
+
+                if (this->selections[i].button.WasClicked())
+                {
+                    this->currentSelected.id = this->selections[i].id;
+                    this->currentSelected.textSize = this->selections[i].textSize;
+                    this->currentSelected.value = this->selections[i].value;
+
+                    this->doDropDown = false;
+                    buttonClicked = true;
+                    break;
+                }
+            }
+
+            if (this->clicked && !buttonClicked)
+                this->doDropDown = false; // The drop down has lost focus so deactivate it
+        }
+
+        // Update the current selection button
+        this->currentSelected.button.Update(deltaTime, 8.0f);
+        if (this->currentSelected.button.WasClicked())
+            this->doDropDown = true;
+    }
 }
 
 void DropDown::Render(float masterOpacity) const

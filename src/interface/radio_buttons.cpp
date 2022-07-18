@@ -15,6 +15,8 @@ RadioButtonGroup::RadioButtonGroup(const glm::vec2& pos, const glm::vec2& button
 void RadioButtonGroup::SetOpacity(float opacity)
 {
     this->opacity = opacity;
+    for (RadioButton& radioButton : this->radioButtons)
+        radioButton.button.SetOpacity(opacity);
 }
 
 void RadioButtonGroup::Add(const std::string_view& id, int value)
@@ -47,14 +49,17 @@ void RadioButtonGroup::Reset()
 
 void RadioButtonGroup::Update(const float& deltaTime)
 {
-    for (RadioButton& button : this->radioButtons)
+    if (this->opacity > 0)
     {
-        // Update the radio button
-        button.button.Update(deltaTime, 8.0f);
+        for (RadioButton& button : this->radioButtons)
+        {
+            // Update the radio button
+            button.button.Update(deltaTime, 8.0f);
 
-        // If the radio button was clicked, set it as current selected
-        if (button.button.WasClicked())
-            this->currentSelected = &button;
+            // If the radio button was clicked, set it as current selected
+            if (button.button.WasClicked())
+                this->currentSelected = &button;
+        }
     }
 }
 
