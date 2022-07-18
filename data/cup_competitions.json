@@ -1,5 +1,5 @@
 {
-    "1": {
+    "1001": {
         "autoQualificationCompID": -1,
         "name": "INTERNATIONAL PRESEASON CUP",
         "region": "GLOBAL",
@@ -13,7 +13,7 @@
         "tier": -1,
         "winnerBonus": 1.5
     },
-    "2": {
+    "1002": {
         "autoQualificationCompID": 3,
         "name": "UEFA CONFERENCE LEAGUE",
         "region": "EUROPE",
@@ -28,7 +28,7 @@
         "tier": 3,
         "winnerBonus": 12.5
     },
-    "3": {
+    "1003": {
         "autoQualificationCompID": 4,
         "name": "UEFA EUROPA LEAGUE",
         "region": "EUROPE",
@@ -43,7 +43,7 @@
         "tier": 2,
         "winnerBonus": 20.0
     },
-    "4": {
+    "1004": {
         "autoQualificationCompID": 4,
         "name": "UEFA CHAMPIONS LEAGUE",
         "region": "EUROPE",
@@ -57,7 +57,7 @@
         "tier": 1,
         "winnerBonus": 30.0
     },
-    "5": {
+    "1005": {
         "autoQualificationCompID": -1,
         "name": "EFL PAPA JOHN CUP",
         "region": "ENGLAND",
@@ -72,7 +72,7 @@
         "tier": -1,
         "winnerBonus": 7.5
     },
-    "6": {
+    "1006": {
         "autoQualificationCompID": 2,
         "name": "EFL CARABAO CUP",
         "region": "ENGLAND",
@@ -88,7 +88,7 @@
         "tier": -1,
         "winnerBonus": 15.0
     },
-    "7": {
+    "1007": {
         "autoQualificationCompID": 3,
         "name": "EMIRATES FA CUP",
         "region": "ENGLAND",

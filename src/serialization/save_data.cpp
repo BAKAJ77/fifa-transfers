@@ -29,7 +29,7 @@ void SaveData::SetCurrentYear(uint16_t year)
 
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t id = 1;
+    uint16_t id = 1001;
     while (dataRoot.contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -107,10 +107,12 @@ void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
         const uint16_t clubID = dataRoot["users"][idStr]["clubID"].get<uint16_t>();
         
         std::vector<UserProfile::CompetitionData> competitionTrackingData;
+        uint16_t competitionTrackID = 1;
 
         for (const nlohmann::json& compTrackData : dataRoot["users"][idStr]["competitionData"])
         {
             const uint16_t competitionID = compTrackData["competitionID"].get<uint16_t>();
+            const uint16_t seasonEndPosition = compTrackData["seasonEndPosition"].get<uint16_t>();
 
             const int titlesWon = compTrackData["titlesWon"].get<int>();
 
@@ -131,6 +133,13 @@ void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
             const int totalLosses = compTrackData["totalLosses"].get<int>();
             const int totalScored = compTrackData["totalScored"].get<int>();
             const int totalConceded = compTrackData["totalConceded"].get<int>();
+
+            UserProfile::CompetitionData compTrackDataObj = { competitionTrackID, competitionID, seasonEndPosition, currentScored, currentConceded, 
+                currentWins, currentDraws, currentLosses, totalScored, totalConceded, totalWins, totalDraws, totalLosses, mostScored, mostConceded, 
+                mostWins, mostDraws, mostLosses, titlesWon };
+
+            competitionTrackingData.emplace_back(compTrackDataObj);
+            ++competitionTrackID;
         }
 
         // Add the user profile to the database
@@ -375,6 +384,7 @@ void SaveData::ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile&
     for (const UserProfile::CompetitionData& compData : user.GetCompetitionData())
     {
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["competitionID"] = compData.compID;
+        root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["seasonEndPosition"] = compData.seasonEndPosition;
 
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["currentScored"] = compData.currentScored;
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["currentConceded"] = compData.currentConceded;

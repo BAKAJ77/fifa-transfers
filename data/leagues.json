@@ -58,15 +58,15 @@
         "autoPromotionThreshold": 2,
         "linkedCompetitions": {
             "1": {
-                "competitionID": 1,
+                "competitionID": 1001,
                 "qualifyingPositions": []
             },
             "2": {
-                "competitionID": 6,
+                "competitionID": 1006,
                 "qualifyingPositions": []
             },
             "3": {
-                "competitionID": 7,
+                "competitionID": 1007,
                 "qualifyingPositions": []
             }
         },
@@ -82,19 +82,19 @@
         "autoPromotionThreshold": 2,
         "linkedCompetitions": {
             "1": {
-                "competitionID": 1,
+                "competitionID": 1001,
                 "qualifyingPositions": []
             },
             "2": {
-                "competitionID": 6,
+                "competitionID": 1006,
                 "qualifyingPositions": []
             },
             "3": {
-                "competitionID": 7,
+                "competitionID": 1007,
                 "qualifyingPositions": []
             },
             "4": {
-                "competitionID": 5,
+                "competitionID": 1005,
                 "qualifyingPositions": []
             }
         },
@@ -110,19 +110,19 @@
         "autoPromotionThreshold": 3,
         "linkedCompetitions": {
             "1": {
-                "competitionID": 1,
+                "competitionID": 1001,
                 "qualifyingPositions": []
             },
             "2": {
-                "competitionID": 6,
+                "competitionID": 1006,
                 "qualifyingPositions": []
             },
             "3": {
-                "competitionID": 7,
+                "competitionID": 1007,
                 "qualifyingPositions": []
             },
             "4": {
-                "competitionID": 5,
+                "competitionID": 1005,
                 "qualifyingPositions": []
             }
         },
@@ -149,32 +149,32 @@
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {
             "1": {
-                "competitionID": 1,
+                "competitionID": 1001,
                 "qualifyingPositions": []
             },
             "2": {
-                "competitionID": 6,
+                "competitionID": 1006,
                 "qualifyingPositions": []
             },
             "3": {
-                "competitionID": 7,
+                "competitionID": 1007,
                 "qualifyingPositions": []
             },
             "4": {
-                "competitionID": 2,
+                "competitionID": 1002,
                 "qualifyingPositions": [
                     7
                 ]
             },
             "5": {
-                "competitionID": 3,
+                "competitionID": 1003,
                 "qualifyingPositions": [
                     5,
                     6
                 ]
             },
             "6": {
-                "competitionID": 4,
+                "competitionID": 1004,
                 "qualifyingPositions": [
                     1,
                     2,

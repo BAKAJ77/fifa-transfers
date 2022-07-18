@@ -10,7 +10,7 @@ class UserProfile
 public:
 	struct CompetitionData
 	{
-		uint16_t id, compID;
+		uint16_t id, compID, seasonEndPosition = 0;
 
 		int currentScored = 0, currentConceded = 0, currentWins = 0, currentDraws = 0, currentLosses = 0;
 		int	totalScored = 0, totalConceded = 0, totalWins = 0, totalDraws = 0, totalLosses = 0;
