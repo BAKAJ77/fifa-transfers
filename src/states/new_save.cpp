@@ -79,7 +79,7 @@ void NewSave::Update(const float& deltaTime)
 
                 while (savesFile.GetRoot().contains(std::to_string(id))) 
                 {
-                    if (savesFile.GetRoot()[std::to_string(id)]["filename"].get<std::string>().find(saveNameStr) != std::string::npos)
+                    if (savesFile.GetRoot()[std::to_string(id)]["filename"].get<std::string>() == (saveNameStr + ".json"))
                     {
                         this->saveNameInvalid = true;
                         break;
