@@ -146,10 +146,10 @@ void UserSetup::Render() const
         "User Profile #" + std::to_string(SaveData::GetInstance().GetUsers().size() + 1), 5);
 
     // Render the text descriptions
-    Renderer::GetInstance().RenderShadowedText({ 25, 175 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 175 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Enter your manager name:", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 25, 390 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+    Renderer::GetInstance().RenderShadowedText({ 30, 390 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Select your preferred club:", 5);
 
     // Render any input validation errors that occur
