@@ -83,25 +83,42 @@ void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
     {
-        // Update the standalone buttons
-        for (ButtonBase* button : this->buttons)
-            button->Update(deltaTime, this->animationSpeed);
-
-        // Update the standalone text fields
-        for (auto& field : this->textFields)
-            field.second.Update(deltaTime);
-
-        // Update the radio button groups
-        for (auto& group : this->radioButtonGroups)
-            group.second.Update(deltaTime);
-
-        // Update the selection lists
-        for (auto& list : this->selectionLists)
-            list.second.Update(deltaTime);
-
-        // Update the drop downs
+        // Drop down elements have priority focus, therefore if a drop down is active (aka dropped down) 
+        // then only update the active drop down and skip updating every other element.
+        DropDown* activeDropDown = nullptr;
         for (auto& dropDown : this->dropDowns)
-            dropDown.second.Update(deltaTime);
+        {
+            if (dropDown.second.IsDroppedDown())
+            {
+                activeDropDown = &dropDown.second;
+                break;
+            }
+        }
+
+        if (activeDropDown)
+            activeDropDown->Update(deltaTime); // Update the active drop down only
+        else
+        {
+            // Update the drop downs
+            for (auto& dropDown : this->dropDowns)
+                dropDown.second.Update(deltaTime);
+
+            // Update the standalone buttons
+            for (auto& button : this->buttons)
+                button->Update(deltaTime, this->animationSpeed);
+
+            // Update the standalone text fields
+            for (auto& field : this->textFields)
+                field.second.Update(deltaTime);
+
+            // Update the radio button groups
+            for (auto& group : this->radioButtonGroups)
+                group.second.Update(deltaTime);
+
+            // Update the selection lists
+            for (auto& list : this->selectionLists)
+                list.second.Update(deltaTime);
+        }
     }
 }
 
