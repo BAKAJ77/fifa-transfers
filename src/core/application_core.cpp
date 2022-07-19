@@ -61,6 +61,8 @@ ApplicationCore::ApplicationCore()
 
 void ApplicationCore::MainLoop()
 {
+	Renderer::GetInstance().SetClearColor({ glm::vec3(70), 255 });
+
 	constexpr float timeStep = 0.001f;
 	float accumulatedRenderTime = 0.0f, elapsedRenderTime = 0.0f;
 
