@@ -192,6 +192,21 @@ void RecordCompetition::Update(const float& deltaTime)
                     {
                         // Update the user profile iteration index
                         ++this->userProfileIndex;
+
+                        // Clear the user interface inputs
+                        this->userInterface.GetTextField("Goals Scored")->Clear();
+                        this->userInterface.GetTextField("Goals Conceded")->Clear();
+                        this->userInterface.GetTextField("Games Won")->Clear();
+                        this->userInterface.GetTextField("Games Drawn")->Clear();
+                        this->userInterface.GetTextField("Games Lost")->Clear();
+
+                        if (this->selectedCup)
+                        {
+                            this->userInterface.GetDropDown("Rounds")->Reset();
+                            this->userInterface.GetRadioButtonGroup("Won Cup")->Reset();
+                        }
+                        else
+                            this->userInterface.GetTextField("Table Position")->Clear();
                     }
                     else
                     {
