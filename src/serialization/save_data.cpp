@@ -76,8 +76,8 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
             const int relegationThreshold = dataRoot[idStr]["relegationThreshold"].get<int>();
             const float titleBonus = dataRoot[idStr]["titleBonus"].get<float>();
 
+            // Fetch the competitions linked to this league
             std::vector<League::CompetitionLink> linkedCompetitions;
-
             for (const auto& comp : dataRoot[idStr]["linkedCompetitions"])
                 linkedCompetitions.push_back({ comp["competitionID"].get<uint16_t>(), comp["qualifyingPositions"].get<std::vector<uint8_t>>() });
 

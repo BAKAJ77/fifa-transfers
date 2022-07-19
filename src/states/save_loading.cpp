@@ -41,9 +41,6 @@ void SaveLoading::ExecuteLoadingProcess()
     // Now load the save data from the save file
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
 
-    SaveData::GetInstance().SetCurrentYear(saveFileLoader.GetRoot()["currentYear"].get<uint16_t>());
-    SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague(saveFileLoader.GetRoot()["currentLeagueID"].get<uint16_t>()));
-
     SaveData::GetInstance().LoadPlayersFromJSON(saveFileLoader.GetRoot(), false);
 
     {
@@ -55,17 +52,32 @@ void SaveLoading::ExecuteLoadingProcess()
 
     {
         std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 90;
+        this->loadingProgress = 80;
     }
 
     SaveData::GetInstance().LoadUsersFromJSON(saveFileLoader.GetRoot());
 
     {
         std::scoped_lock lock(this->mutex);
+        this->loadingProgress = 85;
+    }
+
+    // Open the leagues JSON file and load every league's data
+    JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
+    SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
+
+    {
+        std::scoped_lock lock(this->mutex);
         this->loadingProgress = 100;
     }
 
+    // Retrieve then set the save's current year and league
+    SaveData::GetInstance().SetCurrentYear(saveFileLoader.GetRoot()["currentYear"].get<uint16_t>());
+    SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague(saveFileLoader.GetRoot()["currentLeagueID"].get<uint16_t>()));
+
+    // We don't want to waste time writting the same loaded data back to the file, so clear the JSON loaders
     saveFileLoader.Clear();
+    leaguesFile.Clear();
 }
 
 void SaveLoading::Update(const float& deltaTime)

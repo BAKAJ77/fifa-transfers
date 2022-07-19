@@ -194,12 +194,11 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
         // Load the default data from the player and club database json files
         JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
         JSONLoader clubsFile(Util::GetAppDataDirectory() + "data/clubs.json");
+        JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
 
         SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
         SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
-
-        playersFile.Clear();
-        clubsFile.Clear();
+        SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
 
         this->loadedDefaultDatabase = true;
     }

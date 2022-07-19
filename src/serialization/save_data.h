@@ -79,7 +79,7 @@ public:
 	void LoadCupsFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every league's data in the JSON structure into the vector. 
-	// You must call the functions 'LoadClubsFromJSON()' and 'LoadCupsFromJSON()' before calling this one.
+	// You must call the functions 'LoadClubsFromJSON()' before calling this one.
 	void LoadLeaguesFromJSON(const nlohmann::json& dataRoot);
 
 	// Loads every club's data in the JSON structure into the vector. 
