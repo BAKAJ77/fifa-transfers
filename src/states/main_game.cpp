@@ -16,7 +16,6 @@ void MainGame::Init()
     this->changeParallelState = this->savingProgress = false;
     this->bkgOpacity = 0.0f;
 
-
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
