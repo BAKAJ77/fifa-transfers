@@ -1,21 +1,18 @@
-#ifndef CONTINUE_GAME_H
-#define CONTINUE_GAME_H
+#ifndef END_COMPETITION_H
+#define END_COMPETITION_H
 
 #include <core/application_state.h>
 #include <interface/user_interface.h>
 
-class ContinueGame : public AppState
+class EndCompetition : public AppState
 {
 private:
-	UserInterface userInterface;
+	mutable UserInterface userInterface;
 	FontPtr font;
-	bool paused;
+	bool exitState;
 protected:
 	void Init() override;
 	void Destroy() override;
-
-	void Pause() override;
-	void Resume() override;
 
 	void Update(const float& deltaTime) override;
 	void Render() const override;
@@ -24,7 +21,13 @@ protected:
 	bool OnPauseTransitionUpdate(const float deltaTime) override;
 	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
-	static ContinueGame* GetAppState();
+	static EndCompetition* GetAppState();
+
+	// Returns the amount of competitions that has not been completed.
+	int GetAmountOfIncompleteCompetitions() const;
+
+	// Returns the competition selection list
+	SelectionList& GetCompetitionSelectionList() const;
 };
 
 #endif
