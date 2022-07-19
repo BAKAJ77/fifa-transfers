@@ -36,13 +36,6 @@ void NewSave::Init()
     this->userInterface.GetRadioButtonGroup("Randomise Potentials")->Add("No", 0);
 
     this->userInterface.AddDropDown("League", DropDown({ 1500, 245 }, { 600, 75 }));
-
-    for (size_t i = 0; i < SaveData::GetInstance().GetLeagueDatabase().size(); i++)
-    {
-        // Fetch all the supported leagues in the database
-        this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
-            (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
-    }
 }
 
 void NewSave::Destroy() {}
@@ -199,6 +192,13 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
         SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
         SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
         SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
+
+        // Fetch all the supported leagues in the database
+        for (size_t i = 0; i < SaveData::GetInstance().GetLeagueDatabase().size(); i++)
+        {
+            this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
+                (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
+        }
 
         this->loadedDefaultDatabase = true;
     }
