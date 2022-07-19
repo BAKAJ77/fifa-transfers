@@ -155,6 +155,23 @@ bool RecordCompetition::ValidateInputs()
         !this->roundsInvalid && !this->wonCupInvalid && !this->tablePositionInvalid;
 }
 
+void RecordCompetition::ClearAllInputs()
+{
+    this->userInterface.GetTextField("Goals Scored")->Clear();
+    this->userInterface.GetTextField("Goals Conceded")->Clear();
+    this->userInterface.GetTextField("Games Won")->Clear();
+    this->userInterface.GetTextField("Games Drawn")->Clear();
+    this->userInterface.GetTextField("Games Lost")->Clear();
+
+    if (this->selectedCup)
+    {
+        this->userInterface.GetDropDown("Rounds")->Reset();
+        this->userInterface.GetRadioButtonGroup("Won Cup")->Reset();
+    }
+    else
+        this->userInterface.GetTextField("Table Position")->Clear();
+}
+
 void RecordCompetition::Update(const float& deltaTime)
 {
     if (!this->exitState && !this->completed)
@@ -194,19 +211,7 @@ void RecordCompetition::Update(const float& deltaTime)
                         ++this->userProfileIndex;
 
                         // Clear the user interface inputs
-                        this->userInterface.GetTextField("Goals Scored")->Clear();
-                        this->userInterface.GetTextField("Goals Conceded")->Clear();
-                        this->userInterface.GetTextField("Games Won")->Clear();
-                        this->userInterface.GetTextField("Games Drawn")->Clear();
-                        this->userInterface.GetTextField("Games Lost")->Clear();
-
-                        if (this->selectedCup)
-                        {
-                            this->userInterface.GetDropDown("Rounds")->Reset();
-                            this->userInterface.GetRadioButtonGroup("Won Cup")->Reset();
-                        }
-                        else
-                            this->userInterface.GetTextField("Table Position")->Clear();
+                        this->ClearAllInputs();
                     }
                     else
                     {
@@ -256,7 +261,17 @@ void RecordCompetition::Update(const float& deltaTime)
                 }
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
-                this->exitState = true;
+            {
+                if (this->userProfileIndex > 0)
+                {
+                    this->ClearAllInputs();
+                    this->recordedCompetitionStats.pop_back();
+
+                    --this->userProfileIndex;
+                }
+                else
+                    this->exitState = true;
+            }
         }
 
         // Display the 'Did you win the final' radio buttons if the competition is a CUP and the FINAL round was selected

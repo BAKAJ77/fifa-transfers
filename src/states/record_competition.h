@@ -26,6 +26,9 @@ private:
 private:
 	// Returns TRUE if the all the inputs given are valid.
 	bool ValidateInputs();
+
+	// Clears all the inputs entered into the UI elements e.g. text boxes, drop downs etc.
+	void ClearAllInputs();
 protected:
 	void Init() override;
 	void Destroy() override;
