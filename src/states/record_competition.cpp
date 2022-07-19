@@ -8,7 +8,9 @@
 void RecordCompetition::Init()
 {
     // Initialize the member variables
-    this->exitState = this->completed = false;
+    this->exitState = this->completed = this->goalsScoredInvalid = this->goalsConcededInvalid = this->gamesWonInvalid = this->gamesDrawnInvalid =
+        this->gamesLostInvalid = this->roundsInvalid = this->wonCupInvalid = this->tablePositionInvalid = false;
+
     this->userProfileIndex = 0;
     
     EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected() > 1000 ? // Cup competitions have an ID exceeding 1000
@@ -57,6 +59,102 @@ void RecordCompetition::Destroy()
     this->recordedCompetitionStats.clear();
 }
 
+bool RecordCompetition::ValidateInputs()
+{
+    // Make sure the basic inputs are not empty
+    this->goalsScoredInvalid = this->userInterface.GetTextField("Goals Scored")->GetInputtedText().empty();
+    this->goalsConcededInvalid = this->userInterface.GetTextField("Goals Conceded")->GetInputtedText().empty();
+    this->gamesWonInvalid = this->userInterface.GetTextField("Games Won")->GetInputtedText().empty();
+    this->gamesDrawnInvalid = this->userInterface.GetTextField("Games Drawn")->GetInputtedText().empty();
+    this->gamesLostInvalid = this->userInterface.GetTextField("Games Lost")->GetInputtedText().empty();
+
+    if (this->selectedCup)
+    {
+        // Make sure a value has been selected in the rounds drop down and that the amount of users selecting a specific rounds
+        // is limited to make sense e.g. only 2 users max can be in the final.
+        const int selectedRound = this->userInterface.GetDropDown("Rounds")->GetCurrentSelected();
+        if (selectedRound != -1)
+        {
+            int roundTakenCount = 0;
+            for (const CompetitionStats& stats : this->recordedCompetitionStats)
+            {
+                if (stats.seasonEndPosition == selectedRound)
+                    ++roundTakenCount;
+            }
+
+            if (selectedRound == this->selectedCup->GetRounds().size() && roundTakenCount == 2) // FINAL ROUND
+                this->roundsInvalid = true;
+            else if (selectedRound == (this->selectedCup->GetRounds().size() - 1) && roundTakenCount == 4) // SEMI FINAL ROUND
+                this->roundsInvalid = true;
+            else
+            {
+                this->roundsInvalid = false;
+
+                // If two users selected that they made it to the final, make sure that one has selected that they won the cup and 
+                // other has selected that they did not
+                if (selectedRound == this->selectedCup->GetRounds().size())
+                {
+                    bool otherUserWonCup = false, anotherUserFinalist = false;
+                    for (const CompetitionStats& stats : this->recordedCompetitionStats)
+                    {
+                        if (stats.seasonEndPosition == selectedRound)
+                        {
+                            otherUserWonCup = stats.wonCup;
+                            anotherUserFinalist = true;
+                            break;
+                        }
+                    }
+
+                    if (this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected() == -1)
+                    {
+                        this->wonCupInvalid = true;
+                    }
+                    else if (anotherUserFinalist && (otherUserWonCup && (bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected()) ||
+                        (!otherUserWonCup && !(bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected()))
+                    {
+                        this->wonCupInvalid = true;
+                    }
+                    else
+                        this->wonCupInvalid = false;
+                }
+            }
+        }
+        else
+            this->roundsInvalid = true;
+    }
+    else
+    {
+        // Make sure the table position input is not empty, is within valid bounds according to the amount of teams in the league and
+        // is not already taken by another user.
+        if (!this->userInterface.GetTextField("Table Position")->GetInputtedText().empty())
+        {
+            const uint16_t tablePosition = (uint16_t)std::stoi(this->userInterface.GetTextField("Table Position")->GetInputtedText());
+
+            if (tablePosition < 1 || tablePosition > SaveData::GetInstance().GetCurrentLeague()->GetClubs().size())
+                this->tablePositionInvalid = true;
+            else
+            {
+                bool tablePositionTaken = false;
+                for (const CompetitionStats& stats : this->recordedCompetitionStats)
+                {
+                    if (stats.seasonEndPosition == tablePosition)
+                    {
+                        tablePositionTaken = true;
+                        break;
+                    }
+                }
+
+                this->tablePositionInvalid = tablePositionTaken;
+            }
+        }
+        else
+            this->tablePositionInvalid = true;
+    }
+
+    return !this->goalsScoredInvalid && !this->goalsConcededInvalid && !this->gamesWonInvalid && !this->gamesDrawnInvalid && !this->gamesLostInvalid &&
+        !this->roundsInvalid && !this->wonCupInvalid && !this->tablePositionInvalid;
+}
+
 void RecordCompetition::Update(const float& deltaTime)
 {
     if (!this->exitState && !this->completed)
@@ -70,73 +168,76 @@ void RecordCompetition::Update(const float& deltaTime)
             const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
             if (button->GetText() == "CONFIRM" && button->WasClicked())
             {
-                // Store the user's entered competition stats
-                CompetitionStats userStats = { std::stoi(this->userInterface.GetTextField("Goals Scored")->GetInputtedText()),
-                    std::stoi(this->userInterface.GetTextField("Goals Conceded")->GetInputtedText()),
-                    std::stoi(this->userInterface.GetTextField("Games Won")->GetInputtedText()),
-                    std::stoi(this->userInterface.GetTextField("Games Drawn")->GetInputtedText()),
-                    std::stoi(this->userInterface.GetTextField("Games Lost")->GetInputtedText()) };
-
-                if (this->selectedCup)
+                if (this->ValidateInputs())
                 {
-                    userStats.seasonEndPosition = this->userInterface.GetDropDown("Rounds")->GetCurrentSelected();
-                    if (this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected())
-                        userStats.wonCup = true;
-                }
-                else
-                    userStats.seasonEndPosition = std::stoi(this->userInterface.GetTextField("Table Position")->GetInputtedText());
+                    // Store the user's entered competition stats
+                    CompetitionStats userStats = { std::stoi(this->userInterface.GetTextField("Goals Scored")->GetInputtedText()),
+                        std::stoi(this->userInterface.GetTextField("Goals Conceded")->GetInputtedText()),
+                        std::stoi(this->userInterface.GetTextField("Games Won")->GetInputtedText()),
+                        std::stoi(this->userInterface.GetTextField("Games Drawn")->GetInputtedText()),
+                        std::stoi(this->userInterface.GetTextField("Games Lost")->GetInputtedText()) };
 
-                this->recordedCompetitionStats.emplace_back(userStats);
-
-                if (this->userProfileIndex + 1 < SaveData::GetInstance().GetUsers().size())
-                {
-                    // Update the user profile iteration index
-                    ++this->userProfileIndex;
-                }
-                else
-                {
-                    // Update the user profile's competition stats
-                    for (size_t index = 0; index < SaveData::GetInstance().GetUsers().size(); index++)
+                    if (this->selectedCup)
                     {
-                        const CompetitionStats& stats = this->recordedCompetitionStats[index];
-                        UserProfile* user = &SaveData::GetInstance().GetUsers()[index];
+                        userStats.seasonEndPosition = this->userInterface.GetDropDown("Rounds")->GetCurrentSelected();
+                        if (this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected())
+                            userStats.wonCup = true;
+                    }
+                    else
+                        userStats.seasonEndPosition = std::stoi(this->userInterface.GetTextField("Table Position")->GetInputtedText());
 
-                        for (UserProfile::CompetitionData& compStats : user->GetCompetitionData())
+                    this->recordedCompetitionStats.emplace_back(userStats);
+
+                    if (this->userProfileIndex + 1 < SaveData::GetInstance().GetUsers().size())
+                    {
+                        // Update the user profile iteration index
+                        ++this->userProfileIndex;
+                    }
+                    else
+                    {
+                        // Update the user profile's competition stats
+                        for (size_t index = 0; index < SaveData::GetInstance().GetUsers().size(); index++)
                         {
-                            if (compStats.compID == EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected())
+                            const CompetitionStats& stats = this->recordedCompetitionStats[index];
+                            UserProfile* user = &SaveData::GetInstance().GetUsers()[index];
+
+                            for (UserProfile::CompetitionData& compStats : user->GetCompetitionData())
                             {
-                                compStats.currentScored += stats.scored;
-                                compStats.currentConceded += stats.conceded;
-                                compStats.currentWins += stats.wins;
-                                compStats.currentDraws += stats.draws;
-                                compStats.currentLosses += stats.losses;
-
-                                compStats.totalScored += stats.scored;
-                                compStats.totalConceded += stats.conceded;
-                                compStats.totalWins += stats.wins;
-                                compStats.totalDraws += stats.draws;
-                                compStats.totalLosses += stats.losses;
-
-                                if (this->selectedCup)
+                                if (compStats.compID == EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected())
                                 {
-                                    compStats.seasonEndPosition = stats.seasonEndPosition;
-                                    if (stats.wonCup)
-                                        compStats.titlesWon++;
-                                }
-                                else
-                                {
-                                    compStats.seasonEndPosition = stats.seasonEndPosition;
-                                    if (compStats.seasonEndPosition == 1)
-                                        compStats.titlesWon++;
-                                }
+                                    compStats.currentScored += stats.scored;
+                                    compStats.currentConceded += stats.conceded;
+                                    compStats.currentWins += stats.wins;
+                                    compStats.currentDraws += stats.draws;
+                                    compStats.currentLosses += stats.losses;
 
-                                break;
+                                    compStats.totalScored += stats.scored;
+                                    compStats.totalConceded += stats.conceded;
+                                    compStats.totalWins += stats.wins;
+                                    compStats.totalDraws += stats.draws;
+                                    compStats.totalLosses += stats.losses;
+
+                                    if (this->selectedCup)
+                                    {
+                                        compStats.seasonEndPosition = stats.seasonEndPosition;
+                                        if (stats.wonCup)
+                                            compStats.titlesWon++;
+                                    }
+                                    else
+                                    {
+                                        compStats.seasonEndPosition = stats.seasonEndPosition;
+                                        if (compStats.seasonEndPosition == 1)
+                                            compStats.titlesWon++;
+                                    }
+
+                                    break;
+                                }
                             }
                         }
-                    }
 
-                    // Now mark the app state as 'complete' so we can roll back to the 'ContinueGame' app state
-                    this->completed = true;
+                        // Now mark the app state as 'complete' so we can roll back to the 'ContinueGame' app state
+                        this->completed = true;
+                    }
                 }
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
@@ -210,6 +311,40 @@ void RecordCompetition::Render() const
     {
         Renderer::GetInstance().RenderShadowedText({ 1200, 390 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
             "Enter the table position you finished in:", 5);
+    }
+
+    // Render any input validation errors that occur
+    if (this->goalsScoredInvalid)
+        Renderer::GetInstance().RenderText({ 660, 260 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->goalsConcededInvalid)
+        Renderer::GetInstance().RenderText({ 660, 480 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->gamesWonInvalid)
+        Renderer::GetInstance().RenderText({ 660, 700 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->gamesDrawnInvalid)
+        Renderer::GetInstance().RenderText({ 660, 920 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->gamesLostInvalid)
+        Renderer::GetInstance().RenderText({ 1830, 260 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+    if (this->selectedCup)
+    {
+        if (this->roundsInvalid)
+            Renderer::GetInstance().RenderText({ 1830, 480 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+
+        if (this->userInterface.GetDropDown("Rounds")->GetCurrentSelected() != -1 &&
+            this->selectedCup->GetRounds()[this->userInterface.GetDropDown("Rounds")->GetCurrentSelected() - 1] == "Final")
+        {
+            if (this->wonCupInvalid)
+                Renderer::GetInstance().RenderText({ 1830, 700 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+        }
+    }
+    else
+    {
+        if (this->tablePositionInvalid)
+            Renderer::GetInstance().RenderText({ 1830, 480 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
     }
 
     // Render the user interface

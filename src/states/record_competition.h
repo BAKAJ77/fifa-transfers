@@ -21,7 +21,11 @@ private:
 	KnockoutCup* selectedCup; // This will be nullptr if the league competition was selected instead of a cup competition
 	std::vector<CompetitionStats> recordedCompetitionStats;
 	size_t userProfileIndex;
-	bool exitState, completed;
+	bool exitState, completed, goalsScoredInvalid, goalsConcededInvalid, gamesWonInvalid, gamesDrawnInvalid, gamesLostInvalid, roundsInvalid,
+		wonCupInvalid, tablePositionInvalid;
+private:
+	// Returns TRUE if the all the inputs given are valid.
+	bool ValidateInputs();
 protected:
 	void Init() override;
 	void Destroy() override;
