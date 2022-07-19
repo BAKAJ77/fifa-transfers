@@ -97,16 +97,19 @@ void AppStateSystem::RollBack(AppState* appState)
 	if (foundInStack)
 	{
 		// Keep popping states ahead in the stack until the app state given is reached
-		for (auto it = this->stateStack.rbegin(); it != this->stateStack.rend(); it++)
+		auto iterator = this->stateStack.rbegin();
+		while (iterator != this->stateStack.rend())
 		{
-			if (*it == appState)
+			if (*iterator == appState)
 			{
 				appState->Resume();
 				break;
 			}
 
+			this->stateStack.back()->Destroy();
 			this->stateStack.pop_back();
-			it = this->stateStack.rbegin();
+
+			iterator = this->stateStack.rbegin();
 		}
 	}
 	else

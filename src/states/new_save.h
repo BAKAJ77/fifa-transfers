@@ -12,7 +12,7 @@ private:
 	float logoOpacity;
 
 	int randomisePotentials;
-	bool goBackToPlayMenu, saveNameInvalid, playerCountInvalid, growthSystemInvalid, randomisePotentialInvalid, selectedLeagueInvalid;
+	bool goBackToPlayMenu, loadedDefaultDatabase, saveNameInvalid, playerCountInvalid, growthSystemInvalid, randomisePotentialInvalid, selectedLeagueInvalid;
 protected:
 	void Init() override;
 	void Destroy() override;

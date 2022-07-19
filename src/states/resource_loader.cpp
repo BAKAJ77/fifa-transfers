@@ -171,32 +171,8 @@ void ResourceLoader::LoadDefaultDatabase()
     // Update the work done percentage counter
     {
         std::scoped_lock lock(Threading::mutex);
-        this->workDonePercentage = 30;
+        this->workDonePercentage = 20;
     }
-    
-    // Open the players JSON file and load every player's data
-    JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
-    SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
-
-    // Update the work done percentage counter
-    {
-        std::scoped_lock lock(Threading::mutex);
-        this->workDonePercentage = 50;
-    }
-
-    playersFile.Clear();
-
-    // Open the clubs JSON file and load every clubs's data
-    JSONLoader clubsFile(Util::GetAppDataDirectory() + "data/clubs.json");
-    SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
-
-    // Update the work done percentage counter
-    {
-        std::scoped_lock lock(Threading::mutex);
-        this->workDonePercentage = 80;
-    }
-
-    clubsFile.Clear();
 
     // Open the cup competitions JSON file and load every cup's data
     JSONLoader cupsFile(Util::GetAppDataDirectory() + "data/cup_competitions.json");
@@ -205,7 +181,7 @@ void ResourceLoader::LoadDefaultDatabase()
     // Update the work done percentage counter
     {
         std::scoped_lock lock(Threading::mutex);
-        this->workDonePercentage = 90;
+        this->workDonePercentage = 40;
     }
 
     cupsFile.Clear();

@@ -11,7 +11,7 @@ void NewSave::Init()
 {
     // Initialize the member variables
     this->goBackToPlayMenu = this->saveNameInvalid = this->playerCountInvalid = this->growthSystemInvalid = this->randomisePotentialInvalid = 
-        this->selectedLeagueInvalid = false;
+        this->selectedLeagueInvalid = this->loadedDefaultDatabase = false;
 
     this->logoOpacity = 0.0f;
 
@@ -183,6 +183,26 @@ void NewSave::Render() const
 bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
 {
     constexpr float transitionSpeed = 1000.0f;
+
+    if (!this->loadedDefaultDatabase)
+    {
+        // Clear the data already in the player, club and user databases before loading
+        SaveData::GetInstance().GetPlayerDatabase().clear();
+        SaveData::GetInstance().GetClubDatabase().clear();
+        SaveData::GetInstance().GetUsers().clear();
+
+        // Load the default data from the player and club database json files
+        JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
+        JSONLoader clubsFile(Util::GetAppDataDirectory() + "data/clubs.json");
+
+        SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
+        SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());
+
+        playersFile.Clear();
+        clubsFile.Clear();
+
+        this->loadedDefaultDatabase = true;
+    }
 
     // Update large title logo fade out effect
     MainMenu::GetAppState()->SetLogoOpacity(std::max(MainMenu::GetAppState()->GetLogoOpacity() - (transitionSpeed * deltaTime), 0.0f));
