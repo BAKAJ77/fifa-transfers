@@ -57,6 +57,9 @@ public:
 	// Returns the clubs in the league.
 	std::vector<Club*>& GetClubs();
 
+	// Returns the clubs in the league.
+	const std::vector<Club*>& GetClubs() const;
+
 	// Returns the name of the league.
 	std::string_view GetName() const;
 

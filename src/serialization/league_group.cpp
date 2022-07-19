@@ -94,6 +94,11 @@ std::vector<Club*>& League::GetClubs()
     return this->clubs;
 }
 
+const std::vector<Club*>& League::GetClubs() const
+{
+    return this->clubs;
+}
+
 std::string_view League::GetName() const
 {
     return this->name;
