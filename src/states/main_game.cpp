@@ -124,6 +124,11 @@ MainGame* MainGame::GetAppState()
     return &appState;
 }
 
+void MainGame::SetCurrentUser(UserProfile& user)
+{
+    this->currentUser = &user;
+}
+
 void MainGame::SetUpdateWhilePaused(bool enable)
 {
     this->updateWhilePaused = enable;

@@ -25,6 +25,9 @@ protected:
 public:
 	static MainGame* GetAppState();
 
+	// Sets the current active user profile.
+	void SetCurrentUser(UserProfile& user);
+
 	// Sets whether the app state should continue updating while paused.
 	void SetUpdateWhilePaused(bool enable);
 

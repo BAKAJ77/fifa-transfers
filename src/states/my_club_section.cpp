@@ -1,9 +1,14 @@
 #include <states/my_club_section.h>
 #include <states/main_game.h>
+#include <states/switch_user.h>
+
 #include <interface/menu_button.h>
 
 void MyClub::Init()
 {
+    // Initialize the member variables
+    this->paused = false;
+
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
@@ -28,10 +33,28 @@ void MyClub::Init()
 
 void MyClub::Destroy() {}
 
+void MyClub::Pause()
+{
+    this->paused = true;
+}
+
+void MyClub::Resume()
+{
+    this->paused = false;
+}
+
 void MyClub::Update(const float& deltaTime)
 {
     // Update the user interface
     this->userInterface.Update(deltaTime);
+
+    // Check if any of othe buttons has been clicked
+    for (size_t index = 0; index < this->userInterface.GetButtons().size(); index++)
+    {
+        const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
+        if (button->GetText() == "SWITCH USER" && button->WasClicked())
+            this->PushState(SwitchUser::GetAppState());
+    }
 
     // If another parallel app state has been requested to start, then roll back to the main game state so it can be stared
     if (MainGame::GetAppState()->ShouldChangeParallelState())
@@ -61,6 +84,9 @@ bool MyClub::OnStartupTransitionUpdate(const float deltaTime)
     // Update the fade in effect of the user interface
     this->userInterface.SetOpacity(std::min(this->userInterface.GetOpacity() + (transitionSpeed * deltaTime), 255.0f));
 
+    if (this->paused)
+        MainGame::GetAppState()->GetUserInterface().SetOpacity(this->userInterface.GetOpacity());
+
     if (this->userInterface.GetOpacity() == 255.0f)
         return true;
 
@@ -73,6 +99,9 @@ bool MyClub::OnPauseTransitionUpdate(const float deltaTime)
 
     // Update the fade out effect of the user interface
     this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
+
+    if (this->paused)
+        MainGame::GetAppState()->GetUserInterface().SetOpacity(this->userInterface.GetOpacity());
 
     if (this->userInterface.GetOpacity() == 0.0f)
         return true;
