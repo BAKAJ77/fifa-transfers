@@ -35,7 +35,7 @@ private:
 	ButtonBase nextPageButton, previousPageButton;
 public:
 	SelectionList();
-	SelectionList(const glm::vec2& pos, const glm::vec2& size, float buttonHeight, float opacity = 255.0f);
+	SelectionList(const glm::vec2& pos, const glm::vec2& size, float buttonHeight, float opacity = 255.0f, float fontSize = -1.0f);
 
 	~SelectionList() = default;
 

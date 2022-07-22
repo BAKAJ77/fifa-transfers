@@ -5,11 +5,10 @@ SelectionList::SelectionList() :
     fontSize(0), listOffset(0), opacity(0.0f), maxListSelectionsVisible(0), buttonHeight(0.0f), currentSelected(nullptr)
 {}
 
-SelectionList::SelectionList(const glm::vec2& pos, const glm::vec2& size, float buttonHeight, float opacity) :
-    position(pos), size(size), buttonHeight(buttonHeight), opacity(opacity), listOffset(0), currentSelected(nullptr)
+SelectionList::SelectionList(const glm::vec2& pos, const glm::vec2& size, float buttonHeight, float opacity, float fontSize) :
+    position(pos), size(size), buttonHeight(buttonHeight), opacity(opacity), listOffset(0), currentSelected(nullptr),
+    fontSize(fontSize > 0.0f ? fontSize : (buttonHeight / 2.75f))
 {
-    this->fontSize = this->buttonHeight / 2.75f;
-
     // Load the font to be used
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
@@ -123,7 +122,8 @@ void SelectionList::Render(float masterOpacity) const
     {
         const Category& category = this->listCategories[index];
 
-        Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + (index * (this->size.x / 2)) + textOffsetFromEdge,
+        Renderer::GetInstance().RenderText({ 
+            this->position.x - (this->size.x / 2) + (index * (this->size.x / (float)this->listCategories.size())) + textOffsetFromEdge,
             this->position.y - ((this->size.y - this->buttonHeight) / 2) + (category.textSize.y / 2) },
             { glm::vec3(255), (this->opacity * masterOpacity) / 255.0f }, this->font, (uint32_t)this->fontSize, category.text);
     }
@@ -137,7 +137,8 @@ void SelectionList::Render(float masterOpacity) const
         {
             const Category& category = element.categoryValues[jIndex];
 
-            Renderer::GetInstance().RenderText({ this->position.x - (this->size.x / 2) + (jIndex * (this->size.x / 2)) + textOffsetFromEdge,
+            Renderer::GetInstance().RenderText({ 
+                this->position.x - (this->size.x / 2) + (jIndex * (this->size.x / (float)this->listCategories.size())) + textOffsetFromEdge,
                 element.button.GetPosition().y + (category.textSize.y / 2) }, { glm::vec3(255), (this->opacity * masterOpacity) / 255.0f }, this->font, 
                 (uint32_t)this->fontSize, category.text);
         }
