@@ -7,6 +7,7 @@
 #include <interface/radio_buttons.h>
 #include <interface/drop_down.h>
 #include <interface/selection_list.h>
+#include <interface/tick_box.h>
 
 #include <string>
 #include <vector>
@@ -22,6 +23,7 @@ private:
 	std::unordered_map<std::string, RadioButtonGroup> radioButtonGroups;
 	std::unordered_map<std::string, SelectionList> selectionLists;
 	std::unordered_map<std::string, DropDown> dropDowns;
+	std::unordered_map<std::string, TickBox> tickBoxes;
 
 	float animationSpeed, opacity;
 public:
@@ -52,6 +54,9 @@ public:
 	// Adds a selection list to the interface.
 	void AddSelectionList(const std::string_view& id, const SelectionList& list);
 
+	// Adds a tick box to the interface.
+	void AddTickBox(const std::string_view& id, const TickBox& tickBox);
+
 	// Updates the interface.
 	void Update(const float& deltaTime);
 
@@ -62,16 +67,24 @@ public:
 	const std::vector<ButtonBase*>& GetButtons();
 
 	// Returns the text field matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
 	TextInputField* GetTextField(const std::string_view& id);
 
 	// Returns the radio button group matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
 	RadioButtonGroup* GetRadioButtonGroup(const std::string_view& id);
 
 	// Returns the drop down matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
 	DropDown* GetDropDown(const std::string_view& id);
 
 	// Returns the selection list matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
 	SelectionList* GetSelectionList(const std::string_view& id);
+
+	// Returns the tick box matching the ID given.
+	// If none is found matching the ID, then nullptr is returned.
+	TickBox* GetTickBox(const std::string_view& id);
 
 	// Returns the master opacity of the user interface. 
 	const float& GetOpacity() const;

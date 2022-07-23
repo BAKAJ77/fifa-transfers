@@ -79,6 +79,18 @@ void UserInterface::AddSelectionList(const std::string_view& id, const Selection
     this->selectionLists[id.data()] = list;
 }
 
+void UserInterface::AddTickBox(const std::string_view& id, const TickBox& tickBox)
+{
+    // Don't add the tick box to the interface if another with the ID given already exists
+    if (this->tickBoxes.find(id.data()) != this->tickBoxes.end())
+    {
+        LogSystem::GetInstance().OutputLog("There's already a tick box with the ID: " + std::string(id), Severity::WARNING);
+        return;
+    }
+
+    this->tickBoxes[id.data()] = tickBox;
+}
+
 void UserInterface::Update(const float& deltaTime)
 {
     if (this->appWindow->IsFocused()) // Only update if the window is focused
@@ -118,6 +130,10 @@ void UserInterface::Update(const float& deltaTime)
             // Update the selection lists
             for (auto& list : this->selectionLists)
                 list.second.Update(deltaTime);
+
+            // Update the tick boxes
+            for (auto& tickBox : this->tickBoxes)
+                tickBox.second.Update(deltaTime, this->animationSpeed);
         }
     }
 }
@@ -141,6 +157,10 @@ void UserInterface::Render() const
         // Render the selection lists
         for (auto& list : this->selectionLists)
             list.second.Render(this->opacity);
+
+        // Render the tick boxes
+        for (auto& tickBox : this->tickBoxes)
+            tickBox.second.Render(this->opacity);
 
         // Render the drop downs
         const DropDown* activeDropDown = nullptr;
@@ -198,6 +218,17 @@ SelectionList* UserInterface::GetSelectionList(const std::string_view& id)
 
     // No selection list has been found matching the ID given
     LogSystem::GetInstance().OutputLog("No selection list exists with the ID: " + std::string(id), Severity::WARNING);
+    return nullptr;
+}
+
+TickBox* UserInterface::GetTickBox(const std::string_view& id)
+{
+    auto iterator = this->tickBoxes.find(id.data());
+    if (iterator != this->tickBoxes.end())
+        return &iterator->second;
+
+    // No tick box has been found matching the ID given
+    LogSystem::GetInstance().OutputLog("No tick box exists with the ID: " + std::string(id), Severity::WARNING);
     return nullptr;
 }
 
