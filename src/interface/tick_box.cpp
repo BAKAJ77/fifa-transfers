@@ -6,7 +6,7 @@ TickBox::TickBox() :
 {}
 
 TickBox::TickBox(const glm::vec2& pos, const glm::vec2& buttonSize, const std::string_view& label, float opacity, float boxOffset, bool defaultValue) :
-    ButtonBase(pos, buttonSize, buttonSize, glm::vec3(70), glm::vec3(100), glm::vec3(130), opacity), labelText(label), isTicked(defaultValue)
+    ButtonBase(pos, buttonSize, buttonSize, glm::vec3(70), glm::vec3(100), glm::vec3(130), opacity, 2.5f), labelText(label), isTicked(defaultValue)
 {
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
     const glm::vec2 labelTextSize = Renderer::GetInstance().GetTextSize(this->font, (uint32_t)buttonSize.y, label);
