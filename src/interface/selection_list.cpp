@@ -38,7 +38,8 @@ void SelectionList::AddCategory(const std::string_view& name)
     this->listCategories.push_back({ name.data(), Renderer::GetInstance().GetTextSize(this->font, (uint32_t)this->fontSize, name) });
 }
 
-void SelectionList::AddElement(const std::vector<std::string>& categoryValues, int value)
+void SelectionList::AddElement(const std::vector<std::string>& categoryValues, int value, const glm::vec3& baseColor, const glm::vec3& highlightColor, 
+    const glm::vec3& edgeColor)
 {
     // Calculate the sizes of the category text values
     std::vector<Category> categoryVals;
@@ -48,9 +49,8 @@ void SelectionList::AddElement(const std::vector<std::string>& categoryValues, i
     // Push the element into the list
     this->listElements.push_back({ categoryVals,
         ButtonBase({ this->position.x, this->position.y - ((this->size.y + this->buttonHeight) / 2) + (2 * this->buttonHeight) +
-            (((this->listElements.size()) % (this->maxListSelectionsVisible)) * this->buttonHeight) }, 
-            { this->size.x, this->buttonHeight }, { this->size.x, this->buttonHeight }, glm::vec3(85), glm::vec3(115), glm::vec3(60), 255.0f, 2.5f), 
-            value });
+            (((this->listElements.size()) % (this->maxListSelectionsVisible)) * this->buttonHeight) }, { this->size.x, this->buttonHeight }, 
+            { this->size.x, this->buttonHeight }, baseColor, highlightColor, edgeColor, 255.0f, 2.5f), value });
 }
 
 void SelectionList::Clear()

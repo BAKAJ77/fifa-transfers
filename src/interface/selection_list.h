@@ -46,7 +46,8 @@ public:
 	void AddCategory(const std::string_view& name);
 
 	// Adds new selection element to the selection list.
-	void AddElement(const std::vector<std::string>& categoryValues, int value);
+	void AddElement(const std::vector<std::string>& categoryValues, int value, const glm::vec3& baseColor = glm::vec3(85), 
+		const glm::vec3& highlightColor = glm::vec3(115), const glm::vec3& edgeColor = glm::vec3(60));
 
 	// Clears all selection elements from the selection list.
 	void Clear();
