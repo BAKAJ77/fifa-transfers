@@ -32,7 +32,7 @@ public:
 	void SetWageBudget(int budget);
 
 	// Adds the player given to the club.
-	void AddPlayer(Player* player, bool onLoan);
+	void AddPlayer(Player* player);
 
 	// Removes player given from the club.
 	void RemovePlayer(Player* player);

@@ -31,7 +31,7 @@ void Club::SetWageBudget(int budget)
     this->wageBudget = budget;
 }
 
-void Club::AddPlayer(Player* player, bool onLoan)
+void Club::AddPlayer(Player* player)
 {
     // Make sure a valid pointer to a player was given
     assert(player != nullptr);
@@ -48,10 +48,7 @@ void Club::AddPlayer(Player* player, bool onLoan)
     }
 
     // Add the player to the club
-    if (!onLoan)
-        player->SetParentClub(this->id);
-
-    player->SetCurrentClub(this->id);
+    player->SetClub(this->id);
     this->players.emplace_back(player);
 }
 

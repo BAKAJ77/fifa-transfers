@@ -182,7 +182,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         std::vector<Player*> players;
         for (auto& player : this->playerDatabase)
         {
-            if (player.GetCurrentClub() == id)
+            if (player.GetClub() == id)
                 players.emplace_back(&player);
         }
 
@@ -212,8 +212,7 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
         const std::string nation = (*root)[idStr]["nation"].get<std::string>();
         const std::string preferredFoot = (*root)[idStr]["preferredFoot"].get<std::string>();
 
-        const uint16_t currentClubID = (*root)[idStr]["currentClubID"].get<uint16_t>();
-        const uint16_t parentClubID = (*root)[idStr]["parentClubID"].get<uint16_t>();
+        const uint16_t clubID = (*root)[idStr]["clubID"].get<uint16_t>();
         const uint16_t positionID = (*root)[idStr]["positionID"].get<uint16_t>();
 
         const int age = (*root)[idStr]["age"].get<int>();
@@ -228,14 +227,13 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
 
         if (!loadingDefault)
         {
-            loanListed = (*root)[idStr]["loanListed"].get<bool>();
             transferListed = (*root)[idStr]["transferListed"].get<bool>();
             transfersBlocked = (*root)[idStr]["transfersBlocked"].get<bool>();
         }
 
         // Add the player to the database
-        this->playerDatabase.emplace_back(Player(name, nation, preferredFoot, id, currentClubID, parentClubID, positionID, age, overall, potential,
-            value, wage, releaseClause, expiryYear, loanListed, transferListed, transfersBlocked));
+        this->playerDatabase.emplace_back(Player(name, nation, preferredFoot, id, clubID, positionID, age, overall, potential, value, wage, releaseClause, 
+            expiryYear, transferListed, transfersBlocked));
         
         ++id;
     }
@@ -370,8 +368,7 @@ void SaveData::ConvertPlayerToJSON(nlohmann::json& root, const Player& player) c
     root["players"][std::to_string(player.GetID())]["name"] = player.GetName();
     root["players"][std::to_string(player.GetID())]["nation"] = player.GetNation();
     root["players"][std::to_string(player.GetID())]["preferredFoot"] = player.GetPreferredFoot();
-    root["players"][std::to_string(player.GetID())]["currentClubID"] = player.GetCurrentClub();
-    root["players"][std::to_string(player.GetID())]["parentClubID"] = player.GetParentClub();
+    root["players"][std::to_string(player.GetID())]["clubID"] = player.GetClub();
     root["players"][std::to_string(player.GetID())]["positionID"] = player.GetPosition();
 
     root["players"][std::to_string(player.GetID())]["age"] = player.GetAge();
@@ -382,7 +379,6 @@ void SaveData::ConvertPlayerToJSON(nlohmann::json& root, const Player& player) c
     root["players"][std::to_string(player.GetID())]["releaseClause"] = player.GetReleaseClause();
     root["players"][std::to_string(player.GetID())]["expiryYear"] = player.GetExpiryYear();
 
-    root["players"][std::to_string(player.GetID())]["loanListed"] = player.GetLoanListed();
     root["players"][std::to_string(player.GetID())]["transferListed"] = player.GetTransferListed();
     root["players"][std::to_string(player.GetID())]["transfersBlocked"] = player.GetTransfersBlocked();
 }

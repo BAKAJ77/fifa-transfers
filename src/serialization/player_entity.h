@@ -7,14 +7,14 @@ class Player
 {
 private:
 	std::string name, nation, preferredFoot;
-	uint16_t id, currentClubID, parentClubID, positionID;
+	uint16_t id, clubID, positionID;
 	int age, overall, potential, value, wage, releaseClause, expiryYear;
-	bool loanListed, transferListed, transfersBlocked;
+	bool transferListed, transfersBlocked;
 public:
 	Player();
-	Player(const std::string_view& name, const std::string_view& nation, const std::string_view& preferredFoot, uint16_t id, uint16_t currentClubID,
-		uint16_t parentClubID, uint16_t positionID, int age, int overall, int potential, int value, int wage, int releaseClause, int expiryYear,
-		bool loanListed, bool transferListed, bool transfersBlocked);
+	Player(const std::string_view& name, const std::string_view& nation, const std::string_view& preferredFoot, uint16_t id, uint16_t clubID,
+		uint16_t positionID, int age, int overall, int potential, int value, int wage, int releaseClause, int expiryYear, bool transferListed, 
+		bool transfersBlocked);
 
 	~Player() = default;
 
@@ -27,11 +27,8 @@ public:
 	// Sets the preferred foot of the player.
 	void SetPreferredFoot(const std::string_view& foot);
 
-	// Sets the current club of the player.
-	void SetCurrentClub(uint16_t id);
-
-	// Sets the parent club of the player.
-	void SetParentClub(uint16_t id);
+	// Sets the club which the player belongs to.
+	void SetClub(uint16_t id);
 
 	// Sets the position of the player.
 	void SetPosition(uint16_t id);
@@ -57,9 +54,6 @@ public:
 	// Sets the expiry year of the player.
 	void SetExpiryYear(int year);
 
-	// Sets the loan listed status of the player.
-	void SetLoanListed(bool listed);
-
 	// Sets the transfer listed status of the player.
 	void SetTransferListed(bool listed);
 
@@ -78,11 +72,8 @@ public:
 	// Returns the ID of the player.
 	uint16_t GetID() const;
 
-	// Returns the ID of the player's current club.
-	uint16_t GetCurrentClub() const;
-
-	// Returns the ID of the player's parent club.
-	uint16_t GetParentClub() const;
+	// Returns the ID of the player's club.
+	uint16_t GetClub() const;
 
 	// Returns the ID of the player's position.
 	uint16_t GetPosition() const;
@@ -108,17 +99,11 @@ public:
 	// Returns the year which the player's contract ends.
 	int GetExpiryYear() const;
 
-	// Returns TRUE if the player is loan listed.
-	bool GetLoanListed() const;
-
 	// Returns TRUE if the player is transfer listed.
 	bool GetTransferListed() const;
 
 	// Returns TRUE if all transfers for the player is blocked.
 	bool GetTransfersBlocked() const;
-
-	// Returns TRUE if the player is on loan.
-	bool OnLoan() const;
 };
 
 #endif
