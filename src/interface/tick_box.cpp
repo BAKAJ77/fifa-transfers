@@ -8,6 +8,8 @@ TickBox::TickBox() :
 TickBox::TickBox(const glm::vec2& pos, const glm::vec2& buttonSize, const std::string_view& label, float opacity, float boxOffset, bool defaultValue) :
     ButtonBase(pos, buttonSize, buttonSize, glm::vec3(70), glm::vec3(100), glm::vec3(130), opacity, 2.5f), labelText(label), isTicked(defaultValue)
 {
+    this->checkmarkTexture = TextureLoader::GetInstance().GetTexture("Checkmark");
+
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
     const glm::vec2 labelTextSize = Renderer::GetInstance().GetTextSize(this->font, (uint32_t)buttonSize.y, label);
     this->labelTextPosition = { pos.x, pos.y + (labelTextSize.y / 2) };
@@ -41,8 +43,10 @@ void TickBox::Render(float masterOpacity) const
     // Render the tick box surface
     this->RenderButtonSurface(masterOpacity);
 
+    // Render the checkmark texture on top if the box is currently ticked
     if (this->isTicked)
-        Renderer::GetInstance().RenderSquare(this->position, this->baseSize / 2.5f, { 255, 0, 0, (this->opacity * masterOpacity) / 255.0f });
+        Renderer::GetInstance().RenderSquare(this->position, this->baseSize - 5.0f, this->checkmarkTexture, { 255, 0, 0, 
+            (this->opacity * masterOpacity) / 255.0f });
 }
 
 bool TickBox::isCurrentlyTicked() const

@@ -2,6 +2,7 @@
 #define TICK_BOX_H
 
 #include <interface/button_base.h>
+#include <graphics/texture_loader.h>
 #include <graphics/font_loader.h>
 #include <string>
 
@@ -9,6 +10,8 @@ class TickBox : public ButtonBase
 {
 private:
 	FontPtr font;
+	TextureBuffer2DPtr checkmarkTexture;
+
 	std::string labelText;
 	glm::vec2 labelTextPosition;
 	bool isTicked;

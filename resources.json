@@ -42,6 +42,18 @@
         "5": {
             "filename": "title_logo_lrg.png",
             "id": "Title Logo Large"
+        },
+        "6": {
+            "filename": "checkmark_circle.png",
+            "id": "Checkmark Cirle"
+        },
+        "7": {
+            "filename": "checkmark.png",
+            "id": "Checkmark"
+        },
+        "8": {
+            "filename": "cross_circle.png",
+            "id": "Cross Circle"
         }
     },
     "tracks": {
