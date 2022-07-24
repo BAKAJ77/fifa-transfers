@@ -109,8 +109,8 @@ bool RecordCompetition::ValidateInputs()
                     {
                         this->wonCupInvalid = true;
                     }
-                    else if (anotherUserFinalist && (otherUserWonCup && (bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected()) ||
-                        (!otherUserWonCup && !(bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected()))
+                    else if (anotherUserFinalist && ((otherUserWonCup && (bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected()) ||
+                        (!otherUserWonCup && !(bool)this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected())))
                     {
                         this->wonCupInvalid = true;
                     }
@@ -197,7 +197,7 @@ void RecordCompetition::Update(const float& deltaTime)
                     if (this->selectedCup)
                     {
                         userStats.seasonEndPosition = this->userInterface.GetDropDown("Rounds")->GetCurrentSelected();
-                        if (this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected())
+                        if (this->userInterface.GetRadioButtonGroup("Won Cup")->GetSelected() == 1)
                             userStats.wonCup = true;
                     }
                     else
@@ -240,8 +240,12 @@ void RecordCompetition::Update(const float& deltaTime)
                                     if (this->selectedCup)
                                     {
                                         compStats.seasonEndPosition = stats.seasonEndPosition;
+
                                         if (stats.wonCup)
+                                        {
+                                            compStats.seasonEndPosition = (uint16_t)this->selectedCup->GetRounds().size() + 1;
                                             compStats.titlesWon++;
+                                        }
                                     }
                                     else
                                     {
