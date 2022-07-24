@@ -2,6 +2,7 @@
 #include <states/main_game.h>
 #include <states/switch_user.h>
 #include <states/manage_squad.h>
+#include <states/statistics.h>
 
 #include <interface/menu_button.h>
 
@@ -24,7 +25,7 @@ void MyClub::Init()
         glm::vec3(120), 255.0f, false, 50));
     this->userInterface.AddButton(new MenuButton({ 800, 417.5f }, { 500, 235 }, { 510, 245 }, "INBOX", glm::vec3(60), glm::vec3(90),
         glm::vec3(120), 255.0f, false, 50));
-    this->userInterface.AddButton(new MenuButton({ 800, 677.5f }, { 500, 235 }, { 510, 245 }, "PLAYER SEARCH", glm::vec3(60), glm::vec3(90),
+    this->userInterface.AddButton(new MenuButton({ 800, 677.5f }, { 500, 235 }, { 510, 245 }, "TRANSFER HUB", glm::vec3(60), glm::vec3(90),
         glm::vec3(120), 255.0f, false, 50));
     this->userInterface.AddButton(new MenuButton({ 800, 937.5f }, { 500, 235 }, { 510, 245 }, "STATISTICS", glm::vec3(60), glm::vec3(90),
         glm::vec3(120), 255.0f, false, 50));
@@ -55,6 +56,8 @@ void MyClub::Update(const float& deltaTime)
         const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
         if (button->GetText() == "MANAGE SQUAD" && button->WasClicked())
             this->PushState(ManageSquad::GetAppState());
+        else if (button->GetText() == "STATISTICS" && button->WasClicked())
+            this->PushState(Statistics::GetAppState());
         else if (button->GetText() == "SWITCH USER" && button->WasClicked())
             this->PushState(SwitchUser::GetAppState());
     }
