@@ -45,14 +45,14 @@ void Statistics::Update(const float& deltaTime)
             if (button->GetText() == "NEXT" && button->WasClicked())
             {
                 ++this->competitionIndex;
-                if (this->competitionIndex == this->displayedUser->GetCompetitionData().size())
+                if (this->competitionIndex == (int)this->displayedUser->GetCompetitionData().size())
                     this->competitionIndex = 0;
             }
             else if (button->GetText() == "PREVIOUS" && button->WasClicked())
             {
                 --this->competitionIndex;
                 if (this->competitionIndex == -1)
-                    this->competitionIndex = this->displayedUser->GetCompetitionData().size() - 1;
+                    this->competitionIndex = (int)this->displayedUser->GetCompetitionData().size() - 1;
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
                 this->exitState = true;
