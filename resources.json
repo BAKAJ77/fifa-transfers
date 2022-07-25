@@ -54,6 +54,10 @@
         "8": {
             "filename": "cross_circle.png",
             "id": "Cross Circle"
+        },
+        "9": {
+            "filename": "unknown_circle.png",
+            "id": "Unknown Circle"
         }
     },
     "tracks": {
