@@ -94,6 +94,13 @@ void EndCompetition::Render() const
     Renderer::GetInstance().RenderShadowedText({ 30, 175 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "Select the competition you have completed below", 5);
 
+    // If all the competitions have been completed, render a text string letting the user know
+    if (this->userInterface.GetSelectionList("Incomplete Competitions")->GetListElements().empty())
+    {
+        Renderer::GetInstance().RenderShadowedText({ 30, 1050 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 40,
+            "You have already completed all the required competitions!", 5);
+    }
+
     // Render the user interface
     this->userInterface.Render();
 }

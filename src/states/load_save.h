@@ -13,7 +13,7 @@ public:
 		int playerCount, growthSystemID;
 	};
 private:
-	UserInterface userInterface;
+	mutable UserInterface userInterface;
 	FontPtr font;
 
 	std::vector<ExistingSave> existingSaves;

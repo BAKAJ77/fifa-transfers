@@ -86,6 +86,13 @@ void LoadSave::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1300, 95 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75, 
         "SAVE SELECTION", 5);
 
+    // If no existing saves were found, render a text string letting the user know
+    if (this->userInterface.GetSelectionList("Existing Saves")->GetListElements().empty())
+    {
+        Renderer::GetInstance().RenderShadowedText({ 30, 1050 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 40,
+            "There are no existing saves available to load!", 5);
+    }
+
     // Render the user interface
     this->userInterface.Render();
 }
