@@ -108,52 +108,52 @@ void ViewPlayer::Render() const
         "PLAYER VIEW", 5);
 
     // Render the player stats text
-    Renderer::GetInstance().RenderText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        std::string("NAME: ") + this->displayedPlayer->GetName().data());
+    Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+        std::string("NAME: ") + this->displayedPlayer->GetName().data(), 5);
 
-    Renderer::GetInstance().RenderText({ 60, 260 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        "AGE: " + std::to_string(this->displayedPlayer->GetAge()));
+    Renderer::GetInstance().RenderShadowedText({ 60, 260 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+        "AGE: " + std::to_string(this->displayedPlayer->GetAge()), 5);
 
     if (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
     {
-        Renderer::GetInstance().RenderText({ 60, 320 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-            std::string("NATIONALITY: ") + this->displayedPlayer->GetNation().data());
+        Renderer::GetInstance().RenderShadowedText({ 60, 320 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+            std::string("NATIONALITY: ") + this->displayedPlayer->GetNation().data(), 5);
     }
     else
     {
-        Renderer::GetInstance().RenderText({ 60, 320 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+        Renderer::GetInstance().RenderShadowedText({ 60, 320 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
             std::string("CLUB: ") + SaveData::GetInstance().GetClub(this->displayedPlayer->GetClub())->GetName().data() + " (NATIONALITY: " +
-            this->displayedPlayer->GetNation().data() + ")");
+            this->displayedPlayer->GetNation().data() + ")", 5);
     }
 
     if (SaveData::GetInstance().GetGrowthSystemType() == SaveData::GrowthSystemType::OVERALL_RATING)
     {
-        Renderer::GetInstance().RenderText({ 60, 380 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-            "OVERALL: " + std::to_string(this->displayedPlayer->GetOverall()));
+        Renderer::GetInstance().RenderShadowedText({ 60, 380 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
+            "OVERALL: " + std::to_string(this->displayedPlayer->GetOverall()), 5);
     }
 
-    Renderer::GetInstance().RenderText({ 60, 380 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        "POSITION: " + SaveData::GetInstance().GetPosition(this->displayedPlayer->GetPosition())->type);
+    Renderer::GetInstance().RenderShadowedText({ 60, 380 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+        this->font, 40, "POSITION: " + SaveData::GetInstance().GetPosition(this->displayedPlayer->GetPosition())->type, 5);
 
-    Renderer::GetInstance().RenderText({ 60, 440 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        std::string("PREFERRED FOOT: ") + this->displayedPlayer->GetPreferredFoot().data());
+    Renderer::GetInstance().RenderShadowedText({ 60, 440 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+        this->font, 40, std::string("PREFERRED FOOT: ") + this->displayedPlayer->GetPreferredFoot().data(), 5);
 
-    Renderer::GetInstance().RenderText({ 60, 520 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        "VALUE: " + Util::GetFormattedCashString(this->displayedPlayer->GetValue()));
+    Renderer::GetInstance().RenderShadowedText({ 60, 520 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+        this->font, 40, "VALUE: " + Util::GetFormattedCashString(this->displayedPlayer->GetValue()), 5);
 
-    Renderer::GetInstance().RenderText({ 60, 580 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        "WAGE: " + Util::GetFormattedCashString(this->displayedPlayer->GetWage()));
+    Renderer::GetInstance().RenderShadowedText({ 60, 580 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+        this->font, 40, "WAGE: " + Util::GetFormattedCashString(this->displayedPlayer->GetWage()), 5);
 
     if (this->displayedPlayer->GetReleaseClause() > 0)
-        Renderer::GetInstance().RenderText({ 60, 640 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 
-            40, "RELEASE CLAUSE: " + Util::GetFormattedCashString(this->displayedPlayer->GetReleaseClause()));
+        Renderer::GetInstance().RenderShadowedText({ 60, 640 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+            this->font, 40, "RELEASE CLAUSE: " + Util::GetFormattedCashString(this->displayedPlayer->GetReleaseClause()), 5);
     else
-        Renderer::GetInstance().RenderText({ 60, 640 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 
-            40, "RELEASE CLAUSE: N/A");
+        Renderer::GetInstance().RenderShadowedText({ 60, 640 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+            this->font, 40, "RELEASE CLAUSE: N/A", 5);
 
-    Renderer::GetInstance().RenderText({ 60, 700 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
-        "CONTRACT EXPIRY: " + std::to_string(this->displayedPlayer->GetExpiryYear()) + 
-        " (" + std::to_string(this->displayedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " YEARS LEFT)");
+    Renderer::GetInstance().RenderShadowedText({ 60, 700 + ((int)usingOverallGrowth * 60) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
+        this->font, 40, "CONTRACT EXPIRY: " + std::to_string(this->displayedPlayer->GetExpiryYear()) + 
+        " (" + std::to_string(this->displayedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " YEARS LEFT)", 5);
 
     // Render the user interface
     this->userInterface.Render();
