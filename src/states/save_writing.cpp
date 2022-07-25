@@ -28,64 +28,70 @@ void SaveWriting::Destroy() {}
 
 void SaveWriting::ExecuteSavingProcess()
 {
-    // Before writing the save data, do the potential randomisation process if:
-    // The user specified to and if this is a new save we are writing
-    if (NewSave::GetAppState()->ShouldRandomisePotentials() &&
-        !Util::IsExistingFile(Util::GetAppDataDirectory() + "data/saves/" + SaveData::GetInstance().GetName().data() + ".json"))
+    // Do some operations on the save data if it is a new save
+    if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "data/saves/" + SaveData::GetInstance().GetName().data() + ".json"))
     {
-		constexpr float noIncreaseThreshold = 0.225f;
-		int noPotentialIncreaseCount = 0, numNonPrimeAgePlayers = 0;
-		bool generationRerun = false;
+		// Generate the objectives for each user's club
+		for (UserProfile& user : SaveData::GetInstance().GetUsers())
+			user.GetClub()->GenerateObjectives();
 
-		do
+		// Randomise the potentials of player in the new save if specified to do so
+		if (NewSave::GetAppState()->ShouldRandomisePotentials())
 		{
-			for (auto& player : SaveData::GetInstance().GetPlayerDatabase()) // Loop through each player in the database
+			constexpr float noIncreaseThreshold = 0.225f;
+			int noPotentialIncreaseCount = 0, numNonPrimeAgePlayers = 0;
+			bool generationRerun = false;
+
+			do
 			{
-				constexpr int primeAge = 27;
-				const int primeAgeDifference = std::max(primeAge - player.GetAge(), 0);
-
-				if ((generationRerun && (player.GetPotential() - player.GetOverall() == 0)) || !generationRerun)
+				for (auto& player : SaveData::GetInstance().GetPlayerDatabase()) // Loop through each player in the database
 				{
-					// Calculate the player's potential based on their age and current rating
-					constexpr int maxIncrease = 25;
-					int increasePotential = 0, generationCount = 0;
+					constexpr int primeAge = 27;
+					const int primeAgeDifference = std::max(primeAge - player.GetAge(), 0);
 
-					do
+					if ((generationRerun && (player.GetPotential() - player.GetOverall() == 0)) || !generationRerun)
 					{
-						const int potentialMultiplier = RandomEngine::GetInstance().GenerateRandom<int>(0, primeAgeDifference);
-						increasePotential = potentialMultiplier * RandomEngine::GetInstance().GenerateRandom<int>(1, 4);
-					} while (player.GetOverall() + increasePotential > 94 && generationCount < 3);
+						// Calculate the player's potential based on their age and current rating
+						constexpr int maxIncrease = 25;
+						int increasePotential = 0, generationCount = 0;
 
-					if (increasePotential == 0 && primeAgeDifference > 0)
-						noPotentialIncreaseCount++;
+						do
+						{
+							const int potentialMultiplier = RandomEngine::GetInstance().GenerateRandom<int>(0, primeAgeDifference);
+							increasePotential = potentialMultiplier * RandomEngine::GetInstance().GenerateRandom<int>(1, 4);
+						} while (player.GetOverall() + increasePotential > 94 && generationCount < 3);
 
-					player.SetPotential(std::min(player.GetOverall() + std::min(increasePotential, maxIncrease), 99));
+						if (increasePotential == 0 && primeAgeDifference > 0)
+							noPotentialIncreaseCount++;
 
-					// Calculate value increase based on generated potential
-					if (increasePotential > 0)
-					{
-						float value_multiplier = 0.0f;
-						if (player.GetOverall() <= 70)
-							value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall()) * 2.5f;
-						else
-							value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall());
+						player.SetPotential(std::min(player.GetOverall() + std::min(increasePotential, maxIncrease), 99));
 
-						player.SetValue(Util::GetTruncatedSFInteger((int)(player.GetValue() * value_multiplier), 3));
-						if (player.GetReleaseClause() > 0)
-							player.SetReleaseClause(Util::GetTruncatedSFInteger((int)(player.GetReleaseClause() * value_multiplier), 4));
+						// Calculate value increase based on generated potential
+						if (increasePotential > 0)
+						{
+							float value_multiplier = 0.0f;
+							if (player.GetOverall() <= 70)
+								value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall()) * 2.5f;
+							else
+								value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall());
+
+							player.SetValue(Util::GetTruncatedSFInteger((int)(player.GetValue() * value_multiplier), 3));
+							if (player.GetReleaseClause() > 0)
+								player.SetReleaseClause(Util::GetTruncatedSFInteger((int)(player.GetReleaseClause() * value_multiplier), 4));
+						}
 					}
+
+					if (primeAgeDifference > 0)
+						numNonPrimeAgePlayers++;
 				}
 
-				if (primeAgeDifference > 0)
-					numNonPrimeAgePlayers++;
-			}
+				((float)noPotentialIncreaseCount / (float)numNonPrimeAgePlayers) >= noIncreaseThreshold ?
+					generationRerun = true : generationRerun = false;
 
-			((float)noPotentialIncreaseCount / (float)numNonPrimeAgePlayers) >= noIncreaseThreshold ? 
-				generationRerun = true : generationRerun = false;
-
-			noPotentialIncreaseCount = 0;
-			numNonPrimeAgePlayers = 0;
-		} while (generationRerun);
+				noPotentialIncreaseCount = 0;
+				numNonPrimeAgePlayers = 0;
+			} while (generationRerun);
+		}
     }
 
 	// Write the save data to the json file

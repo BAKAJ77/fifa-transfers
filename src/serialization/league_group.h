@@ -54,6 +54,9 @@ public:
 	// Removes the given club from the league.
 	void RemoveClub(Club* club);
 
+	// Returns the average overall of the clubs in the league.
+	int GetAverageOverall() const;
+
 	// Returns the clubs in the league.
 	std::vector<Club*>& GetClubs();
 

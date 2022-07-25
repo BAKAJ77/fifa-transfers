@@ -170,12 +170,20 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         // Fetch the club's data from the JSON element
         const std::string name = (*root)[idStr]["name"].get<std::string>();
         const uint16_t leagueID = (*root)[idStr]["leagueID"].get<uint16_t>();
-        int transferBudget = 0, wageBudget = 0;
 
+        int transferBudget = 0, wageBudget = 0;
+        std::vector<Club::Objective> objectives;
         if (!loadingDefault)
         {
             transferBudget = (*root)[idStr]["transferBudget"].get<int>();
             wageBudget = (*root)[idStr]["wageBudget"].get<int>();
+
+            // Fetch the club objectives
+            if ((*root)[idStr].contains("objectives"))
+            {
+                for (const nlohmann::json& objective : (*root)[idStr]["objectives"])
+                    objectives.push_back({ objective["compID"].get<uint16_t>(), objective["targetEndPosition"].get<uint16_t>() });
+            }
         }
 
         // Fetch the players which are in the club
@@ -187,7 +195,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         }
 
         // Add the club to the database
-        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players));
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives));
 
 
         ++id;
@@ -361,6 +369,13 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
     root["clubs"][std::to_string(club.GetID())]["leagueID"] = club.GetLeague();
     root["clubs"][std::to_string(club.GetID())]["transferBudget"] = club.GetTransferBudget();
     root["clubs"][std::to_string(club.GetID())]["wageBudget"] = club.GetWageBudget();
+
+    for (size_t index = 0; index < club.GetObjectives().size(); index++)
+    {
+        const Club::Objective& objective = club.GetObjectives()[index];
+        root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["compID"] = objective.compID;
+        root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["targetEndPosition"] = objective.targetEndPosition;
+    }
 }
 
 void SaveData::ConvertPlayerToJSON(nlohmann::json& root, const Player& player) const

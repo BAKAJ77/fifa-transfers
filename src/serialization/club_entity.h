@@ -7,15 +7,22 @@
 
 class Club
 {
+public:
+	struct Objective
+	{
+		uint16_t compID, targetEndPosition;
+	};
 private:
 	std::string name;
 	uint16_t id, leagueID;
 	int transferBudget, wageBudget;
 
 	std::vector<Player*> players;
+	std::vector<Objective> objectives;
 public:
 	Club();
-	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players);
+	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
+		const std::vector<Objective>& objectives);
 
 	~Club() = default;
 
@@ -31,11 +38,17 @@ public:
 	// Sets the wage budget of the club.
 	void SetWageBudget(int budget);
 
+	// Generates new club objectives.
+	void GenerateObjectives();
+
 	// Adds the player given to the club.
 	void AddPlayer(Player* player);
 
 	// Removes player given from the club.
 	void RemovePlayer(Player* player);
+
+	// Returns the average overall of the players in the club.
+	int GetAverageOverall() const;
 
 	// Returns players in the club.
 	std::vector<Player*>& GetPlayers();
@@ -54,6 +67,9 @@ public:
 
 	// Returns the club's wage budget.
 	const int& GetWageBudget() const;
+
+	// Returns the club's current season objectives.
+	const std::vector<Objective>& GetObjectives() const;
 };
 
 #endif

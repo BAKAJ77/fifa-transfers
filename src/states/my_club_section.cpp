@@ -3,6 +3,7 @@
 #include <states/switch_user.h>
 #include <states/manage_squad.h>
 #include <states/statistics.h>
+#include <states/objectives.h>
 
 #include <interface/menu_button.h>
 
@@ -56,6 +57,8 @@ void MyClub::Update(const float& deltaTime)
         const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
         if (button->GetText() == "MANAGE SQUAD" && button->WasClicked())
             this->PushState(ManageSquad::GetAppState());
+        else if (button->GetText() == "OBJECTIVES" && button->WasClicked())
+            this->PushState(Objectives::GetAppState());
         else if (button->GetText() == "STATISTICS" && button->WasClicked())
             this->PushState(Statistics::GetAppState());
         else if (button->GetText() == "SWITCH USER" && button->WasClicked())

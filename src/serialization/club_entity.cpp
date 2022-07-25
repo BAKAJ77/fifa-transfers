@@ -1,15 +1,22 @@
 #include <serialization/club_entity.h>
+#include <serialization/save_data.h>
 #include <util/logging_system.h>
+#include <util/random_engine.h>
 
 #include <cassert>
+#include <cmath>
 
 Club::Club() :
     id(0), leagueID(0), transferBudget(0), wageBudget(0)
 {}
 
-Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players) :
-    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players)
-{}
+Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
+    const std::vector<Objective>& objectives) :
+    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players), objectives(objectives)
+{
+    // Sort the club players (based on their overall rating) in descending order
+    std::sort(this->players.begin(), this->players.end(), [](Player* first, Player* second) { return first->GetOverall() > second->GetOverall(); });
+}
 
 void Club::SetName(const std::string_view& name)
 {
@@ -29,6 +36,65 @@ void Club::SetTransferBudget(int budget)
 void Club::SetWageBudget(int budget)
 {
     this->wageBudget = budget;
+}
+
+void Club::GenerateObjectives()
+{
+    const League* currentLeague = SaveData::GetInstance().GetCurrentLeague();
+
+    // Generate a fair league position objective
+    const std::vector<Club*>& leagueClubs = currentLeague->GetClubs();
+    const int clubOverall = this->GetAverageOverall();
+
+    int numBetterClubs = 0, numEqualClubs = 0;
+    for (const Club* club : leagueClubs)
+    {
+        if (club->GetAverageOverall() > clubOverall)
+            ++numBetterClubs;
+        else if (club->GetAverageOverall() == clubOverall && club->GetID() != this->id)
+            ++numEqualClubs;
+    }
+
+    const int targetLeaguePosition = (numBetterClubs + 1) + RandomEngine::GetInstance().GenerateRandom<int>(0, numEqualClubs);
+    this->objectives.push_back({ currentLeague->GetID(), (uint16_t)targetLeaguePosition });
+
+    // Generate fair targets for the cup competitions
+    for (const League::CompetitionLink& comp : currentLeague->GetLinkedCompetitions())
+    {
+        // Only generate objectives for domestic cup competitions
+        if (comp.competitionID >= 1001 && comp.competitionID <= 1004) 
+            continue;
+
+        // Total up all the better and equal clubs that compete in the same cup competition
+        int totalClubsInComp = numBetterClubs = numEqualClubs = 0;
+
+        for (const League& league : SaveData::GetInstance().GetLeagueDatabase())
+        {
+            for (const League::CompetitionLink& compLink : league.GetLinkedCompetitions())
+            {
+                if (comp.competitionID == compLink.competitionID)
+                {
+                    for (const Club* club : league.GetClubs())
+                    {
+                        if (club->GetAverageOverall() > clubOverall)
+                            ++numBetterClubs;
+                        else if (club->GetAverageOverall() == clubOverall && club->GetID() != this->id)
+                            ++numEqualClubs;
+                    }
+
+                    totalClubsInComp += (int)league.GetClubs().size();
+                    break;
+                }
+            }
+        }
+
+        // If there is less than (or equal to) 6 similar high achieving teams, then the target should be to win the cup
+        const int totalHigherAchievingClubs = (numBetterClubs + RandomEngine::GetInstance().GenerateRandom<int>(0, numEqualClubs));
+        const int targetEndRound = totalHigherAchievingClubs <= 6 ? (int)(SaveData::GetInstance().GetCup(comp.competitionID)->GetRounds().size() + 1) :
+            std::max((int)(SaveData::GetInstance().GetCup(comp.competitionID)->GetRounds().size() - std::log2(std::max(totalHigherAchievingClubs, 1))), 2);
+
+        this->objectives.push_back({ comp.competitionID, (uint16_t)targetEndRound });
+    }
 }
 
 void Club::AddPlayer(Player* player)
@@ -72,6 +138,16 @@ void Club::RemovePlayer(Player* player)
         Severity::WARNING);
 }
 
+int Club::GetAverageOverall() const
+{
+    // Only the top 11 players are taken into account since a team line up consists of 11 players
+    int overallTotal = 0;
+    for (size_t index = 0; index < 11; index++)
+        overallTotal += this->players[index]->GetOverall();
+
+    return overallTotal / 11;
+}
+
 std::vector<Player*>& Club::GetPlayers()
 {
     return this->players;
@@ -100,4 +176,9 @@ const int& Club::GetTransferBudget() const
 const int& Club::GetWageBudget() const
 {
     return this->wageBudget;
+}
+
+const std::vector<Club::Objective>& Club::GetObjectives() const
+{
+    return this->objectives;
 }

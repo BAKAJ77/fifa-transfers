@@ -89,6 +89,15 @@ void League::RemoveClub(Club* club)
         Severity::WARNING);
 }
 
+int League::GetAverageOverall() const
+{
+    int overallTotal = 0;
+    for (const Club* club : this->clubs)
+        overallTotal += club->GetAverageOverall();
+
+    return overallTotal / (int)this->clubs.size();
+}
+
 std::vector<Club*>& League::GetClubs()
 {
     return this->clubs;

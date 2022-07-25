@@ -182,6 +182,7 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
         // Clear the data already in the player, club and user databases before loading
         SaveData::GetInstance().GetPlayerDatabase().clear();
         SaveData::GetInstance().GetClubDatabase().clear();
+        SaveData::GetInstance().GetLeagueDatabase().clear();
         SaveData::GetInstance().GetUsers().clear();
 
         // Load the default data from the player and club database json files
