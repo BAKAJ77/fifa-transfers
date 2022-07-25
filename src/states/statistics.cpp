@@ -111,8 +111,26 @@ void Statistics::Render() const
 
         if (compStats.seasonEndPosition != 0)
         {
-            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition), 5);
+            if (compStats.seasonEndPosition == 1 || compStats.seasonEndPosition == 21)
+            {
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "st", 5);
+            }
+            else if (compStats.seasonEndPosition == 2 || compStats.seasonEndPosition == 22)
+            {
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "nd", 5);
+            }
+            else if (compStats.seasonEndPosition == 3 || compStats.seasonEndPosition == 23)
+            {
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "rd", 5);
+            }
+            else
+            {
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "th", 5);
+            }
         }
         else
         {

@@ -73,10 +73,12 @@ void Objectives::Render() const
 
             if (objective.targetEndPosition == 1)
                 objectiveText = "We expect you to win the league title this season.";
-            else if (objective.targetEndPosition == 2)
-                objectiveText = "We expect you to finish at least 2nd this season.";
-            else if (objective.targetEndPosition == 3)
-                objectiveText = "We expect you to finish at least 3rd this season.";
+            else if (objective.targetEndPosition == 21)
+                objectiveText = "We expect you to finish at least 21st this season.";
+            else if (objective.targetEndPosition == 2 || objective.targetEndPosition == 22)
+                objectiveText = "We expect you to finish at least " + std::to_string(objective.targetEndPosition) + "nd this season.";
+            else if (objective.targetEndPosition == 3 || objective.targetEndPosition == 23)
+                objectiveText = "We expect you to finish at least " + std::to_string(objective.targetEndPosition) + "rd this season.";
             else
                 objectiveText = "We expect you to finish at least " + std::to_string(objective.targetEndPosition) + "th this season.";
 
