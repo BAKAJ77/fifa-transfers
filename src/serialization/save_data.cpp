@@ -45,11 +45,10 @@ void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
         const std::vector<std::string> rounds = dataRoot[idStr]["rounds"].get<std::vector<std::string>>();
 
         const float winnerBonus = dataRoot[idStr]["winnerBonus"].get<float>();
-        const int autoQualificationCompID = dataRoot[idStr]["autoQualificationCompID"].get<int>();
         const int tier = dataRoot[idStr]["tier"].get<int>();
 
         // Add the cup competition to the database
-        this->cupDatabase.emplace_back(KnockoutCup(id, name, region, rounds, winnerBonus, autoQualificationCompID, tier));
+        this->cupDatabase.emplace_back(KnockoutCup(id, name, region, rounds, winnerBonus, tier));
 
         ++id;
     }

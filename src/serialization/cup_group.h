@@ -11,12 +11,11 @@ private:
 	std::string name, region;
 	std::vector<std::string> rounds;
 	float winnerBonus;
-
-	int tier, autoQualificationCompID;
+	int tier;
 public:
 	KnockoutCup();
 	KnockoutCup(uint16_t id, const std::string_view& name, const std::string_view& region, const std::vector<std::string>& rounds, float winnerBonus, 
-		int autoQualificationCompID, int tier);
+		int tier);
 
 	~KnockoutCup() = default;
 
@@ -46,9 +45,6 @@ public:
 
 	// Returns the tier of the cup competition.
 	const int& GetTier() const;
-
-	// Returns the ID of the competition which the winners of this competition get automatic qualification into.
-	const int& GetAutoQualificationCompID() const;
 };
 
 #endif

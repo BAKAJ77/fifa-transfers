@@ -1,6 +1,5 @@
 {
     "1001": {
-        "autoQualificationCompID": -1,
         "name": "INTERNATIONAL PRESEASON CUP",
         "region": "GLOBAL",
         "rounds": [
@@ -14,7 +13,6 @@
         "winnerBonus": 1.5
     },
     "1002": {
-        "autoQualificationCompID": 3,
         "name": "UEFA CONFERENCE LEAGUE",
         "region": "EUROPE",
         "rounds": [
@@ -29,7 +27,6 @@
         "winnerBonus": 12.5
     },
     "1003": {
-        "autoQualificationCompID": 4,
         "name": "UEFA EUROPA LEAGUE",
         "region": "EUROPE",
         "rounds": [
@@ -44,7 +41,6 @@
         "winnerBonus": 20.0
     },
     "1004": {
-        "autoQualificationCompID": 4,
         "name": "UEFA CHAMPIONS LEAGUE",
         "region": "EUROPE",
         "rounds": [
@@ -58,7 +54,6 @@
         "winnerBonus": 30.0
     },
     "1005": {
-        "autoQualificationCompID": -1,
         "name": "EFL PAPA JOHN CUP",
         "region": "ENGLAND",
         "rounds": [
@@ -73,7 +68,6 @@
         "winnerBonus": 7.5
     },
     "1006": {
-        "autoQualificationCompID": 2,
         "name": "EFL CARABAO CUP",
         "region": "ENGLAND",
         "rounds": [
@@ -89,7 +83,6 @@
         "winnerBonus": 15.0
     },
     "1007": {
-        "autoQualificationCompID": 3,
         "name": "EMIRATES FA CUP",
         "region": "ENGLAND",
         "rounds": [
