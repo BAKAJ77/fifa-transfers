@@ -10,13 +10,14 @@ namespace Events
 }
 
 ButtonBase::ButtonBase() :
-    shadowDistance(0.0f), opacity(0.0f), hovering(false), clicked(false)
+    shadowDistance(0.0f), opacity(0.0f), hovering(false), clicked(false), clickedOutside(false)
 {}
 
 ButtonBase::ButtonBase(const glm::vec2& pos, const glm::vec2& baseSize, const glm::vec2& maxSize, const glm::vec3& baseColor,
     const glm::vec3& highlightColor, const glm::vec3& edgeColor, float opacity, float shadowDistance) :
     position(pos), baseSize(baseSize), currentSize(baseSize), maxSize(maxSize), currentColor(baseColor), baseColor(baseColor),
-    highlightColor(highlightColor), edgeColor(edgeColor), shadowDistance(shadowDistance), opacity(opacity), hovering(false), clicked(false)
+    highlightColor(highlightColor), edgeColor(edgeColor), shadowDistance(shadowDistance), opacity(opacity), hovering(false), clicked(false),
+    clickedOutside(false)
 {}
 
 void ButtonBase::SetPosition(const glm::vec2& pos)
@@ -72,7 +73,7 @@ void ButtonBase::Render(float masterOpacity) const
 
 void ButtonBase::CheckButtonClicked()
 {
-    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && Events::released)
+    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && Events::released && !this->clickedOutside)
     {
         this->clicked = true;
         Events::released = false;
@@ -146,6 +147,11 @@ void ButtonBase::UpdateButtonAnimation(const float& deltaTime, float animationSp
         // Animate the button's gradual change to the base size
         this->currentSize = this->Interpolate(this->currentSize, this->maxSize, this->baseSize, animationSpeed, deltaTime);
     }
+
+    if (InputSystem::GetInstance().WasMouseButtonPressed(MouseCode::MOUSE_BUTTON_LEFT) && (!this->hovering || this->clickedOutside))
+        this->clickedOutside = true;
+    else
+        this->clickedOutside = false;
 
     // The user must release the left mouse button before being able to click the button again.
     // This prevents the click boolean from being constantly set as TRUE if the user holds the left mouse button on an interface button.
