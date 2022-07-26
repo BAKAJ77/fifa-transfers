@@ -59,7 +59,7 @@ void EndSeason::Update(const float& deltaTime)
         {
             if (EndCompetition::GetAppState()->GetAmountOfIncompleteCompetitions() == 0)
             {
-                // PushState()
+                // TODO: Implement the new transfer and wage budget calculation system 
             }
             else
                 this->PopState();

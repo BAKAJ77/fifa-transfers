@@ -63,15 +63,15 @@ void ViewPlayer::Update(const float& deltaTime)
 
             if (button->GetText() == "RENEW CONTRACT" && button->WasClicked())
             {
-                // TODO
+                // TODO: Implement contract renewal system
             }
             else if (button->GetText() == "INITIATE TRANSFER TALKS" && button->WasClicked())
             {
-                // TODO
+                // TODO: Implement transfer initiation system
             }
             else if (button->GetText() == "ACTIVATE RELEASE CLAUSE" && button->WasClicked())
             {
-                // TODO
+                // TODO: Implement release clause activation system
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
                 this->exitState = true;
