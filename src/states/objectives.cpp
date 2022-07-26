@@ -54,7 +54,6 @@ void Objectives::Update(const float& deltaTime)
 
 void Objectives::Render() const
 {
-    constexpr float indicatorOffset = 20.0f;
     const std::vector<Club::Objective>& objectives = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetObjectives();
     
     // Render the objectives background
