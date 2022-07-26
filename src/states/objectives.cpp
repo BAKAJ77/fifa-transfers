@@ -5,7 +5,8 @@
 
 void Objectives::Init()
 {
-    MainGame::GetAppState()->SetUpdateWhilePaused(false);
+    if (this->startedFromMyClubMenu)
+        MainGame::GetAppState()->SetUpdateWhilePaused(false);
 
     // Initialize the member variables
     this->exitState = false;
@@ -23,7 +24,8 @@ void Objectives::Init()
 
 void Objectives::Destroy()
 {
-    MainGame::GetAppState()->SetUpdateWhilePaused(true);
+    if (this->startedFromMyClubMenu)
+        MainGame::GetAppState()->SetUpdateWhilePaused(true);
 }
 
 void Objectives::Update(const float& deltaTime)
@@ -54,7 +56,7 @@ void Objectives::Update(const float& deltaTime)
 
 void Objectives::Render() const
 {
-    const std::vector<Club::Objective>& objectives = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetObjectives();
+    const std::vector<Club::Objective>& objectives = this->focusedUser->GetClub()->GetObjectives();
     
     // Render the objectives background
     Renderer::GetInstance().RenderSquare({ 800, 592.5f }, { 1540, 925 }, { glm::vec3(30), this->userInterface.GetOpacity() });
@@ -129,7 +131,7 @@ void Objectives::Render() const
 
 void Objectives::RenderObjectiveStatusIndicator(const Club::Objective& objective, float yPos, bool isLeagueObjective) const
 {
-    for (const UserProfile::CompetitionData& compStats : MainGame::GetAppState()->GetCurrentUser()->GetCompetitionData())
+    for (const UserProfile::CompetitionData& compStats : this->focusedUser->GetCompetitionData())
     {
         if (compStats.compID == objective.compID)
         {
@@ -189,4 +191,10 @@ Objectives* Objectives::GetAppState()
 {
     static Objectives appStates;
     return &appStates;
+}
+
+void Objectives::SetUserProfile(UserProfile* user, bool startedFromMyClubMenu)
+{
+    this->focusedUser = user;
+    this->startedFromMyClubMenu = startedFromMyClubMenu;
 }

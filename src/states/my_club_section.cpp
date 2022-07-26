@@ -58,7 +58,10 @@ void MyClub::Update(const float& deltaTime)
         if (button->GetText() == "MANAGE SQUAD" && button->WasClicked())
             this->PushState(ManageSquad::GetAppState());
         else if (button->GetText() == "OBJECTIVES" && button->WasClicked())
+        {
+            Objectives::GetAppState()->SetUserProfile(MainGame::GetAppState()->GetCurrentUser());
             this->PushState(Objectives::GetAppState());
+        }
         else if (button->GetText() == "STATISTICS" && button->WasClicked())
             this->PushState(Statistics::GetAppState());
         else if (button->GetText() == "SWITCH USER" && button->WasClicked())

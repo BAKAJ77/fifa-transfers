@@ -1,6 +1,7 @@
 #include <states/continue_game.h>
 #include <states/main_game.h>
 #include <states/end_competition.h>
+#include <states/end_season.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -48,6 +49,8 @@ void ContinueGame::Update(const float& deltaTime)
         const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
         if (button->GetText() == "END COMPETITION" && button->WasClicked())
             this->PushState(EndCompetition::GetAppState());
+        else if (button->GetText() == "END SEASON" && button->WasClicked())
+            this->PushState(EndSeason::GetAppState());
     }
 
     // If another parallel app state has been requested to start, then roll back to the main game state so it can be stared

@@ -145,7 +145,7 @@ int EndCompetition::GetAmountOfIncompleteCompetitions() const
     int incompleteCompCount = 0;
     for (const UserProfile::CompetitionData& compStats : SaveData::GetInstance().GetUsers().front().GetCompetitionData())
     {
-        if (compStats.seasonEndPosition == 0)
+        if ((compStats.seasonEndPosition == 0) && (compStats.compID < 1002 || compStats.compID > 1004))
             ++incompleteCompCount;
     }
 
