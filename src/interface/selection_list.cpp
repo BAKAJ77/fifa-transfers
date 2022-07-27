@@ -56,6 +56,7 @@ void SelectionList::AddElement(const std::vector<std::string>& categoryValues, i
 void SelectionList::Clear()
 {
     this->listElements.clear();
+    this->listOffset = 0;
 }
 
 void SelectionList::Reset()
