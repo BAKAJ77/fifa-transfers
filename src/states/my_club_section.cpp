@@ -4,6 +4,7 @@
 #include <states/manage_squad.h>
 #include <states/statistics.h>
 #include <states/objectives.h>
+#include <states/transfer_hub.h>
 
 #include <interface/menu_button.h>
 
@@ -57,6 +58,8 @@ void MyClub::Update(const float& deltaTime)
         const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
         if (button->GetText() == "MANAGE SQUAD" && button->WasClicked())
             this->PushState(ManageSquad::GetAppState());
+        else if (button->GetText() == "TRANSFER HUB" && button->WasClicked())
+            this->PushState(TransferHub::GetAppState());
         else if (button->GetText() == "OBJECTIVES" && button->WasClicked())
         {
             Objectives::GetAppState()->SetUserProfile(MainGame::GetAppState()->GetCurrentUser());
