@@ -55,6 +55,7 @@ public:
 	void Render(float masterOpacity) const;
 
 	// Returns the value of the current selected option element.
+	// If none are currently selected, -1 is returned.
 	int GetCurrentSelected() const;
 
 	// Returns TRUE if the drop down is active i.e the selection options have dropped down.
