@@ -111,6 +111,8 @@ void AppStateSystem::RollBack(AppState* appState)
 
 			iterator = this->stateStack.rbegin();
 		}
+
+		this->pendingOperations.push({ SystemCommand::POP, nullptr });
 	}
 	else
 		LogSystem::GetInstance().OutputLog("Rollback operation failure, state given is not in stack", Severity::WARNING);
