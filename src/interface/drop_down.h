@@ -19,7 +19,7 @@ private:
 private:
 	FontPtr font;
 	glm::vec2 position, size;
-	float fontSize, opacity;
+	float fontSize, textOffset, opacity;
 	bool doDropDown, clicked, released;
 
 	int selectionsOffset, maxSelectionsVisible;
@@ -27,7 +27,7 @@ private:
 	Element currentSelected;
 public:
 	DropDown();
-	DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity = 255.0f);
+	DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity = 255.0f, float fontSize = -1.0f, float textOffset = 7.5f);
 	DropDown(const DropDown& other) = default;
 	DropDown(DropDown&& temp) noexcept;
 

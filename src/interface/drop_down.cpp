@@ -4,11 +4,12 @@
 #include <util/logging_system.h>
 
 DropDown::DropDown() :
-    opacity(0.0f), doDropDown(false), fontSize(0), clicked(false), released(false), selectionsOffset(0), maxSelectionsVisible(0)
+    opacity(0.0f), doDropDown(false), fontSize(0), clicked(false), released(false), selectionsOffset(0), maxSelectionsVisible(0), textOffset(0.0f)
 {}
 
-DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity) :
-    position(pos), size(size), opacity(opacity), doDropDown(false), clicked(false), released(false), fontSize(size.y / 2.5f), selectionsOffset(0)
+DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity, float fontSize, float textOffset) :
+    position(pos), size(size), opacity(opacity), doDropDown(false), clicked(false), released(false), fontSize(fontSize <= 0.0f ? size.y / 2.5f : fontSize), 
+    textOffset(textOffset), selectionsOffset(0)
 {
     // Load the font to be used
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -24,7 +25,8 @@ DropDown::DropDown(const glm::vec2& pos, const glm::vec2& size, float opacity) :
 DropDown::DropDown(DropDown&& temp) noexcept :
     font(std::move(temp.font)), position(std::move(temp.position)), size(std::move(temp.size)), fontSize(std::move(temp.fontSize)), 
     opacity(std::move(temp.opacity)), selections(std::move(temp.selections)), currentSelected(std::move(temp.currentSelected)), clicked(false), 
-    released(false), doDropDown(false), selectionsOffset(0), maxSelectionsVisible(std::move(temp.maxSelectionsVisible))
+    released(false), doDropDown(false), selectionsOffset(0), maxSelectionsVisible(std::move(temp.maxSelectionsVisible)), 
+    textOffset(std::move(temp.textOffset))
 {}
 
 DropDown& DropDown::operator=(DropDown&& temp) noexcept
@@ -33,6 +35,7 @@ DropDown& DropDown::operator=(DropDown&& temp) noexcept
     this->position = std::move(temp.position);
     this->size = std::move(temp.size);
     this->fontSize = std::move(temp.fontSize);
+    this->textOffset = std::move(temp.textOffset);
     this->opacity = std::move(temp.opacity);
     
     this->maxSelectionsVisible = std::move(temp.maxSelectionsVisible);
@@ -135,13 +138,11 @@ void DropDown::Update(const float& deltaTime)
 
 void DropDown::Render(float masterOpacity) const
 {
-    constexpr float offset = 7.5f;
-
     // Render the current selection button
     this->currentSelected.button.Render(masterOpacity);
 
     // Render the current selection button text
-    Renderer::GetInstance().RenderText({ this->position.x - (this->currentSelected.textSize.x / 2) + offset,
+    Renderer::GetInstance().RenderText({ this->position.x - (this->currentSelected.textSize.x / 2) + this->textOffset,
         this->position.y + (this->currentSelected.textSize.y / 2) }, glm::vec4(255, 255, 255, (this->opacity * masterOpacity) / 255.0f), this->font,
         (uint32_t)this->fontSize, this->currentSelected.id);
 
@@ -153,7 +154,7 @@ void DropDown::Render(float masterOpacity) const
             this->selections[i].button.Render(masterOpacity);
 
             // Render the selection element button text
-            Renderer::GetInstance().RenderText({ this->selections[i].button.GetPosition().x - (this->selections[i].textSize.x / 2) + offset,
+            Renderer::GetInstance().RenderText({ this->selections[i].button.GetPosition().x - (this->selections[i].textSize.x / 2) + this->textOffset,
                 this->selections[i].button.GetPosition().y + (this->selections[i].textSize.y / 2) }, 
                 glm::vec4(255, 255, 255, (this->opacity * masterOpacity) / 255.0f), this->font, (uint32_t)this->fontSize, this->selections[i].id);
         }
