@@ -21,10 +21,25 @@ public:
 		SKILL_POINTS
 	};
 
+	enum class CooldownType
+	{
+		CONTRACT_NEGOTIATING = 0,
+		TRANSFER_NEGOTIATING = 1
+	};
+
 	struct Position
 	{
 		uint16_t id;
 		std::string type;
+	};
+
+	struct NegotiationCooldown
+	{
+		uint16_t playerID;
+		uint16_t clubID; // If this is set as 0, then all clubs are included in the negotiation cooldown with the player
+		CooldownType type;
+
+		int ticksRemaining;
 	};
 private:
 	std::string name;
@@ -34,6 +49,7 @@ private:
 	uint16_t currentYear;
 	League* currentLeague;
 	std::vector<UserProfile> users;
+	std::vector<NegotiationCooldown> negotiationCooldowns;
 
 	std::vector<KnockoutCup> cupDatabase;
 	std::vector<League> leagueDatabase;
@@ -49,6 +65,9 @@ private:
 
 	// Converts the data of the user given into JSON and inserts it into the JSON object given.
 	void ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile& user) const;
+
+	// Converts the data of the negotiation cooldown given into JSON and inserts it into the JSON object given.
+	void ConvertNegotiationCooldownToJSON(nlohmann::json& root, const NegotiationCooldown& cooldown, int index) const;
 public:
 	SaveData();
 	SaveData(const SaveData& other) = delete;
@@ -92,6 +111,9 @@ public:
 	// Loads every position's data in the JSON structure into the vector.
 	void LoadPositionsFromJSON(const nlohmann::json& dataRoot);
 
+	// Loads every negotiation cooldown's data in the JSON structure into the vector.
+	void LoadNegotiationCooldownFromJSON(const nlohmann::json& dataRoot);
+
 	// Writes the contained save data into a save file.
 	void Write(float& currentProgress, std::mutex& mutex);
 	
@@ -127,6 +149,9 @@ public:
 
 	// Returns the save's user profiles.
 	std::vector<UserProfile>& GetUsers();
+
+	// Returns the save's negotiation cooldowns.
+	std::vector<NegotiationCooldown>& GetNegotiationCooldowns();
 
 	// Returns the save's position database.
 	std::vector<Position>& GetPositionDatabase();

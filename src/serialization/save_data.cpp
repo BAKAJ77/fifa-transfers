@@ -267,13 +267,36 @@ void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
     this->positionDatabase.shrink_to_fit();
 }
 
+void SaveData::LoadNegotiationCooldownFromJSON(const nlohmann::json& dataRoot)
+{
+    if (dataRoot.contains("negotiationCooldowns"))
+    {
+        uint16_t id = 1;
+        while (dataRoot["negotiationCooldowns"].contains(std::to_string(id)))
+        {
+            const std::string idStr = std::to_string(id);
+
+            // Fetch the negotiation cooldown's data from the JSON element
+            const uint16_t playerID = dataRoot["negotiationCooldowns"][idStr]["playerID"].get<uint16_t>();
+            const uint16_t clubID = dataRoot["negotiationCooldowns"][idStr]["clubID"].get<uint16_t>();
+            const CooldownType type = (CooldownType)dataRoot["negotiationCooldowns"][idStr]["cooldownType"].get<int>();
+            const int ticksRemaining = dataRoot["negotiationCooldowns"][idStr]["ticksRemaining"].get<int>();
+
+            // Add the negotiation cooldown to the database
+            this->negotiationCooldowns.push_back({ playerID, clubID, type, ticksRemaining });
+
+            ++id;
+        }
+    }
+}
+
 void SaveData::Write(float& currentProgress, std::mutex& mutex)
 {
     // Open the save file (it will be generated if it's a new save file)
     JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
     
     // Calculate the progress increase per action
-    const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size());
+    const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size() + this->negotiationCooldowns.size());
     const float progressPerAction = 95.0f / (float)numActions;
 
     // Write the save's current year and league
@@ -316,6 +339,19 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
         }
     }
 
+    // Write the data of all negotiation cooldowns into the JSON structure
+    int index = 0;
+    for (const NegotiationCooldown& cooldown : this->negotiationCooldowns)
+    {
+        this->ConvertNegotiationCooldownToJSON(file.GetRoot(), cooldown, ++index);
+
+        // Update the current progress tracker
+        {
+            std::scoped_lock lock(mutex);
+            currentProgress += progressPerAction;
+        }
+    }
+
     file.Close();
     file.Clear();
 
@@ -350,16 +386,6 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
         std::scoped_lock lock(mutex);
         currentProgress = 100.0f;
     }
-}
-
-const uint16_t& SaveData::GetCurrentYear() const
-{
-    return this->currentYear;
-}
-
-const League* SaveData::GetCurrentLeague() const
-{
-    return this->currentLeague;
 }
 
 void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
@@ -427,6 +453,24 @@ void SaveData::ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile&
 
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["titlesWon"] = compData.titlesWon;
     }
+}
+
+void SaveData::ConvertNegotiationCooldownToJSON(nlohmann::json& root, const NegotiationCooldown& cooldown, int index) const
+{
+    root["negotiationCooldowns"][std::to_string(index)]["playerID"] = cooldown.playerID;
+    root["negotiationCooldowns"][std::to_string(index)]["clubID"] = cooldown.clubID;
+    root["negotiationCooldowns"][std::to_string(index)]["cooldownType"] = (int)cooldown.type;
+    root["negotiationCooldowns"][std::to_string(index)]["ticksRemaining"] = cooldown.ticksRemaining;
+}
+
+const uint16_t& SaveData::GetCurrentYear() const
+{
+    return this->currentYear;
+}
+
+const League* SaveData::GetCurrentLeague() const
+{
+    return this->currentLeague;
 }
 
 UserProfile* SaveData::GetUser(uint16_t id)
@@ -504,6 +548,11 @@ KnockoutCup* SaveData::GetCup(uint16_t id)
 std::vector<UserProfile>& SaveData::GetUsers()
 {
     return this->users;
+}
+
+std::vector<SaveData::NegotiationCooldown>& SaveData::GetNegotiationCooldowns()
+{
+    return this->negotiationCooldowns;
 }
 
 std::vector<SaveData::Position>& SaveData::GetPositionDatabase()

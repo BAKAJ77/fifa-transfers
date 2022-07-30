@@ -20,6 +20,8 @@ protected:
 	void Render() const override;
 
 	bool OnStartupTransitionUpdate(const float deltaTime) override;
+	bool OnPauseTransitionUpdate(const float deltaTime) override;
+	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
 	static ViewPlayer* GetAppState();
 

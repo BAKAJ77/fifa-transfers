@@ -33,10 +33,11 @@ void SaveLoading::ExecuteLoadingProcess()
     SaveData::GetInstance().SetPlayerCount((uint8_t)saveMetadata.playerCount);
     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)saveMetadata.growthSystemID);
 
-    // Clear the data already in the player, club and user databases before loading
+    // Clear the databases before loading
     SaveData::GetInstance().GetPlayerDatabase().clear();
     SaveData::GetInstance().GetClubDatabase().clear();
     SaveData::GetInstance().GetUsers().clear();
+    SaveData::GetInstance().GetNegotiationCooldowns().clear();
 
     // Now load the save data from the save file
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
@@ -60,6 +61,13 @@ void SaveLoading::ExecuteLoadingProcess()
     {
         std::scoped_lock lock(this->mutex);
         this->loadingProgress = 85;
+    }
+
+    SaveData::GetInstance().LoadNegotiationCooldownFromJSON(saveFileLoader.GetRoot());
+
+    {
+        std::scoped_lock lock(this->mutex);
+        this->loadingProgress = 90;
     }
 
     // Open the leagues JSON file and load every league's data

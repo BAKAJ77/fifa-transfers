@@ -1,5 +1,6 @@
 #include <states/view_player.h>
 #include <states/main_game.h>
+#include <states/contract_negotiation.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -63,7 +64,8 @@ void ViewPlayer::Update(const float& deltaTime)
 
             if (button->GetText() == "RENEW CONTRACT" && button->WasClicked())
             {
-                // TODO: Implement contract renewal system
+                ContractNegotiation::GetAppState()->SetNegotiatingPlayer(this->displayedPlayer, true);
+                this->PushState(ContractNegotiation::GetAppState());
             }
             else if (button->GetText() == "INITIATE TRANSFER TALKS" && button->WasClicked())
             {
@@ -91,11 +93,7 @@ void ViewPlayer::Update(const float& deltaTime)
     }
     else
     {
-        constexpr float transitionSpeed = 1000.0f;
-
-        // Update the fade out effect of the user interface
-        this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
-        if (this->userInterface.GetOpacity() == 0.0f)
+        if (this->OnPauseTransitionUpdate(deltaTime))
             this->PopState();
     }
 }
@@ -169,6 +167,23 @@ bool ViewPlayer::OnStartupTransitionUpdate(const float deltaTime)
         return true;
 
     return false;
+}
+
+bool ViewPlayer::OnPauseTransitionUpdate(const float deltaTime)
+{
+    constexpr float transitionSpeed = 1000.0f;
+
+    // Update the fade out effect of the user interface
+    this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
+    if (this->userInterface.GetOpacity() == 0.0f)
+        return true;
+
+    return false;
+}
+
+bool ViewPlayer::OnResumeTransitionUpdate(const float deltaTime)
+{
+    return this->OnStartupTransitionUpdate(deltaTime);
 }
 
 ViewPlayer* ViewPlayer::GetAppState()
