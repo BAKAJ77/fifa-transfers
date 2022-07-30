@@ -24,6 +24,9 @@ protected:
 	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
 	static ManageSquad* GetAppState();
+
+	// Reloads the players in the squad into the selection list.
+	void ReloadSquad();
 };
 
 #endif

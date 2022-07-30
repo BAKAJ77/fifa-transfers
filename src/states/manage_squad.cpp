@@ -27,6 +27,18 @@ void ManageSquad::Init()
     this->userInterface.GetSelectionList("Players")->AddCategory("Position");
     this->userInterface.GetSelectionList("Players")->AddCategory("Expiry Year");
     
+    this->ReloadSquad();
+}
+
+void ManageSquad::Destroy()
+{
+    MainGame::GetAppState()->SetUpdateWhilePaused(true);
+}
+
+void ManageSquad::ReloadSquad()
+{
+    this->userInterface.GetSelectionList("Players")->Clear();
+
     for (size_t index = 0; index < this->currentUserClub->GetPlayers().size(); index++)
     {
         const Player* player = this->currentUserClub->GetPlayers()[index];
@@ -34,22 +46,17 @@ void ManageSquad::Init()
         if (player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() == 1)
         {
             // Set the selection element color as YELLOW if the player only has 1 year left on his contract
-            this->userInterface.GetSelectionList("Players")->AddElement({ player->GetName().data(), player->GetNation().data(), 
-                std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type, 
+            this->userInterface.GetSelectionList("Players")->AddElement({ player->GetName().data(), player->GetNation().data(),
+                std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type,
                 std::to_string(player->GetExpiryYear()) }, (int)index, { 85, 85, 0 }, { 115, 115, 0 }, { 60, 60, 0 });
         }
         else
         {
             this->userInterface.GetSelectionList("Players")->AddElement({ player->GetName().data(), player->GetNation().data(),
-                std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type, 
+                std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type,
                 std::to_string(player->GetExpiryYear()) }, (int)index);
         }
     }
-}
-
-void ManageSquad::Destroy()
-{
-    MainGame::GetAppState()->SetUpdateWhilePaused(true);
 }
 
 void ManageSquad::Update(const float& deltaTime)
