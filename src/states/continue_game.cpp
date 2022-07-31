@@ -14,13 +14,10 @@ void ContinueGame::Init()
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
-    this->userInterface.AddButton(new MenuButton({ 486.25f, 482.5f }, { 922.5f, 365 }, { 932.5f, 375 }, "END COMPETITION", glm::vec3(60), glm::vec3(90),
-        glm::vec3(120), 255, false, 90, 25));
-    this->userInterface.AddButton(new MenuButton({ 486.25f, 872.5f }, { 922.5f, 365 }, { 932.5f, 375 }, "END SEASON", glm::vec3(60), glm::vec3(90),
-        glm::vec3(120), 255, false, 90, 25));
-
-    this->userInterface.AddSelectionList("Transfer News", SelectionList({ 1433.75f, 620 }, { 922.5f, 640 }, 80));
-    this->userInterface.GetSelectionList("Transfer News")->AddCategory("Transfer News");
+    this->userInterface.AddButton(new MenuButton({ 960, 482.5f }, { 1870, 365 }, { 1880, 375 }, "END COMPETITION", glm::vec3(60), glm::vec3(90),
+        glm::vec3(120), 255, false, 120, 50));
+    this->userInterface.AddButton(new MenuButton({ 960, 872.5f }, { 1870, 365 }, { 1880, 375 }, "END SEASON", glm::vec3(60), glm::vec3(90),
+        glm::vec3(120), 255, false, 120, 50));
 }
 
 void ContinueGame::Destroy() {}
