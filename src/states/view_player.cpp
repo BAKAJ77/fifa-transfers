@@ -1,6 +1,7 @@
 #include <states/view_player.h>
 #include <states/main_game.h>
 #include <states/contract_negotiation.h>
+#include <states/release_clause_activation.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -10,6 +11,7 @@ void ViewPlayer::Init()
 {
     // Initialize the member variables
     this->exitState = false;
+    this->alreadyOwnedPlayer = (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID());
     this->usingOverallGrowth = (SaveData::GetInstance().GetGrowthSystemType() == SaveData::GrowthSystemType::OVERALL_RATING);
 
     // Fetch the Bahnschrift Bold font
@@ -19,7 +21,7 @@ void ViewPlayer::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    if (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
+    if (this->alreadyOwnedPlayer)
     {
         this->userInterface.AddTickBox("Block Transfers", TickBox({ 60, 750 + ((int)usingOverallGrowth * 60) }, glm::vec2(40), "BLOCK TRANSFERS?", 255, 5,
             this->displayedPlayer->GetTransfersBlocked()));
@@ -43,7 +45,7 @@ void ViewPlayer::Init()
 
 void ViewPlayer::Destroy() 
 {
-    if (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
+    if (this->alreadyOwnedPlayer)
     {
         this->displayedPlayer->SetTransfersBlocked(this->userInterface.GetTickBox("Block Transfers")->isCurrentlyTicked());
         this->displayedPlayer->SetTransferListed(this->userInterface.GetTickBox("Transfer List")->isCurrentlyTicked());
@@ -73,13 +75,14 @@ void ViewPlayer::Update(const float& deltaTime)
             }
             else if (button->GetText() == "ACTIVATE RELEASE CLAUSE" && button->WasClicked())
             {
-                // TODO: Implement release clause activation system
+                ReleaseClauseActivation::GetAppState()->SetTargettedPlayer(this->displayedPlayer);
+                this->PushState(ReleaseClauseActivation::GetAppState());
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
                 this->exitState = true;
         }
 
-        if (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
+        if (this->alreadyOwnedPlayer)
         {
             // Hide and reset the transfer list option if the block transfers option is enabled
             if (this->userInterface.GetTickBox("Block Transfers")->isCurrentlyTicked())
@@ -112,7 +115,7 @@ void ViewPlayer::Render() const
     Renderer::GetInstance().RenderShadowedText({ 60, 260 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
         "AGE: " + std::to_string(this->displayedPlayer->GetAge()), 5);
 
-    if (this->displayedPlayer->GetClub() == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
+    if (this->alreadyOwnedPlayer)
     {
         Renderer::GetInstance().RenderShadowedText({ 60, 320 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40,
             std::string("NATIONALITY: ") + this->displayedPlayer->GetNation().data(), 5);

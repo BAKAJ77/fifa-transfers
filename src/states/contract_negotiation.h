@@ -32,6 +32,10 @@ public:
 
 	// Sets the player which the user will negotiate a new contract with.
 	void SetNegotiatingPlayer(Player* player, bool renewingContract);
+
+	// Returns TRUE if the player avoided negotiating with the user.
+	// This could be because of negotiation cooldowns, the player being too good for the user's club etc.
+	bool wasNegotiationsAvoided() const;
 };
 
 #endif

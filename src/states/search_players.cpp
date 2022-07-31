@@ -29,6 +29,11 @@ void SearchPlayers::Init()
 
 void SearchPlayers::Destroy() {}
 
+void SearchPlayers::Resume()
+{
+    this->Reset();
+}
+
 void SearchPlayers::UpdateSelectionList()
 {
     // Tranform the filter inputs into upper case
@@ -73,6 +78,21 @@ void SearchPlayers::UpdateSelectionList()
         this->previousClubEntry = clubNameFilter;
         this->previousPositionEntry = positionFilter;
     }
+}
+
+void SearchPlayers::Reset()
+{
+    // Clear the filter inputs
+    this->userInterface.GetTextField("Name")->Clear();
+    this->userInterface.GetTextField("Club")->Clear();
+    this->userInterface.GetTextField("Position")->Clear();
+
+    this->previousNameEntry.clear();
+    this->previousClubEntry.clear();
+    this->previousPositionEntry.clear();
+
+    // Clear the player selection list
+    this->userInterface.GetSelectionList("Players")->Clear();
 }
 
 void SearchPlayers::Update(const float& deltaTime)

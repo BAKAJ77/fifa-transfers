@@ -1,5 +1,6 @@
 #include <states/contract_negotiation.h>
 #include <states/contract_response.h>
+#include <states/view_player.h>
 #include <states/main_game.h>
 
 #include <interface/menu_button.h>
@@ -118,7 +119,7 @@ void ContractNegotiation::Update(const float& deltaTime)
     else
     {
         if (this->OnPauseTransitionUpdate(deltaTime))
-            this->PopState();
+            this->RollBack(ViewPlayer::GetAppState());
     }
 }
 
@@ -229,4 +230,9 @@ void ContractNegotiation::SetNegotiatingPlayer(Player* player, bool renewingCont
 {
     this->negotiatingPlayer = player;
     this->renewingContract = renewingContract;
+}
+
+bool ContractNegotiation::wasNegotiationsAvoided() const
+{
+    return this->onNegotiationCooldown;
 }

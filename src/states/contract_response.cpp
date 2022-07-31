@@ -1,4 +1,5 @@
 #include <states/contract_response.h>
+#include <states/search_players.h>
 #include <states/manage_squad.h>
 #include <states/view_player.h>
 #include <states/main_game.h>
@@ -91,21 +92,21 @@ int ContractResponse::GenerateContractLengthResponse() const
 	if (this->renewingContract)
 	{
 		const int contractYearsRemaining = this->negotiatingPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear();
-        preferenceWeight = (int)(((10 - (contractYearsRemaining + this->contractLength)) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 20.0f));
+        preferenceWeight = (int)(((7 - (contractYearsRemaining + this->contractLength)) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 20.0f));
 	}
 	else
-        preferenceWeight = (int)(((10 - this->contractLength) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 20.0f));
+        preferenceWeight = (int)(((7 - this->contractLength) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 22.0f));
 
-	if (preferenceWeight <= 300)
+	if (preferenceWeight < 300)
 	{
         // Generate a shorter contract length
-        const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, 2);
+        const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, (this->negotiatingPlayer->GetAge() > 25 ? 3 : 2));
         requestedContractLength = std::max(this->contractLength - lengthOffset, (int)(!this->renewingContract));
 	}
-    else if (preferenceWeight >= 600)
+    else if (preferenceWeight > 600)
     {
         // Generate a longer contract length
-        const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, 2);
+        const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, (this->negotiatingPlayer->GetAge() < 23 ? 3 : 2));
         requestedContractLength = std::min(this->contractLength + lengthOffset, 5);
     }
 
@@ -164,7 +165,12 @@ void ContractResponse::Update(const float& deltaTime)
         // Update the fade out effect of the user interface
         this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
         if (this->userInterface.GetOpacity() == 0.0f)
-            this->RollBack(ViewPlayer::GetAppState());
+        {
+            if (this->renewingContract)
+                this->RollBack(ViewPlayer::GetAppState());
+            else
+                this->RollBack(SearchPlayers::GetAppState());
+        }
     }
 }
 
@@ -286,4 +292,9 @@ void ContractResponse::SetContractOffer(Player* player, int length, int wage, in
     this->contractLength = length;
     this->contractWage = wage;
     this->contractReleaseClause = releaseClause;
+}
+
+bool ContractResponse::WasNegotiationSuccessful() const
+{
+    return this->negotiationSuccessful;
 }

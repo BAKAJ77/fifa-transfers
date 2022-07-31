@@ -18,6 +18,8 @@ protected:
 	void Init() override;
 	void Destroy() override;
 
+	void Resume() override;
+
 	void Update(const float& deltaTime) override;
 	void Render() const override;
 
@@ -26,6 +28,9 @@ protected:
 	bool OnResumeTransitionUpdate(const float deltaTime) override;
 public:
 	static SearchPlayers* GetAppState();
+
+	// Clears the filter inputs and the player selection list.
+	void Reset();
 };
 
 #endif

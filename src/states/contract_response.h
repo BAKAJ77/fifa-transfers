@@ -38,6 +38,9 @@ public:
 
 	// Sets the contract which will be offered to the player given.
 	void SetContractOffer(Player* player, int length, int wage, int releaseClause, bool renewingContract);
+
+	// Returns TRUE if the contract negotiations were a success.
+	bool WasNegotiationSuccessful() const;
 };
 
 #endif
