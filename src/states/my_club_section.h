@@ -9,13 +9,9 @@ class MyClub : public AppState
 private:
 	UserInterface userInterface;
 	FontPtr font;
-	bool paused;
 protected:
 	void Init() override;
 	void Destroy() override;
-
-	void Pause() override;
-	void Resume() override;
 
 	void Update(const float& deltaTime) override;
 	void Render() const override;
