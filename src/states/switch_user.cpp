@@ -47,7 +47,7 @@ void SwitchUser::Update(const float& deltaTime)
         {
             const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
             if (button->GetText() == "BACK" && button->WasClicked())
-                this->exitState = true;;
+                this->exitState = true;
         }
 
         // Check if a user profile has been selected
