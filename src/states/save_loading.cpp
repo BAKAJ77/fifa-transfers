@@ -34,6 +34,7 @@ void SaveLoading::ExecuteLoadingProcess()
     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)saveMetadata.growthSystemID);
 
     // Clear the databases before loading
+    SaveData::GetInstance().GetLeagueDatabase().clear();
     SaveData::GetInstance().GetPlayerDatabase().clear();
     SaveData::GetInstance().GetClubDatabase().clear();
     SaveData::GetInstance().GetUsers().clear();
