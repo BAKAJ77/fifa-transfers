@@ -17,11 +17,11 @@ void SearchPlayers::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    this->userInterface.AddTextField("Name", TextInputField({ 400, 165 }, { 400, 70 }, TextInputField::Restrictions::NO_NUMERIC, 255, 2.5f));
-    this->userInterface.AddTextField("Club", TextInputField({ 1000, 165 }, { 400, 70 }, TextInputField::Restrictions::NONE, 255, 2.5f));
-    this->userInterface.AddTextField("Position", TextInputField({ 1670, 165 }, { 400, 70 }, TextInputField::Restrictions::NO_SPACES, 255, 2.5f));
+    this->userInterface.AddTextField("Name", TextInputField({ 400, 155 }, { 400, 70 }, TextInputField::Restrictions::NO_NUMERIC, 255, 2.5f));
+    this->userInterface.AddTextField("Club", TextInputField({ 1000, 155 }, { 400, 70 }, TextInputField::Restrictions::NONE, 255, 2.5f));
+    this->userInterface.AddTextField("Position", TextInputField({ 1670, 155 }, { 400, 70 }, TextInputField::Restrictions::NO_SPACES, 255, 2.5f));
 
-    this->userInterface.AddSelectionList("Players", { { 960, 550 }, { 1860, 620 }, 80, 255, 25 });
+    this->userInterface.AddSelectionList("Players", { { 960, 540 }, { 1860, 640 }, 80, 255, 25 });
     this->userInterface.GetSelectionList("Players")->AddCategory("Name");
     this->userInterface.GetSelectionList("Players")->AddCategory("Club");
     this->userInterface.GetSelectionList("Players")->AddCategory("Position");
@@ -133,12 +133,12 @@ void SearchPlayers::Update(const float& deltaTime)
 void SearchPlayers::Render() const
 {
     // Render the filter background bar
-    Renderer::GetInstance().RenderSquare({ 960, 165 }, { 1860, 110 }, { glm::vec3(30), this->userInterface.GetOpacity() });
+    Renderer::GetInstance().RenderSquare({ 960, 155 }, { 1860, 90 }, { glm::vec3(30), this->userInterface.GetOpacity() });
 
     // Render the filter label texts
-    Renderer::GetInstance().RenderShadowedText({ 50, 180 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Name: ", 5);
-    Renderer::GetInstance().RenderShadowedText({ 675, 180 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Club: ", 5);
-    Renderer::GetInstance().RenderShadowedText({ 1280, 180 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Position: ", 5);
+    Renderer::GetInstance().RenderShadowedText({ 50, 170 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Name: ", 5);
+    Renderer::GetInstance().RenderShadowedText({ 675, 170 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Club: ", 5);
+    Renderer::GetInstance().RenderShadowedText({ 1280, 170 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 40, "Position: ", 5);
 
     // Render the user interface
     this->userInterface.Render();
