@@ -4,12 +4,14 @@
 #include <states/main_game.h>
 
 #include <interface/menu_button.h>
+#include <serialization/save_data.h>
 #include <util/data_manip.h>
 
 void ReleaseClauseActivation::Init()
 {
     // Initialize the member variables
     this->exitState = false;
+    this->previousClubID = this->targettedPlayer->GetClub();
     this->releaseClauseFee = this->targettedPlayer->GetReleaseClause();
 
     // Fetch the Bahnschrift Bold font
@@ -27,8 +29,13 @@ void ReleaseClauseActivation::Destroy()
 {
     if (!ContractNegotiation::GetAppState()->wasNegotiationsAvoided() && ContractResponse::GetAppState()->WasNegotiationSuccessful())
     {
+        // Deduct the release clause fee from the user's transfer budget balance
         MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetTransferBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget() -
             this->releaseClauseFee);
+
+        // Add the transfer data into the transfer history database
+        SaveData::GetInstance().GetTransferHistory().push_back({ this->targettedPlayer->GetID(), this->previousClubID, this->targettedPlayer->GetClub(), 
+            this->releaseClauseFee});
     }
 }
 

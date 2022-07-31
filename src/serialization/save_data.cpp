@@ -267,8 +267,9 @@ void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
     this->positionDatabase.shrink_to_fit();
 }
 
-void SaveData::LoadNegotiationCooldownFromJSON(const nlohmann::json& dataRoot)
+void SaveData::LoadMiscellaneousFromJSON(const nlohmann::json& dataRoot)
 {
+    // Load all the negotiation cooldown data available
     if (dataRoot.contains("negotiationCooldowns"))
     {
         uint16_t id = 1;
@@ -288,6 +289,27 @@ void SaveData::LoadNegotiationCooldownFromJSON(const nlohmann::json& dataRoot)
             ++id;
         }
     }
+
+    // Load all the transfer history data available
+    if (dataRoot.contains("transferHistory"))
+    {
+        uint16_t id = 1;
+        while (dataRoot["transferHistory"].contains(std::to_string(id)))
+        {
+            const std::string idStr = std::to_string(id);
+
+            // Fetch the transfer history data from the JSON element
+            const uint16_t playerID = dataRoot["transferHistory"][idStr]["playerID"].get<uint16_t>();
+            const uint16_t fromClubID = dataRoot["transferHistory"][idStr]["fromClubID"].get<uint16_t>();
+            const uint16_t toClubID = dataRoot["transferHistory"][idStr]["toClubID"].get<uint16_t>();
+            const int transferFee = dataRoot["transferHistory"][idStr]["transferFee"].get<int>();
+
+            // Add the past transfer fetched into the database
+            this->transferHistory.push_back({ playerID, fromClubID, toClubID, transferFee });
+
+            ++id;
+        }
+    }
 }
 
 void SaveData::Write(float& currentProgress, std::mutex& mutex)
@@ -296,7 +318,9 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
     
     // Calculate the progress increase per action
-    const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size() + this->negotiationCooldowns.size());
+    const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size() + this->negotiationCooldowns.size() + 
+        this->transferHistory.size());
+
     const float progressPerAction = 95.0f / (float)numActions;
 
     // Write the save's current year and league
@@ -340,10 +364,23 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     }
 
     // Write the data of all negotiation cooldowns into the JSON structure
-    int index = 0;
-    for (const NegotiationCooldown& cooldown : this->negotiationCooldowns)
+    for (size_t index = 0; index < this->negotiationCooldowns.size(); index++)
     {
-        this->ConvertNegotiationCooldownToJSON(file.GetRoot(), cooldown, ++index);
+        const NegotiationCooldown& cooldown = this->negotiationCooldowns[index];
+        this->ConvertNegotiationCooldownToJSON(file.GetRoot(), cooldown, (int)(index + 1));
+
+        // Update the current progress tracker
+        {
+            std::scoped_lock lock(mutex);
+            currentProgress += progressPerAction;
+        }
+    }
+
+    // Write the data of all past transfers into the JSON structure
+    for (size_t index = 0; index < this->transferHistory.size(); index++)
+    {
+        const PastTransfer& transfer = this->transferHistory[index];
+        this->ConvertPastTransferToJSON(file.GetRoot(), transfer, (int)(index + 1));
 
         // Update the current progress tracker
         {
@@ -463,6 +500,14 @@ void SaveData::ConvertNegotiationCooldownToJSON(nlohmann::json& root, const Nego
     root["negotiationCooldowns"][std::to_string(index)]["ticksRemaining"] = cooldown.ticksRemaining;
 }
 
+void SaveData::ConvertPastTransferToJSON(nlohmann::json& root, const PastTransfer& transfer, int index) const
+{
+    root["transferHistory"][std::to_string(index)]["playerID"] = transfer.playerID;
+    root["transferHistory"][std::to_string(index)]["fromClubID"] = transfer.fromClubID;
+    root["transferHistory"][std::to_string(index)]["toClubID"] = transfer.toClubID;
+    root["transferHistory"][std::to_string(index)]["transferFee"] = transfer.transferFee;
+}
+
 const uint16_t& SaveData::GetCurrentYear() const
 {
     return this->currentYear;
@@ -553,6 +598,11 @@ std::vector<UserProfile>& SaveData::GetUsers()
 std::vector<SaveData::NegotiationCooldown>& SaveData::GetNegotiationCooldowns()
 {
     return this->negotiationCooldowns;
+}
+
+std::vector<SaveData::PastTransfer>& SaveData::GetTransferHistory()
+{
+    return this->transferHistory;
 }
 
 std::vector<SaveData::Position>& SaveData::GetPositionDatabase()

@@ -1,6 +1,7 @@
 #include <states/transfer_hub.h>
 #include <states/main_game.h>
 #include <states/search_players.h>
+#include <states/transfer_history.h>
 
 #include <interface/menu_button.h>
 #include <util/data_manip.h>
@@ -45,7 +46,7 @@ void TransferHub::Update(const float& deltaTime)
                 this->PushState(SearchPlayers::GetAppState());
             else if (button->GetText() == "RECENT TRANSFER HISTORY" && button->WasClicked())
             {
-                // TODO: Implement recent transfer history viewer
+                this->PushState(TransferHistory::GetAppState());
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
                 this->exitState = true;

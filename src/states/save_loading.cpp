@@ -38,6 +38,7 @@ void SaveLoading::ExecuteLoadingProcess()
     SaveData::GetInstance().GetClubDatabase().clear();
     SaveData::GetInstance().GetUsers().clear();
     SaveData::GetInstance().GetNegotiationCooldowns().clear();
+    SaveData::GetInstance().GetTransferHistory().clear();
 
     // Now load the save data from the save file
     JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
@@ -63,11 +64,11 @@ void SaveLoading::ExecuteLoadingProcess()
         this->loadingProgress = 85;
     }
 
-    SaveData::GetInstance().LoadNegotiationCooldownFromJSON(saveFileLoader.GetRoot());
+    SaveData::GetInstance().LoadMiscellaneousFromJSON(saveFileLoader.GetRoot());
 
     {
         std::scoped_lock lock(this->mutex);
-        this->loadingProgress = 90;
+        this->loadingProgress = 95;
     }
 
     // Open the leagues JSON file and load every league's data

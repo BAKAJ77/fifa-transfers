@@ -41,6 +41,12 @@ public:
 
 		int ticksRemaining;
 	};
+
+	struct PastTransfer
+	{
+		uint16_t playerID, fromClubID, toClubID;
+		int transferFee;
+	};
 private:
 	std::string name;
 	uint8_t playerCount;
@@ -49,7 +55,9 @@ private:
 	uint16_t currentYear;
 	League* currentLeague;
 	std::vector<UserProfile> users;
+
 	std::vector<NegotiationCooldown> negotiationCooldowns;
+	std::vector<PastTransfer> transferHistory;
 
 	std::vector<KnockoutCup> cupDatabase;
 	std::vector<League> leagueDatabase;
@@ -68,6 +76,9 @@ private:
 
 	// Converts the data of the negotiation cooldown given into JSON and inserts it into the JSON object given.
 	void ConvertNegotiationCooldownToJSON(nlohmann::json& root, const NegotiationCooldown& cooldown, int index) const;
+
+	// Converts the data of the past transfer given into JSON and inserts it into the JSON object given.
+	void ConvertPastTransferToJSON(nlohmann::json& root, const PastTransfer& transfer, int index) const;
 public:
 	SaveData();
 	SaveData(const SaveData& other) = delete;
@@ -111,8 +122,9 @@ public:
 	// Loads every position's data in the JSON structure into the vector.
 	void LoadPositionsFromJSON(const nlohmann::json& dataRoot);
 
-	// Loads every negotiation cooldown's data in the JSON structure into the vector.
-	void LoadNegotiationCooldownFromJSON(const nlohmann::json& dataRoot);
+	// Loads miscellaneous data in the JSON structure into their respective vectors.
+	// This includes negotiation cooldown data, transfer history data etc.
+	void LoadMiscellaneousFromJSON(const nlohmann::json& dataRoot);
 
 	// Writes the contained save data into a save file.
 	void Write(float& currentProgress, std::mutex& mutex);
@@ -152,6 +164,9 @@ public:
 
 	// Returns the save's negotiation cooldowns.
 	std::vector<NegotiationCooldown>& GetNegotiationCooldowns();
+
+	// Returns the save's past transfers.
+	std::vector<PastTransfer>& GetTransferHistory();
 
 	// Returns the save's position database.
 	std::vector<Position>& GetPositionDatabase();

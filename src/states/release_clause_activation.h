@@ -12,6 +12,7 @@ private:
 	FontPtr font;
 	Player* targettedPlayer;
 
+	uint16_t previousClubID;
 	int releaseClauseFee;
 	bool exitState;
 protected:
