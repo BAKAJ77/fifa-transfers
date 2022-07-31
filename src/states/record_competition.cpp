@@ -259,6 +259,18 @@ void RecordCompetition::Update(const float& deltaTime)
                             }
                         }
 
+                        // Decrease the tick counts of all existing active negotiation cooldowns
+                        // If any of them have reached a tick count of 0, then remove them
+                        std::vector<SaveData::NegotiationCooldown>& negotiationCooldowns = SaveData::GetInstance().GetNegotiationCooldowns();
+                        for (int index = 0; index < (int)negotiationCooldowns.size(); index++)
+                        {
+                            if (--negotiationCooldowns[index].ticksRemaining <= 0)
+                            {
+                                negotiationCooldowns.erase(negotiationCooldowns.begin() + index);
+                                --index;
+                            }
+                        }
+
                         // Now mark the app state as 'complete' so we can roll back to the 'ContinueGame' app state
                         this->completed = true;
                     }
