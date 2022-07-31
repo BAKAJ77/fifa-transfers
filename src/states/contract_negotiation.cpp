@@ -5,24 +5,35 @@
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
+#include <util/random_engine.h>
 #include <util/data_manip.h>
 
 void ContractNegotiation::Init()
 {
     // Initialize the member variables
-    this->exitState = this->onNegotiationCooldown = this->lengthInvalid = this->wageInvalid = this->releaseClauseInvalid = false;
+    this->exitState = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = this->releaseClauseInvalid = false;
     
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
+    // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
+    const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
+    const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
+
+    if (playerLeague->GetTier() <= userLeague->GetTier() - 2)
+        this->leagueTierInsufficient = true;
+
     // Check if there is an active negotiation cooldown with the user's club and the player
-    for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
+    if (!this->leagueTierInsufficient)
     {
-        if ((cooldown.clubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() || cooldown.clubID == 0) &&
-            cooldown.playerID == this->negotiatingPlayer->GetID())
+        for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
         {
-            this->onNegotiationCooldown = true;
-            break;
+            if ((cooldown.clubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() || cooldown.clubID == 0) &&
+                cooldown.playerID == this->negotiatingPlayer->GetID())
+            {
+                this->onNegotiationCooldown = true;
+                break;
+            }
         }
     }
 
@@ -30,7 +41,7 @@ void ContractNegotiation::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    if (!this->onNegotiationCooldown)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "SUBMIT"));
 
@@ -107,7 +118,7 @@ void ContractNegotiation::Update(const float& deltaTime)
                 this->exitState = true;
         }
 
-        if (!this->onNegotiationCooldown)
+        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
         {
             // Only show the release clause text input box if a release clause is to be included
             if (this->userInterface.GetTickBox("Release Clause Included")->isCurrentlyTicked())
@@ -130,7 +141,7 @@ void ContractNegotiation::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1040, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         "CONTRACT NEGOTIATION", 5);
 
-    if (!this->onNegotiationCooldown)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
     {
         // Render text displaying the club's remaining wage budget and the current wage and release clause of the player
         Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 70,
@@ -181,7 +192,12 @@ void ContractNegotiation::Render() const
         if (this->releaseClauseInvalid)
             Renderer::GetInstance().RenderText({ 380, 985 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
     }
-    else
+    else if (this->leagueTierInsufficient)
+    {
+        Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+            std::string(this->negotiatingPlayer->GetName().data()) + " doesn't want to play in a league which isn't competitive enough for his skills.", 5);
+    }
+    else if (this->onNegotiationCooldown)
     {
         Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 35,
             std::string(this->negotiatingPlayer->GetName().data()) + "'s camp isn't interested in negotiating with you at the moment.", 5);
@@ -234,5 +250,5 @@ void ContractNegotiation::SetNegotiatingPlayer(Player* player, bool renewingCont
 
 bool ContractNegotiation::wasNegotiationsAvoided() const
 {
-    return this->onNegotiationCooldown;
+    return this->onNegotiationCooldown || this->leagueTierInsufficient;
 }

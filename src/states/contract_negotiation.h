@@ -13,7 +13,7 @@ private:
 	Player* negotiatingPlayer;
 
 	bool lengthInvalid, wageInvalid, releaseClauseInvalid;
-	bool exitState, onNegotiationCooldown, renewingContract;
+	bool exitState, onNegotiationCooldown, leagueTierInsufficient, renewingContract;
 private:
 	// Checks if the all the inputs given are valid.
 	bool ValidateInputs();
