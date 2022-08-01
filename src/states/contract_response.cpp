@@ -68,9 +68,7 @@ void ContractResponse::Destroy()
             ManageSquad::GetAppState()->ReloadSquad();
 
         // Push negotiation cooldown with the player for all clubs
-        const int cooldownTicks = RandomEngine::GetInstance().GenerateRandom<int>(3, 7);
-        SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(), 0, SaveData::CooldownType::CONTRACT_NEGOTIATING,
-            cooldownTicks });
+        SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(), 0, SaveData::CooldownType::CONTRACT_NEGOTIATING, 7 });
     }
     else
     {
