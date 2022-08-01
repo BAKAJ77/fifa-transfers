@@ -16,23 +16,25 @@ void TransferHistory::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    this->userInterface.AddSelectionList("Recent Transfers", { { 960, 490 }, { 1860, 720 }, 80, 255, 25 });
-    this->userInterface.GetSelectionList("Recent Transfers")->AddCategory("Name");
-    this->userInterface.GetSelectionList("Recent Transfers")->AddCategory("From");
-    this->userInterface.GetSelectionList("Recent Transfers")->AddCategory("To");
-    this->userInterface.GetSelectionList("Recent Transfers")->AddCategory("Transfer Fee");
+    this->userInterface.AddSelectionList("Transfer History", { { 960, 490 }, { 1860, 720 }, 80, 255, 25 });
+    this->userInterface.GetSelectionList("Transfer History")->AddCategory("Name");
+    this->userInterface.GetSelectionList("Transfer History")->AddCategory("From");
+    this->userInterface.GetSelectionList("Transfer History")->AddCategory("To");
+    this->userInterface.GetSelectionList("Transfer History")->AddCategory("Transfer Fee");
 
-    // Load the transfer history into the list
-    for (const SaveData::PastTransfer& transfer : SaveData::GetInstance().GetTransferHistory())
+    // Load the transfer history into the list (from newest to oldest hence using the reverse iterator)
+    const std::vector<SaveData::PastTransfer>& transferHistory = SaveData::GetInstance().GetTransferHistory();
+
+    for (auto iterator = transferHistory.rbegin(); iterator != transferHistory.rend(); iterator++)
     {
-        const Player* player = SaveData::GetInstance().GetPlayer(transfer.playerID);
-        const Club* fromClub = SaveData::GetInstance().GetClub(transfer.fromClubID);
-        const Club* toClub = SaveData::GetInstance().GetClub(transfer.toClubID);
+        const Player* player = SaveData::GetInstance().GetPlayer(iterator->playerID);
+        const Club* fromClub = SaveData::GetInstance().GetClub(iterator->fromClubID);
+        const Club* toClub = SaveData::GetInstance().GetClub(iterator->toClubID);
 
-        if ((transfer.fromClubID == fromClub->GetID()) || transfer.toClubID == toClub->GetID())
+        if ((iterator->fromClubID == fromClub->GetID()) || iterator->toClubID == toClub->GetID())
         {
-            this->userInterface.GetSelectionList("Recent Transfers")->AddElement({ player->GetName().data(), fromClub->GetName().data(), 
-                toClub->GetName().data(), Util::GetFormattedCashString(transfer.transferFee) }, -1);
+            this->userInterface.GetSelectionList("Transfer History")->AddElement({ player->GetName().data(), fromClub->GetName().data(), 
+                toClub->GetName().data(), Util::GetFormattedCashString(iterator->transferFee) }, -1);
         }
     }
 }
