@@ -18,10 +18,11 @@ void TransferHub::Init()
 
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
-    this->userInterface.AddButton(new MenuButton({ 960, 415 }, { 1870, 320 }, { 1885, 335 }, "SEARCH FOR PLAYER", glm::vec3(60), glm::vec3(90),
-        glm::vec3(120), 255, false, 100, 50.0f));
-    this->userInterface.AddButton(new MenuButton({ 960, 765 }, { 1870, 320 }, { 1885, 335 }, "RECENT TRANSFER HISTORY", glm::vec3(60), glm::vec3(90),
-        glm::vec3(120), 255, false, 100, 50.0f));
+
+    this->userInterface.AddButton(new MenuButton({ 485, 590 }, { 920, 670 }, { 930, 680 }, "SEARCH FOR PLAYER", glm::vec3(60), glm::vec3(90),
+        glm::vec3(120), 255, false, 85, 20));
+    this->userInterface.AddButton(new MenuButton({ 1435, 590 }, { 920, 670 }, { 930, 680 }, "TRANSFER HISTORY", glm::vec3(60), glm::vec3(90),
+        glm::vec3(120), 255, false, 85, 20));
 
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 }
@@ -44,7 +45,7 @@ void TransferHub::Update(const float& deltaTime)
             const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
             if (button->GetText() == "SEARCH FOR PLAYER" && button->WasClicked())
                 this->PushState(SearchPlayers::GetAppState());
-            else if (button->GetText() == "RECENT TRANSFER HISTORY" && button->WasClicked())
+            else if (button->GetText() == "TRANSFER HISTORY" && button->WasClicked())
             {
                 this->PushState(TransferHistory::GetAppState());
             }
