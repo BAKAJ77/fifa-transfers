@@ -29,7 +29,7 @@ void ContractNegotiation::Init()
         for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
         {
             if ((cooldown.clubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() || cooldown.clubID == 0) &&
-                cooldown.playerID == this->negotiatingPlayer->GetID())
+                cooldown.playerID == this->negotiatingPlayer->GetID() && cooldown.type == SaveData::CooldownType::CONTRACT_NEGOTIATING)
             {
                 this->onNegotiationCooldown = true;
                 break;
