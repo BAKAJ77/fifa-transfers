@@ -179,11 +179,13 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
 
     if (!this->loadedDefaultDatabase)
     {
-        // Clear the data already in the player, club and user databases before loading
+        // Clear the data already in the databases before loading
         SaveData::GetInstance().GetPlayerDatabase().clear();
         SaveData::GetInstance().GetClubDatabase().clear();
         SaveData::GetInstance().GetLeagueDatabase().clear();
         SaveData::GetInstance().GetUsers().clear();
+        SaveData::GetInstance().GetNegotiationCooldowns().clear();
+        SaveData::GetInstance().GetTransferHistory().clear();
 
         // Load the default data from the player and club database json files
         JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
