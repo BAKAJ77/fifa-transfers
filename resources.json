@@ -27,6 +27,10 @@
             "filename": "bkg.png",
             "id": "Background 1"
         },
+        "10": {
+            "filename": "circle.png",
+            "id": "Circle"
+        },
         "2": {
             "filename": "bkg2.png",
             "id": "Background 2"

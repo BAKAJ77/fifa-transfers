@@ -172,16 +172,25 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
 
         int transferBudget = 0, wageBudget = 0;
         std::vector<Club::Objective> objectives;
+        std::vector<std::string> generalMessages;
+        
         if (!loadingDefault)
         {
             transferBudget = (*root)[idStr]["transferBudget"].get<int>();
             wageBudget = (*root)[idStr]["wageBudget"].get<int>();
 
-            // Fetch the club objectives
+            // Fetch the club's objectives
             if ((*root)[idStr].contains("objectives"))
             {
                 for (const nlohmann::json& objective : (*root)[idStr]["objectives"])
                     objectives.push_back({ objective["compID"].get<uint16_t>(), objective["targetEndPosition"].get<uint16_t>() });
+            }
+
+            // Fetch the club's general messages inbox
+            if ((*root)[idStr].contains("generalMessages"))
+            {
+                for (const nlohmann::json& generalMessage : (*root)[idStr]["generalMessages"])
+                    generalMessages.push_back(generalMessage["message"].get<std::string>());
             }
         }
 
@@ -194,8 +203,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         }
 
         // Add the club to the database
-        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives));
-
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives, generalMessages));
 
         ++id;
     }
@@ -272,42 +280,32 @@ void SaveData::LoadMiscellaneousFromJSON(const nlohmann::json& dataRoot)
     // Load all the negotiation cooldown data available
     if (dataRoot.contains("negotiationCooldowns"))
     {
-        uint16_t id = 1;
-        while (dataRoot["negotiationCooldowns"].contains(std::to_string(id)))
+        for (const nlohmann::json& cooldown : dataRoot["negotiationCooldowns"])
         {
-            const std::string idStr = std::to_string(id);
-
             // Fetch the negotiation cooldown's data from the JSON element
-            const uint16_t playerID = dataRoot["negotiationCooldowns"][idStr]["playerID"].get<uint16_t>();
-            const uint16_t clubID = dataRoot["negotiationCooldowns"][idStr]["clubID"].get<uint16_t>();
-            const CooldownType type = (CooldownType)dataRoot["negotiationCooldowns"][idStr]["cooldownType"].get<int>();
-            const int ticksRemaining = dataRoot["negotiationCooldowns"][idStr]["ticksRemaining"].get<int>();
+            const uint16_t playerID = cooldown["playerID"].get<uint16_t>();
+            const uint16_t clubID = cooldown["clubID"].get<uint16_t>();
+            const CooldownType type = (CooldownType)cooldown["cooldownType"].get<int>();
+            const int ticksRemaining = cooldown["ticksRemaining"].get<int>();
 
             // Add the negotiation cooldown to the database
             this->negotiationCooldowns.push_back({ playerID, clubID, type, ticksRemaining });
-
-            ++id;
         }
     }
 
     // Load all the transfer history data available
     if (dataRoot.contains("transferHistory"))
     {
-        uint16_t id = 1;
-        while (dataRoot["transferHistory"].contains(std::to_string(id)))
+        for (const nlohmann::json& pastTransfer : dataRoot["transferHistory"])
         {
-            const std::string idStr = std::to_string(id);
-
             // Fetch the transfer history data from the JSON element
-            const uint16_t playerID = dataRoot["transferHistory"][idStr]["playerID"].get<uint16_t>();
-            const uint16_t fromClubID = dataRoot["transferHistory"][idStr]["fromClubID"].get<uint16_t>();
-            const uint16_t toClubID = dataRoot["transferHistory"][idStr]["toClubID"].get<uint16_t>();
-            const int transferFee = dataRoot["transferHistory"][idStr]["transferFee"].get<int>();
+            const uint16_t playerID = pastTransfer["playerID"].get<uint16_t>();
+            const uint16_t fromClubID = pastTransfer["fromClubID"].get<uint16_t>();
+            const uint16_t toClubID = pastTransfer["toClubID"].get<uint16_t>();
+            const int transferFee = pastTransfer["transferFee"].get<int>();
 
             // Add the past transfer fetched into the database
             this->transferHistory.push_back({ playerID, fromClubID, toClubID, transferFee });
-
-            ++id;
         }
     }
 }
@@ -316,6 +314,7 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
 {
     // Open the save file (it will be generated if it's a new save file)
     JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
+    file.Clear();
     
     // Calculate the progress increase per action
     const int numActions = (int)(this->clubDatabase.size() + this->playerDatabase.size() + this->users.size() + this->negotiationCooldowns.size() + 
@@ -438,6 +437,9 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
         root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["compID"] = objective.compID;
         root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["targetEndPosition"] = objective.targetEndPosition;
     }
+
+    for (size_t index = 0; index < club.GetGeneralMessages().size(); index++)
+        root["clubs"][std::to_string(club.GetID())]["generalMessages"][std::to_string(index + 1)]["message"] = club.GetGeneralMessages()[index];
 }
 
 void SaveData::ConvertPlayerToJSON(nlohmann::json& root, const Player& player) const

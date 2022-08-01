@@ -19,10 +19,11 @@ private:
 
 	std::vector<Player*> players;
 	std::vector<Objective> objectives;
+	std::vector<std::string> generalMessages;
 public:
 	Club();
 	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-		const std::vector<Objective>& objectives);
+		const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages);
 
 	~Club() = default;
 
@@ -52,6 +53,12 @@ public:
 
 	// Returns players in the club.
 	std::vector<Player*>& GetPlayers();
+
+	// Returns the club's general messages inbox.
+	std::vector<std::string>& GetGeneralMessages();
+
+	// Returns the club's general messages inbox.
+	const std::vector<std::string>& GetGeneralMessages() const;
 
 	// Returns the name of the club.
 	std::string_view GetName() const;
