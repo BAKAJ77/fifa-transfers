@@ -31,17 +31,18 @@ void SaveWriting::ExecuteSavingProcess()
     // Do some operations on the save data if it is a new save
     if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "data/saves/" + SaveData::GetInstance().GetName().data() + ".json"))
     {
+		// Generate the objectives for each user's club
 		for (UserProfile& user : SaveData::GetInstance().GetUsers())
-		{
-			// Generate the objectives for each user's club
 			user.GetClub()->GenerateObjectives();
 
-			// Calculate starting wage budget for each user's club
+		// Calculate the wage budget for every club
+		for (Club& club : SaveData::GetInstance().GetClubDatabase())
+		{
 			float totalClubWages = 0;
-			for (const Player* player : user.GetClub()->GetPlayers())
+			for (const Player* player : club.GetPlayers())
 				totalClubWages += player->GetWage();
 
-			user.GetClub()->SetWageBudget(Util::GetTruncatedSFInteger((int)(totalClubWages / 4.03306f), 3));
+			club.SetWageBudget(Util::GetTruncatedSFInteger((int)(totalClubWages / 4.03306f), 3));
 		}
 
 		// Randomise the potentials of player in the new save if specified to do so
