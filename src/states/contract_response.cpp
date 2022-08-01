@@ -53,14 +53,29 @@ void ContractResponse::Destroy()
             this->negotiatingPlayer->SetExpiryYear(this->negotiatingPlayer->GetExpiryYear() + this->contractLength) :
             this->negotiatingPlayer->SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + this->contractLength);
 
+        const int previousWage = this->negotiatingPlayer->GetWage();
+
         this->negotiatingPlayer->SetWage(this->contractWage);
         this->negotiatingPlayer->SetReleaseClause(this->contractReleaseClause);
 
-        // If this contract deal is for a player in a different team, then move him to the current user's team
         if (!this->renewingContract)
         {
-            SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->RemovePlayer(this->negotiatingPlayer);
-            MainGame::GetAppState()->GetCurrentUser()->GetClub()->AddPlayer(this->negotiatingPlayer);
+            Club* currentUserClub = MainGame::GetAppState()->GetCurrentUser()->GetClub();
+            Club* sellingClub = SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub());
+
+            // Update the wage budget balances of the user's club and the selling club
+            currentUserClub->SetWageBudget(currentUserClub->GetWageBudget() - this->contractWage);
+            sellingClub->SetWageBudget(sellingClub->GetWageBudget() + previousWage);
+
+            // This contract deal is for a player in a different team, so move him to the current user's team
+            sellingClub->RemovePlayer(this->negotiatingPlayer);
+            currentUserClub->AddPlayer(this->negotiatingPlayer);
+        }
+        else
+        {
+            // Update the wage budget balance of the user's club
+            MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetWageBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget() -
+                (this->contractWage - previousWage));
         }
 
         // The squad currently loaded into the manage squad list is outdated now, so reload it

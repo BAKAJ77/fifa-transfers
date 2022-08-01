@@ -29,13 +29,21 @@ void ReleaseClauseActivation::Destroy()
 {
     if (!ContractNegotiation::GetAppState()->wasNegotiationsAvoided() && ContractResponse::GetAppState()->WasNegotiationSuccessful())
     {
-        // Deduct the release clause fee from the user's transfer budget balance
-        MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetTransferBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget() -
-            this->releaseClauseFee);
+        Club* currentUserClub = MainGame::GetAppState()->GetCurrentUser()->GetClub();
+        Club* sellingClub = SaveData::GetInstance().GetClub(this->previousClubID);
+
+        // Update the transfer budget balances of the buying and selling club
+        currentUserClub->SetTransferBudget(currentUserClub->GetTransferBudget() - this->releaseClauseFee);
+        sellingClub->SetTransferBudget(sellingClub->GetTransferBudget() + this->releaseClauseFee);
 
         // Add the transfer data into the transfer history database
         SaveData::GetInstance().GetTransferHistory().push_back({ this->targettedPlayer->GetID(), this->previousClubID, this->targettedPlayer->GetClub(), 
-            this->releaseClauseFee});
+            this->releaseClauseFee });
+
+        // If player was bought from a club that is controlled by another user, then send a general message notifying them of this transfer being completed
+        sellingClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " has paid the " +
+            Util::GetFormattedCashString(this->releaseClauseFee) + " release clause and signed " + this->targettedPlayer->GetName().data() + " on a " +
+            std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract.");
     }
 }
 
