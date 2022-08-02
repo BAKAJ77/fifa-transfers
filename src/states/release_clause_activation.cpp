@@ -41,9 +41,17 @@ void ReleaseClauseActivation::Destroy()
             this->releaseClauseFee });
 
         // If player was bought from a club that is controlled by another user, then send a general message notifying them of this transfer being completed
-        sellingClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " has paid the " +
-            Util::GetFormattedCashString(this->releaseClauseFee) + " release clause and signed " + this->targettedPlayer->GetName().data() + " on a " +
-            std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract.");
+        for (const UserProfile& user : SaveData::GetInstance().GetUsers())
+        {
+            if (user.GetClub()->GetID() == sellingClub->GetID())
+            {
+                sellingClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " has paid the " +
+                    Util::GetFormattedCashString(this->releaseClauseFee) + " release clause and signed " + this->targettedPlayer->GetName().data() + " on a " +
+                    std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract.");
+
+                break;
+            }
+        }
     }
 }
 
