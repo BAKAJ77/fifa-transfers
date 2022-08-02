@@ -45,9 +45,10 @@ void ReleaseClauseActivation::Destroy()
         {
             if (user.GetClub()->GetID() == sellingClub->GetID())
             {
-                sellingClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " has paid the " +
-                    Util::GetFormattedCashString(this->releaseClauseFee) + " release clause and signed " + this->targettedPlayer->GetName().data() + " on a " +
-                    std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract.");
+                sellingClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " have paid the " +
+                    Util::GetFormattedCashString(this->releaseClauseFee) + " release clause for " + this->targettedPlayer->GetName().data() + 
+                    " and signed him on a " + std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + 
+                    " year contract.");
 
                 break;
             }
