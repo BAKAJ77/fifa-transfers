@@ -70,6 +70,7 @@ void InboxMenu::Render() const
 
     // Render inbox message count indicators
     const size_t totalGeneralMessages = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetGeneralMessages().size();
+    const size_t totalTransferMessages = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages().size();
     
     if (totalGeneralMessages > 0)
     {
@@ -80,7 +81,14 @@ void InboxMenu::Render() const
             this->font, 50, std::to_string(totalGeneralMessages));
     }
 
-    //Renderer::GetInstance().GetInstance().RenderSquare({ 1800, 220 }, { 100, 100 }, this->circleTex);
+    if (totalTransferMessages > 0)
+    {
+        Renderer::GetInstance().RenderSquare({ 1800, 220 }, { 100, 100 }, this->circleTex, { glm::vec3(255), this->userInterface.GetOpacity() });
+
+        const glm::vec2 textSize = Renderer::GetInstance().GetTextSize(this->font, 50, std::to_string(totalTransferMessages));
+        Renderer::GetInstance().RenderText({ 1800 - (textSize.x / 2), 220 + (textSize.y / 2) }, { glm::vec3(255), this->userInterface.GetOpacity() },
+            this->font, 50, std::to_string(totalTransferMessages));
+    }
 }
 
 bool InboxMenu::OnStartupTransitionUpdate(const float deltaTime)

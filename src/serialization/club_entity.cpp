@@ -11,9 +11,9 @@ Club::Club() :
 {}
 
 Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-    const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages) :
+    const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages, const std::vector<Transfer>& transferMessages) :
     name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players), objectives(objectives), 
-    generalMessages(generalMessages)
+    generalMessages(generalMessages), transferMessages(transferMessages)
 {
     // Sort the club players (based on their overall rating) in descending order
     std::sort(this->players.begin(), this->players.end(), [](Player* first, Player* second) { return first->GetOverall() > second->GetOverall(); });
@@ -162,6 +162,16 @@ std::vector<std::string>& Club::GetGeneralMessages()
 const std::vector<std::string>& Club::GetGeneralMessages() const
 {
     return this->generalMessages;
+}
+
+std::vector<Club::Transfer>& Club::GetTransferMessages()
+{
+    return this->transferMessages;
+}
+
+const std::vector<Club::Transfer>& Club::GetTransferMessages() const
+{
+    return this->transferMessages;
 }
 
 std::string_view Club::GetName() const

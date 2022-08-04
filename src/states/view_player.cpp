@@ -2,6 +2,7 @@
 #include <states/main_game.h>
 #include <states/contract_negotiation.h>
 #include <states/release_clause_activation.h>
+#include <states/transfer_negotiation.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -66,12 +67,13 @@ void ViewPlayer::Update(const float& deltaTime)
 
             if (button->GetText() == "RENEW CONTRACT" && button->WasClicked())
             {
-                ContractNegotiation::GetAppState()->SetNegotiatingPlayer(this->displayedPlayer, true);
+                ContractNegotiation::GetAppState()->SetNegotiatingPlayer(this->displayedPlayer, this, true);
                 this->PushState(ContractNegotiation::GetAppState());
             }
             else if (button->GetText() == "INITIATE TRANSFER TALKS" && button->WasClicked())
             {
-                // TODO: Implement transfer initiation system
+                TransferNegotiation::GetAppState()->SetTargettedPlayer(this->displayedPlayer);
+                this->PushState(TransferNegotiation::GetAppState());
             }
             else if (button->GetText() == "ACTIVATE RELEASE CLAUSE" && button->WasClicked())
             {

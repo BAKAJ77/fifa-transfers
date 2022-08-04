@@ -11,7 +11,9 @@ private:
 	UserInterface userInterface;
 	FontPtr font;
 	Player* negotiatingPlayer;
+	AppState* callerAppState;
 
+	bool* finishedNegotiating;
 	int contractLength, contractWage, contractReleaseClause;
 	bool exitState, renewingContract, contractCountered, contractRejected, negotiationSuccessful;
 private:
@@ -37,10 +39,10 @@ public:
 	static ContractResponse* GetAppState();
 
 	// Sets the contract which will be offered to the player given.
-	void SetContractOffer(Player* player, int length, int wage, int releaseClause, bool renewingContract);
+	void SetContractOffer(Player* player, int length, int wage, int releaseClause, bool renewingContract, AppState* callerAppState, bool* finishedNegotiating);
 
-	// Returns TRUE if the contract negotiations were a success.
-	bool WasNegotiationSuccessful() const;
+	// Returns TRUE if the contract negotiations was successful i.e an agreement between the user and the player.
+	bool WasNegotiationsSuccessful() const;
 };
 
 #endif

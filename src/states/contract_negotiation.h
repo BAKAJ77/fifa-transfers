@@ -11,9 +11,11 @@ private:
 	mutable UserInterface userInterface;
 	FontPtr font;
 	Player* negotiatingPlayer;
+	AppState* callerAppState;
 
+	bool* finishedNegotiating;
 	bool lengthInvalid, wageInvalid, releaseClauseInvalid;
-	bool exitState, onNegotiationCooldown, leagueTierInsufficient, renewingContract;
+	bool exitState, wentBack, onNegotiationCooldown, leagueTierInsufficient, renewingContract;
 private:
 	// Checks if the all the inputs given are valid.
 	bool ValidateInputs();
@@ -31,11 +33,10 @@ public:
 	static ContractNegotiation* GetAppState();
 
 	// Sets the player which the user will negotiate a new contract with.
-	void SetNegotiatingPlayer(Player* player, bool renewingContract);
+	void SetNegotiatingPlayer(Player* player, AppState* callerAppState, bool renewingContract, bool* finishedNegotiating = nullptr);
 
-	// Returns TRUE if the player avoided negotiating with the user.
-	// This could be because of negotiation cooldowns, the player being too good for the user's club etc.
-	bool wasNegotiationsAvoided() const;
+	// Returns TRUE if the user clicked the 'BACK' button to go back.
+	bool WentBack() const;
 };
 
 #endif

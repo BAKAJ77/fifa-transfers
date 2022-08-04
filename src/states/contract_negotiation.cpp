@@ -11,7 +11,8 @@
 void ContractNegotiation::Init()
 {
     // Initialize the member variables
-    this->exitState = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = this->releaseClauseInvalid = false;
+    this->exitState = this->wentBack = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = 
+        this->releaseClauseInvalid = false;
     
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -108,14 +109,14 @@ void ContractNegotiation::Update(const float& deltaTime)
                 if (this->userInterface.GetTickBox("Release Clause Included")->isCurrentlyTicked())
                     releaseClause = std::stoi(this->userInterface.GetTextField("Release Clause")->GetInputtedText());
 
-                ContractResponse::GetAppState()->SetContractOffer(this->negotiatingPlayer, 
-                    this->userInterface.GetDropDown("Amount Of Years")->GetCurrentSelected(),
-                    std::stoi(this->userInterface.GetTextField("Wage")->GetInputtedText()), releaseClause, this->renewingContract);
+                ContractResponse::GetAppState()->SetContractOffer(this->negotiatingPlayer, this->userInterface.GetDropDown("Amount Of Years")->GetCurrentSelected(),
+                    std::stoi(this->userInterface.GetTextField("Wage")->GetInputtedText()), releaseClause, this->renewingContract, this->callerAppState,
+                    this->finishedNegotiating);
 
                 this->PushState(ContractResponse::GetAppState());
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
-                this->exitState = true;
+                this->exitState = this->wentBack = true;
         }
 
         if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
@@ -130,7 +131,7 @@ void ContractNegotiation::Update(const float& deltaTime)
     else
     {
         if (this->OnPauseTransitionUpdate(deltaTime))
-            this->RollBack(ViewPlayer::GetAppState());
+            this->RollBack(this->callerAppState);
     }
 }
 
@@ -242,13 +243,16 @@ ContractNegotiation* ContractNegotiation::GetAppState()
     return &appState;
 }
 
-void ContractNegotiation::SetNegotiatingPlayer(Player* player, bool renewingContract)
+void ContractNegotiation::SetNegotiatingPlayer(Player* player, AppState* callerAppState, bool renewingContract, bool* finishedNegotiating)
 {
     this->negotiatingPlayer = player;
     this->renewingContract = renewingContract;
+    this->callerAppState = callerAppState;
+
+    this->finishedNegotiating = finishedNegotiating;
 }
 
-bool ContractNegotiation::wasNegotiationsAvoided() const
+bool ContractNegotiation::WentBack() const
 {
-    return this->onNegotiationCooldown || this->leagueTierInsufficient;
+    return this->wentBack;
 }

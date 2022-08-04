@@ -1,6 +1,7 @@
 #include <states/release_clause_activation.h>
 #include <states/contract_negotiation.h>
 #include <states/contract_response.h>
+#include <states/search_players.h>
 #include <states/main_game.h>
 
 #include <interface/menu_button.h>
@@ -10,7 +11,7 @@
 void ReleaseClauseActivation::Init()
 {
     // Initialize the member variables
-    this->exitState = false;
+    this->exitState = this->finishedNegotiations = false;
     this->previousClubID = this->targettedPlayer->GetClub();
     this->releaseClauseFee = this->targettedPlayer->GetReleaseClause();
 
@@ -27,7 +28,7 @@ void ReleaseClauseActivation::Init()
 
 void ReleaseClauseActivation::Destroy()
 {
-    if (!ContractNegotiation::GetAppState()->wasNegotiationsAvoided() && ContractResponse::GetAppState()->WasNegotiationSuccessful())
+    if (this->finishedNegotiations && ContractResponse::GetAppState()->WasNegotiationsSuccessful())
     {
         Club* currentUserClub = MainGame::GetAppState()->GetCurrentUser()->GetClub();
         Club* sellingClub = SaveData::GetInstance().GetClub(this->previousClubID);
@@ -69,7 +70,7 @@ void ReleaseClauseActivation::Update(const float& deltaTime)
             const MenuButton* button = (MenuButton*)this->userInterface.GetButtons()[index];
             if (button->GetText() == "CONTINUE" && button->WasClicked())
             {
-                ContractNegotiation::GetAppState()->SetNegotiatingPlayer(this->targettedPlayer, false);
+                ContractNegotiation::GetAppState()->SetNegotiatingPlayer(this->targettedPlayer, SearchPlayers::GetAppState(), false, &this->finishedNegotiations);
                 this->PushState(ContractNegotiation::GetAppState());
             }
             else if (button->GetText() == "BACK" && button->WasClicked())

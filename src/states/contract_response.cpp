@@ -13,6 +13,9 @@ void ContractResponse::Init()
 {
     // Initialize the member variables
     this->exitState = this->contractCountered = this->contractRejected = this->negotiationSuccessful = false;
+    
+    if (this->finishedNegotiating)
+        *this->finishedNegotiating = false;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -157,16 +160,28 @@ void ContractResponse::Update(const float& deltaTime)
             if (button->GetText() == "CONTINUE" && button->WasClicked())
             {
                 this->negotiationSuccessful = !this->contractRejected;
+
+                if (this->finishedNegotiating)
+                    *this->finishedNegotiating = true;
+
                 this->exitState = true;
             }
             else if (button->GetText() == "ACCEPT" && button->WasClicked())
             {
                 this->negotiationSuccessful = true;
+
+                if (this->finishedNegotiating)
+                    *this->finishedNegotiating = true;
+
                 this->exitState = true;
             }
             else if (button->GetText() == "REJECT" && button->WasClicked())
             {
                 this->negotiationSuccessful = false;
+
+                if (this->finishedNegotiating)
+                    *this->finishedNegotiating = true;
+
                 this->exitState = true;
             }
         }
@@ -178,12 +193,7 @@ void ContractResponse::Update(const float& deltaTime)
         // Update the fade out effect of the user interface
         this->userInterface.SetOpacity(std::max(this->userInterface.GetOpacity() - (transitionSpeed * deltaTime), 0.0f));
         if (this->userInterface.GetOpacity() == 0.0f)
-        {
-            if (this->renewingContract)
-                this->RollBack(ViewPlayer::GetAppState());
-            else
-                this->RollBack(SearchPlayers::GetAppState());
-        }
+            this->RollBack(this->callerAppState);
     }
 }
 
@@ -297,17 +307,20 @@ ContractResponse* ContractResponse::GetAppState()
     return &appState;
 }
 
-void ContractResponse::SetContractOffer(Player* player, int length, int wage, int releaseClause, bool renewingContract)
+void ContractResponse::SetContractOffer(Player* player, int length, int wage, int releaseClause, bool renewingContract, AppState* callerAppState, 
+    bool* finishedNegotiating)
 {
     this->negotiatingPlayer = player;
     this->renewingContract = renewingContract;
+    this->callerAppState = callerAppState;
+    this->finishedNegotiating = finishedNegotiating;
 
     this->contractLength = length;
     this->contractWage = wage;
     this->contractReleaseClause = releaseClause;
 }
 
-bool ContractResponse::WasNegotiationSuccessful() const
+bool ContractResponse::WasNegotiationsSuccessful() const
 {
     return this->negotiationSuccessful;
 }

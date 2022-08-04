@@ -173,6 +173,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         int transferBudget = 0, wageBudget = 0;
         std::vector<Club::Objective> objectives;
         std::vector<std::string> generalMessages;
+        std::vector<Club::Transfer> transferMessages;
         
         if (!loadingDefault)
         {
@@ -192,6 +193,25 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
                 for (const nlohmann::json& generalMessage : (*root)[idStr]["generalMessages"])
                     generalMessages.push_back(generalMessage["message"].get<std::string>());
             }
+
+            // Fetch the club's transfer messages inbox
+            if ((*root)[idStr].contains("transferMessages"))
+            {
+                for (const nlohmann::json& transferMessage : (*root)[idStr]["transferMessages"])
+                {
+                    const uint16_t biddingClubID = transferMessage["biddingClubID"].get<uint16_t>();
+                    const uint16_t playerID = transferMessage["playerID"].get<uint16_t>();
+                    const uint16_t expirationTicks = transferMessage["expirationTicks"].get<uint16_t>();
+
+                    const int transferFee = transferMessage["transferFee"].get<int>();
+                    const bool counterOffer = transferMessage["counterOffer"].get<bool>();
+                    const bool feeAgreed = transferMessage["feeAgreed"].get<bool>();
+                    const bool rejectedOffer = transferMessage["rejectedOffer"].get<bool>();
+                    const bool wasRead = transferMessage["wasRead"].get<bool>();
+
+                    transferMessages.push_back({ biddingClubID, playerID, expirationTicks, transferFee, counterOffer, feeAgreed, rejectedOffer, wasRead });
+                }
+            }
         }
 
         // Fetch the players which are in the club
@@ -203,7 +223,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         }
 
         // Add the club to the database
-        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives, generalMessages));
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives, generalMessages, transferMessages));
 
         ++id;
     }
@@ -431,15 +451,34 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
     root["clubs"][std::to_string(club.GetID())]["transferBudget"] = club.GetTransferBudget();
     root["clubs"][std::to_string(club.GetID())]["wageBudget"] = club.GetWageBudget();
 
+    // Convert the club's objectives to JSON
     for (size_t index = 0; index < club.GetObjectives().size(); index++)
     {
         const Club::Objective& objective = club.GetObjectives()[index];
+
         root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["compID"] = objective.compID;
         root["clubs"][std::to_string(club.GetID())]["objectives"][std::to_string(index + 1)]["targetEndPosition"] = objective.targetEndPosition;
     }
 
+    // Convert the club's general messages inbox to JSON
     for (size_t index = 0; index < club.GetGeneralMessages().size(); index++)
         root["clubs"][std::to_string(club.GetID())]["generalMessages"][std::to_string(index + 1)]["message"] = club.GetGeneralMessages()[index];
+
+    // Convert the club's transfer messages inbox to JSON
+    for (size_t index = 0; index < club.GetTransferMessages().size(); index++)
+    {
+        const Club::Transfer& transferMsg = club.GetTransferMessages()[index];
+
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["biddingClubID"] = transferMsg.biddingClubID;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["playerID"] = transferMsg.playerID;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["expirationTicks"] = transferMsg.expirationTicks;
+
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["transferFee"] = transferMsg.transferFee;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["counterOffer"] = transferMsg.counterOffer;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["feeAgreed"] = transferMsg.feeAgreed;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["rejectedOffer"] = transferMsg.rejectedOffer;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["wasRead"] = transferMsg.wasRead;
+    }
 }
 
 void SaveData::ConvertPlayerToJSON(nlohmann::json& root, const Player& player) const
@@ -467,6 +506,7 @@ void SaveData::ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile&
     root["users"][std::to_string(user.GetID())]["name"] = user.GetName();
     root["users"][std::to_string(user.GetID())]["clubID"] = user.GetClub()->GetID();
 
+    // Convert the user's competition tracking stats to JSON
     for (const UserProfile::CompetitionData& compData : user.GetCompetitionData())
     {
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["competitionID"] = compData.compID;

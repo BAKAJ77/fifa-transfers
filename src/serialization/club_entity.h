@@ -12,6 +12,13 @@ public:
 	{
 		uint16_t compID, targetEndPosition;
 	};
+
+	struct Transfer
+	{
+		uint16_t biddingClubID, playerID, expirationTicks;
+		int transferFee;
+		bool counterOffer = false, feeAgreed = false, rejectedOffer = false, wasRead = false;
+	};
 private:
 	std::string name;
 	uint16_t id, leagueID;
@@ -20,10 +27,11 @@ private:
 	std::vector<Player*> players;
 	std::vector<Objective> objectives;
 	std::vector<std::string> generalMessages;
+	std::vector<Transfer> transferMessages;
 public:
 	Club();
 	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-		const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages);
+		const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages, const std::vector<Transfer>& transferMessages);
 
 	~Club() = default;
 
@@ -59,6 +67,12 @@ public:
 
 	// Returns the club's general messages inbox.
 	const std::vector<std::string>& GetGeneralMessages() const;
+
+	// Returns the club's transfer messages inbox.
+	std::vector<Transfer>& GetTransferMessages();
+
+	// Returns the club's transfer messages inbox.
+	const std::vector<Transfer>& GetTransferMessages() const;
 
 	// Returns the name of the club.
 	std::string_view GetName() const;

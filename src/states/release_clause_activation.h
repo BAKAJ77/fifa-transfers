@@ -14,7 +14,7 @@ private:
 
 	uint16_t previousClubID;
 	int releaseClauseFee;
-	bool exitState;
+	bool exitState, finishedNegotiations;
 protected:
 	void Init() override;
 	void Destroy() override;
