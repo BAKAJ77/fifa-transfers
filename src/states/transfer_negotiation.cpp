@@ -299,7 +299,7 @@ void TransferNegotiation::Render() const
             "CONTRACT EXPIRY: " + std::to_string(this->targettedPlayer->GetExpiryYear()) +
             " (" + std::to_string(this->targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " YEARS LEFT)", 5);
 
-        Renderer::GetInstance().RenderShadowedText({ 60, 665 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 55,
+        Renderer::GetInstance().RenderShadowedText({ 60, 665 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 55,
             "TRANSFER BUDGET: " + Util::GetFormattedCashString(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget()), 5);
 
         if (this->existingTransferNegotiation)

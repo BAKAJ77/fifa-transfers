@@ -7,15 +7,22 @@
 #include <serialization/save_data.h>
 #include <util/random_engine.h>
 #include <util/data_manip.h>
+#include <util/globals.h>
 
 void ContractNegotiation::Init()
 {
     // Initialize the member variables
     this->exitState = this->wentBack = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = 
-        this->releaseClauseInvalid = false;
+        this->releaseClauseInvalid = this->sellerSquadTooSmall = this->buyerSquadTooLarge = false;
     
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
+
+    // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
+    if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetPlayers().size() <= Globals::minSquadSize)
+        this->sellerSquadTooSmall = true;
+    else if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetPlayers().size() >= Globals::maxSquadSize)
+        this->buyerSquadTooLarge = true;
 
     // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
     const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
@@ -42,7 +49,7 @@ void ContractNegotiation::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "SUBMIT"));
 
@@ -119,7 +126,7 @@ void ContractNegotiation::Update(const float& deltaTime)
                 this->exitState = this->wentBack = true;
         }
 
-        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
+        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
         {
             // Only show the release clause text input box if a release clause is to be included
             if (this->userInterface.GetTickBox("Release Clause Included")->isCurrentlyTicked())
@@ -142,7 +149,7 @@ void ContractNegotiation::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1040, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         "CONTRACT NEGOTIATION", 5);
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
     {
         // Render text displaying the club's remaining wage budget and the current wage and release clause of the player
         Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 70,
@@ -192,6 +199,17 @@ void ContractNegotiation::Render() const
 
         if (this->releaseClauseInvalid)
             Renderer::GetInstance().RenderText({ 380, 985 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 30, "*");
+    }
+    else if (this->sellerSquadTooSmall)
+    {
+        Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+            std::string(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetName()) +
+            " are unable to sell since they only have 16 players in their squad.", 5);
+    }
+    else if (this->buyerSquadTooLarge)
+    {
+        Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+            "At the moment, you are unable to buy anyone since you are at the max squad size limit of 52 players.", 5);
     }
     else if (this->leagueTierInsufficient)
     {
