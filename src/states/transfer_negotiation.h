@@ -14,7 +14,7 @@ private:
 	Player* targettedPlayer;
 	const Club::Transfer* existingTransferNegotiation;
 	
-	bool exitState, onNegotiationCooldown, alreadyNegotiating, playerNotForSale;
+	bool exitState, onNegotiationCooldown, alreadyNegotiating, playerNotForSale, submittedResponse;
 	bool actionInvalid, bidAmountInvalid;
 private:
 	// Returns TRUE if all the user inputs are valid.

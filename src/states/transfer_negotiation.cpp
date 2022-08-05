@@ -10,7 +10,8 @@
 void TransferNegotiation::Init()
 {
     // Initialize member variables
-    this->exitState = this->onNegotiationCooldown = this->playerNotForSale = this->actionInvalid = this->bidAmountInvalid = this->alreadyNegotiating = false;
+    this->exitState = this->onNegotiationCooldown = this->playerNotForSale = this->actionInvalid = this->bidAmountInvalid = this->alreadyNegotiating = 
+        this->submittedResponse = false;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -114,7 +115,29 @@ void TransferNegotiation::Init()
     }
 }
 
-void TransferNegotiation::Destroy() {}
+void TransferNegotiation::Destroy() 
+{
+    if (this->submittedResponse)
+    {
+        Club* currentUserClub = MainGame::GetAppState()->GetCurrentUser()->GetClub();
+
+        if (!(this->existingTransferNegotiation->biddingClubID == currentUserClub->GetID() &&
+            this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 0))
+        {
+            // Remove the given transfer message from the user club's transfer inbox
+            for (size_t index = 0; index < currentUserClub->GetTransferMessages().size(); index++)
+            {
+                if (this->existingTransferNegotiation == &currentUserClub->GetTransferMessages()[index])
+                {
+                    currentUserClub->GetTransferMessages().erase(currentUserClub->GetTransferMessages().begin() + index);
+                    break;
+                }
+            }
+        }
+
+        InboxInterface::GetAppState()->LoadTransferMessages();
+    }
+}
 
 bool TransferNegotiation::ValidateInput()
 {
@@ -216,21 +239,7 @@ void TransferNegotiation::Update(const float& deltaTime)
                         }
                     }
 
-                    if (!(this->existingTransferNegotiation->biddingClubID == currentUserClub->GetID() &&
-                        this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 0))
-                    {
-                        // Remove the given transfer message from the user club's transfer inbox
-                        for (size_t index = 0; index < currentUserClub->GetTransferMessages().size(); index++)
-                        {
-                            if (this->existingTransferNegotiation == &currentUserClub->GetTransferMessages()[index])
-                            {
-                                currentUserClub->GetTransferMessages().erase(currentUserClub->GetTransferMessages().begin() + index);
-                                break;
-                            }
-                        }
-                    }
-
-                    InboxInterface::GetAppState()->LoadTransferMessages();
+                    this->submittedResponse = true;
                 }
                 else
                 {
