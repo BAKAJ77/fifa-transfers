@@ -22,7 +22,7 @@ void TransferNegotiation::Init()
         for (const Club::Transfer& transferMsg : SaveData::GetInstance().GetClub(this->targettedPlayer->GetClub())->GetTransferMessages())
         {
             if (transferMsg.biddingClubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() &&
-                transferMsg.playerID == this->targettedPlayer->GetID() && !transferMsg.rejectedOffer)
+                transferMsg.playerID == this->targettedPlayer->GetID())
             {
                 this->alreadyNegotiating = true;
                 break;
@@ -31,7 +31,7 @@ void TransferNegotiation::Init()
 
         for (const Club::Transfer& transferMsg : MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages())
         {
-            if (transferMsg.playerID == this->targettedPlayer->GetID() && !transferMsg.rejectedOffer)
+            if (transferMsg.playerID == this->targettedPlayer->GetID())
             {
                 this->alreadyNegotiating = true;
                 break;
@@ -208,8 +208,8 @@ void TransferNegotiation::Update(const float& deltaTime)
                         }
                         else if (this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 1) // The buyer user has rejected the seller's wanted transfer fee
                         {
-                            transferMsg.rejectedOffer = true;
-                            sellerClub->GetTransferMessages().emplace_back(transferMsg);
+                            sellerClub->GetGeneralMessages().push_back({ std::string(SaveData::GetInstance().GetClub(transferMsg.biddingClubID)->GetName()) +
+                                " have decided to pull out of negotiations for " + SaveData::GetInstance().GetPlayer(transferMsg.playerID)->GetName().data() });
                         }
                         else if (this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 2) // The buyer has submitted a new counter bid
                         {
@@ -229,8 +229,8 @@ void TransferNegotiation::Update(const float& deltaTime)
                         }
                         else if (this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 1) // The seller user out-right rejected the bid
                         {
-                            transferMsg.rejectedOffer = true;
-                            biddingClub->GetTransferMessages().emplace_back(transferMsg);
+                            biddingClub->GetGeneralMessages().push_back({ std::string(sellerClub->GetName()) + " have rejected your approach for " +
+                                SaveData::GetInstance().GetPlayer(transferMsg.playerID)->GetName().data() + " and aren't willing to negotiate any further." });
                         }
                         else if (this->userInterface.GetRadioButtonGroup("Action")->GetSelected() == 2) // The seller user sent the user the transfer fee they want
                         {

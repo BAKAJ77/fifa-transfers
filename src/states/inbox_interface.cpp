@@ -41,8 +41,11 @@ void InboxInterface::LoadGeneralMessages()
 {
     this->userInterface.GetSelectionList("Inbox Messages")->Clear();
 
-    for (const std::string& generalMsg : MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetGeneralMessages())
-        this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ generalMsg }, -1);
+    for (Club::GeneralMessage& generalMsg : MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetGeneralMessages())
+    {
+        this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ generalMsg.message }, -1);
+        generalMsg.wasRead = true;
+    }
 }
 
 void InboxInterface::LoadTransferMessages()
@@ -51,8 +54,8 @@ void InboxInterface::LoadTransferMessages()
 
     for (size_t index = 0; index < MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages().size(); index++)
     {
-        const Club::Transfer& transferMsg = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages()[index];
-
+        Club::Transfer& transferMsg = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages()[index];
+        
         // The transfer message recieved is a opening/counter offer or a "pulling out of negotiations" message from another buying club 
         if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() != transferMsg.biddingClubID)
         {
@@ -60,25 +63,17 @@ void InboxInterface::LoadTransferMessages()
             Club* biddingClub = SaveData::GetInstance().GetClub(transferMsg.biddingClubID);
             Player* targettedPlayer = SaveData::GetInstance().GetPlayer(transferMsg.playerID);
 
-            if (transferMsg.rejectedOffer)
+            if (transferMsg.counterOffer) // The transfer message is a counter offer
             {
                 this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(biddingClub->GetName()) +
-                     " have decided to pull out of negotiations for " + targettedPlayer->GetName().data() }, -1);
+                     " have submitted a counter offer of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " +
+                     targettedPlayer->GetName().data() }, (int)index);
             }
-            else
+            else // The transfer message is a opening offer
             {
-                if (transferMsg.counterOffer) // The transfer message is a counter offer
-                {
-                    this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(biddingClub->GetName()) +
-                         " have submitted a counter offer of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " +
-                         targettedPlayer->GetName().data() }, (int)index);
-                }
-                else // The transfer message is a opening offer
-                {
-                    this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(biddingClub->GetName()) +
-                        " have submitted an opening offer of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " +
-                        targettedPlayer->GetName().data() }, (int)index);
-                }
+                this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(biddingClub->GetName()) +
+                    " have submitted an opening offer of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " +
+                    targettedPlayer->GetName().data() }, (int)index);
             }
         }
         else // The transfer message recieved is a response message from the selling club
@@ -87,25 +82,17 @@ void InboxInterface::LoadTransferMessages()
             Player* targettedPlayer = SaveData::GetInstance().GetPlayer(transferMsg.playerID);
             Club* sellingClub = SaveData::GetInstance().GetClub(targettedPlayer->GetClub());
 
-            if (transferMsg.rejectedOffer) // The transfer message indicates that the selling club out-right rejected the offer
+            if (transferMsg.feeAgreed) // The transfer message indicates that the selling club agreed to the offer the user submitted
+            {
+                this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ "You and " + std::string(sellingClub->GetName()) +
+                    " have agreed a fee of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " + targettedPlayer->GetName().data() +
+                    ", you can now negotiate a contract with the player." }, (int)index);
+            }
+            else // The transfer message indicates the selling club asking for a better transfer fee for the player being bidded for
             {
                 this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(sellingClub->GetName()) +
-                    " have rejected your approach for " + targettedPlayer->GetName().data() + " and aren't willing to negotiate any further." }, -1);
-            }
-            else
-            {
-                if (transferMsg.feeAgreed) // The transfer message indicates that the selling club agreed to the offer the user submitted
-                {
-                    this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ "You and " + std::string(sellingClub->GetName()) +
-                        " have agreed a fee of " + Util::GetFormattedCashString(transferMsg.transferFee) + " for " + targettedPlayer->GetName().data() +
-                        ", you can now negotiate a contract with the player." }, (int)index);
-                }
-                else // The transfer message indicates the selling club asking for a better transfer fee for the player being bidded for
-                {
-                    this->userInterface.GetSelectionList("Inbox Messages")->AddElement({ std::string(sellingClub->GetName()) +
-                        " believe a transfer fee in the region of " + Util::GetFormattedCashString(transferMsg.transferFee) +
-                        " would be more suitable for " + targettedPlayer->GetName().data() + "." }, (int)index);
-                }
+                    " believe a transfer fee in the region of " + Util::GetFormattedCashString(transferMsg.transferFee) +
+                    " would be more suitable for " + targettedPlayer->GetName().data() + "." }, (int)index);
             }
         }
     }
@@ -195,10 +182,10 @@ void InboxInterface::Update(const float& deltaTime)
                     {
                         if (user.GetClub()->GetID() == sellerClub->GetID())
                         {
-                            sellerClub->GetGeneralMessages().push_back(std::string(currentUserClub->GetName()) + " have successfully signed " +
+                            sellerClub->GetGeneralMessages().push_back({ std::string(currentUserClub->GetName()) + " have successfully signed " +
                                 transferredPlayer->GetName().data() + " on a " +
-                                std::to_string(transferredPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + 
-                                " year contract for a transfer fee of " + Util::GetFormattedCashString(this->selectedAgreedTransfer.transferMsg->transferFee) + ".");
+                                std::to_string(transferredPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) +
+                                " year contract for a transfer fee of " + Util::GetFormattedCashString(this->selectedAgreedTransfer.transferMsg->transferFee) + "." });
 
                             break;
                         }
@@ -216,9 +203,9 @@ void InboxInterface::Update(const float& deltaTime)
                     {
                         if (user.GetClub()->GetID() == sellerClub->GetID())
                         {
-                            sellerClub->GetGeneralMessages().push_back("Contract negotiations between " + std::string(currentUserClub->GetName()) + " and " +
+                            sellerClub->GetGeneralMessages().push_back({ "Contract negotiations between " + std::string(currentUserClub->GetName()) + " and " +
                                 transferredPlayer->GetName().data() + " have broken down, therefore " + transferredPlayer->GetName().data() +
-                                " will remain at your club.");
+                                " will remain at your club." });
 
                             break;
                         }

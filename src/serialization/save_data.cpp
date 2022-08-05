@@ -172,7 +172,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
 
         int transferBudget = 0, wageBudget = 0;
         std::vector<Club::Objective> objectives;
-        std::vector<std::string> generalMessages;
+        std::vector<Club::GeneralMessage> generalMessages;
         std::vector<Club::Transfer> transferMessages;
         
         if (!loadingDefault)
@@ -191,7 +191,12 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
             if ((*root)[idStr].contains("generalMessages"))
             {
                 for (const nlohmann::json& generalMessage : (*root)[idStr]["generalMessages"])
-                    generalMessages.push_back(generalMessage["message"].get<std::string>());
+                {
+                    const std::string message = generalMessage["message"].get<std::string>();
+                    const bool wasRead = generalMessage["wasRead"].get<bool>();
+
+                    generalMessages.push_back({ message, wasRead });
+                }
             }
 
             // Fetch the club's transfer messages inbox
@@ -206,10 +211,8 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
                     const int transferFee = transferMessage["transferFee"].get<int>();
                     const bool counterOffer = transferMessage["counterOffer"].get<bool>();
                     const bool feeAgreed = transferMessage["feeAgreed"].get<bool>();
-                    const bool rejectedOffer = transferMessage["rejectedOffer"].get<bool>();
-                    const bool wasRead = transferMessage["wasRead"].get<bool>();
-
-                    transferMessages.push_back({ biddingClubID, playerID, expirationTicks, transferFee, counterOffer, feeAgreed, rejectedOffer, wasRead });
+                    
+                    transferMessages.push_back({ biddingClubID, playerID, expirationTicks, transferFee, counterOffer, feeAgreed });
                 }
             }
         }
@@ -462,7 +465,10 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
 
     // Convert the club's general messages inbox to JSON
     for (size_t index = 0; index < club.GetGeneralMessages().size(); index++)
-        root["clubs"][std::to_string(club.GetID())]["generalMessages"][std::to_string(index + 1)]["message"] = club.GetGeneralMessages()[index];
+    {
+        root["clubs"][std::to_string(club.GetID())]["generalMessages"][std::to_string(index + 1)]["message"] = club.GetGeneralMessages()[index].message;
+        root["clubs"][std::to_string(club.GetID())]["generalMessages"][std::to_string(index + 1)]["wasRead"] = club.GetGeneralMessages()[index].wasRead;
+    }
 
     // Convert the club's transfer messages inbox to JSON
     for (size_t index = 0; index < club.GetTransferMessages().size(); index++)
@@ -476,8 +482,6 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["transferFee"] = transferMsg.transferFee;
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["counterOffer"] = transferMsg.counterOffer;
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["feeAgreed"] = transferMsg.feeAgreed;
-        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["rejectedOffer"] = transferMsg.rejectedOffer;
-        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["wasRead"] = transferMsg.wasRead;
     }
 }
 

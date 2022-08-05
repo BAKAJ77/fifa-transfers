@@ -17,7 +17,13 @@ public:
 	{
 		uint16_t biddingClubID, playerID, expirationTicks;
 		int transferFee;
-		bool counterOffer = false, feeAgreed = false, rejectedOffer = false, wasRead = false;
+		bool counterOffer = false, feeAgreed = false;
+	};
+
+	struct GeneralMessage
+	{
+		std::string message;
+		bool wasRead = false;
 	};
 private:
 	std::string name;
@@ -26,12 +32,12 @@ private:
 
 	std::vector<Player*> players;
 	std::vector<Objective> objectives;
-	std::vector<std::string> generalMessages;
+	std::vector<GeneralMessage> generalMessages;
 	std::vector<Transfer> transferMessages;
 public:
 	Club();
 	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-		const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages, const std::vector<Transfer>& transferMessages);
+		const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages);
 
 	~Club() = default;
 
@@ -63,10 +69,10 @@ public:
 	std::vector<Player*>& GetPlayers();
 
 	// Returns the club's general messages inbox.
-	std::vector<std::string>& GetGeneralMessages();
+	std::vector<GeneralMessage>& GetGeneralMessages();
 
 	// Returns the club's general messages inbox.
-	const std::vector<std::string>& GetGeneralMessages() const;
+	const std::vector<GeneralMessage>& GetGeneralMessages() const;
 
 	// Returns the club's transfer messages inbox.
 	std::vector<Transfer>& GetTransferMessages();

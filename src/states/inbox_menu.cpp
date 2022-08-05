@@ -22,7 +22,6 @@ void InboxMenu::Init()
         glm::vec3(120), 255, false, 85, 20));
 
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
-
 }
 
 void InboxMenu::Destroy() {}
@@ -69,25 +68,32 @@ void InboxMenu::Render() const
     this->userInterface.Render();
 
     // Render inbox message count indicators
-    const size_t totalGeneralMessages = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetGeneralMessages().size();
-    const size_t totalTransferMessages = MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferMessages().size();
-    
-    if (totalGeneralMessages > 0)
+    Club* currentUserClub = MainGame::GetAppState()->GetCurrentUser()->GetClub();
+    const size_t totalTransferMsgs = currentUserClub->GetTransferMessages().size();
+    int totalUnreadGeneralMsgs = 0;
+
+    for (const Club::GeneralMessage& msg : currentUserClub->GetGeneralMessages())
+    {
+        if (!msg.wasRead)
+            ++totalUnreadGeneralMsgs;
+    }
+
+    if (totalUnreadGeneralMsgs > 0)
     {
         Renderer::GetInstance().RenderSquare({ 850, 220 }, { 100, 100 }, this->circleTex, { glm::vec3(255), this->userInterface.GetOpacity() });
 
-        const glm::vec2 textSize = Renderer::GetInstance().GetTextSize(this->font, 50, std::to_string(totalGeneralMessages));
+        const glm::vec2 textSize = Renderer::GetInstance().GetTextSize(this->font, 50, std::to_string(totalUnreadGeneralMsgs));
         Renderer::GetInstance().RenderText({ 850 - (textSize.x / 2), 220 + (textSize.y / 2) }, { glm::vec3(255), this->userInterface.GetOpacity() }, 
-            this->font, 50, std::to_string(totalGeneralMessages));
+            this->font, 50, std::to_string(totalUnreadGeneralMsgs));
     }
 
-    if (totalTransferMessages > 0)
+    if (totalTransferMsgs > 0)
     {
         Renderer::GetInstance().RenderSquare({ 1800, 220 }, { 100, 100 }, this->circleTex, { glm::vec3(255), this->userInterface.GetOpacity() });
 
-        const glm::vec2 textSize = Renderer::GetInstance().GetTextSize(this->font, 50, std::to_string(totalTransferMessages));
+        const glm::vec2 textSize = Renderer::GetInstance().GetTextSize(this->font, 50, std::to_string(totalTransferMsgs));
         Renderer::GetInstance().RenderText({ 1800 - (textSize.x / 2), 220 + (textSize.y / 2) }, { glm::vec3(255), this->userInterface.GetOpacity() },
-            this->font, 50, std::to_string(totalTransferMessages));
+            this->font, 50, std::to_string(totalTransferMsgs));
     }
 }
 

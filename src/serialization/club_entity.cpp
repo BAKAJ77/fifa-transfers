@@ -11,7 +11,7 @@ Club::Club() :
 {}
 
 Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-    const std::vector<Objective>& objectives, const std::vector<std::string>& generalMessages, const std::vector<Transfer>& transferMessages) :
+    const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages) :
     name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players), objectives(objectives), 
     generalMessages(generalMessages), transferMessages(transferMessages)
 {
@@ -154,12 +154,12 @@ std::vector<Player*>& Club::GetPlayers()
     return this->players;
 }
 
-std::vector<std::string>& Club::GetGeneralMessages()
+std::vector<Club::GeneralMessage>& Club::GetGeneralMessages()
 {
     return this->generalMessages;
 }
 
-const std::vector<std::string>& Club::GetGeneralMessages() const
+const std::vector<Club::GeneralMessage>& Club::GetGeneralMessages() const
 {
     return this->generalMessages;
 }
