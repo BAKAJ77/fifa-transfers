@@ -26,7 +26,10 @@ private:
 	InboxType type;
 
 	AgreedTransfer selectedAgreedTransfer;
+	mutable bool insufficientTransferFunds;
 	bool exitState;
+private:
+	void RenderInsufficientTransferFundsText() const;
 protected:
 	void Init() override;
 	void Destroy() override;

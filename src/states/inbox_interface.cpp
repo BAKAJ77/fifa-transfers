@@ -6,12 +6,13 @@
 
 #include <serialization/save_data.h>
 #include <interface/menu_button.h>
+#include <util/timestamp.h>
 #include <util/data_manip.h>
 
 void InboxInterface::Init()
 {
     // Initialize member variables
-    this->exitState = false;
+    this->exitState = this->insufficientTransferFunds = false;
     this->selectedAgreedTransfer = { 0, nullptr, false };
 
     // Fetch the Bahnschrift Bold font
@@ -147,13 +148,18 @@ void InboxInterface::Update(const float& deltaTime)
             {
                 if (transferMsg.feeAgreed)
                 {
-                    this->selectedAgreedTransfer.sellingClubID = SaveData::GetInstance().GetPlayer(transferMsg.playerID)->GetClub();
-                    this->selectedAgreedTransfer.transferMsg = &transferMsg;
+                    if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget() >= transferMsg.transferFee)
+                    {
+                        this->selectedAgreedTransfer.sellingClubID = SaveData::GetInstance().GetPlayer(transferMsg.playerID)->GetClub();
+                        this->selectedAgreedTransfer.transferMsg = &transferMsg;
 
-                    ContractNegotiation::GetAppState()->SetNegotiatingPlayer(SaveData::GetInstance().GetPlayer(transferMsg.playerID), this, false,
-                        &this->selectedAgreedTransfer.finishedNegotiating);
+                        ContractNegotiation::GetAppState()->SetNegotiatingPlayer(SaveData::GetInstance().GetPlayer(transferMsg.playerID), this, false,
+                            &this->selectedAgreedTransfer.finishedNegotiating);
 
-                    this->PushState(ContractNegotiation::GetAppState());
+                        this->PushState(ContractNegotiation::GetAppState());
+                    }
+                    else
+                        this->insufficientTransferFunds = true;
                 }
                 else
                 {
@@ -264,8 +270,35 @@ void InboxInterface::Render() const
             "TRANSFER INBOX", 5);
     }
 
+    // Render error text if the user tries to complete a transfer and has insufficent transfer funds 
+    this->RenderInsufficientTransferFundsText();
+
     // Render the user interface
     this->userInterface.Render();
+}
+
+void InboxInterface::RenderInsufficientTransferFundsText() const
+{
+    if (this->insufficientTransferFunds)
+    {
+        Renderer::GetInstance().RenderShadowedText({ 30, 1050 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 40,
+            "You don't have enough transfer funds to complete this transfer.", 5);
+
+        static bool capturedPreviousTime = false;
+        static float previousTime = 0.0f;
+
+        if (!capturedPreviousTime)
+        {
+            previousTime = Util::GetSecondsSinceEpoch();
+            capturedPreviousTime = true;
+        }
+
+        if (Util::GetSecondsSinceEpoch() - previousTime >= 3.0f)
+        {
+            this->insufficientTransferFunds = false;
+            capturedPreviousTime = false;
+        }
+    }
 }
 
 bool InboxInterface::OnStartupTransitionUpdate(const float deltaTime)
