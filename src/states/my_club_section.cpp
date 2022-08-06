@@ -5,6 +5,7 @@
 #include <states/statistics.h>
 #include <states/objectives.h>
 #include <states/transfer_hub.h>
+#include <states/training_menu.h>
 #include <states/inbox_menu.h>
 
 #include <interface/menu_button.h>
@@ -50,6 +51,8 @@ void MyClub::Update(const float& deltaTime)
             this->PushState(InboxMenu::GetAppState());
         else if (button->GetText() == "TRANSFER HUB" && button->WasClicked())
             this->PushState(TransferHub::GetAppState());
+        else if (button->GetText() == "TRAINING" && button->WasClicked())
+            this->PushState(TrainingMenu::GetAppState());
         else if (button->GetText() == "OBJECTIVES" && button->WasClicked())
         {
             Objectives::GetAppState()->SetUserProfile(MainGame::GetAppState()->GetCurrentUser());

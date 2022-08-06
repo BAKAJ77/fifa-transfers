@@ -10,10 +10,11 @@ Club::Club() :
     id(0), leagueID(0), transferBudget(0), wageBudget(0)
 {}
 
-Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-    const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages) :
-    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), players(players), objectives(objectives), 
-    generalMessages(generalMessages), transferMessages(transferMessages)
+Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<TrainingStaff>& trainingStaffGroups,
+    const std::vector<Player*>& players, const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, 
+    const std::vector<Transfer>& transferMessages) :
+    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), trainingStaffGroups(trainingStaffGroups), players(players), 
+    objectives(objectives), generalMessages(generalMessages), transferMessages(transferMessages)
 {
     // Sort the club players (based on their overall rating) in descending order
     std::sort(this->players.begin(), this->players.end(), [](Player* first, Player* second) { return first->GetOverall() > second->GetOverall(); });
@@ -147,6 +148,46 @@ int Club::GetAverageOverall() const
         overallTotal += this->players[index]->GetOverall();
 
     return overallTotal / 11;
+}
+
+Club::TrainingStaff& Club::GetTrainingStaff(Club::StaffType type)
+{
+    TrainingStaff* returnedStaff = nullptr;
+    for (TrainingStaff& staff : this->trainingStaffGroups)
+    {
+        if (staff.type == type)
+        {
+            returnedStaff = &staff;
+            break;
+        }
+    }
+
+    return *returnedStaff;
+}
+
+const Club::TrainingStaff& Club::GetTrainingStaff(Club::StaffType type) const
+{
+    const TrainingStaff* returnedStaff = nullptr;
+    for (const TrainingStaff& staff : this->trainingStaffGroups)
+    {
+        if (staff.type == type)
+        {
+            returnedStaff = &staff;
+            break;
+        }
+    }
+
+    return *returnedStaff;
+}
+
+std::vector<Club::TrainingStaff>& Club::GetTrainingStaff()
+{
+    return this->trainingStaffGroups;
+}
+
+const std::vector<Club::TrainingStaff>& Club::GetTrainingStaff() const
+{
+    return this->trainingStaffGroups;
 }
 
 std::vector<Player*>& Club::GetPlayers()

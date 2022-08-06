@@ -25,19 +25,35 @@ public:
 		std::string message;
 		bool wasRead = false;
 	};
+
+	enum class StaffType
+	{
+		GOALKEEPING,
+		DEFENCE,
+		MIDFIELD,
+		ATTACK
+	};
+
+	struct TrainingStaff
+	{
+		StaffType type;
+		int level = 0;
+	};
 private:
 	std::string name;
 	uint16_t id, leagueID;
 	int transferBudget, wageBudget;
 
+	std::vector<TrainingStaff> trainingStaffGroups;
 	std::vector<Player*> players;
 	std::vector<Objective> objectives;
 	std::vector<GeneralMessage> generalMessages;
 	std::vector<Transfer> transferMessages;
 public:
 	Club();
-	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<Player*>& players,
-		const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages);
+	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<TrainingStaff>& trainingStaffGroups, 
+		const std::vector<Player*>& players, const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, 
+		const std::vector<Transfer>& transferMessages);
 
 	~Club() = default;
 
@@ -64,6 +80,18 @@ public:
 
 	// Returns the average overall of the players in the club.
 	int GetAverageOverall() const;
+
+	// Returns the current hired training staff at the club.
+	TrainingStaff& GetTrainingStaff(StaffType type);
+
+	// Returns the current hired training staff at the club.
+	const TrainingStaff& GetTrainingStaff(StaffType type) const;
+
+	// Returns the current hired training staff at the club.
+	std::vector<TrainingStaff>& GetTrainingStaff();
+
+	// Returns the current hired training staff at the club.
+	const std::vector<TrainingStaff>& GetTrainingStaff() const;
 
 	// Returns players in the club.
 	std::vector<Player*>& GetPlayers();

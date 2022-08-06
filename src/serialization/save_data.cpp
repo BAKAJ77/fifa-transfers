@@ -169,8 +169,10 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         // Fetch the club's data from the JSON element
         const std::string name = (*root)[idStr]["name"].get<std::string>();
         const uint16_t leagueID = (*root)[idStr]["leagueID"].get<uint16_t>();
-
+        
         int transferBudget = 0, wageBudget = 0;
+        
+        std::vector<Club::TrainingStaff> trainingStaffGroups;
         std::vector<Club::Objective> objectives;
         std::vector<Club::GeneralMessage> generalMessages;
         std::vector<Club::Transfer> transferMessages;
@@ -179,6 +181,13 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         {
             transferBudget = (*root)[idStr]["transferBudget"].get<int>();
             wageBudget = (*root)[idStr]["wageBudget"].get<int>();
+
+            // Fetch the club's training staff
+            if ((*root)[idStr].contains("trainingStaff"))
+            {
+                for (const nlohmann::json& trainingStaff : (*root)[idStr]["trainingStaff"])
+                    trainingStaffGroups.push_back({ (Club::StaffType)trainingStaff["type"].get<int>(), trainingStaff["level"].get<int>() });
+            }
 
             // Fetch the club's objectives
             if ((*root)[idStr].contains("objectives"))
@@ -226,7 +235,8 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         }
 
         // Add the club to the database
-        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, players, objectives, generalMessages, transferMessages));
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, trainingStaffGroups, players, objectives, generalMessages, 
+            transferMessages));
 
         ++id;
     }
@@ -453,6 +463,15 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
     root["clubs"][std::to_string(club.GetID())]["leagueID"] = club.GetLeague();
     root["clubs"][std::to_string(club.GetID())]["transferBudget"] = club.GetTransferBudget();
     root["clubs"][std::to_string(club.GetID())]["wageBudget"] = club.GetWageBudget();
+
+    // Convert the club's training staff to JSON
+    for (size_t index = 0; index < club.GetObjectives().size(); index++)
+    {
+        const Club::TrainingStaff& trainingStaff = club.GetTrainingStaff()[index];
+
+        root["clubs"][std::to_string(club.GetID())]["trainingStaff"][std::to_string(index + 1)]["type"] = (int)trainingStaff.type;
+        root["clubs"][std::to_string(club.GetID())]["trainingStaff"][std::to_string(index + 1)]["level"] = trainingStaff.level;
+    }
 
     // Convert the club's objectives to JSON
     for (size_t index = 0; index < club.GetObjectives().size(); index++)

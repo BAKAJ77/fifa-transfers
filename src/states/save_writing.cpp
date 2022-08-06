@@ -31,9 +31,15 @@ void SaveWriting::ExecuteSavingProcess()
     // Do some operations on the save data if it is a new save
     if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "data/saves/" + SaveData::GetInstance().GetName().data() + ".json"))
     {
-		// Generate the objectives for each user's club
 		for (UserProfile& user : SaveData::GetInstance().GetUsers())
+		{
+			// Generate the objectives for each user's club
 			user.GetClub()->GenerateObjectives();
+
+			// Set default training staff for each user's club
+			user.GetClub()->GetTrainingStaff() = { { Club::StaffType::GOALKEEPING }, { Club::StaffType::DEFENCE }, { Club::StaffType::MIDFIELD }, 
+				{ Club::StaffType::ATTACK } };
+		}
 
 		// Calculate the wage budget for every club
 		for (Club& club : SaveData::GetInstance().GetClubDatabase())
