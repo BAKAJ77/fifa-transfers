@@ -25,7 +25,7 @@ void InboxInterface::Init()
     if (this->type == InboxType::GENERAL)
         this->userInterface.AddButton(new MenuButton({ 1410, 1005 }, { 300, 100 }, { 315, 115 }, "CLEAR"));
 
-    this->userInterface.AddSelectionList("Inbox Messages", { { 960, 490 }, { 1860, 720 }, 80, 255, 25 });
+    this->userInterface.AddSelectionList("Inbox Messages", { { 960, 490 }, { 1860, 720 }, 80, 255, 30 });
     this->userInterface.GetSelectionList("Inbox Messages")->AddCategory("Inbox Messages");
 
     // Load the general/transfer messages
