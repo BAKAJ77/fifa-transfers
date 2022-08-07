@@ -73,6 +73,24 @@ void ContractResponse::Destroy()
             // This contract deal is for a player in a different team, so move him to the current user's team
             sellingClub->RemovePlayer(this->negotiatingPlayer);
             currentUserClub->AddPlayer(this->negotiatingPlayer);
+
+            // Erase all transfer messages in every other club's inbox which involve this player
+            for (Club& club : SaveData::GetInstance().GetClubDatabase())
+            {
+                if (club.GetID() != currentUserClub->GetID())
+                {
+                    std::vector<Club::Transfer>& transferInbox = club.GetTransferMessages();
+
+                    for (int index = 0; index < (int)transferInbox.size(); index++)
+                    {
+                        if (transferInbox[index].playerID == this->negotiatingPlayer->GetID())
+                        {
+                            transferInbox.erase(transferInbox.begin() + index);
+                            --index;
+                        }
+                    }
+                }
+            }
         }
         else
         {

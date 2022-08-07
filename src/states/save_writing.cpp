@@ -81,20 +81,6 @@ void SaveWriting::ExecuteSavingProcess()
 							noPotentialIncreaseCount++;
 
 						player.SetPotential(std::min(player.GetOverall() + std::min(increasePotential, maxIncrease), 99));
-
-						// Calculate value increase based on generated potential
-						if (increasePotential > 0)
-						{
-							float value_multiplier = 0.0f;
-							if (player.GetOverall() <= 70)
-								value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall()) * 2.5f;
-							else
-								value_multiplier = ((float)player.GetPotential() / (float)player.GetOverall());
-
-							player.SetValue(Util::GetTruncatedSFInteger((int)(player.GetValue() * value_multiplier), 3));
-							if (player.GetReleaseClause() > 0)
-								player.SetReleaseClause(Util::GetTruncatedSFInteger((int)(player.GetReleaseClause() * value_multiplier), 4));
-						}
 					}
 
 					if (primeAgeDifference > 0)

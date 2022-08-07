@@ -4,6 +4,9 @@
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
+#include <util/random_engine.h>
+#include <util/data_manip.h>
+#include <util/globals.h>
 
 void RecordCompetition::Init()
 {
@@ -172,6 +175,365 @@ void RecordCompetition::ClearAllInputs()
         this->userInterface.GetTextField("Table Position")->Clear();
 }
 
+void RecordCompetition::GenerateAIOutboundTransfers()
+{
+    for (UserProfile& user : SaveData::GetInstance().GetUsers())
+    {
+        // Ensure the user has enough players in their squad in order to be able to sell
+        if (user.GetClub()->GetPlayers().size() > Globals::minSquadSize)
+        {
+            for (Player* player : user.GetClub()->GetPlayers())
+            {
+                // Simple algorithm for AI deciding whether to send an offer for the player
+                int generatedWeight = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
+                if (player->GetTransferListed())
+                    generatedWeight *= (int)(((float)(player->GetOverall() + player->GetPotential()) / 10.0f) * 3.5f);
+                else
+                    generatedWeight *= (int)((float)(player->GetOverall() + player->GetPotential()) / 10.0f);
+
+                if (generatedWeight >= 1100 && !player->GetTransfersBlocked())
+                {
+                    // Simple algorithm to decide the amount willing to be bidded for the player
+                    const int min = (int)(std::floor((float)(player->GetValue()) / 2.0f));
+                    const int max = (int)(std::ceil((float)(player->GetValue()) * 
+                        std::max((float)(player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f) *
+                        std::max((float)(player->GetPotential() - player->GetOverall()) / 6.0f, 1.0f)));
+
+                    int openingBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
+
+                    // Select a random AI controlled club to make the bid
+                    Club* biddingAIClub = nullptr;
+                    bool suitableClubFound = false, activeNegotiationCooldownFound = false;
+
+                    // Don't bother bidding for the player if there is an active negotiation cooldown attached to him
+                    for (SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
+                    {
+                        if (cooldown.playerID == player->GetID() && cooldown.clubID == 0)
+                        {
+                            activeNegotiationCooldownFound = true;
+                            break;
+                        }
+                    }
+
+                    while (!suitableClubFound && !activeNegotiationCooldownFound)
+                    {
+                        // Choose random club from the save's database
+                        const int randomClubIndex = RandomEngine::GetInstance().GenerateRandom<int>(0, (int)SaveData::GetInstance().GetClubDatabase().size() - 1);
+                        biddingAIClub = &SaveData::GetInstance().GetClubDatabase()[randomClubIndex];
+
+                        // Make sure the chosen club isn't controlled by a user
+                        bool clubControlledByUser = false;
+                        for (UserProfile& user : SaveData::GetInstance().GetUsers())
+                        {
+                            if (biddingAIClub->GetID() == user.GetClub()->GetID())
+                            {
+                                clubControlledByUser = true;
+                                break;
+                            }
+                        }
+
+                        // To keep it realistic, make sure the club chosen isn't way too good/bad for the player
+                        constexpr int requiredOverallRange = 5;
+                        if (!clubControlledByUser)
+                        {
+                            if (player->GetOverall() >= 60)
+                            {
+                                if (biddingAIClub->GetAverageOverall() >= player->GetOverall() - requiredOverallRange &&
+                                    biddingAIClub->GetAverageOverall() <= player->GetOverall() + requiredOverallRange)
+                                {
+                                    suitableClubFound = true;
+                                }
+                            }
+                            else
+                            {
+                                if (biddingAIClub->GetAverageOverall() <= 65)
+                                    suitableClubFound = true;
+                            }
+                        }
+
+                        // The bidding AI club chosen must have enough space in their squad for the player being bidded for
+                        if (biddingAIClub->GetPlayers().size() >= Globals::maxSquadSize)
+                            suitableClubFound = false;
+
+                        if (suitableClubFound)
+                        {
+                            // Slash the amount bidded if the player's wage will consume at least half the club's wage budget
+                            if (player->GetWage() >= (biddingAIClub->GetWageBudget() / 2.0f))
+                            {
+                                openingBid = Util::GetTruncatedSFInteger((int)(openingBid / 
+                                    (2.0f * ((float)player->GetWage() / (float)biddingAIClub->GetWageBudget()))), 4);
+                            }
+
+                            if (openingBid >= player->GetReleaseClause() && player->GetReleaseClause() > 0)
+                            {
+                                // The AI will just activate the player's release clause
+                                this->HandleAITransferCompletion(*biddingAIClub, *user.GetClub(), *player, player->GetReleaseClause(), true);
+                            }
+                            else
+                            {
+                                // Send opening transfer offer to seller user's club
+                                Club::Transfer openingTransferOffer;
+                                openingTransferOffer.biddingClubID = biddingAIClub->GetID();
+                                openingTransferOffer.playerID = player->GetID();
+                                openingTransferOffer.transferFee = openingBid;
+                                openingTransferOffer.expirationTicks = 3;
+                                
+                                user.GetClub()->GetTransferMessages().emplace_back(openingTransferOffer);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void RecordCompetition::HandleAIClubsTransferResponses()
+{
+    // Iterate through every club in the save's database
+    for (Club& club : SaveData::GetInstance().GetClubDatabase())
+    {
+        // Make sure the club is not controlled by a user
+        bool clubControlledByUser = false;
+        for (UserProfile& user : SaveData::GetInstance().GetUsers())
+        {
+            if (club.GetID() == user.GetClub()->GetID())
+            {
+                clubControlledByUser = true;
+                break;
+            }
+        }
+
+        if (!clubControlledByUser)
+        {
+            const size_t totalPendingTransferMsgs = club.GetTransferMessages().size();
+            for (size_t index = 0; index < totalPendingTransferMsgs; index++)
+            {
+                const Club::Transfer& transfer = club.GetTransferMessages()[index];
+                Player* targettedPlayer = SaveData::GetInstance().GetPlayer(transfer.playerID);
+
+                if (club.GetID() == transfer.biddingClubID) // The AI club is the buyer in this scenario
+                {
+                    Club* sellerClub = SaveData::GetInstance().GetClub(targettedPlayer->GetClub());
+
+                    // As an absolute caution, make sure both clubs meet the squad size requirements
+                    const bool squadSizeRequirementsMet = (club.GetPlayers().size() < Globals::maxSquadSize) &&
+                        (sellerClub->GetPlayers().size() > Globals::minSquadSize);
+
+                    if (transfer.feeAgreed && squadSizeRequirementsMet)
+                    {
+                        this->HandleAITransferCompletion(club, *sellerClub, *targettedPlayer, transfer.transferFee);
+                    }
+                    else
+                    {
+                        // Simple algorithm to decide the amount willing to be bidded for the player
+                        const int min = (int)(std::floor((float)(targettedPlayer->GetValue()) / 2.0f));
+                        const int max = (int)(std::ceil((float)(targettedPlayer->GetValue()) * 
+                            std::max((float)(targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f) *
+                            std::max((float)(targettedPlayer->GetPotential() - targettedPlayer->GetOverall()) / 6.0f, 1.0f)));
+
+                        const int willingAmountToBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
+
+                        if ((willingAmountToBid >= transfer.transferFee) && squadSizeRequirementsMet)
+                        {
+                            // Send general message to the seller user's club indicating that the AI club has agreed to the fee demanded by the user
+                            sellerClub->GetGeneralMessages().push_back({ std::string(club.GetName()) + " has agreed to pay your demanded fee of " +
+                                Util::GetFormattedCashString(transfer.transferFee) + " for " + targettedPlayer->GetName().data() +
+                                ", the player and the club have started negotiating personal terms." });
+
+                            // Push agreed transfer message into the AI clubs transfer inbox (this will be handled at the end of the next competition)
+                            Club::Transfer agreedTransfer;
+                            agreedTransfer.biddingClubID = transfer.biddingClubID;
+                            agreedTransfer.playerID = transfer.playerID;
+                            agreedTransfer.transferFee = transfer.transferFee;
+                            agreedTransfer.expirationTicks = 3;
+                            agreedTransfer.feeAgreed = true;
+
+                            club.GetTransferMessages().emplace_back(agreedTransfer);
+                        }
+                        else if ((willingAmountToBid >= (transfer.transferFee / 1.75f)) && squadSizeRequirementsMet)
+                        {
+                            // Send a counter offer, indicating the amount the AI club is willing to pay for the player, to the seller user's club
+                            Club::Transfer counterOffer;
+                            counterOffer.biddingClubID = transfer.biddingClubID;
+                            counterOffer.playerID = transfer.playerID;
+                            counterOffer.transferFee = willingAmountToBid;
+                            counterOffer.expirationTicks = 3;
+                            counterOffer.counterOffer = true;
+
+                            sellerClub->GetTransferMessages().emplace_back(counterOffer);
+                        }
+                        else
+                        {
+                            // Send general message to the seller user's club indicating that the AI club has pulled out of negotiations for the player
+                            if (squadSizeRequirementsMet)
+                            {
+                                sellerClub->GetGeneralMessages().push_back({ std::string(club.GetName()) + " have decided to pull out of negotiations for " +
+                                    targettedPlayer->GetName().data() });
+                            }
+                            else
+                            {
+                                sellerClub->GetGeneralMessages().push_back({ std::string(club.GetName()) + " have decided to pull out of negotiations for " +
+                                    targettedPlayer->GetName().data() + " because of squad size requirement related issues." });
+                            }
+                        }
+                    }
+                }
+                else // The AI club is the seller in this scenario
+                {
+                    Club* biddingClub = SaveData::GetInstance().GetClub(transfer.biddingClubID);
+
+                    // Simple algorithm to decide the minimum required amount wanted for player
+                    const int min = (int)(std::floor((float)targettedPlayer->GetValue() / 2.5f));
+                    const int max = (int)(std::ceil((float)targettedPlayer->GetValue() *
+                        (2.5f + (((float)targettedPlayer->GetExpiryYear() - (float)SaveData::GetInstance().GetCurrentYear() - 1) / 10.0f))));
+
+                    int minRequiredBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
+
+                    if (targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() > 3)
+                    {
+                        minRequiredBid = Util::GetTruncatedSFInteger((int)((float)targettedPlayer->GetValue() * 
+                            (1.5f + (((float)targettedPlayer->GetExpiryYear() - (float)SaveData::GetInstance().GetCurrentYear()) / 10.0f))), 4);
+                    }
+
+                    if (transfer.transferFee >= minRequiredBid)
+                    {
+                        // Send response to the bidding user's club that the offer has been accepted
+                        Club::Transfer transferResponse;
+                        transferResponse.biddingClubID = transfer.biddingClubID;
+                        transferResponse.playerID = transfer.playerID;
+                        transferResponse.transferFee = transfer.transferFee;
+                        transferResponse.expirationTicks = 3;
+                        transferResponse.feeAgreed = true;
+                        
+                        biddingClub->GetTransferMessages().emplace_back(transferResponse);
+                    }
+                    else if (transfer.transferFee >= (minRequiredBid / 1.75f))
+                    {
+                        // Send counter response to the bidding user's club
+                        Club::Transfer transferResponse;
+                        transferResponse.biddingClubID = transfer.biddingClubID;
+                        transferResponse.playerID = transfer.playerID;
+                        transferResponse.transferFee = minRequiredBid;
+                        transferResponse.expirationTicks = 3;
+
+                        biddingClub->GetTransferMessages().emplace_back(transferResponse);
+                    }
+                    else
+                    {
+                        biddingClub->GetGeneralMessages().push_back({ std::string(club.GetName()) + " have rejected your approach for " + 
+                            targettedPlayer->GetName().data() + " and aren't willing to negotiate any further." });
+                    }
+                }
+            }
+
+            // Erase all the transfer messages in the inbox that were handled
+            for (size_t count = 0; count < totalPendingTransferMsgs; count++)
+                club.GetTransferMessages().erase(club.GetTransferMessages().begin());
+        }
+    }
+}
+
+void RecordCompetition::HandleAITransferCompletion(Club& buyerClub, Club& sellerClub, Player& player, int transferFee, bool activatedReleaseClause)
+{
+    // Add the paid transfer fee onto the seller user's club transfer budget
+    sellerClub.SetTransferBudget(sellerClub.GetTransferBudget() + transferFee);
+
+    // Add the freed wages onto the seller user's club wage budget
+    sellerClub.SetWageBudget(sellerClub.GetWageBudget() + player.GetWage());
+
+    // Generate the player's new contract terms
+    const int contractLength = RandomEngine::GetInstance().GenerateRandom<int>(player.GetAge() > 26 ? 2 : 3, 5);
+
+    const int min = player.GetWage();
+    const int max = (int)(player.GetWage() * 2.25f);
+    const int contractWage = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
+
+    player.SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + contractLength);
+    player.SetWage(contractWage);
+    player.SetReleaseClause(0);
+
+    // Move the player to his new club
+    buyerClub.AddPlayer(&player);
+    sellerClub.RemovePlayer(&player);
+
+    // Send general message to the seller user club to notify that the player has been successfully sold
+    if (activatedReleaseClause)
+    {
+        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have paid the " + Util::GetFormattedCashString(transferFee) + 
+            " release clause for " + player.GetName().data() + " and signed him on a " + 
+            std::to_string(player.GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract." });
+    }
+    else
+    {
+        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have successfully signed " + player.GetName().data() + " on a " +
+            std::to_string(contractLength) + " year contract for a transfer fee of " + Util::GetFormattedCashString(transferFee) + "." });
+    }
+
+    // Erase all transfer messages in every other club's inbox which involve this player
+    for (Club& club : SaveData::GetInstance().GetClubDatabase())
+    {
+        if (club.GetID() != buyerClub.GetID())
+        {
+            std::vector<Club::Transfer>& transferInbox = club.GetTransferMessages();
+
+            for (int index = 0; index < (int)transferInbox.size(); index++)
+            {
+                if (transferInbox[index].playerID == player.GetID())
+                {
+                    transferInbox.erase(transferInbox.begin() + index);
+                    --index;
+                }
+            }
+        }
+    }
+
+    // Push transfer into the transfer history database
+    SaveData::GetInstance().GetTransferHistory().push_back({ player.GetID(), sellerClub.GetID(), buyerClub.GetID(), transferFee });
+
+    // Push negotiation cooldown for all clubs
+    SaveData::GetInstance().GetNegotiationCooldowns().push_back({ player.GetID(), 0, SaveData::CooldownType::CONTRACT_NEGOTIATING, 7 });
+}
+
+void RecordCompetition::UpdateNegotiationCooldowns()
+{
+    // Decrease the tick counts of all existing active negotiation cooldowns and if any of them have reached a tick count of 0, then remove them
+    std::vector<SaveData::NegotiationCooldown>& negotiationCooldowns = SaveData::GetInstance().GetNegotiationCooldowns();
+    for (int index = 0; index < (int)negotiationCooldowns.size(); index++)
+    {
+        if (--negotiationCooldowns[index].ticksRemaining <= 0)
+        {
+            negotiationCooldowns.erase(negotiationCooldowns.begin() + index);
+            --index;
+        }
+    }
+}
+
+void RecordCompetition::UpdateTransferMessagesTicks()
+{
+    // Decrease the tick counts of all transfer messages and if any of them have reached a tick count of 0, then remove them
+    for (Club& club : SaveData::GetInstance().GetClubDatabase())
+    {
+        std::vector<Club::Transfer>& clubTransferInbox = club.GetTransferMessages();
+        for (int index = 0; index < (int)clubTransferInbox.size(); index++)
+        {
+            if (--clubTransferInbox[index].expirationTicks <= 0)
+            {
+                clubTransferInbox.erase(clubTransferInbox.begin() + index);
+                --index;
+            }
+        }
+    }
+}
+
+void RecordCompetition::UpdateSaveDatabaseState()
+{
+    this->UpdateTransferMessagesTicks();
+    this->UpdateNegotiationCooldowns();
+    this->GenerateAIOutboundTransfers();
+    this->HandleAIClubsTransferResponses();
+}
+
 void RecordCompetition::Update(const float& deltaTime)
 {
     if (!this->exitState && !this->completed)
@@ -259,17 +621,7 @@ void RecordCompetition::Update(const float& deltaTime)
                             }
                         }
 
-                        // Decrease the tick counts of all existing active negotiation cooldowns
-                        // If any of them have reached a tick count of 0, then remove them
-                        std::vector<SaveData::NegotiationCooldown>& negotiationCooldowns = SaveData::GetInstance().GetNegotiationCooldowns();
-                        for (int index = 0; index < (int)negotiationCooldowns.size(); index++)
-                        {
-                            if (--negotiationCooldowns[index].ticksRemaining <= 0)
-                            {
-                                negotiationCooldowns.erase(negotiationCooldowns.begin() + index);
-                                --index;
-                            }
-                        }
+                        this->UpdateSaveDatabaseState();
 
                         // Now mark the app state as 'complete' so we can roll back to the 'ContinueGame' app state
                         this->completed = true;

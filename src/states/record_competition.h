@@ -24,6 +24,24 @@ private:
 	bool exitState, completed, goalsScoredInvalid, goalsConcededInvalid, gamesWonInvalid, gamesDrawnInvalid, gamesLostInvalid, roundsInvalid,
 		wonCupInvalid, tablePositionInvalid;
 private:
+	// Generates transfers outbound from AI clubs for players of the clubs controlled by the users in this save.
+	void GenerateAIOutboundTransfers();
+
+	// Generates responses to pending transfer messages in the inboxes of AI clubs.
+	void HandleAIClubsTransferResponses();
+
+	// Updates the remaining ticks of every existing active negotiation cooldown.
+	void UpdateNegotiationCooldowns();
+
+	// Updates the remaining ticks of transfer messages in every club's inbox.
+	void UpdateTransferMessagesTicks();
+
+	// Updates the save's database states e.g. negotiation cooldown tick, AI transfer responses etc.
+	void UpdateSaveDatabaseState();
+
+	// Handles the generation of the AI club's new player's contract and moving the player to the AI club given.
+	void HandleAITransferCompletion(Club& buyerClub, Club& sellerClub, Player& player, int transferFee, bool activatedReleaseClause = false);
+
 	// Returns TRUE if the all the inputs given are valid.
 	bool ValidateInputs();
 
