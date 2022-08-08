@@ -75,6 +75,9 @@ public:
 	// Returns the tier of the league.
 	const uint16_t& GetTier() const;
 
+	// Returns the bonus recieved if you win the league title.
+	const float& GetTitleBonus() const;
+
 	// Returns the threshold for clubs in the league to qualify for Automatic Promotion.
 	const int& GetAutoPromotionThreshold() const;
 

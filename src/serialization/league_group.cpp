@@ -128,6 +128,11 @@ const uint16_t& League::GetTier() const
     return this->tier;
 }
 
+const float& League::GetTitleBonus() const
+{
+    return this->titleBonus;
+}
+
 const int& League::GetAutoPromotionThreshold() const
 {
     return this->autoPromotion;
