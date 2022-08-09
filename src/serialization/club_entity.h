@@ -28,10 +28,10 @@ public:
 
 	enum class StaffType
 	{
-		GOALKEEPING,
-		DEFENCE,
-		MIDFIELD,
-		ATTACK
+		GOALKEEPING = 0,
+		DEFENCE = 1,
+		MIDFIELD = 2,
+		ATTACK = 3
 	};
 
 	struct TrainingStaff
