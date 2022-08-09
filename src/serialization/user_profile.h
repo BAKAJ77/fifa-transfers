@@ -16,7 +16,8 @@ public:
 		int	totalScored = 0, totalConceded = 0, totalWins = 0, totalDraws = 0, totalLosses = 0;
 		int	mostScored = 0, mostConceded = 0, mostWins = 0, mostDraws = 0, mostLosses = 0;
 
-		int titlesWon = 0;
+		int titlesWon = 0, playoffsWon = 0;
+		bool wonPlayoffs = false;
 	};
 private:
 	uint16_t id;

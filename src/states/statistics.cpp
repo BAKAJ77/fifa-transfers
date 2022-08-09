@@ -82,106 +82,109 @@ void Statistics::Render() const
     if (compStats.compID > 1000)
     {
         const KnockoutCup* cup = SaveData::GetInstance().GetCup(compStats.compID);
-        Renderer::GetInstance().RenderShadowedText({ 60, 190 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+        Renderer::GetInstance().RenderShadowedText({ 60, 190 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
             std::string("COMPETITION NAME: ") + cup->GetName().data(), 5);
 
         if (compStats.seasonEndPosition != 0)
         {
             if (compStats.seasonEndPosition == cup->GetRounds().size() + 1)
             {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                    "SEASON ACHIEVEMENT: CUP WINNER", 5);
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
+                    "SEASON ACHIEVEMENT: Cup Winner", 5);
             }
             else
             {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
                     std::string("SEASON ACHIEVEMENT: ") + cup->GetRounds()[compStats.seasonEndPosition - 1], 5);
             }
         }
         else
         {
-            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
                 "SEASON ACHIEVEMENT: N/A", 5);
         }
     }
     else
     {
-        Renderer::GetInstance().RenderShadowedText({ 60, 190 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+        Renderer::GetInstance().RenderShadowedText({ 60, 190 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
             std::string("COMPETITION NAME: ") + SaveData::GetInstance().GetLeague(compStats.compID)->GetName().data(), 5);
 
         if (compStats.seasonEndPosition != 0)
         {
-            if (compStats.seasonEndPosition == 1 || compStats.seasonEndPosition == 21)
-            {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "st", 5);
-            }
+            std::string seasonAchievementString;
+
+            if (compStats.seasonEndPosition == 1)
+                seasonAchievementString = "SEASON ACHIEVEMENT: League Title Winner";
+            else if (compStats.seasonEndPosition == 21)
+                seasonAchievementString = "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "st";
             else if (compStats.seasonEndPosition == 2 || compStats.seasonEndPosition == 22)
-            {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "nd", 5);
-            }
+                seasonAchievementString = "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "nd";
             else if (compStats.seasonEndPosition == 3 || compStats.seasonEndPosition == 23)
-            {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "rd", 5);
-            }
+                seasonAchievementString = "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "rd";
             else
-            {
-                Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-                    "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "th", 5);
-            }
+                seasonAchievementString = "SEASON ACHIEVEMENT: " + std::to_string(compStats.seasonEndPosition) + "th";
+
+            if (compStats.wonPlayoffs)
+                seasonAchievementString += " (Playoffs Title Winner)";
+
+            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28, seasonAchievementString, 5);
         }
         else
         {
-            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+            Renderer::GetInstance().RenderShadowedText({ 60, 235 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
                 "SEASON ACHIEVEMENT: N/A", 5);
         }
     }
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 315 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    std::string titlesWonString = "TOTAL TITLES WON: " + std::to_string(compStats.titlesWon);
+    if (compStats.playoffsWon > 0)
+        titlesWonString += " (Including " + std::to_string(compStats.playoffsWon) + " Playoffs Titles)";
+
+    Renderer::GetInstance().RenderShadowedText({ 60, 280 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28, titlesWonString, 5);
+
+    Renderer::GetInstance().RenderShadowedText({ 60, 345 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GOALS SCORED: " + std::to_string(compStats.currentScored), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 360 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 390 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GOALS CONCEDED: " + std::to_string(compStats.currentConceded), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 405 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 435 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GAMES WON: " + std::to_string(compStats.currentWins), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 450 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 480 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GAMES DRAWN: " + std::to_string(compStats.currentDraws), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 495 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 545 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GAMES LOST: " + std::to_string(compStats.currentLosses), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 575 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 590 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GOALS SCORED: " + std::to_string(compStats.mostScored), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 620 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 635 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GOALS CONCEDED: " + std::to_string(compStats.mostConceded), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 665 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 680 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GAMES WON: " + std::to_string(compStats.mostWins), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 710 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 725 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GAMES DRAWN: " + std::to_string(compStats.mostDraws), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 755 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 790 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GAMES LOST: " + std::to_string(compStats.mostLosses), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 835 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 835 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "TOTAL AMOUNT OF GOALS SCORED: " + std::to_string(compStats.totalScored), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 880 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 880 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "TOTAL AMOUNT OF GOALS CONCEDED: " + std::to_string(compStats.totalConceded), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 925 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 925 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "TOTAL AMOUNT OF GAMES WON: " + std::to_string(compStats.totalWins), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 970 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 970 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "TOTAL AMOUNT OF GAMES DRAWN: " + std::to_string(compStats.totalDraws), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 1015 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+    Renderer::GetInstance().RenderShadowedText({ 60, 1015 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "TOTAL AMOUNT OF GAMES LOST: " + std::to_string(compStats.totalLosses), 5);
 
     // Render the user interface

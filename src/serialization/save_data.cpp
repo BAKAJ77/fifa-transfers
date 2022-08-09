@@ -119,6 +119,7 @@ void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
             const uint16_t seasonEndPosition = compTrackData["seasonEndPosition"].get<uint16_t>();
 
             const int titlesWon = compTrackData["titlesWon"].get<int>();
+            const int playoffsWon = compTrackData["playoffsWon"].get<int>();
 
             const int currentWins = compTrackData["currentWins"].get<int>();
             const int currentDraws = compTrackData["currentDraws"].get<int>();
@@ -138,9 +139,11 @@ void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
             const int totalScored = compTrackData["totalScored"].get<int>();
             const int totalConceded = compTrackData["totalConceded"].get<int>();
 
+            const bool wonPlayoffs = compTrackData["wonPlayoffs"].get<bool>();
+
             UserProfile::CompetitionData compTrackDataObj = { competitionTrackID, competitionID, seasonEndPosition, currentScored, currentConceded, 
                 currentWins, currentDraws, currentLosses, totalScored, totalConceded, totalWins, totalDraws, totalLosses, mostScored, mostConceded, 
-                mostWins, mostDraws, mostLosses, titlesWon };
+                mostWins, mostDraws, mostLosses, titlesWon, playoffsWon, wonPlayoffs };
 
             competitionTrackingData.emplace_back(compTrackDataObj);
             ++competitionTrackID;
@@ -554,6 +557,8 @@ void SaveData::ConvertUserProfileToJSON(nlohmann::json& root, const UserProfile&
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["mostLosses"] = compData.mostLosses;
 
         root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["titlesWon"] = compData.titlesWon;
+        root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["playoffsWon"] = compData.playoffsWon;
+        root["users"][std::to_string(user.GetID())]["competitionData"][std::to_string(compData.id)]["wonPlayoffs"] = compData.wonPlayoffs;
     }
 }
 

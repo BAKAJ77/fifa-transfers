@@ -12,7 +12,7 @@ class RecordCompetition : public AppState
 	{
 		int scored, conceded, wins, draws, losses;
 		uint16_t seasonEndPosition;
-		bool wonCup = false;
+		bool wonCup = false, wonPlayoffs = false;
 	};
 private:
 	mutable UserInterface userInterface;
@@ -22,7 +22,7 @@ private:
 	std::vector<CompetitionStats> recordedCompetitionStats;
 	size_t userProfileIndex;
 	bool exitState, completed, goalsScoredInvalid, goalsConcededInvalid, gamesWonInvalid, gamesDrawnInvalid, gamesLostInvalid, roundsInvalid,
-		wonCupInvalid, tablePositionInvalid;
+		wonCupInvalid, tablePositionInvalid, wonPlayOffsInvalid;
 private:
 	// Generates transfers outbound from AI clubs for players of the clubs controlled by the users in this save.
 	void GenerateAIOutboundTransfers();

@@ -42,6 +42,7 @@ void Club::SetWageBudget(int budget)
 
 void Club::GenerateObjectives()
 {
+    this->objectives.clear();
     const League* currentLeague = SaveData::GetInstance().GetCurrentLeague();
 
     // Generate a fair league position objective

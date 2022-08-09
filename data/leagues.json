@@ -76,7 +76,7 @@
         "relegationThreshold": 22,
         "supported": true,
         "tier": 2,
-        "titleBonus": 20.0
+        "titleBonus": 6.0
     },
     "15": {
         "autoPromotionThreshold": 2,
@@ -104,7 +104,7 @@
         "relegationThreshold": 21,
         "supported": true,
         "tier": 3,
-        "titleBonus": 10.0
+        "titleBonus": 3.0
     },
     "16": {
         "autoPromotionThreshold": 3,
@@ -132,7 +132,7 @@
         "relegationThreshold": 23,
         "supported": true,
         "tier": 4,
-        "titleBonus": 5.0
+        "titleBonus": 1.5
     },
     "17": {
         "autoPromotionThreshold": -1,
@@ -189,7 +189,7 @@
         "relegationThreshold": 18,
         "supported": true,
         "tier": 1,
-        "titleBonus": 30.0
+        "titleBonus": 12.0
     },
     "19": {
         "autoPromotionThreshold": -1,

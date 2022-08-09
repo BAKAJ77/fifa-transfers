@@ -1,6 +1,7 @@
 #include <states/end_season.h>
-#include <states/end_competition.h>
 #include <states/objectives.h>
+#include <states/end_competition.h>
+#include <states/financials_generation.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -10,6 +11,7 @@ void EndSeason::Init()
 {
     // Initialized the member variables
     this->exitState = false;
+    this->userIndex = 0;
 
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -46,8 +48,10 @@ void EndSeason::Update(const float& deltaTime)
             }
             else if (button->GetText() == "NEXT" && button->WasClicked())
             {
-                if (++this->userIndex == SaveData::GetInstance().GetUsers().size())
-                    this->exitState = true;
+                if ((this->userIndex + 1) == (int)SaveData::GetInstance().GetUsers().size())
+                    this->PushState(FinancialsGeneration::GetAppState());
+                else
+                    ++this->userIndex;
             }
             else if (button->GetText() == "BACK" && button->WasClicked())
                 this->exitState = true;
@@ -56,14 +60,7 @@ void EndSeason::Update(const float& deltaTime)
     else
     {
         if (this->OnPauseTransitionUpdate(deltaTime))
-        {
-            if (EndCompetition::GetAppState()->GetAmountOfIncompleteCompetitions() == 0)
-            {
-                // TODO: Implement the new transfer and wage budget calculation system 
-            }
-            else
-                this->PopState();
-        }
+            this->PopState();
     }
 }
 
@@ -155,13 +152,13 @@ void EndSeason::Render() const
                         achievementText = "- You got knocked out in the " + domesticCup->GetRounds()[compStats.seasonEndPosition - 1] + " of the " +
                             domesticCup->GetName().data() + " this season.";
                     }
-
-                    Renderer::GetInstance().RenderShadowedText({ 60, 680 + textOffsetY }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 
-                        35, achievementText, 5);
-
-                    textOffsetY += 60;
                 }
             }
+
+            Renderer::GetInstance().RenderShadowedText({ 60, 680 + textOffsetY }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font,
+                35, achievementText, 5);
+
+            textOffsetY += 60;
         }
     }
     else
