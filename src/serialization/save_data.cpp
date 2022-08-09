@@ -301,9 +301,10 @@ void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
 
         // Fetch the position's data from the JSON element
         const std::string positionType = dataRoot[idStr]["position"].get<std::string>();
+        const PositionCategory category = (PositionCategory)dataRoot[idStr]["category"].get<int>();
 
         // Add the position to the database
-        this->positionDatabase.push_back({ id, positionType });
+        this->positionDatabase.push_back({ id, positionType, category });
 
         ++id;
     }

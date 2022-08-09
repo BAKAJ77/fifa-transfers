@@ -27,10 +27,19 @@ public:
 		TRANSFER_NEGOTIATING = 1
 	};
 
+	enum class PositionCategory
+	{
+		GOALKEEPER = 0,
+		DEFENDER = 1,
+		MIDFIELDER = 2,
+		FORWARD = 3
+	};
+
 	struct Position
 	{
 		uint16_t id;
 		std::string type;
+		PositionCategory category;
 	};
 
 	struct NegotiationCooldown
