@@ -1,4 +1,5 @@
 #include <states/player_growth_generation.h>
+#include <states/new_season_setup.h>
 
 #include <interface/menu_button.h>
 #include <serialization/save_data.h>
@@ -141,7 +142,7 @@ void PlayerGrowthGeneration::Update(const float& deltaTime)
         {
             if ((this->userIndex + 1) == (int)SaveData::GetInstance().GetUsers().size())
             {
-                //this->PushState(PlayerGrowthGeneration::GetAppState());
+                this->PushState(NewSeasonSetup::GetAppState());
             }
             else
             {
@@ -157,8 +158,6 @@ void PlayerGrowthGeneration::Render() const
     const Club* userClub = SaveData::GetInstance().GetUsers()[this->userIndex].GetClub();
 
     // Render the app state title
-    //Renderer::GetInstance().RenderSquare({ 800, 592.5f }, { 1540, 925 }, { glm::vec3(30), this->userInterface.GetOpacity() });
-
     const glm::vec2 titleTextSize = Renderer::GetInstance().GetTextSize(this->font, 75, std::string(userClub->GetName()) + " SQUAD GROWTH");
     Renderer::GetInstance().RenderShadowedText({ 1940 - titleTextSize.x, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         std::string(userClub->GetName()) + " SQUAD GROWTH", 5);

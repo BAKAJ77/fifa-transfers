@@ -154,7 +154,7 @@ void Statistics::Render() const
     Renderer::GetInstance().RenderShadowedText({ 60, 480 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GAMES DRAWN: " + std::to_string(compStats.currentDraws), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 545 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
+    Renderer::GetInstance().RenderShadowedText({ 60, 525 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "CURRENT AMOUNT OF GAMES LOST: " + std::to_string(compStats.currentLosses), 5);
 
     Renderer::GetInstance().RenderShadowedText({ 60, 590 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
@@ -169,7 +169,7 @@ void Statistics::Render() const
     Renderer::GetInstance().RenderShadowedText({ 60, 725 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GAMES DRAWN: " + std::to_string(compStats.mostDraws), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 790 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
+    Renderer::GetInstance().RenderShadowedText({ 60, 770 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
         "MOST AMOUNT OF GAMES LOST: " + std::to_string(compStats.mostLosses), 5);
 
     Renderer::GetInstance().RenderShadowedText({ 60, 835 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,
