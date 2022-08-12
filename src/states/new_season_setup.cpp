@@ -289,7 +289,7 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
                         user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() + player->GetWage());
 
                         // Send general message to user to let him know that the player has left the club
-                        user.GetClub()->GetGeneralMessages().push_back({ std::string(player->GetName()) + " has signed for " + aiClub->GetName().data() + " on a" +
+                        user.GetClub()->GetGeneralMessages().push_back({ std::string(player->GetName()) + " has signed for " + aiClub->GetName().data() + " on a " +
                             std::to_string(contractLength) + " year deal as a free agent." });
 
                         // Remove any pending transfer messages involving this player
