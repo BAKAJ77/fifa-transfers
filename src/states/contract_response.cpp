@@ -1,4 +1,5 @@
 #include <states/contract_response.h>
+#include <states/end_competition.h>
 #include <states/search_players.h>
 #include <states/manage_squad.h>
 #include <states/view_player.h>
@@ -57,6 +58,9 @@ void ContractResponse::Destroy()
     if (this->negotiationSuccessful)
     {
         // Apply the new contract details onto the player
+        if (EndCompetition::GetAppState()->GetAmountOfIncompleteCompetitions() <= 3)
+            this->contractLength += 1;
+
         this->renewingContract ?
             this->negotiatingPlayer->SetExpiryYear(this->negotiatingPlayer->GetExpiryYear() + this->contractLength) :
             this->negotiatingPlayer->SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + this->contractLength);
