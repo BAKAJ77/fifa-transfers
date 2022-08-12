@@ -1,10 +1,12 @@
 #include <core/window_frame.h>
 #include <core/application_core.h>
+#include <util/directory_system.h>
 #include <util/logging_system.h>
 #include <util/opengl_error.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <stb_image.h>
 
 namespace WindowActivity
 {
@@ -57,6 +59,18 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 	// Make sure to enable multisampling if specified to do so
 	if (this->samplesPerPixel > 1)
 		GLValidate(glEnable(GL_MULTISAMPLE));
+
+	// Load the window icon
+	GLFWimage iconImage;
+	iconImage.pixels = stbi_load((Util::GetAppDataDirectory() + "misc/logo_48.png").c_str(), &iconImage.width, &iconImage.height, nullptr, 0);
+	
+	if (iconImage.pixels)
+	{
+		glfwSetWindowIcon(this->framePtr, 1, &iconImage);
+		stbi_image_free(iconImage.pixels);
+	}
+	else
+		LogSystem::GetInstance().OutputLog("Failed to load application icon", Severity::WARNING);
 }
 
 WindowFrame::~WindowFrame()
