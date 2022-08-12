@@ -60,17 +60,29 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 	if (this->samplesPerPixel > 1)
 		GLValidate(glEnable(GL_MULTISAMPLE));
 
-	// Load the window icon
-	GLFWimage iconImage;
+	// Load the window icon and cursor
+	GLFWimage iconImage, cursorImage;
 	iconImage.pixels = stbi_load((Util::GetAppDataDirectory() + "misc/logo_48.png").c_str(), &iconImage.width, &iconImage.height, nullptr, 0);
+	cursorImage.pixels = stbi_load((Util::GetAppDataDirectory() + "textures/cursor.png").c_str(), &cursorImage.width, &cursorImage.height, nullptr, 0);
 	
 	if (iconImage.pixels)
 	{
 		glfwSetWindowIcon(this->framePtr, 1, &iconImage);
 		stbi_image_free(iconImage.pixels);
+
+		if (cursorImage.pixels)
+		{
+			GLFWcursor* cursor = glfwCreateCursor(&cursorImage, 0, 0);
+			glfwSetCursor(this->framePtr, cursor);
+			stbi_image_free(cursorImage.pixels);
+		}
+		else
+			LogSystem::GetInstance().OutputLog("Failed to load cursor image", Severity::WARNING);
 	}
 	else
-		LogSystem::GetInstance().OutputLog("Failed to load application icon", Severity::WARNING);
+		LogSystem::GetInstance().OutputLog("Failed to load application icon image", Severity::WARNING);
+
+
 }
 
 WindowFrame::~WindowFrame()
