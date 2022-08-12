@@ -258,7 +258,7 @@ void ContractResponse::RenderOfferResponse() const
     }
     else if (this->contractRejected)
     {
-        Renderer::GetInstance().RenderShadowedText({ 60, 195 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 35,
+        Renderer::GetInstance().RenderShadowedText({ 60, 195 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
             std::string(this->negotiatingPlayer->GetName().data()) + " is not happy with the contract deal offered and doesn't want to negotiate further.", 5);
     }
 
