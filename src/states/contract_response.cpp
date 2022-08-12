@@ -33,7 +33,12 @@ void ContractResponse::Init()
     if (!this->contractRejected && (contractLengthRequest != -1 || wageRequest != -1))
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "REJECT"));
-        this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "ACCEPT"));
+
+        if ((this->renewingContract && (wageRequest - this->negotiatingPlayer->GetWage()) <= MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget()) ||
+            (wageRequest <= MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget()))
+        {
+            this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "ACCEPT"));
+        }
 
         if (contractLengthRequest != -1)
             this->contractLength = contractLengthRequest;

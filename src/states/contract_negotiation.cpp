@@ -76,7 +76,8 @@ bool ContractNegotiation::ValidateInputs()
     this->lengthInvalid = this->userInterface.GetDropDown("Amount Of Years")->GetCurrentSelected() == -1;
     
     if (this->userInterface.GetTextField("Wage")->GetInputtedText().empty() || std::stoi(this->userInterface.GetTextField("Wage")->GetInputtedText()) <= 0 ||
-        std::stoi(this->userInterface.GetTextField("Wage")->GetInputtedText()) > MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget())
+        (std::stoi(this->userInterface.GetTextField("Wage")->GetInputtedText()) - this->negotiatingPlayer->GetWage()) > 
+        MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget())
     {
         this->wageInvalid = true;
     }
