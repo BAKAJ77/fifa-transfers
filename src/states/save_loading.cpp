@@ -42,7 +42,7 @@ void SaveLoading::ExecuteLoadingProcess()
     SaveData::GetInstance().GetTransferHistory().clear();
 
     // Now load the save data from the save file
-    JSONLoader saveFileLoader(Util::GetAppDataDirectory() + "data/saves/" + saveMetadata.fileName);
+    JSONLoader saveFileLoader("data/saves/" + saveMetadata.fileName);
 
     SaveData::GetInstance().LoadPlayersFromJSON(saveFileLoader.GetRoot(), false);
 
@@ -73,7 +73,7 @@ void SaveLoading::ExecuteLoadingProcess()
     }
 
     // Open the leagues JSON file and load every league's data
-    JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
+    JSONLoader leaguesFile("data/leagues.json");
     SaveData::GetInstance().LoadLeaguesFromJSON(leaguesFile.GetRoot());
 
     {

@@ -22,7 +22,7 @@ void ResourceLoader::Init()
     this->splashScreenStarted = false;
 
     // Load the resources list JSON file
-    this->resourcesListFile.Open(Util::GetAppDataDirectory() + "resources.json");
+    this->resourcesListFile.Open("resources.json");
 
     // Load the application resources
     this->LoadTextures();
@@ -165,7 +165,7 @@ void ResourceLoader::LoadAudio()
 void ResourceLoader::LoadDefaultDatabase()
 {
     // Open the positions JSON file and load every position's data
-    JSONLoader positionsFile(Util::GetAppDataDirectory() + "data/positions.json");
+    JSONLoader positionsFile("data/positions.json");
     SaveData::GetInstance().LoadPositionsFromJSON(positionsFile.GetRoot());
 
     // Update the work done percentage counter
@@ -175,7 +175,7 @@ void ResourceLoader::LoadDefaultDatabase()
     }
 
     // Open the cup competitions JSON file and load every cup's data
-    JSONLoader cupsFile(Util::GetAppDataDirectory() + "data/cup_competitions.json");
+    JSONLoader cupsFile("data/cup_competitions.json");
     SaveData::GetInstance().LoadCupsFromJSON(cupsFile.GetRoot());
 
     // Update the work done percentage counter

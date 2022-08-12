@@ -350,7 +350,7 @@ void SaveData::LoadMiscellaneousFromJSON(const nlohmann::json& dataRoot)
 void SaveData::Write(float& currentProgress, std::mutex& mutex)
 {
     // Open the save file (it will be generated if it's a new save file)
-    JSONLoader file(Util::GetAppDataDirectory() + "data/saves/" + this->name + ".json");
+    JSONLoader file("data/saves/" + this->name + ".json");
     file.Clear();
     
     // Calculate the progress increase per action
@@ -429,7 +429,7 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     file.Clear();
 
     // Open the saves metadata file
-    file.Open(Util::GetAppDataDirectory() + "data/saves.json");
+    file.Open("data/saves.json");
 
     // Get the next free save ID, also search if the save written is new or not
     uint16_t nextID = 1;

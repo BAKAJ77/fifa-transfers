@@ -67,7 +67,7 @@ void NewSave::Update(const float& deltaTime)
                 // Make sure all the data entered is valid
                 this->saveNameInvalid = saveNameStr.empty();
                 
-                JSONLoader savesFile(Util::GetAppDataDirectory() + "data/saves.json");
+                JSONLoader savesFile("data/saves.json");
                 uint16_t id = 1;
 
                 while (savesFile.GetRoot().contains(std::to_string(id))) 
@@ -188,9 +188,9 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
         SaveData::GetInstance().GetTransferHistory().clear();
 
         // Load the default data from the player and club database json files
-        JSONLoader playersFile(Util::GetAppDataDirectory() + "data/players.json");
-        JSONLoader clubsFile(Util::GetAppDataDirectory() + "data/clubs.json");
-        JSONLoader leaguesFile(Util::GetAppDataDirectory() + "data/leagues.json");
+        JSONLoader playersFile("data/players.json");
+        JSONLoader clubsFile("data/clubs.json");
+        JSONLoader leaguesFile("data/leagues.json");
 
         SaveData::GetInstance().LoadPlayersFromJSON(playersFile.GetRoot());
         SaveData::GetInstance().LoadClubsFromJSON(clubsFile.GetRoot());

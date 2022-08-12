@@ -17,7 +17,7 @@ void LoadSave::Init()
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
     // Query for any existing saves
-    JSONLoader file(Util::GetAppDataDirectory() + "data/saves.json");
+    JSONLoader file("data/saves.json");
     for (const nlohmann::json& save : file.GetRoot())
         this->existingSaves.push_back({ save["filename"].get<std::string>(), save["playerCount"].get<int>(), save["growthSystem"].get<int>() });
 

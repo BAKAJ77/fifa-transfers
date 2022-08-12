@@ -2,7 +2,7 @@
 #include <states/new_save.h>
 
 #include <serialization/save_data.h>
-
+#include <util/logging_system.h>
 #include <util/directory_system.h>
 #include <util/random_engine.h>
 #include <util/data_manip.h>
@@ -93,6 +93,13 @@ void SaveWriting::ExecuteSavingProcess()
 				noPotentialIncreaseCount = 0;
 				numNonPrimeAgePlayers = 0;
 			} while (generationRerun);
+		}
+
+		// If the saves directory does not exist, create it
+		if (!Util::IsExistingDirectory(Util::GetAppDataDirectory() + "data/saves"))
+		{
+			if (!Util::CreateNewDirectory(Util::GetAppDataDirectory() + "data/saves"))
+				LogSystem::GetInstance().OutputLog("Failed to create the saves directory", Severity::FATAL);
 		}
     }
 
