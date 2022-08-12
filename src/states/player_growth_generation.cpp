@@ -122,8 +122,11 @@ void PlayerGrowthGeneration::SetupImprovedPlayersList()
             }
             else
             {
-                this->userInterface.GetSelectionList("Improved Players")->AddElement({ std::string(player->GetName()), 
-                    "+" + std::to_string(this->improvedPlayers[player->GetID()] * 15)}, -1);
+                std::string skillPointsAmountString = "+" + std::to_string(this->improvedPlayers[player->GetID()] * 15);
+                if (this->improvedPlayers[player->GetID()] == 2)
+                    skillPointsAmountString += " (+1 Weak Foot)";
+
+                this->userInterface.GetSelectionList("Improved Players")->AddElement({ std::string(player->GetName()), skillPointsAmountString }, -1);
             }
         }
     }
