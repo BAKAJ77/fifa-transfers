@@ -14,7 +14,7 @@ void TrainingMenu::Init()
     // Calculate the prices for the available staff to hire
     const UserProfile* currentUser = MainGame::GetAppState()->GetCurrentUser();
 
-    constexpr int maxLevel = 4, baseCost = 1000000;
+    constexpr int maxLevel = 4, baseCost = 5000;
     float costMultiplier = 1.0f, levelMultiplier = 0.5f;
 
     if (currentUser->GetClub()->GetAverageOverall() >= 80)
@@ -33,7 +33,7 @@ void TrainingMenu::Init()
     for (int i = 0; i < maxLevel; i++)
     {
         this->purchasableStaff.push_back({ { Club::StaffType::GOALKEEPING, (i + 1) }, 
-            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * (levelMultiplier / 1.3f)), 3) });
+            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
 
         this->purchasableStaff.push_back({ { Club::StaffType::DEFENCE, (i + 1) }, 
             Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
@@ -123,10 +123,10 @@ void TrainingMenu::Update(const float& deltaTime)
         {
             const AvailableStaff& trainingStaff = this->purchasableStaff[this->userInterface.GetSelectionList("Training Staff")->GetCurrentSelected()];
 
-            if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget() >= trainingStaff.price)
+            if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget() >= trainingStaff.price)
             {
                 MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTrainingStaff(trainingStaff.details.type).level = trainingStaff.details.level;
-                MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetTransferBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget() -
+                MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetWageBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget() -
                     trainingStaff.price);
 
                 this->LoadAvailableStaff(MainGame::GetAppState()->GetCurrentUser());
@@ -154,7 +154,7 @@ void TrainingMenu::Render() const
 
     // Render the user's transfer budget
     Renderer::GetInstance().RenderShadowedText({ 30, 1035 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 75,
-        "TRANSFER BUDGET: " + Util::GetFormattedCashString(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetTransferBudget()), 5);
+        "WAGE BUDGET: " + Util::GetFormattedCashString(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget()), 5);
 
     // Render the user interface
     this->userInterface.Render();
