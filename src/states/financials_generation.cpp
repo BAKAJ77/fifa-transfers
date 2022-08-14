@@ -30,6 +30,7 @@ void FinancialsGeneration::Init()
             calculatedFinancials.totalWages += (player->GetWage() * 51);
 
         int gamesWon = 0, gamesDrawn = 0, gamesLost = 0;
+        int totalObjectivesIncomplete = 0;
         float totalRevenueBonus = 1.0f;
 
         for (const UserProfile::CompetitionData& compStats : user.GetCompetitionData())
@@ -53,7 +54,8 @@ void FinancialsGeneration::Init()
                     totalRevenueBonus += (SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus() / 2.0f);
             }
 
-            // Add the revenue bonuses from the club objectives that the user completed
+            // Tally up the total amount of club objectives that the user didn't complete
+            // Also add a revenue bonus per objective the user completed
             for (const Club::Objective& objective : user.GetClub()->GetObjectives())
             {
                 if (objective.compID == compStats.compID)
@@ -62,8 +64,13 @@ void FinancialsGeneration::Init()
                         (compStats.compID < 1000 && compStats.seasonEndPosition <= objective.targetEndPosition))
                     {
                         totalRevenueBonus += 0.5f;
-                        break;
                     }
+                    else
+                    {
+                        ++totalObjectivesIncomplete;
+                    }
+
+                    break;
                 }
             }
         }
@@ -73,7 +80,8 @@ void FinancialsGeneration::Init()
         for (const Player* player : user.GetClub()->GetPlayers())
             totalClubWages += player->GetWage();
 
-        calculatedFinancials.newWageBudget = std::max(Util::GetTruncatedSFInteger((int)(totalClubWages / 4.03306f), 3), calculatedFinancials.previousWageBudget);
+        calculatedFinancials.newWageBudget = std::max(Util::GetTruncatedSFInteger((int)(totalClubWages / (4.03306f + ((float)totalObjectivesIncomplete))), 3), 
+            calculatedFinancials.previousWageBudget);
 
         // Calculate the total revenue made by the club
         const float generatedRevenueMultiplier = ((gamesWon / 3.0f) + (gamesDrawn / 12.0f) + (user.GetClub()->GetAverageOverall() / 45.0f)) * totalRevenueBonus;
