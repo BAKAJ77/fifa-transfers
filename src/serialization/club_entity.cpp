@@ -94,7 +94,7 @@ void Club::GenerateObjectives()
         // If there is less than (or equal to) 6 similar high achieving teams, then the target should be to win the cup
         const int totalHigherAchievingClubs = (numBetterClubs + RandomEngine::GetInstance().GenerateRandom<int>(0, numEqualClubs));
         const int targetEndRound = totalHigherAchievingClubs <= 6 ? (int)(SaveData::GetInstance().GetCup(comp.competitionID)->GetRounds().size() + 1) :
-            std::max((int)(SaveData::GetInstance().GetCup(comp.competitionID)->GetRounds().size() - std::log2(std::max(totalHigherAchievingClubs, 1))), 2);
+            std::max((int)(SaveData::GetInstance().GetCup(comp.competitionID)->GetRounds().size() - std::log2(std::max(totalHigherAchievingClubs, 1))), 3);
 
         this->objectives.push_back({ comp.competitionID, (uint16_t)targetEndRound });
     }
