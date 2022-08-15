@@ -23,22 +23,16 @@ void EndCompetition::Init()
     this->userInterface.GetSelectionList("Incomplete Competitions")->AddCategory("Competition Name");
     this->userInterface.GetSelectionList("Incomplete Competitions")->AddCategory("Prestige Tier");
 
-    bool alreadyCompletedLeague = false;
+    // Filter out any cup competitions that have already been completed
     for (const League::CompetitionLink& linkedComp : SaveData::GetInstance().GetCurrentLeague()->GetLinkedCompetitions())
     {
-        // Filter out any competitions that have already been completed
         bool alreadyCompletedCup = false;
         for (const UserProfile::CompetitionData& compStats : SaveData::GetInstance().GetUsers().front().GetCompetitionData())
         {
-            if (compStats.seasonEndPosition > 0)
+            if (linkedComp.competitionID == compStats.compID && compStats.seasonEndPosition > 0)
             {
-                if (SaveData::GetInstance().GetCurrentLeague()->GetID() == compStats.compID)
-                    alreadyCompletedLeague = true;
-                else if (linkedComp.competitionID == compStats.compID)
-                {
-                    alreadyCompletedCup = true;
-                    break;
-                }
+                alreadyCompletedCup = true;
+                break;
             }
         }
 
@@ -47,6 +41,17 @@ void EndCompetition::Init()
             const KnockoutCup* cupComp = SaveData::GetInstance().GetCup(linkedComp.competitionID);
             this->userInterface.GetSelectionList("Incomplete Competitions")->AddElement({ cupComp->GetName().data(), std::to_string(cupComp->GetTier()) },
                 cupComp->GetID());
+        }
+    }
+
+    // Filter out the league competition if it has already been completed
+    bool alreadyCompletedLeague = false;
+    for (const UserProfile::CompetitionData& compStats : SaveData::GetInstance().GetUsers().front().GetCompetitionData())
+    {
+        if (SaveData::GetInstance().GetCurrentLeague()->GetID() == compStats.compID && compStats.seasonEndPosition > 0)
+        {
+            alreadyCompletedLeague = true;
+            break;
         }
     }
 
