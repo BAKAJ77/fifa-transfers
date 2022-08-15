@@ -150,8 +150,11 @@ int EndCompetition::GetAmountOfIncompleteCompetitions() const
     int incompleteCompCount = 0;
     for (const UserProfile::CompetitionData& compStats : SaveData::GetInstance().GetUsers().front().GetCompetitionData())
     {
-        if ((compStats.seasonEndPosition == 0) && (compStats.compID < 1002 || compStats.compID > 1004))
+        if ((compStats.seasonEndPosition == 0) && ((compStats.compID > 1004 || compStats.compID == 1001) ||
+            (compStats.compID == SaveData::GetInstance().GetCurrentLeague()->GetID())))
+        {
             ++incompleteCompCount;
+        }
     }
 
     return incompleteCompCount;
