@@ -20,10 +20,11 @@ private:
 
 	std::vector<CompetitionLink> linkedCompetitions;
 	std::vector<Club*> clubs;
+	bool supported;
 public:
 	League();
 	League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int autoPromotion, int playoffs, int relegation, 
-		float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs);
+		float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs, bool supported);
 
 	~League() = default;
 
@@ -90,6 +91,9 @@ public:
 	// Returns the domestic competitions that clubs in the league can participate in and international competitions that clubs 
 	// in the league can qualify for e.g. UCL, UEL etc.
 	const std::vector<CompetitionLink>& GetLinkedCompetitions() const;
+
+	// Returns TRUE if the league is playable/supported in the game.
+	bool IsSupported() const;
 };
 
 #endif

@@ -61,37 +61,35 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
     uint16_t id = 1;
     while (dataRoot.contains(std::to_string(id)))
     {
-        if (dataRoot[std::to_string(id)]["supported"].get<bool>())
+        const std::string idStr = std::to_string(id);
+
+        // Fetch the league's data from the JSON element
+        const std::string name = dataRoot[idStr]["name"].get<std::string>();
+        const std::string nation = dataRoot[idStr]["nation"].get<std::string>();
+        const uint16_t tier = dataRoot[idStr]["tier"].get<uint16_t>();
+
+        const int autoPromotionThreshold = dataRoot[idStr]["autoPromotionThreshold"].get<int>();
+        const int playoffsThreshold = dataRoot[idStr]["playoffsThreshold"].get<int>();
+        const int relegationThreshold = dataRoot[idStr]["relegationThreshold"].get<int>();
+        const float titleBonus = dataRoot[idStr]["titleBonus"].get<float>();
+        const bool isSupported = dataRoot[idStr]["supported"].get<bool>();
+
+        // Fetch the competitions linked to this league
+        std::vector<League::CompetitionLink> linkedCompetitions;
+        for (const auto& comp : dataRoot[idStr]["linkedCompetitions"])
+            linkedCompetitions.push_back({ comp["competitionID"].get<uint16_t>(), comp["qualifyingPositions"].get<std::vector<uint8_t>>() });
+
+        // Fetch the clubs which are in the league
+        std::vector<Club*> clubs;
+        for (auto& club : this->clubDatabase)
         {
-            const std::string idStr = std::to_string(id);
-
-            // Fetch the league's data from the JSON element
-            const std::string name = dataRoot[idStr]["name"].get<std::string>();
-            const std::string nation = dataRoot[idStr]["nation"].get<std::string>();
-            const uint16_t tier = dataRoot[idStr]["tier"].get<uint16_t>();
-
-            const int autoPromotionThreshold = dataRoot[idStr]["autoPromotionThreshold"].get<int>();
-            const int playoffsThreshold = dataRoot[idStr]["playoffsThreshold"].get<int>();
-            const int relegationThreshold = dataRoot[idStr]["relegationThreshold"].get<int>();
-            const float titleBonus = dataRoot[idStr]["titleBonus"].get<float>();
-
-            // Fetch the competitions linked to this league
-            std::vector<League::CompetitionLink> linkedCompetitions;
-            for (const auto& comp : dataRoot[idStr]["linkedCompetitions"])
-                linkedCompetitions.push_back({ comp["competitionID"].get<uint16_t>(), comp["qualifyingPositions"].get<std::vector<uint8_t>>() });
-
-            // Fetch the clubs which are in the league
-            std::vector<Club*> clubs;
-            for (auto& club : this->clubDatabase)
-            {
-                if (club.GetLeague() == id)
-                    clubs.emplace_back(&club);
-            }
-
-            // Add the league to the database
-            this->leagueDatabase.emplace_back(League(name, nation, id, tier, autoPromotionThreshold, playoffsThreshold, relegationThreshold, titleBonus,
-                linkedCompetitions, clubs));
+            if (club.GetLeague() == id)
+                clubs.emplace_back(&club);
         }
+
+        // Add the league to the database
+        this->leagueDatabase.emplace_back(League(name, nation, id, tier, autoPromotionThreshold, playoffsThreshold, relegationThreshold, titleBonus, linkedCompetitions, 
+            clubs, isSupported));
 
         ++id;
     }

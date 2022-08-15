@@ -199,8 +199,11 @@ bool NewSave::OnStartupTransitionUpdate(const float deltaTime)
         // Fetch all the supported leagues in the database
         for (size_t i = 0; i < SaveData::GetInstance().GetLeagueDatabase().size(); i++)
         {
-            this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
-                (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
+            if (SaveData::GetInstance().GetLeagueDatabase()[i].IsSupported())
+            {
+                this->userInterface.GetDropDown("League")->AddSelection(SaveData::GetInstance().GetLeagueDatabase()[i].GetName(),
+                    (int)SaveData::GetInstance().GetLeagueDatabase()[i].GetID());
+            }
         }
 
         this->loadedDefaultDatabase = true;
