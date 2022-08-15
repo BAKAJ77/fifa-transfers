@@ -28,7 +28,7 @@ void ContractNegotiation::Init()
     const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
     const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
 
-    if (playerLeague->GetTier() < std::ceil(userLeague->GetTier() / 2))
+    if (playerLeague->GetTier() < std::ceil((float)userLeague->GetTier() / 2.0f))
         this->leagueTierInsufficient = true;
 
     // Check if there is an active negotiation cooldown with the user's club and the player

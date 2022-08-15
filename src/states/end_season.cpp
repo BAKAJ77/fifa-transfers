@@ -110,7 +110,7 @@ void EndSeason::Render() const
 
         for (const UserProfile::CompetitionData& compStats : user.GetCompetitionData())
         {
-            if (compStats.compID < 1000)
+            if (compStats.compID < 1000 && compStats.compID == SaveData::GetInstance().GetCurrentLeague()->GetID())
             {
                 const League* league = SaveData::GetInstance().GetCurrentLeague();
 
