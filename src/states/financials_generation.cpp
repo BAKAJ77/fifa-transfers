@@ -80,7 +80,7 @@ void FinancialsGeneration::Init()
         for (const Player* player : user.GetClub()->GetPlayers())
             totalClubWages += player->GetWage();
 
-        calculatedFinancials.newWageBudget = std::max(Util::GetTruncatedSFInteger((int)(totalClubWages / (4.03306f + ((float)totalObjectivesIncomplete))), 3), 
+        calculatedFinancials.newWageBudget = std::max(Util::GetTruncatedSFInteger((int)(totalClubWages / (4.03306f + ((float)totalObjectivesIncomplete * 0.5f))), 3), 
             calculatedFinancials.previousWageBudget);
 
         // Calculate the total revenue made by the club
