@@ -43,12 +43,12 @@ void PlayerGrowthGeneration::Init()
                     // THIS IS FOR ATTACKING MINDED PLAYERS e.g. ST, LW, CAM, CM etc
                     const float min = (500.0f + totalGoalsScored) * 1.5f;
                     const float max = (1000.0f + totalGoalsScored) * 1.5f;
-                    const float generatedWeight = RandomEngine::GetInstance().GenerateRandom<float>(min, max) * (totalGoalsScored / 75.0f);
+                    const float generatedWeight = RandomEngine::GetInstance().GenerateRandom<float>(min, max) * (totalGoalsScored / 70.0f);
                     
                     // Adjust overall rating increase bounds based on the current training staff level hired
-                    if (generatedWeight >= (2200.0f - (staffLevel * 250.0f)) && generatedWeight < (2900.0f - (staffLevel * 300.0f)))
+                    if (generatedWeight >= (2200.0f - (staffLevel * 400.0f)) && generatedWeight < (2900.0f - (staffLevel * 450.0f)))
                         overallIncreaseAmount = 1;
-                    else if (generatedWeight >= (2900.0f - (staffLevel * 300.0f)))
+                    else if (generatedWeight >= (2900.0f - (staffLevel * 450)))
                         overallIncreaseAmount = 2;
                 }
                 else
@@ -59,9 +59,9 @@ void PlayerGrowthGeneration::Init()
                     const float generatedWeight = RandomEngine::GetInstance().GenerateRandom<float>(min, max);
 
                     // Adjust overall rating increase bounds based on the current training staff level hired
-                    if (generatedWeight >= (3800.0f - (staffLevel * 675.0f)) && generatedWeight < (4700.0f - (staffLevel * 675.0f)))
+                    if (generatedWeight >= (3500.0f - (staffLevel * 850.0f)) && generatedWeight < (4500.0f - (staffLevel * 850.0f)))
                         overallIncreaseAmount = 1;
-                    else if (generatedWeight >= (4700.0f - (staffLevel * 675.0f)))
+                    else if (generatedWeight >= (4500.0f - (staffLevel * 850.0f)))
                         overallIncreaseAmount = 2;
                 }
 
