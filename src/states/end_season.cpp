@@ -110,7 +110,7 @@ void EndSeason::Render() const
 
         for (const UserProfile::CompetitionData& compStats : user.GetCompetitionData())
         {
-            if (compStats.compID < 1000 && compStats.compID == SaveData::GetInstance().GetCurrentLeague()->GetID())
+            if (compStats.compID == SaveData::GetInstance().GetCurrentLeague()->GetID())
             {
                 const League* league = SaveData::GetInstance().GetCurrentLeague();
 
@@ -120,7 +120,7 @@ void EndSeason::Render() const
                     achievementText = "- You finished 21st in the " + std::string(league->GetName()) + " this season.";
                 else if (compStats.seasonEndPosition == 2 || compStats.seasonEndPosition == 22)
                 {
-                    achievementText = "- You finished " + std::to_string(compStats.seasonEndPosition) + "nd in the " + league->GetName().data() + 
+                    achievementText = "- You finished " + std::to_string(compStats.seasonEndPosition) + "nd in the " + league->GetName().data() +
                         " this season.";
                 }
                 else if (compStats.seasonEndPosition == 3 || compStats.seasonEndPosition == 23)
@@ -136,29 +136,35 @@ void EndSeason::Render() const
             }
             else
             {
-                if (compStats.seasonEndPosition != 0)
+                for (const League::CompetitionLink& linkedComp : SaveData::GetInstance().GetCurrentLeague()->GetLinkedCompetitions())
                 {
-                    const KnockoutCup* domesticCup = SaveData::GetInstance().GetCup(compStats.compID);
+                    if (compStats.compID == linkedComp.competitionID && compStats.seasonEndPosition != 0)
+                    {
+                        const KnockoutCup* domesticCup = SaveData::GetInstance().GetCup(compStats.compID);
 
-                    if (compStats.seasonEndPosition == domesticCup->GetRounds().size() + 1)
-                        achievementText = "- You've managed to win the " + std::string(domesticCup->GetName()) + " this season.";
-                    else if (domesticCup->GetRounds()[compStats.seasonEndPosition - 1].find("Round") != std::string::npos)
-                    {
-                        achievementText = "- You got knocked out in " + domesticCup->GetRounds()[compStats.seasonEndPosition - 1] + " of the " +
-                            domesticCup->GetName().data() + " this season.";
-                    }
-                    else
-                    {
-                        achievementText = "- You got knocked out in the " + domesticCup->GetRounds()[compStats.seasonEndPosition - 1] + " of the " +
-                            domesticCup->GetName().data() + " this season.";
+                        if (compStats.seasonEndPosition == domesticCup->GetRounds().size() + 1)
+                            achievementText = "- You've managed to win the " + std::string(domesticCup->GetName()) + " this season.";
+                        else if (domesticCup->GetRounds()[compStats.seasonEndPosition - 1].find("Round") != std::string::npos)
+                        {
+                            achievementText = "- You got knocked out in " + domesticCup->GetRounds()[compStats.seasonEndPosition - 1] + " of the " +
+                                domesticCup->GetName().data() + " this season.";
+                        }
+                        else
+                        {
+                            achievementText = "- You got knocked out in the " + domesticCup->GetRounds()[compStats.seasonEndPosition - 1] + " of the " +
+                                domesticCup->GetName().data() + " this season.";
+                        }
                     }
                 }
             }
 
-            Renderer::GetInstance().RenderShadowedText({ 60, 680 + textOffsetY }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font,
-                35, achievementText, 5);
+            if (compStats.seasonEndPosition != 0)
+            {
+                Renderer::GetInstance().RenderShadowedText({ 60, 680 + textOffsetY }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font,
+                    35, achievementText, 5);
 
-            textOffsetY += 60;
+                textOffsetY += 60;
+            }
         }
     }
     else

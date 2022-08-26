@@ -467,7 +467,7 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
     root["clubs"][std::to_string(club.GetID())]["wageBudget"] = club.GetWageBudget();
 
     // Convert the club's training staff to JSON
-    for (size_t index = 0; index < club.GetObjectives().size(); index++)
+    for (size_t index = 0; index < club.GetTrainingStaff().size(); index++)
     {
         const Club::TrainingStaff& trainingStaff = club.GetTrainingStaff()[index];
 
