@@ -7,14 +7,15 @@
 #include <cmath>
 
 Club::Club() :
-    id(0), leagueID(0), transferBudget(0), wageBudget(0)
+    id(0), leagueID(0), transferBudget(0), wageBudget(0), initialTransferBudget(0), initialWageBudget(0)
 {}
 
-Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<TrainingStaff>& trainingStaffGroups,
-    const std::vector<Player*>& players, const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, 
-    const std::vector<Transfer>& transferMessages) :
-    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), trainingStaffGroups(trainingStaffGroups), players(players), 
-    objectives(objectives), generalMessages(generalMessages), transferMessages(transferMessages)
+Club::Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, int initialTransferBudget, int initialWageBudget, 
+    const std::vector<TrainingStaff>& trainingStaffGroups, const std::vector<Player*>& players, const std::vector<Objective>& objectives, 
+    const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages) :
+    name(name), id(id), leagueID(leagueID), transferBudget(transferBudget), wageBudget(wageBudget), initialTransferBudget(initialTransferBudget),
+    initialWageBudget(initialWageBudget), trainingStaffGroups(trainingStaffGroups), players(players), objectives(objectives), generalMessages(generalMessages), 
+    transferMessages(transferMessages)
 {
     // Sort the club players (based on their overall rating) in descending order
     std::sort(this->players.begin(), this->players.end(), [](Player* first, Player* second) { return first->GetOverall() > second->GetOverall(); });
@@ -38,6 +39,16 @@ void Club::SetTransferBudget(int budget)
 void Club::SetWageBudget(int budget)
 {
     this->wageBudget = budget;
+}
+
+void Club::SetInitialTransferBudget(int budget)
+{
+    this->initialTransferBudget = budget;
+}
+
+void Club::SetInitialWageBudget(int budget)
+{
+    this->initialWageBudget = budget;
 }
 
 void Club::GenerateObjectives()
@@ -239,6 +250,16 @@ const int& Club::GetTransferBudget() const
 const int& Club::GetWageBudget() const
 {
     return this->wageBudget;
+}
+
+const int& Club::GetInitialTransferBudget() const
+{
+    return this->initialTransferBudget;
+}
+
+const int& Club::GetInitialWageBudget() const
+{
+    return this->initialWageBudget;
 }
 
 const std::vector<Club::Objective>& Club::GetObjectives() const

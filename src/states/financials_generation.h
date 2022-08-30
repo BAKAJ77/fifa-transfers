@@ -9,7 +9,7 @@ class FinancialsGeneration : public AppState
 private:
 	struct UserFinancials
 	{
-		int totalRevenue = 0, totalExpenses = 0, totalWages = 0, previousTransferBudget = 0, previousWageBudget = 0, newWageBudget = 0;
+		int totalRevenue = 0, totalExpenses = 0, totalWages = 0, previousTransferBudget = 0, newTransferBudget = 0, previousWageBudget = 0, newWageBudget = 0;
 	};
 private:
 	UserInterface userInterface;

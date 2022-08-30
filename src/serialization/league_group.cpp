@@ -4,11 +4,11 @@
 #include <cassert>
 
 League::League() :
-    id(0), tier(0), autoPromotion(-1), playoffs(-1), relegation(-1), titleBonus(0.0f), supported(false)
+    id(0), tier(0), autoPromotion(-1), playoffs(-1), relegation(-1), titleBonus(0), supported(false)
 {}
 
 League::League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int autoPromotion, int playoffs, int relegation,
-    float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs, bool supported) :
+    int titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs, bool supported) :
     name(name), nation(nation), id(id), tier(tier), autoPromotion(autoPromotion), playoffs(playoffs), relegation(relegation), titleBonus(titleBonus), 
     clubs(clubs), linkedCompetitions(linkedComps), supported(supported)
 {}
@@ -43,9 +43,9 @@ void League::SetRelegationThreshold(int threshold)
     this->relegation = threshold;
 }
 
-void League::SetTitleBonus(float multiplier)
+void League::SetTitleBonus(int amount)
 {
-    this->titleBonus = multiplier;
+    this->titleBonus = amount;
 }
 
 void League::AddClub(Club* club)
@@ -128,7 +128,7 @@ const uint16_t& League::GetTier() const
     return this->tier;
 }
 
-const float& League::GetTitleBonus() const
+const int& League::GetTitleBonus() const
 {
     return this->titleBonus;
 }

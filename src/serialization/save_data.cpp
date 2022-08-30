@@ -44,7 +44,7 @@ void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
         const std::string region = dataRoot[idStr]["region"].get<std::string>();
         const std::vector<std::string> rounds = dataRoot[idStr]["rounds"].get<std::vector<std::string>>();
 
-        const float winnerBonus = dataRoot[idStr]["winnerBonus"].get<float>();
+        const int winnerBonus = dataRoot[idStr]["winnerBonus"].get<int>();
         const int tier = dataRoot[idStr]["tier"].get<int>();
 
         // Add the cup competition to the database
@@ -71,7 +71,7 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
         const int autoPromotionThreshold = dataRoot[idStr]["autoPromotionThreshold"].get<int>();
         const int playoffsThreshold = dataRoot[idStr]["playoffsThreshold"].get<int>();
         const int relegationThreshold = dataRoot[idStr]["relegationThreshold"].get<int>();
-        const float titleBonus = dataRoot[idStr]["titleBonus"].get<float>();
+        const int titleBonus = dataRoot[idStr]["titleBonus"].get<int>();
         const bool isSupported = dataRoot[idStr]["supported"].get<bool>();
 
         // Fetch the competitions linked to this league
@@ -171,7 +171,8 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         const std::string name = (*root)[idStr]["name"].get<std::string>();
         const uint16_t leagueID = (*root)[idStr]["leagueID"].get<uint16_t>();
         
-        int transferBudget = 0, wageBudget = 0;
+        const int transferBudget = (*root)[idStr]["transferBudget"].get<int>();
+        int wageBudget = 0, initialWageBudget = 0, initialTransferBudget = 0;
         
         std::vector<Club::TrainingStaff> trainingStaffGroups;
         std::vector<Club::Objective> objectives;
@@ -180,8 +181,9 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         
         if (!loadingDefault)
         {
-            transferBudget = (*root)[idStr]["transferBudget"].get<int>();
             wageBudget = (*root)[idStr]["wageBudget"].get<int>();
+            initialTransferBudget = (*root)[idStr]["initialTransferBudget"].get<int>();
+            initialWageBudget = (*root)[idStr]["initialWageBudget"].get<int>();
 
             // Fetch the club's training staff
             if ((*root)[idStr].contains("trainingStaff"))
@@ -236,8 +238,8 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
         }
 
         // Add the club to the database
-        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, trainingStaffGroups, players, objectives, generalMessages, 
-            transferMessages));
+        this->clubDatabase.emplace_back(Club(name, id, leagueID, transferBudget, wageBudget, initialTransferBudget, initialWageBudget, trainingStaffGroups, players, 
+            objectives, generalMessages, transferMessages));
 
         ++id;
     }
@@ -464,7 +466,9 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
     root["clubs"][std::to_string(club.GetID())]["name"] = club.GetName();
     root["clubs"][std::to_string(club.GetID())]["leagueID"] = club.GetLeague();
     root["clubs"][std::to_string(club.GetID())]["transferBudget"] = club.GetTransferBudget();
+    root["clubs"][std::to_string(club.GetID())]["initialTransferBudget"] = club.GetInitialTransferBudget();
     root["clubs"][std::to_string(club.GetID())]["wageBudget"] = club.GetWageBudget();
+    root["clubs"][std::to_string(club.GetID())]["initialWageBudget"] = club.GetInitialWageBudget();
 
     // Convert the club's training staff to JSON
     for (size_t index = 0; index < club.GetTrainingStaff().size(); index++)

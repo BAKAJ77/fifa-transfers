@@ -21,6 +21,8 @@ void FinancialsGeneration::Init()
     // Calculate the finances of each user in the save
     for (UserProfile& user : SaveData::GetInstance().GetUsers())
     {
+        const float objectiveBonusAmount = 0.3f / (float)user.GetClub()->GetObjectives().size();
+
         UserFinancials calculatedFinancials;
         calculatedFinancials.previousTransferBudget = user.GetClub()->GetTransferBudget();
         calculatedFinancials.previousWageBudget = user.GetClub()->GetWageBudget();
@@ -31,7 +33,9 @@ void FinancialsGeneration::Init()
 
         int gamesWon = 0, gamesDrawn = 0, gamesLost = 0;
         int totalObjectivesIncomplete = 0;
-        float totalRevenueBonus = 1.0f;
+
+        int totalWinnerBonus = 0;
+        float totalObjectiveBonus = 0.0f;
 
         for (const UserProfile::CompetitionData& compStats : user.GetCompetitionData())
         {
@@ -44,14 +48,16 @@ void FinancialsGeneration::Init()
             if (compStats.compID > 1000) // DOMESTIC CUP COMPETITION
             {
                 if (compStats.seasonEndPosition == SaveData::GetInstance().GetCup(compStats.compID)->GetRounds().size() + 1) // The user won the cup?
-                    totalRevenueBonus += SaveData::GetInstance().GetCup(compStats.compID)->GetWinnerBonus();
+                    totalWinnerBonus += SaveData::GetInstance().GetCup(compStats.compID)->GetWinnerBonus();
+                else if (compStats.seasonEndPosition == SaveData::GetInstance().GetCup(compStats.compID)->GetRounds().size()) // The user is runners up?
+                    totalWinnerBonus += (int)(SaveData::GetInstance().GetCup(compStats.compID)->GetWinnerBonus() / 2.5f);
             }
             else // LEAGUE COMPETITION
             {
                 if (compStats.seasonEndPosition == 1)
-                    totalRevenueBonus += SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus();
+                    totalWinnerBonus += SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus();
                 else if (compStats.wonPlayoffs || compStats.seasonEndPosition <= SaveData::GetInstance().GetLeague(compStats.compID)->GetAutoPromotionThreshold())
-                    totalRevenueBonus += (SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus() / 2.0f);
+                    totalWinnerBonus += (int)(SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus() / 2.5f);
             }
 
             // Tally up the total amount of club objectives that the user didn't complete
@@ -63,7 +69,7 @@ void FinancialsGeneration::Init()
                     if ((compStats.compID > 1000 && compStats.seasonEndPosition >= objective.targetEndPosition) ||
                         (compStats.compID < 1000 && compStats.seasonEndPosition <= objective.targetEndPosition))
                     {
-                        totalRevenueBonus += 0.5f;
+                        totalObjectiveBonus += objectiveBonusAmount;
                     }
                     else
                     {
@@ -76,26 +82,38 @@ void FinancialsGeneration::Init()
         }
 
         // Calculate the user's club's new wage budget
-        float totalClubWages = 0;
-        for (const Player* player : user.GetClub()->GetPlayers())
-            totalClubWages += player->GetWage();
+        const int baseWageBudget = user.GetClub()->GetWageBudget() > user.GetClub()->GetInitialWageBudget() ? 
+            user.GetClub()->GetWageBudget() : 
+            user.GetClub()->GetInitialWageBudget();
 
-        calculatedFinancials.newWageBudget = std::max(Util::GetTruncatedSFInteger((int)(totalClubWages / (4.03306f + ((float)totalObjectivesIncomplete * 0.5f))), 3), 
-            calculatedFinancials.previousWageBudget);
+        calculatedFinancials.newWageBudget = Util::GetTruncatedSFInteger(baseWageBudget + (int)((float)user.GetClub()->GetInitialWageBudget() * totalObjectiveBonus), 3);
+        user.GetClub()->SetInitialWageBudget(calculatedFinancials.newWageBudget);
 
+        // Calculate the user's club's new transfer budget
+        const int baseTransferBudget = user.GetClub()->GetTransferBudget() > user.GetClub()->GetInitialTransferBudget() ?
+            user.GetClub()->GetTransferBudget() :
+            user.GetClub()->GetInitialTransferBudget();
+
+        calculatedFinancials.newTransferBudget = Util::GetTruncatedSFInteger(baseTransferBudget + totalWinnerBonus +
+            (int)((float)user.GetClub()->GetInitialTransferBudget() * (totalObjectiveBonus * 1.2f)), 4);
+
+        user.GetClub()->SetInitialTransferBudget(calculatedFinancials.newTransferBudget - totalWinnerBonus);
+        
         // Calculate the total revenue made by the club
-        const float generatedRevenueMultiplier = ((gamesWon / 3.0f) + (gamesDrawn / 12.0f) + (user.GetClub()->GetAverageOverall() / 45.0f)) * totalRevenueBonus;
+        const float generatedRevenueMultiplier = ((gamesWon / 3.0f) + (gamesDrawn / 12.0f) + (user.GetClub()->GetAverageOverall() / 30.0f) * 
+            (totalObjectiveBonus + 1.0f)) + totalWinnerBonus;
+
         calculatedFinancials.totalRevenue = (int)((float)RandomEngine::GetInstance().GenerateRandom<int>(1000000, 3500000) * (generatedRevenueMultiplier / 10.0f));
         calculatedFinancials.totalRevenue += calculatedFinancials.totalWages;
 
-        calculatedFinancials.totalRevenue = Util::GetTruncatedSFInteger(calculatedFinancials.totalRevenue, 4);
+        calculatedFinancials.totalRevenue = Util::GetTruncatedSFInteger(calculatedFinancials.totalRevenue * 20, 4);
 
         // Calculate the club's total expenses
         const float generatedExpensesMultiplier = ((gamesLost / 7.0f) + (user.GetClub()->GetAverageOverall() / 45.0f));
         calculatedFinancials.totalExpenses = (int)((float)RandomEngine::GetInstance().GenerateRandom<int>(100000, 1500000) * generatedExpensesMultiplier);
         calculatedFinancials.totalExpenses += calculatedFinancials.totalWages;
 
-        calculatedFinancials.totalExpenses = Util::GetTruncatedSFInteger(calculatedFinancials.totalExpenses, 4);
+        calculatedFinancials.totalExpenses = Util::GetTruncatedSFInteger(calculatedFinancials.totalExpenses * 20, 4);
 
         // Push the user's calculated financials into the vector
         this->calculatedUserFinancials.emplace_back(calculatedFinancials);
@@ -119,7 +137,7 @@ void FinancialsGeneration::Update(const float& deltaTime)
             const UserFinancials& userFinancials = this->calculatedUserFinancials[this->userIndex];
             UserProfile& user = SaveData::GetInstance().GetUsers()[this->userIndex];
 
-            user.GetClub()->SetTransferBudget(std::max(user.GetClub()->GetTransferBudget() + (userFinancials.totalRevenue - userFinancials.totalExpenses), 0));
+            user.GetClub()->SetTransferBudget(userFinancials.newTransferBudget);
             user.GetClub()->SetWageBudget(userFinancials.newWageBudget);
             
             if ((this->userIndex + 1) == (int)SaveData::GetInstance().GetUsers().size())
@@ -146,26 +164,25 @@ void FinancialsGeneration::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1960 - titleTextSize.x, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         std::string(user.GetName()) + "'s FINANCIAL OVERVIEW", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 60, "CLUB CASH FLOW", 5);
+    Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 80, "CLUB CASH FLOW", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 280 }, { 0, 255, 0, this->userInterface.GetOpacity() }, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 310 }, { 0, 255, 0, this->userInterface.GetOpacity() }, this->font, 60,
         "- Total Revenue: " + Util::GetFormattedCashString(userFinancials.totalRevenue), 5);
-    Renderer::GetInstance().RenderShadowedText({ 60, 340 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 390 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 60,
         "- Total Wages Paid: " + Util::GetFormattedCashString(userFinancials.totalWages), 5);
-    Renderer::GetInstance().RenderShadowedText({ 60, 400 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 470 }, { 255, 0, 0, this->userInterface.GetOpacity() }, this->font, 60,
         "- Total Expenses: " + Util::GetFormattedCashString(userFinancials.totalExpenses), 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 500 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 60, "NEXT SEASON'S BUDGETS", 5);
+    Renderer::GetInstance().RenderShadowedText({ 60, 620 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 80, "NEXT SEASON'S BUDGETS", 5);
 
-    Renderer::GetInstance().RenderShadowedText({ 60, 560 }, { glm::vec3(255), this->userInterface.GetOpacity()}, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 710 }, { glm::vec3(255), this->userInterface.GetOpacity()}, this->font, 60,
         "- Previous Wage Budget: " + Util::GetFormattedCashString(userFinancials.previousWageBudget), 5);
-    Renderer::GetInstance().RenderShadowedText({ 60, 620 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 790 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 60,
         "- New Wage Budget: " + Util::GetFormattedCashString(userFinancials.newWageBudget), 5);
-    Renderer::GetInstance().RenderShadowedText({ 60, 680 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 35,
+    Renderer::GetInstance().RenderShadowedText({ 60, 870 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 60,
         "- Previous Transfer Budget: " + Util::GetFormattedCashString(userFinancials.previousTransferBudget), 5);
-    Renderer::GetInstance().RenderShadowedText({ 60, 740 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 35,
-        "- New Transfer Budget: " + 
-        Util::GetFormattedCashString(std::max(userFinancials.previousTransferBudget + (userFinancials.totalRevenue - userFinancials.totalExpenses), 0)), 5);
+    Renderer::GetInstance().RenderShadowedText({ 60, 950 }, { 0, 200, 200, this->userInterface.GetOpacity() }, this->font, 60,
+        "- New Transfer Budget: " + Util::GetFormattedCashString(userFinancials.newTransferBudget), 5);
 
     // Render the user interface
     this->userInterface.Render();

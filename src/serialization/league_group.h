@@ -15,8 +15,7 @@ public:
 private:
 	std::string name, nation;
 	uint16_t id, tier;
-	int autoPromotion, playoffs, relegation;
-	float titleBonus;
+	int autoPromotion, playoffs, relegation, titleBonus;
 
 	std::vector<CompetitionLink> linkedCompetitions;
 	std::vector<Club*> clubs;
@@ -24,7 +23,7 @@ private:
 public:
 	League();
 	League(const std::string_view& name, const std::string_view& nation, uint16_t id, uint16_t tier, int autoPromotion, int playoffs, int relegation, 
-		float titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs, bool supported);
+		int titleBonus, const std::vector<CompetitionLink>& linkedComps, const std::vector<Club*> clubs, bool supported);
 
 	~League() = default;
 
@@ -46,8 +45,8 @@ public:
 	// Set the threshold for clubs in the league to qualify for Relegation.
 	void SetRelegationThreshold(int threshold);
 
-	// Sets the title bonus multiplier of the league.
-	void SetTitleBonus(float multiplier);
+	// Sets the bonus cash the title winner of the league gets.
+	void SetTitleBonus(int amount);
 
 	// Adds the given club to the league.
 	void AddClub(Club* club);
@@ -76,8 +75,8 @@ public:
 	// Returns the tier of the league.
 	const uint16_t& GetTier() const;
 
-	// Returns the bonus recieved if you win the league title.
-	const float& GetTitleBonus() const;
+	// Returns the bonus cash recieved if you win the league title.
+	const int& GetTitleBonus() const;
 
 	// Returns the threshold for clubs in the league to qualify for Automatic Promotion.
 	const int& GetAutoPromotionThreshold() const;

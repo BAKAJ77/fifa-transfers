@@ -49,6 +49,9 @@ void SaveWriting::ExecuteSavingProcess()
 				totalClubWages += player->GetWage();
 
 			club.SetWageBudget(Util::GetTruncatedSFInteger((int)(totalClubWages / 4.03306f), 3));
+			club.SetInitialWageBudget(club.GetWageBudget());
+
+			club.SetInitialTransferBudget(club.GetTransferBudget());
 		}
 
 		// Randomise the potentials of player in the new save if specified to do so

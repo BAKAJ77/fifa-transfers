@@ -10,11 +10,10 @@ private:
 	uint16_t id;
 	std::string name, region;
 	std::vector<std::string> rounds;
-	float winnerBonus;
-	int tier;
+	int tier, winnerBonus;
 public:
 	KnockoutCup();
-	KnockoutCup(uint16_t id, const std::string_view& name, const std::string_view& region, const std::vector<std::string>& rounds, float winnerBonus, 
+	KnockoutCup(uint16_t id, const std::string_view& name, const std::string_view& region, const std::vector<std::string>& rounds, int winnerBonus, 
 		int tier);
 
 	~KnockoutCup() = default;
@@ -25,8 +24,8 @@ public:
 	// Sets the rounds in the cup competition.
 	void SetRounds(const std::vector<std::string>& rounds);
 
-	// Sets the winner bonus of the cup competition.
-	void SetWinnerBonus(float multiplier);
+	// Sets the bonus cash the winner of the cup competition gets.
+	void SetWinnerBonus(int amount);
 
 	// Sets the tier of the cup competition.
 	void SetTier(int tier);
@@ -40,8 +39,8 @@ public:
 	// Returns the rounds in the cup competition.
 	const std::vector<std::string>& GetRounds() const;
 
-	// Returns the winner bonus of the cup competition.
-	const float& GetWinnerBonus() const;
+	// Returns the bonus cash the winner of the cup competition gets.
+	const int& GetWinnerBonus() const;
 
 	// Returns the tier of the cup competition.
 	const int& GetTier() const;

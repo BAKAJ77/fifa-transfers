@@ -42,7 +42,7 @@ public:
 private:
 	std::string name;
 	uint16_t id, leagueID;
-	int transferBudget, wageBudget;
+	int transferBudget, wageBudget, initialTransferBudget, initialWageBudget;
 
 	std::vector<TrainingStaff> trainingStaffGroups;
 	std::vector<Player*> players;
@@ -51,9 +51,9 @@ private:
 	std::vector<Transfer> transferMessages;
 public:
 	Club();
-	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, const std::vector<TrainingStaff>& trainingStaffGroups, 
-		const std::vector<Player*>& players, const std::vector<Objective>& objectives, const std::vector<GeneralMessage>& generalMessages, 
-		const std::vector<Transfer>& transferMessages);
+	Club(const std::string_view& name, uint16_t id, uint16_t leagueID, int transferBudget, int wageBudget, int initialTransferBudget, int initialWageBudget,
+		const std::vector<TrainingStaff>& trainingStaffGroups, const std::vector<Player*>& players, const std::vector<Objective>& objectives, 
+		const std::vector<GeneralMessage>& generalMessages, const std::vector<Transfer>& transferMessages);
 
 	~Club() = default;
 
@@ -68,6 +68,12 @@ public:
 
 	// Sets the wage budget of the club.
 	void SetWageBudget(int budget);
+
+	// Sets the initial transfer budget of the club.
+	void SetInitialTransferBudget(int budget);
+
+	// Sets the initial wage budget of the club.
+	void SetInitialWageBudget(int budget);
 
 	// Generates new club objectives.
 	void GenerateObjectives();
@@ -122,6 +128,12 @@ public:
 
 	// Returns the club's wage budget.
 	const int& GetWageBudget() const;
+
+	// Returns the club's initial transfer budget.
+	const int& GetInitialTransferBudget() const;
+
+	// Returns the club's initial wage budget.
+	const int& GetInitialWageBudget() const;
 
 	// Returns the club's current season objectives.
 	const std::vector<Objective>& GetObjectives() const;
