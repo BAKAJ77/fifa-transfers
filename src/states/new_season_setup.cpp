@@ -222,7 +222,7 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
                 " only has 1 year left on his contract. We suggest you renew his contract if you don't want him to leave on a free." });
         }
 
-        if ((player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) == 0)
+        if ((player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) <= 0)
         {
             // Generate a new contract length for the player
             const int contractLength = RandomEngine::GetInstance().GenerateRandom<int>(2, 5);
