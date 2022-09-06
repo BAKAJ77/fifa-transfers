@@ -398,7 +398,6 @@ FodyWeavers.xsd
 *.sln
 *.vcxproj
 *.vcxproj.filters
-/libs/irrklang/bin
 /bin/release
 /bin/debug
 config.json
