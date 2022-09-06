@@ -19,10 +19,17 @@ void ContractNegotiation::Init()
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
     // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
-    if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetPlayers().size() <= Globals::minSquadSize)
-        this->sellerSquadTooSmall = true;
-    else if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetPlayers().size() >= Globals::maxSquadSize)
-        this->buyerSquadTooLarge = true;
+    if (!this->renewingContract)
+    {
+        if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetPlayers().size() <= Globals::minSquadSize)
+        {
+            this->sellerSquadTooSmall = true;
+        }
+        else if (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetPlayers().size() >= Globals::maxSquadSize)
+        {
+            this->buyerSquadTooLarge = true;
+        }
+    }
 
     // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
     const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
