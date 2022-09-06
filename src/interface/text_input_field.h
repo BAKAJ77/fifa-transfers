@@ -25,7 +25,7 @@ private:
 public:
 	TextInputField();
 	TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags = Restrictions::NONE, float opacity = 255.0f, 
-		float shadowDistance = 5.0f);
+		float shadowDistance = 5.0f, const std::string_view& defaultValue = "");
 	
 	~TextInputField();
 

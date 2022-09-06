@@ -1,5 +1,7 @@
 #include <states/main_menu.h>
 #include <states/play_menu.h>
+#include <states/settings.h>
+
 #include <interface/menu_button.h>
 
 void MainMenu::Init()
@@ -32,6 +34,8 @@ void MainMenu::Update(const float& deltaTime)
         const MenuButton* menuButton = (MenuButton*)buttons[index];
         if (menuButton->GetText() == "PLAY" && menuButton->WasClicked())
             this->PushState(PlayMenu::GetAppState());
+        else if (menuButton->GetText() == "SETTINGS" && menuButton->WasClicked())
+            this->PushState(Settings::GetAppState());
         else if (menuButton->GetText() == "EXIT" && menuButton->WasClicked())
             this->PopState();
     }

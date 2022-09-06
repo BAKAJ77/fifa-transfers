@@ -12,9 +12,10 @@ TextInputField::TextInputField() :
     opacity(0.0f), shadowDistance(0.0f), fontSize(0.0f), inputFlags(Restrictions::NONE)
 {}
 
-TextInputField::TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags, float opacity, float shadowDistance) :
+TextInputField::TextInputField(const glm::vec2& pos, const glm::vec2& size, Restrictions flags, float opacity, float shadowDistance,
+    const std::string_view& defaultValue) :
     position(pos), size({ std::max(size.x, 75.0f), std::max(size.y, 50.0f) }), opacity(opacity), shadowDistance(shadowDistance), fontSize(size.y / 2.0f),
-    inputFlags(flags)
+    inputFlags(flags), inputtedText(defaultValue)
 {
     this->textFont = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 }
