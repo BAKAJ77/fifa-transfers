@@ -1,0 +1,101 @@
+{
+    "1001": {
+        "name": "INTERNATIONAL PRESEASON CUP",
+        "region": "GLOBAL",
+        "rounds": [
+            "Group Stage",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 4,
+        "winnerBonus": 1.0
+    },
+    "1002": {
+        "name": "UEFA CONFERENCE LEAGUE",
+        "region": "EUROPE",
+        "rounds": [
+            "Group Stage",
+            "Preliminary Round",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 3,
+        "winnerBonus": 8.0
+    },
+    "1003": {
+        "name": "UEFA EUROPA LEAGUE",
+        "region": "EUROPE",
+        "rounds": [
+            "Group Stage",
+            "Preliminary Round",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 2,
+        "winnerBonus": 16.0
+    },
+    "1004": {
+        "name": "UEFA CHAMPIONS LEAGUE",
+        "region": "EUROPE",
+        "rounds": [
+            "Group Stage",
+            "Round of 16",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 1,
+        "winnerBonus": 32.0
+    },
+    "1005": {
+        "name": "EFL PAPA JOHN CUP",
+        "region": "ENGLAND",
+        "rounds": [
+            "Group Stage",
+            "Round 2",
+            "Round 3",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 3,
+        "winnerBonus": 2.0
+    },
+    "1006": {
+        "name": "EFL CARABAO CUP",
+        "region": "ENGLAND",
+        "rounds": [
+            "Round 1",
+            "Round 2",
+            "Round 3",
+            "Round 4",
+            "Quater Final",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 2,
+        "winnerBonus": 4.0
+    },
+    "1007": {
+        "name": "EMIRATES FA CUP",
+        "region": "ENGLAND",
+        "rounds": [
+            "Round 1",
+            "Round 2",
+            "Round 3",
+            "Round 4",
+            "Round 5",
+            "Round 6",
+            "Semi Final",
+            "Final"
+        ],
+        "tier": 1,
+        "winnerBonus": 8.0
+    }
+}

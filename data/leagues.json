@@ -1,0 +1,689 @@
+{
+    "1": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA PROFESIONAL DE FUTBOL",
+        "nation": "ARGENTINA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "10": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "CYTA CHAMPIONSHIP",
+        "nation": "CYPRUS",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "11": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "FORTUNA LIGA",
+        "nation": "CZECH REPUBLIC",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "12": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "3F SUPERLIGA",
+        "nation": "DENMARK",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "13": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA PRO BANCO PICHINCHA",
+        "nation": "ECUADOR",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "14": {
+        "autoPromotionThreshold": 2,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1001,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 1006,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 1007,
+                "qualifyingPositions": []
+            }
+        },
+        "name": "EFL CHAMPIONSHIP",
+        "nation": "ENGLAND",
+        "playoffsThreshold": 6,
+        "relegationThreshold": 22,
+        "supported": true,
+        "tier": 2,
+        "titleBonus": 6.0
+    },
+    "15": {
+        "autoPromotionThreshold": 2,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1001,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 1006,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 1007,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 1005,
+                "qualifyingPositions": []
+            }
+        },
+        "name": "EFL LEAGUE ONE",
+        "nation": "ENGLAND",
+        "playoffsThreshold": 6,
+        "relegationThreshold": 21,
+        "supported": true,
+        "tier": 3,
+        "titleBonus": 3.0
+    },
+    "16": {
+        "autoPromotionThreshold": 3,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1001,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 1006,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 1007,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 1005,
+                "qualifyingPositions": []
+            }
+        },
+        "name": "EFL LEAGUE TWO",
+        "nation": "ENGLAND",
+        "playoffsThreshold": 7,
+        "relegationThreshold": 23,
+        "supported": true,
+        "tier": 4,
+        "titleBonus": 1.5
+    },
+    "17": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "EFL NATIONAL LEAGUE",
+        "nation": "ENGLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 5,
+        "titleBonus": 0.0
+    },
+    "18": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {
+            "1": {
+                "competitionID": 1001,
+                "qualifyingPositions": []
+            },
+            "2": {
+                "competitionID": 1006,
+                "qualifyingPositions": []
+            },
+            "3": {
+                "competitionID": 1007,
+                "qualifyingPositions": []
+            },
+            "4": {
+                "competitionID": 1002,
+                "qualifyingPositions": [
+                    7
+                ]
+            },
+            "5": {
+                "competitionID": 1003,
+                "qualifyingPositions": [
+                    5,
+                    6
+                ]
+            },
+            "6": {
+                "competitionID": 1004,
+                "qualifyingPositions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            }
+        },
+        "name": "BARCLAYS PREMIER LEAGUE",
+        "nation": "ENGLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": 18,
+        "supported": true,
+        "tier": 1,
+        "titleBonus": 12.0
+    },
+    "19": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "VEIKKAUSLIIGA",
+        "nation": "FINLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "2": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "HYUNDAI A-LEAGUE",
+        "nation": "AUSTRALIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "20": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGUE 1 UBER EATS",
+        "nation": "FRANCE",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "21": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGUE 2 BKT",
+        "nation": "FRANCE",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 2,
+        "titleBonus": 0.0
+    },
+    "22": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "BUNDESLIGA",
+        "nation": "GERMANY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "23": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "BUNDESLIGA 2",
+        "nation": "GERMANY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 2,
+        "titleBonus": 0.0
+    },
+    "24": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "3. LIGA",
+        "nation": "GERMANY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 3,
+        "titleBonus": 0.0
+    },
+    "25": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "SUPER LEAGUE 1 INTERWETTEN",
+        "nation": "GREECE",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "26": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "EREDIVISIE",
+        "nation": "NETHERLANDS",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "27": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "NEMZETI BAJNOKSAG I",
+        "nation": "HUNGARY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "28": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "HERO ISL",
+        "nation": "INDIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "29": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "SERIE A TIM",
+        "nation": "ITALY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "3": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "O. BUNDESLIGA",
+        "nation": "AUSTRIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "30": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "SERIE B BKT",
+        "nation": "ITALY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 2,
+        "titleBonus": 0.0
+    },
+    "31": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "MEIJI YASUDA J1",
+        "nation": "JAPAN",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "32": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "K LEAGUE 1",
+        "nation": "KOREA REPUBLIC",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "33": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "DIVISION DE FUTBOL PROFESIONAL",
+        "nation": "BOLIVIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "34": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA BBVA MX",
+        "nation": "MEXICO",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "35": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "ELITESERIEN",
+        "nation": "NORWAY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "36": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "COPA DE PRIMERA TIGO-VISION BANCO",
+        "nation": "PARAGUAY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "37": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA 1 BETSSON",
+        "nation": "PERU",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "38": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "PKO EKSTRAKLASA",
+        "nation": "POLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "39": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA PORTUGAL",
+        "nation": "PORTUGAL",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "4": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "1A PRO LEAGUE",
+        "nation": "BELGIUM",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "40": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "SSE AIRTRICITY PD",
+        "nation": "REPUBLIC OF IRELAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "41": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA I",
+        "nation": "ROMANIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "42": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "RUSSIAN PREMIER LIGA",
+        "nation": "RUSSIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "43": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "MBA PRO LEAGUE",
+        "nation": "SAUDI ARABIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "44": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "CINCH PREMIERSHIP",
+        "nation": "SCOTLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "45": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "DSTV PREMIERSHIP",
+        "nation": "SOUTH AFRICA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "46": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LALIGA SANTANDER",
+        "nation": "SPAIN",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "47": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LALIGA SMARTBANK",
+        "nation": "SPAIN",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 2,
+        "titleBonus": 0.0
+    },
+    "48": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "ALLSVENSKAN",
+        "nation": "SWEDEN",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "49": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "CREDIT SUISSE SUPER LEAGUE",
+        "nation": "SWITZERLAND",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "5": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA DO BRASIL",
+        "nation": "BRAZIL",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "50": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "SUPER LIG",
+        "nation": "TURKEY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "51": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "ADNOC PRO LEAGUE",
+        "nation": "UNITED ARAB EMIRATES",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "52": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "MAJOR LEAGUE SOCCER",
+        "nation": "UNITED STATES OF AMERICA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "53": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "UKRAINIAN PREMIER LEAGUE",
+        "nation": "UKRAINE",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "54": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "TORNEO URUGUAYO COPA COCA-COLA",
+        "nation": "URUGUAY",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "55": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA VENEZOLANA",
+        "nation": "VENEZUELA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "6": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "CAMPEONATO AFP PLANVITAL",
+        "nation": "CHILE",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "7": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "CHINESE SUPER LEAGUE",
+        "nation": "CHINA PR",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "8": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "LIGA BETPLAY DIMAYOR",
+        "nation": "COLOMBIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    },
+    "9": {
+        "autoPromotionThreshold": -1,
+        "linkedCompetitions": {},
+        "name": "PRVA HNL",
+        "nation": "CROATIA",
+        "playoffsThreshold": -1,
+        "relegationThreshold": -1,
+        "supported": false,
+        "tier": 1,
+        "titleBonus": 0.0
+    }
+}

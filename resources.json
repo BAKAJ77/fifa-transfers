@@ -1,0 +1,74 @@
+{
+    "fonts": {
+        "1": {
+            "filename": "bahnschrift.ttf",
+            "id": "Bahnschrift Condensed Bold",
+            "style": 14
+        },
+        "2": {
+            "filename": "bahnschrift.ttf",
+            "id": "Bahnschrift Bold",
+            "style": 4
+        },
+        "3": {
+            "filename": "cascadia_code_bold.ttf",
+            "id": "Cascadia Code Bold",
+            "style": 0
+        }
+    },
+    "sfx": {
+        "1": {
+            "filename": "switch.wav",
+            "id": "Switch"
+        }
+    },
+    "textures": {
+        "1": {
+            "filename": "bkg.png",
+            "id": "Background 1"
+        },
+        "10": {
+            "filename": "circle.png",
+            "id": "Circle"
+        },
+        "2": {
+            "filename": "bkg2.png",
+            "id": "Background 2"
+        },
+        "3": {
+            "filename": "dev_logo.png",
+            "id": "Developer Logo"
+        },
+        "4": {
+            "filename": "title_logo_sml.png",
+            "id": "Title Logo Small"
+        },
+        "5": {
+            "filename": "title_logo_lrg.png",
+            "id": "Title Logo Large"
+        },
+        "6": {
+            "filename": "checkmark_circle.png",
+            "id": "Checkmark Circle"
+        },
+        "7": {
+            "filename": "checkmark.png",
+            "id": "Checkmark"
+        },
+        "8": {
+            "filename": "cross_circle.png",
+            "id": "Cross Circle"
+        },
+        "9": {
+            "filename": "unknown_circle.png",
+            "id": "Unknown Circle"
+        }
+    },
+    "tracks": {
+        "1": {
+            "enabled": true,
+            "filename": "track_1.mp3",
+            "id": "Cartoon - On & On (feat. Daniel Levi)"
+        }
+    }
+}
