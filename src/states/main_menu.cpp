@@ -13,10 +13,9 @@ void MainMenu::Init()
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
-    this->userInterface.AddButton(new MenuButton({ 250, 750 }, { 450, 200 }, { 465, 215 }, "PLAY"));
-    this->userInterface.AddButton(new MenuButton({ 720, 750 }, { 450, 200 }, { 465, 215 }, "SETTINGS"));
-    this->userInterface.AddButton(new MenuButton({ 1190, 750 }, { 450, 200 }, { 465, 215 }, "HELP"));
-    this->userInterface.AddButton(new MenuButton({ 1660, 750 }, { 450, 200 }, { 465, 215 }, "EXIT"));
+    this->userInterface.AddButton(new MenuButton({ 485, 750 }, { 450, 200 }, { 465, 215 }, "PLAY"));
+    this->userInterface.AddButton(new MenuButton({ 955, 750 }, { 450, 200 }, { 465, 215 }, "SETTINGS"));
+    this->userInterface.AddButton(new MenuButton({ 1425, 750 }, { 450, 200 }, { 465, 215 }, "EXIT"));
 }
 
 void MainMenu::Destroy() {}
@@ -103,17 +102,17 @@ bool MainMenu::OnResumeTransitionUpdate(const float deltaTime)
     if (!startedTransition)
     {
         for (size_t i = 0; i < buttons.size(); i++)
-            buttons[i]->SetPosition({ 400 + (470 * i), 750 });
+            buttons[i]->SetPosition({ 635 + (470 * i), 750 });
 
         startedTransition = true;
     }
 
     // Move the buttons towards the left of the screen
     for (size_t i = 0; i < buttons.size(); i++)
-        buttons[i]->SetPosition({ std::max(buttons[i]->GetPosition().x - ((transitionSpeed / 3.0f) * deltaTime), 250.0f + (470.0f * i)), 
+        buttons[i]->SetPosition({ std::max(buttons[i]->GetPosition().x - ((transitionSpeed / 3.0f) * deltaTime), 485.0f + (470.0f * i)), 
             buttons[i]->GetPosition().y });
 
-    if (buttons[0]->GetPosition().x == 250)
+    if (buttons[0]->GetPosition().x == 485)
         finishedMovingButtons = true;
 
     // Animate the interface fading away
