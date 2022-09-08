@@ -229,9 +229,17 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
             player->SetExpiryYear(player->GetExpiryYear() + contractLength);
 
             // If the user's club's squad is at the minimum limit (i.e has only 16 players) then renew every contract which has ended
-            // and let the user know that this has occurred via general messages.
             if (user.GetClub()->GetPlayers().size() <= Globals::minSquadSize)
             {
+                // Increase the wage of the player and decrease the user club's wage budget
+                const float wageMultiplier = RandomEngine::GetInstance().GenerateRandom<float>(1.25f, 2.0f);
+                const int playerInitialWages = player->GetWage();
+
+                player->SetWage((int)(player->GetWage() * wageMultiplier));
+                user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() - (player->GetWage() - playerInitialWages));
+                user.GetClub()->SetInitialWageBudget(user.GetClub()->GetWageBudget());
+
+                // Let the user know that this has occurred via general messages.
                 user.GetClub()->GetGeneralMessages().push_back({ "We've had to renew " + std::string(player->GetName()) + " on a " + std::to_string(contractLength) +
                     " year contract, due to your squad size being at the minimum limit, which is 16 players." });
             }
