@@ -12,24 +12,20 @@ namespace Util
 
 	extern std::string GetAppDataDirectory()
 	{
-#ifdef _DEBUG
-		return std::string(); // Directories are relative to project file so return empty string
-#else
 		char* directoryBuffer = nullptr;
 		size_t bufferSize = 0;
 		_dupenv_s(&directoryBuffer, &bufferSize, "APPDATA");
 
 		if (!directoryBuffer) // An error must've occurred
-			throw std::exception("Failed to fetch the application's data directory");
+			throw std::exception("Failed to fetch the %APPDATA% directory");
 
-		std::string directory = directoryBuffer + std::string("/FTFS/");
+		std::string directory = directoryBuffer;
 		std::replace(directory.begin(), directory.end(), '\\', '/');
 
 		if (!Util::IsExistingDirectory(directory))
-			throw std::exception("The fetched application data directory does not exist");
+			throw std::exception("The fetched %APPDATA% does not exist");
 
 		return directory;
-#endif
 	}
 
 	bool IsExistingDirectory(const std::string_view& directory)

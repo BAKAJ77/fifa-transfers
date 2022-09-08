@@ -1,5 +1,4 @@
 #include <graphics/shader_program.h>
-#include <util/directory_system.h>
 #include <util/logging_system.h>
 #include <util/opengl_error.h>
 
@@ -8,8 +7,8 @@
 #include <glad/glad.h>
 
 ShaderProgram::ShaderProgram(const std::string_view& vshFileName, const std::string_view& fshFileName) :
-	vertexShaderPath(Util::GetAppDataDirectory() + "shaders/" + vshFileName.data()), 
-	fragmentShaderPath(Util::GetAppDataDirectory() + "shaders/" + fshFileName.data())
+	vertexShaderPath(std::string("shaders/") + vshFileName.data()), 
+	fragmentShaderPath(std::string("shaders/") + fshFileName.data())
 {
 	// Load the shader code from both shader files
 	std::ifstream vertexFileStream, fragmentFileStream;

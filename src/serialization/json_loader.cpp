@@ -14,10 +14,10 @@ JSONLoader::~JSONLoader()
 
 void JSONLoader::Open(const std::string_view& fileName)
 {
-	if (Util::IsExistingFile(Util::GetAppDataDirectory() + fileName.data()))
+	if (Util::IsExistingFile(fileName.data()))
 	{
 		// Open the JSON file in read mode only
-		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::in);
+		this->fileStream.open(fileName.data(), std::ios::in);
 		if (this->fileStream.fail())
 			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
@@ -44,7 +44,7 @@ void JSONLoader::Open(const std::string_view& fileName)
 	else
 	{
 		// Create a new JSON file
-		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
+		this->fileStream.open(fileName.data(), std::ios::out | std::ios::trunc);
 		if (this->fileStream.fail())
 			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 
@@ -59,7 +59,7 @@ void JSONLoader::Close()
 	if (!this->root.empty())
 	{
 		// Open the JSON file
-		this->fileStream.open(Util::GetAppDataDirectory() + fileName.data(), std::ios::out | std::ios::trunc);
+		this->fileStream.open(fileName.data(), std::ios::out | std::ios::trunc);
 		if (this->fileStream.fail())
 			LogSystem::GetInstance().OutputLog("Failed to open the JSON file: " + std::string(fileName), Severity::FATAL);
 

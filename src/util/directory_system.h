@@ -10,7 +10,7 @@ namespace Util
 	// Returns TRUE if successful, else FALSE is returned.
 	extern bool CreateNewDirectory(const std::string_view& directory);
 
-	// Returns the path to the application's data directory.
+	// Returns the path to the %APPDATA% directory.
 	extern std::string GetAppDataDirectory();
 
 	// Returns TRUE if the directory at the path given exists, if it doesn't then FALSE is returned.

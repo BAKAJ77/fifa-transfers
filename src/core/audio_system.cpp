@@ -1,7 +1,5 @@
 #include <core/audio_system.h>
 #include <util/logging_system.h>
-#include <util/directory_system.h>
-
 #include <algorithm>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +44,7 @@ void AudioSystem::LoadFromFile(const std::string_view& id, const std::string_vie
 	}
 
 	// Construct the full path to the audio file
-	const std::string filePath = Util::GetAppDataDirectory() + "audio/" + fileName.data();
+	const std::string filePath = std::string("audio/") + fileName.data();
 
 	// Load the audio file
 	irrklang::ISoundSource* loadedAudio = this->engine->addSoundSourceFromFile(filePath.c_str(), irrklang::ESM_AUTO_DETECT, true);

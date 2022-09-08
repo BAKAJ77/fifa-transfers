@@ -1,5 +1,4 @@
 #include <graphics/texture_loader.h>
-#include <util/directory_system.h>
 #include <util/logging_system.h>
 
 #include <glad/glad.h>
@@ -29,7 +28,7 @@ void TextureLoader::LoadFromFile(const std::string_view& id, const std::string_v
 
 	// Load the image file using STB
 	int width = 0, height = 0, channels = 0;
-	const std::string filePath = Util::GetAppDataDirectory() + "textures/" + fileName.data();
+	const std::string filePath = std::string("textures/") + fileName.data();
 
 	stbi_set_flip_vertically_on_load(flipOnLoad);
 	const uint8_t* loadedPixelData = stbi_load(filePath.c_str(), &width, &height, &channels, 0);

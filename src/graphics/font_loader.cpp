@@ -1,7 +1,6 @@
 #include <graphics/font_loader.h>
 #include <serialization/json_loader.h>
 #include <util/logging_system.h>
-#include <util/directory_system.h>
 #include <util/opengl_error.h>
 
 #include <algorithm>
@@ -17,7 +16,7 @@ Font::Font(FT_Library& lib, const std::string_view& fileName, uint32_t resolutio
 	fileName(fileName), resolution(std::clamp(resolution, (uint32_t)30, (uint32_t)230))
 {
 	// Fetch the game asset directory to construct path to font file
-	const std::string fontPath = Util::GetAppDataDirectory() + "fonts/" + fileName.data();
+	const std::string fontPath = std::string("fonts/") + fileName.data();
 
 	// Load the font face
 	FT_Face fontFace;

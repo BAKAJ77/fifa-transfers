@@ -1,6 +1,5 @@
 #include <core/window_frame.h>
 #include <core/application_core.h>
-#include <util/directory_system.h>
 #include <util/logging_system.h>
 #include <util/opengl_error.h>
 
@@ -62,8 +61,8 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 
 	// Load the window icon and cursor
 	GLFWimage iconImage, cursorImage;
-	iconImage.pixels = stbi_load((Util::GetAppDataDirectory() + "misc/logo_48.png").c_str(), &iconImage.width, &iconImage.height, nullptr, 0);
-	cursorImage.pixels = stbi_load((Util::GetAppDataDirectory() + "textures/cursor.png").c_str(), &cursorImage.width, &cursorImage.height, nullptr, 0);
+	iconImage.pixels = stbi_load("misc/logo_48.png", &iconImage.width, &iconImage.height, nullptr, 0);
+	cursorImage.pixels = stbi_load("textures/cursor.png", &cursorImage.width, &cursorImage.height, nullptr, 0);
 	
 	if (iconImage.pixels)
 	{

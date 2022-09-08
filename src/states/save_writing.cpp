@@ -29,7 +29,7 @@ void SaveWriting::Destroy() {}
 void SaveWriting::ExecuteSavingProcess()
 {
     // Do some operations on the save data if it is a new save
-    if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "data/saves/" + SaveData::GetInstance().GetName().data() + ".json"))
+    if (!Util::IsExistingFile(std::string("data/saves/") + SaveData::GetInstance().GetName().data() + ".json"))
     {
 		for (UserProfile& user : SaveData::GetInstance().GetUsers())
 		{
@@ -99,9 +99,9 @@ void SaveWriting::ExecuteSavingProcess()
 		}
 
 		// If the saves directory does not exist, create it
-		if (!Util::IsExistingDirectory(Util::GetAppDataDirectory() + "data/saves"))
+		if (!Util::IsExistingDirectory("data/saves"))
 		{
-			if (!Util::CreateNewDirectory(Util::GetAppDataDirectory() + "data/saves"))
+			if (!Util::CreateNewDirectory("data/saves"))
 				LogSystem::GetInstance().OutputLog("Failed to create the saves directory", Severity::FATAL);
 		}
     }

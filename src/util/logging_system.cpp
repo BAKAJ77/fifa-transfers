@@ -1,5 +1,4 @@
 #include <util/logging_system.h>
-#include <util/directory_system.h>
 #include <util/timestamp.h>
 
 #include <Windows.h>
@@ -12,9 +11,8 @@
 LogSystem::LogSystem()
 {
 #ifndef _DEBUG
-	// Get the path to the application data directory, then open up an empty runtime log file
-	this->directory = Util::GetAppDataDirectory();
-	std::ofstream logFile(this->directory + "runtime_log.txt", std::ios::trunc);
+	// Open up an empty runtime log file
+	std::ofstream logFile("runtime_log.txt", std::ios::trunc);
 #endif
 }
 
@@ -44,7 +42,7 @@ void LogSystem::OutputToConsole(const std::string_view& msg, Severity severity) 
 
 void LogSystem::OutputToFile(const std::string_view& msg, Severity severity) const
 {
-	std::ofstream logFile(this->directory + "runtime_log.txt", std::ios::app); // Open the log file in append mode
+	std::ofstream logFile("runtime_log.txt", std::ios::app); // Open the log file in append mode
 	
 	switch (severity)
 	{

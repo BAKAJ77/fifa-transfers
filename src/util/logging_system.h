@@ -14,8 +14,6 @@ enum class Severity
 class LogSystem
 {
 private:
-	std::string directory;
-private:
 	// Outputs the log message to the console.
 	void OutputToConsole(const std::string_view& msg, Severity severity) const;
 

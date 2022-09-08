@@ -17,7 +17,7 @@ ApplicationCore::ApplicationCore()
 {
 	// Load the application config file (if it doesn't exist then generate a new one then load it)
 	bool generateConfigSettings = false;
-	if (!Util::IsExistingFile(Util::GetAppDataDirectory() + "config.json"))
+	if (!Util::IsExistingFile("config.json"))
 		generateConfigSettings = true;
 
 	JSONLoader configFile("config.json");
