@@ -13,14 +13,14 @@ void ContractNegotiation::Init()
 {
     // Initialize the member variables
     this->exitState = this->wentBack = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = 
-        this->releaseClauseInvalid = this->sellerSquadTooSmall = this->buyerSquadTooLarge = false;
+        this->releaseClauseInvalid = this->sellerSquadTooSmall = this->buyerSquadTooLarge = this->tooGoodForClub = false;
     
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
 
-    // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
     if (!this->renewingContract)
     {
+        // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
         if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetPlayers().size() <= Globals::minSquadSize)
         {
             this->sellerSquadTooSmall = true;
@@ -29,6 +29,17 @@ void ContractNegotiation::Init()
         {
             this->buyerSquadTooLarge = true;
         }
+    }
+    
+    // The player won't want to renew if he is too good for the club
+    const int generatedNumber = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
+
+    if (this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 5) &&
+        generatedNumber >= 20)
+    {
+        this->tooGoodForClub = true;
+        SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(),
+            this->negotiatingPlayer->GetClub(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 6 });
     }
 
     // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
@@ -56,7 +67,8 @@ void ContractNegotiation::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
+        !this->tooGoodForClub)
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "SUBMIT"));
 
@@ -134,7 +146,8 @@ void ContractNegotiation::Update(const float& deltaTime)
                 this->exitState = this->wentBack = true;
         }
 
-        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
+        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
+            !this->tooGoodForClub)
         {
             // Only show the release clause text input box if a release clause is to be included
             if (this->userInterface.GetTickBox("Release Clause Included")->isCurrentlyTicked())
@@ -157,7 +170,8 @@ void ContractNegotiation::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1040, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         "CONTRACT NEGOTIATION", 5);
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge)
+    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
+        !this->tooGoodForClub)
     {
         // Render text displaying the club's remaining wage budget and the current wage and release clause of the player
         Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 70,
@@ -223,6 +237,19 @@ void ContractNegotiation::Render() const
     {
         Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
             std::string(this->negotiatingPlayer->GetName().data()) + " doesn't want to play in a league which isn't competitive enough for his skills.", 5);
+    }
+    else if (this->tooGoodForClub)
+    {
+        if (this->renewingContract)
+        {
+            Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 35,
+                std::string(this->negotiatingPlayer->GetName().data()) + " is not interested in renewing his contract with your club.", 5);
+        }
+        else
+        {
+            Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 35,
+                std::string(this->negotiatingPlayer->GetName().data()) + " is not interested in joining your club.", 5);
+        }
     }
     else if (this->onNegotiationCooldown)
     {
