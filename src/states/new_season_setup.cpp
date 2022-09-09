@@ -85,7 +85,7 @@ void NewSeasonSetup::UpdateCurrentSaveDataState() const
         }
     }
     else if ((totalUsersInSave == 1 && totalUsersInRelegation == 1) || (totalUsersInSave == 2 && totalUsersInRelegation == 2) || 
-        (totalUsersInRelegation >= std::ceil((float)totalUsersInSave / 2.0f)))
+        (totalUsersInSave > 2 && totalUsersInRelegation >= std::ceil((float)totalUsersInSave / 2.0f)))
     {
         // Fetch the league in the same nation which is a tier lower, then set it as the save's current league
         for (League& league : SaveData::GetInstance().GetLeagueDatabase())
