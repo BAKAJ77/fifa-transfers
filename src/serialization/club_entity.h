@@ -137,6 +137,13 @@ public:
 
 	// Returns the club's current season objectives.
 	const std::vector<Objective>& GetObjectives() const;
+
+	// Returns the total amount of goalkeepers in the club.
+	const int GetTotalGoalkeepers() const;
+
+	// Returns the total amount of outfielders in the club.
+	const int GetTotalOutfielders() const;
+
 };
 
 #endif

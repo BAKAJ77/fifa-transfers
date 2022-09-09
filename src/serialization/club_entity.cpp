@@ -266,3 +266,20 @@ const std::vector<Club::Objective>& Club::GetObjectives() const
 {
     return this->objectives;
 }
+
+const int Club::GetTotalGoalkeepers() const
+{
+    int count = 0;
+    for (const Player* player : this->players)
+    {
+        if (player->GetPosition() == 1)
+            ++count;
+    }
+
+    return count;
+}
+
+const int Club::GetTotalOutfielders() const
+{
+    return (int)this->players.size() - this->GetTotalGoalkeepers();
+}
