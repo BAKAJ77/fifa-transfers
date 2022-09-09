@@ -29,6 +29,13 @@ void ContractNegotiation::Init()
         {
             this->buyerSquadTooLarge = true;
         }
+
+        // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
+        const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
+        const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
+
+        if ((playerLeague->GetTier() <= std::ceil((float)userLeague->GetTier() / 2.0f)) && userLeague->GetTier() != 1)
+            this->leagueTierInsufficient = true;
     }
     
     // The player won't want to renew if he is too good for the club
@@ -41,13 +48,6 @@ void ContractNegotiation::Init()
         SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(),
             this->negotiatingPlayer->GetClub(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 6 });
     }
-
-    // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
-    const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
-    const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
-
-    if (playerLeague->GetTier() <= std::ceil((float)userLeague->GetTier() / 2.0f))
-        this->leagueTierInsufficient = true;
 
     // Check if there is an active negotiation cooldown with the user's club and the player
     if (!this->leagueTierInsufficient)
