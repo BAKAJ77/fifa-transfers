@@ -21,7 +21,8 @@ void ContractNegotiation::Init()
     if (!this->renewingContract)
     {
         // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
-        if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetPlayers().size() <= Globals::minSquadSize)
+        if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers ||
+            SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalOutfielders() <= Globals::minOutfielders)
         {
             this->sellerSquadTooSmall = true;
         }
@@ -224,9 +225,20 @@ void ContractNegotiation::Render() const
     }
     else if (this->sellerSquadTooSmall)
     {
-        Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-            std::string(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetName()) +
-            " are unable to sell since they only have 16 players in their squad.", 5);
+        if (SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers)
+        {
+            Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                std::string(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetName()) +
+                " are unable to sell since they only have " + std::to_string(Globals::minGoalkeepers) + 
+                " goalkeepers in their squad.", 5);
+        }
+        else
+        {
+            Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
+                std::string(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetName()) +
+                " are unable to sell since they only have " + std::to_string(Globals::minOutfielders) + 
+                " outfielders in their squad.", 5);
+        }
     }
     else if (this->buyerSquadTooLarge)
     {

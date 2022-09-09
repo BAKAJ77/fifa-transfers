@@ -218,13 +218,15 @@ void RecordCompetition::GenerateAIOutboundTransfers()
 {
     for (UserProfile& user : SaveData::GetInstance().GetUsers())
     {
-        // Ensure the user has enough players in their squad in order to be able to sell
-        if (user.GetClub()->GetPlayers().size() > Globals::minSquadSize)
+        for (Player* player : user.GetClub()->GetPlayers())
         {
-            for (Player* player : user.GetClub()->GetPlayers())
+            // Ensure the user has enough players in their squad in order to be able to sell
+            if ((player->GetPosition() == 1 && user.GetClub()->GetTotalGoalkeepers() > Globals::minGoalkeepers) ||
+                (player->GetPosition() > 1 && user.GetClub()->GetTotalOutfielders() > Globals::minOutfielders))
             {
                 // Simple algorithm for AI deciding whether to send an offer for the player
                 int generatedWeight = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
+
                 if (player->GetTransferListed())
                     generatedWeight *= (int)(((float)(player->GetOverall() + player->GetPotential()) / 10.0f) * 3.5f);
                 else
@@ -234,7 +236,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                 {
                     // Simple algorithm to decide the amount willing to be bidded for the player
                     const int min = (int)(std::floor((float)(player->GetValue()) / 2.0f));
-                    const int max = (int)(std::ceil((float)(player->GetValue()) * 
+                    const int max = (int)(std::ceil((float)(player->GetValue()) *
                         std::max((float)(player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f) *
                         std::max((float)(player->GetPotential() - player->GetOverall()) / 6.0f, 1.0f)));
 
@@ -299,7 +301,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                             // Slash the amount bidded if the player's wage will consume at least half the club's wage budget
                             if (player->GetWage() >= (biddingAIClub->GetWageBudget() / 2.0f))
                             {
-                                openingBid = Util::GetTruncatedSFInteger((int)(openingBid / 
+                                openingBid = Util::GetTruncatedSFInteger((int)(openingBid /
                                     (2.0f * ((float)player->GetWage() / (float)biddingAIClub->GetWageBudget()))), 4);
                             }
 
@@ -316,7 +318,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                                 openingTransferOffer.playerID = player->GetID();
                                 openingTransferOffer.transferFee = openingBid;
                                 openingTransferOffer.expirationTicks = 3;
-                                
+
                                 user.GetClub()->GetTransferMessages().emplace_back(openingTransferOffer);
                             }
                         }
@@ -357,7 +359,8 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 
                     // As an absolute caution, make sure both clubs meet the squad size requirements
                     const bool squadSizeRequirementsMet = (club.GetPlayers().size() < Globals::maxSquadSize) &&
-                        (sellerClub->GetPlayers().size() > Globals::minSquadSize);
+                        (sellerClub->GetTotalGoalkeepers() > Globals::minGoalkeepers) && 
+                        (sellerClub->GetTotalOutfielders() > Globals::minOutfielders);
 
                     if (transfer.feeAgreed && squadSizeRequirementsMet)
                     {

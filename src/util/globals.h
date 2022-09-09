@@ -3,7 +3,8 @@
 
 namespace Globals
 {
-	constexpr int minSquadSize = 16;
+	constexpr int minGoalkeepers = 1;
+	constexpr int minOutfielders = 17;
 	constexpr int maxSquadSize = 52;
 }
 
