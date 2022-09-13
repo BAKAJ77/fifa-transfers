@@ -359,8 +359,8 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 
                     // As an absolute caution, make sure both clubs meet the squad size requirements
                     const bool squadSizeRequirementsMet = (club.GetPlayers().size() < Globals::maxSquadSize) &&
-                        (sellerClub->GetTotalGoalkeepers() > Globals::minGoalkeepers) && 
-                        (sellerClub->GetTotalOutfielders() > Globals::minOutfielders);
+                        ((targettedPlayer->GetPosition() == 1 && sellerClub->GetTotalGoalkeepers() > Globals::minGoalkeepers) || 
+                        (targettedPlayer->GetPosition() > 1 && sellerClub->GetTotalOutfielders() > Globals::minOutfielders));
 
                     if (transfer.feeAgreed && squadSizeRequirementsMet)
                     {

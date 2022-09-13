@@ -229,8 +229,8 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
             player->SetExpiryYear(player->GetExpiryYear() + contractLength);
 
             // If the user's club's squad is at the minimum limit then renew every contract which has ended
-            if (user.GetClub()->GetTotalGoalkeepers() <= Globals::minGoalkeepers || 
-                user.GetClub()->GetTotalOutfielders() <= Globals::minOutfielders)
+            if ((player->GetPosition() == 1 && user.GetClub()->GetTotalGoalkeepers() <= Globals::minGoalkeepers) || 
+                (player->GetPosition() > 1 && user.GetClub()->GetTotalOutfielders() <= Globals::minOutfielders))
             {
                 // Increase the wage of the player and decrease the user club's wage budget
                 const float wageMultiplier = RandomEngine::GetInstance().GenerateRandom<float>(1.25f, 2.0f);
