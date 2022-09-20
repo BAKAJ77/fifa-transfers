@@ -8,7 +8,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "10": {
         "autoPromotionThreshold": -1,
@@ -19,7 +19,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "11": {
         "autoPromotionThreshold": -1,
@@ -30,7 +30,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "12": {
         "autoPromotionThreshold": -1,
@@ -41,7 +41,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "13": {
         "autoPromotionThreshold": -1,
@@ -52,7 +52,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "14": {
         "autoPromotionThreshold": 2,
@@ -76,7 +76,7 @@
         "relegationThreshold": 22,
         "supported": true,
         "tier": 2,
-        "titleBonus": 6.0
+        "titleBonus": 7000000
     },
     "15": {
         "autoPromotionThreshold": 2,
@@ -104,7 +104,7 @@
         "relegationThreshold": 21,
         "supported": true,
         "tier": 3,
-        "titleBonus": 3.0
+        "titleBonus": 3000000
     },
     "16": {
         "autoPromotionThreshold": 3,
@@ -132,7 +132,7 @@
         "relegationThreshold": 23,
         "supported": true,
         "tier": 4,
-        "titleBonus": 1.5
+        "titleBonus": 1500000
     },
     "17": {
         "autoPromotionThreshold": -1,
@@ -143,7 +143,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 5,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "18": {
         "autoPromotionThreshold": -1,
@@ -189,7 +189,7 @@
         "relegationThreshold": 18,
         "supported": true,
         "tier": 1,
-        "titleBonus": 12.0
+        "titleBonus": 20000000
     },
     "19": {
         "autoPromotionThreshold": -1,
@@ -200,7 +200,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "2": {
         "autoPromotionThreshold": -1,
@@ -211,7 +211,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "20": {
         "autoPromotionThreshold": -1,
@@ -222,7 +222,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "21": {
         "autoPromotionThreshold": -1,
@@ -233,7 +233,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 2,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "22": {
         "autoPromotionThreshold": -1,
@@ -244,7 +244,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "23": {
         "autoPromotionThreshold": -1,
@@ -255,7 +255,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 2,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "24": {
         "autoPromotionThreshold": -1,
@@ -266,7 +266,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 3,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "25": {
         "autoPromotionThreshold": -1,
@@ -277,7 +277,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "26": {
         "autoPromotionThreshold": -1,
@@ -288,7 +288,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "27": {
         "autoPromotionThreshold": -1,
@@ -299,7 +299,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "28": {
         "autoPromotionThreshold": -1,
@@ -310,7 +310,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "29": {
         "autoPromotionThreshold": -1,
@@ -321,7 +321,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "3": {
         "autoPromotionThreshold": -1,
@@ -332,7 +332,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "30": {
         "autoPromotionThreshold": -1,
@@ -343,7 +343,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 2,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "31": {
         "autoPromotionThreshold": -1,
@@ -354,7 +354,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "32": {
         "autoPromotionThreshold": -1,
@@ -365,7 +365,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "33": {
         "autoPromotionThreshold": -1,
@@ -376,7 +376,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "34": {
         "autoPromotionThreshold": -1,
@@ -387,7 +387,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "35": {
         "autoPromotionThreshold": -1,
@@ -398,7 +398,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "36": {
         "autoPromotionThreshold": -1,
@@ -409,7 +409,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "37": {
         "autoPromotionThreshold": -1,
@@ -420,7 +420,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "38": {
         "autoPromotionThreshold": -1,
@@ -431,7 +431,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "39": {
         "autoPromotionThreshold": -1,
@@ -442,7 +442,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "4": {
         "autoPromotionThreshold": -1,
@@ -453,7 +453,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "40": {
         "autoPromotionThreshold": -1,
@@ -464,7 +464,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "41": {
         "autoPromotionThreshold": -1,
@@ -475,7 +475,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "42": {
         "autoPromotionThreshold": -1,
@@ -486,7 +486,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "43": {
         "autoPromotionThreshold": -1,
@@ -497,7 +497,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "44": {
         "autoPromotionThreshold": -1,
@@ -508,7 +508,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "45": {
         "autoPromotionThreshold": -1,
@@ -519,7 +519,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "46": {
         "autoPromotionThreshold": -1,
@@ -530,7 +530,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "47": {
         "autoPromotionThreshold": -1,
@@ -541,7 +541,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 2,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "48": {
         "autoPromotionThreshold": -1,
@@ -552,7 +552,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "49": {
         "autoPromotionThreshold": -1,
@@ -563,7 +563,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "5": {
         "autoPromotionThreshold": -1,
@@ -574,7 +574,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "50": {
         "autoPromotionThreshold": -1,
@@ -585,7 +585,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "51": {
         "autoPromotionThreshold": -1,
@@ -596,7 +596,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "52": {
         "autoPromotionThreshold": -1,
@@ -607,7 +607,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "53": {
         "autoPromotionThreshold": -1,
@@ -618,7 +618,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "54": {
         "autoPromotionThreshold": -1,
@@ -629,7 +629,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "55": {
         "autoPromotionThreshold": -1,
@@ -640,7 +640,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "6": {
         "autoPromotionThreshold": -1,
@@ -651,7 +651,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "7": {
         "autoPromotionThreshold": -1,
@@ -662,7 +662,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "8": {
         "autoPromotionThreshold": -1,
@@ -673,7 +673,7 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     },
     "9": {
         "autoPromotionThreshold": -1,
@@ -684,6 +684,6 @@
         "relegationThreshold": -1,
         "supported": false,
         "tier": 1,
-        "titleBonus": 0.0
+        "titleBonus": 0
     }
 }

@@ -10,7 +10,7 @@
             "Final"
         ],
         "tier": 4,
-        "winnerBonus": 1.0
+        "winnerBonus": 500000
     },
     "1002": {
         "name": "UEFA CONFERENCE LEAGUE",
@@ -24,7 +24,7 @@
             "Final"
         ],
         "tier": 3,
-        "winnerBonus": 8.0
+        "winnerBonus": 10000000
     },
     "1003": {
         "name": "UEFA EUROPA LEAGUE",
@@ -38,7 +38,7 @@
             "Final"
         ],
         "tier": 2,
-        "winnerBonus": 16.0
+        "winnerBonus": 20000000
     },
     "1004": {
         "name": "UEFA CHAMPIONS LEAGUE",
@@ -51,7 +51,7 @@
             "Final"
         ],
         "tier": 1,
-        "winnerBonus": 32.0
+        "winnerBonus": 40000000
     },
     "1005": {
         "name": "EFL PAPA JOHN CUP",
@@ -65,7 +65,7 @@
             "Final"
         ],
         "tier": 3,
-        "winnerBonus": 2.0
+        "winnerBonus": 1500000
     },
     "1006": {
         "name": "EFL CARABAO CUP",
@@ -80,7 +80,7 @@
             "Final"
         ],
         "tier": 2,
-        "winnerBonus": 4.0
+        "winnerBonus": 4000000
     },
     "1007": {
         "name": "EMIRATES FA CUP",
@@ -96,6 +96,6 @@
             "Final"
         ],
         "tier": 1,
-        "winnerBonus": 8.0
+        "winnerBonus": 6000000
     }
 }
