@@ -41,9 +41,9 @@ void SaveWriting::ExecuteSavingProcess()
 				{ Club::StaffType::ATTACK } };
 		}
 
-		// Calculate the wage budget for every club
 		for (Club& club : SaveData::GetInstance().GetClubDatabase())
 		{
+			// Calculate the wage budget for every club
 			float totalClubWages = 0;
 			for (const Player* player : club.GetPlayers())
 				totalClubWages += player->GetWage();
@@ -52,6 +52,10 @@ void SaveWriting::ExecuteSavingProcess()
 			club.SetInitialWageBudget(club.GetWageBudget());
 
 			club.SetInitialTransferBudget(club.GetTransferBudget());
+
+			// Randomise contract lengths of the players in every club
+			for (Player* player : club.GetPlayers())
+				player->SetExpiryYear((int)SaveData::GetInstance().GetCurrentYear() + RandomEngine::GetInstance().GenerateRandom<int>(2, 5));
 		}
 
 		// Randomise the potentials of player in the new save if specified to do so
