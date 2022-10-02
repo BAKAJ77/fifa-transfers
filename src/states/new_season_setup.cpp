@@ -54,8 +54,11 @@ void NewSeasonSetup::UpdateCurrentSaveDataState() const
                     ++totalUsersInAutoPromotion;
                 else if (compStats.seasonEndPosition <= currentLeague->GetPlayoffsThreshold())
                     ++totalUsersInPlayoffs;
-                else if (compStats.seasonEndPosition >= currentLeague->GetRelegationThreshold())
+                else if ((compStats.seasonEndPosition >= currentLeague->GetRelegationThreshold()) &&
+                    currentLeague->GetRelegationThreshold() != -1)
+                {
                     ++totalUsersInRelegation;
+                }
             }
         }
     }
