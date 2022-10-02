@@ -1,3507 +1,3392 @@
 {
     "1": {
-        "leagueID": 23,
-        "name": "1. FC HEIDENHEIM 1846",
-        "transferBudget": 2000000
+        "leagueID": 1,
+        "name": "AFC Bournemouth",
+        "transferBudget": 11800000
     },
     "10": {
-        "leagueID": 12,
-        "name": "AALBORG BK",
-        "transferBudget": 2700000
+        "leagueID": 1,
+        "name": "Fulham",
+        "transferBudget": 15800000
     },
     "100": {
-        "leagueID": 14,
-        "name": "BRISTOL CITY",
-        "transferBudget": 7800000
+        "leagueID": 6,
+        "name": "Argentinos Juniors",
+        "transferBudget": 2800000
     },
     "101": {
-        "leagueID": 16,
-        "name": "BRISTOL ROVERS",
-        "transferBudget": 750000
+        "leagueID": 6,
+        "name": "Arsenal de Sarandi",
+        "transferBudget": 2100000
     },
     "102": {
-        "leagueID": 38,
-        "name": "BRUK-BET TERMALICA NIECIECZA",
-        "transferBudget": 2000000
+        "leagueID": 6,
+        "name": "Atletico Tucuman",
+        "transferBudget": 2900000
     },
     "103": {
-        "leagueID": 12,
-        "name": "BRONDBY IF",
-        "transferBudget": 5600000
+        "leagueID": 6,
+        "name": "Barracas Central",
+        "transferBudget": 5000000
     },
     "104": {
-        "leagueID": 49,
-        "name": "BSC YOUNG BOYS",
-        "transferBudget": 8600000
+        "leagueID": 6,
+        "name": "Boca Juniors",
+        "transferBudget": 15000000
     },
     "105": {
-        "leagueID": 47,
-        "name": "BURGOS CF",
-        "transferBudget": 1500000
+        "leagueID": 6,
+        "name": "Club Atletico Aldosivi",
+        "transferBudget": 2500000
     },
     "106": {
-        "leagueID": 18,
-        "name": "BURNLEY",
-        "transferBudget": 22000000
+        "leagueID": 6,
+        "name": "Club Atletico Banfield",
+        "transferBudget": 4090000
     },
     "107": {
-        "leagueID": 15,
-        "name": "BURTON ALBION",
-        "transferBudget": 750000
+        "leagueID": 6,
+        "name": "Club Atletico Central Cordoba",
+        "transferBudget": 2700000
     },
     "108": {
-        "leagueID": 46,
-        "name": "CA OSASUNA",
-        "transferBudget": 4800000
+        "leagueID": 6,
+        "name": "Club Atletico Colon",
+        "transferBudget": 4000000
     },
     "109": {
-        "leagueID": 29,
-        "name": "CAGLIARI",
-        "transferBudget": 10000000
+        "leagueID": 6,
+        "name": "Club Atletico Huracan",
+        "transferBudget": 4800000
     },
     "11": {
-        "leagueID": 12,
-        "name": "AARHUS GF",
-        "transferBudget": 3000000
+        "leagueID": 1,
+        "name": "Leeds United",
+        "transferBudget": 32500000
     },
     "110": {
-        "leagueID": 15,
-        "name": "CAMBRIDGE UNITED",
-        "transferBudget": 500000
+        "leagueID": 6,
+        "name": "Club Atletico Independiente",
+        "transferBudget": 13000000
     },
     "111": {
-        "leagueID": 41,
-        "name": "CAMPIONII FC ARGES",
-        "transferBudget": 1500000
+        "leagueID": 6,
+        "name": "Club Atletico Lanus",
+        "transferBudget": 7500000
     },
     "112": {
-        "leagueID": 14,
-        "name": "CARDIFF CITY",
-        "transferBudget": 8800000
+        "leagueID": 6,
+        "name": "Club Atletico Sarmiento",
+        "transferBudget": 1700000
     },
     "113": {
-        "leagueID": 16,
-        "name": "CARLISLE UNITED",
-        "transferBudget": 500000
+        "leagueID": 6,
+        "name": "Club Atletico Talleres",
+        "transferBudget": 5200000
     },
     "114": {
-        "leagueID": 37,
-        "name": "CARLOS A. MANNUCCI",
-        "transferBudget": 2600000
+        "leagueID": 6,
+        "name": "Club Atletico Tigre",
+        "transferBudget": 5000000
     },
     "115": {
         "leagueID": 6,
-        "name": "CD ANTOFAGASTA",
-        "transferBudget": 2300000
+        "name": "Defensa y Justicia",
+        "transferBudget": 4900000
     },
     "116": {
         "leagueID": 6,
-        "name": "CD HUACHIPATO",
-        "transferBudget": 3700000
+        "name": "Estudiantes de La Plata",
+        "transferBudget": 7900000
     },
     "117": {
-        "leagueID": 47,
-        "name": "CD LEGANES",
-        "transferBudget": 4200000
+        "leagueID": 6,
+        "name": "Gimnasia y Esgrima La Plata",
+        "transferBudget": 4400000
     },
     "118": {
-        "leagueID": 47,
-        "name": "CD LUGO",
-        "transferBudget": 1600000
+        "leagueID": 6,
+        "name": "Godoy Cruz",
+        "transferBudget": 3500000
     },
     "119": {
-        "leagueID": 47,
-        "name": "CD MIRANDES",
-        "transferBudget": 1500000
+        "leagueID": 6,
+        "name": "Newell's Old Boys",
+        "transferBudget": 4000000
     },
     "12": {
-        "leagueID": 44,
-        "name": "ABERDEEN",
-        "transferBudget": 2300000
+        "leagueID": 1,
+        "name": "Leicester City",
+        "transferBudget": 50000000
     },
     "120": {
-        "leagueID": 47,
-        "name": "CD TENERIFE",
+        "leagueID": 6,
+        "name": "Patronato",
         "transferBudget": 2000000
     },
     "121": {
-        "leagueID": 39,
-        "name": "CD TONDELA",
-        "transferBudget": 2100000
+        "leagueID": 6,
+        "name": "Platense",
+        "transferBudget": 2200000
     },
     "122": {
-        "leagueID": 5,
-        "name": "CEARA SPORTING CLUB",
-        "transferBudget": 1800000
+        "leagueID": 6,
+        "name": "Racing Club",
+        "transferBudget": 9400000
     },
     "123": {
-        "leagueID": 44,
-        "name": "CELTIC",
-        "transferBudget": 14600000
+        "leagueID": 6,
+        "name": "River Plate",
+        "transferBudget": 1600000
     },
     "124": {
-        "leagueID": 2,
-        "name": "CENTRAL COAST MARINERS",
-        "transferBudget": 2000000
+        "leagueID": 6,
+        "name": "Rosario Central",
+        "transferBudget": 5000000
     },
     "125": {
-        "leagueID": 54,
-        "name": "CENTRO ATLETICO FENIX",
-        "transferBudget": 1600000
+        "leagueID": 6,
+        "name": "San Lorenzo de Almagro",
+        "transferBudget": 9000000
     },
     "126": {
-        "leagueID": 31,
-        "name": "CEREZO OSAKA",
-        "transferBudget": 6900000
+        "leagueID": 6,
+        "name": "Union de Santa Fe",
+        "transferBudget": 4000000
     },
     "127": {
-        "leagueID": 54,
-        "name": "CERRO LARGO FUTBOL CLUB",
-        "transferBudget": 1600000
+        "leagueID": 6,
+        "name": "Velez Sarsfield",
+        "transferBudget": 8000000
     },
     "128": {
-        "leagueID": 47,
-        "name": "CF FUENLABRADA",
-        "transferBudget": 1500000
+        "leagueID": 7,
+        "name": "Adelaide United",
+        "transferBudget": 2000000
     },
     "129": {
-        "leagueID": 34,
-        "name": "CF MONTERREY",
-        "transferBudget": 25100000
+        "leagueID": 7,
+        "name": "Brisbane Roar",
+        "transferBudget": 2000000
     },
     "13": {
-        "leagueID": 43,
-        "name": "ABHA CLUB",
-        "transferBudget": 1700000
+        "leagueID": 1,
+        "name": "Liverpool",
+        "transferBudget": 95000000
     },
     "130": {
-        "leagueID": 41,
-        "name": "CFR CLUJ",
-        "transferBudget": 3300000
+        "leagueID": 7,
+        "name": "Central Coast Mariners",
+        "transferBudget": 2000000
     },
     "131": {
-        "leagueID": 21,
-        "name": "CHAMOIS NIORTAIS FOOTBALL CLUB",
-        "transferBudget": 3100000
+        "leagueID": 7,
+        "name": "Macarthur FC",
+        "transferBudget": 2000000
     },
     "132": {
         "leagueID": 7,
-        "name": "CHANGCHUN YATAI FC",
-        "transferBudget": 2300000
+        "name": "Melbourne City FC",
+        "transferBudget": 2000000
     },
     "133": {
-        "leagueID": 15,
-        "name": "CHARLTON ATHLETIC",
-        "transferBudget": 2800000
+        "leagueID": 7,
+        "name": "Melbourne Victory",
+        "transferBudget": 2000000
     },
     "134": {
-        "leagueID": 18,
-        "name": "CHELSEA",
-        "transferBudget": 85000000
+        "leagueID": 7,
+        "name": "Newcastle Jets",
+        "transferBudget": 2000000
     },
     "135": {
-        "leagueID": 15,
-        "name": "CHELTENHAM TOWN",
-        "transferBudget": 500000
+        "leagueID": 7,
+        "name": "Perth Glory",
+        "transferBudget": 2000000
     },
     "136": {
-        "leagueID": 28,
-        "name": "CHENNAIYIN FC",
-        "transferBudget": 1700000
+        "leagueID": 7,
+        "name": "Sydney FC",
+        "transferBudget": 2000000
     },
     "137": {
-        "leagueID": 52,
-        "name": "CHICAGO FIRE FOOTBALL CLUB",
-        "transferBudget": 27900000
+        "leagueID": 7,
+        "name": "Wellington Phoenix",
+        "transferBudget": 2000000
     },
     "138": {
         "leagueID": 7,
-        "name": "CHONGQING LIANGJIANG ATHLETIC",
-        "transferBudget": 3500000
+        "name": "Western Sydney Wanderers",
+        "transferBudget": 2000000
     },
     "139": {
-        "leagueID": 20,
-        "name": "CLERMONT FOOT 63",
-        "transferBudget": 4500000
+        "leagueID": 7,
+        "name": "Western United FC",
+        "transferBudget": 2000000
     },
     "14": {
-        "leagueID": 21,
-        "name": "AC AJACCIO",
-        "transferBudget": 2600000
+        "leagueID": 1,
+        "name": "Manchester City",
+        "transferBudget": 176000000
     },
     "140": {
-        "leagueID": 33,
-        "name": "CLUB ALWAYS READY",
-        "transferBudget": 1100000
+        "leagueID": 8,
+        "name": "Austria Lustenau",
+        "transferBudget": 5000000
     },
     "141": {
-        "leagueID": 34,
-        "name": "CLUB AMERICA",
-        "transferBudget": 23200000
+        "leagueID": 8,
+        "name": "FC Red Bull Salzburg",
+        "transferBudget": 20700000
     },
     "142": {
-        "leagueID": 5,
-        "name": "CLUB ATHLETICO PARANAENSE",
-        "transferBudget": 6200000
+        "leagueID": 8,
+        "name": "FK Austria Wien",
+        "transferBudget": 7700000
     },
     "143": {
-        "leagueID": 34,
-        "name": "CLUB ATLAS",
-        "transferBudget": 6500000
+        "leagueID": 8,
+        "name": "LASK Linz",
+        "transferBudget": 6900000
     },
     "144": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO ALDOSIVI",
-        "transferBudget": 2500000
+        "leagueID": 8,
+        "name": "RZ Pellets Wolfsberger AC",
+        "transferBudget": 4400000
     },
     "145": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO BANFIELD",
-        "transferBudget": 4090000
+        "leagueID": 8,
+        "name": "SC Rheindorf Altach",
+        "transferBudget": 2900000
     },
     "146": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO CENTRAL CORDOBA",
-        "transferBudget": 2700000
+        "leagueID": 8,
+        "name": "SK Austria Klagenfurt",
+        "transferBudget": 2600000
     },
     "147": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO COLON",
-        "transferBudget": 4000000
+        "leagueID": 8,
+        "name": "SK Rapid Wien",
+        "transferBudget": 5200000
     },
     "148": {
-        "leagueID": 34,
-        "name": "CLUB ATLETICO DE SAN LUIS",
+        "leagueID": 8,
+        "name": "SK Sturm Graz",
         "transferBudget": 5200000
     },
     "149": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO HURACAN",
-        "transferBudget": 4800000
-    },
-    "15": {
-        "leagueID": 29,
-        "name": "AC MILAN",
-        "transferBudget": 37000000
-    },
-    "150": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO INDEPENDIENTE",
-        "transferBudget": 13000000
-    },
-    "151": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO LANUS",
-        "transferBudget": 7500000
-    },
-    "152": {
-        "leagueID": 33,
-        "name": "CLUB ATLETICO NACIONAL POTOSI",
-        "transferBudget": 1500000
-    },
-    "153": {
-        "leagueID": 33,
-        "name": "CLUB ATLETICO PALMAFLOR",
-        "transferBudget": 1200000
-    },
-    "154": {
-        "leagueID": 54,
-        "name": "CLUB ATLETICO PENAROL",
-        "transferBudget": 4900000
-    },
-    "155": {
-        "leagueID": 54,
-        "name": "CLUB ATLETICO RENTISTAS",
-        "transferBudget": 500000
-    },
-    "156": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO SARMIENTO",
-        "transferBudget": 1700000
-    },
-    "157": {
-        "leagueID": 1,
-        "name": "CLUB ATLETICO TALLERES",
-        "transferBudget": 5200000
-    },
-    "158": {
-        "leagueID": 33,
-        "name": "CLUB BOLIVAR",
+        "leagueID": 8,
+        "name": "SV Ried",
         "transferBudget": 3300000
     },
-    "159": {
-        "leagueID": 4,
-        "name": "CLUB BRUGGE KV",
+    "15": {
+        "leagueID": 1,
+        "name": "Manchester United",
+        "transferBudget": 175000000
+    },
+    "150": {
+        "leagueID": 8,
+        "name": "TSV Egger Glas Hartberg",
+        "transferBudget": 2500000
+    },
+    "151": {
+        "leagueID": 8,
+        "name": "WSG Tirol",
+        "transferBudget": 2900000
+    },
+    "152": {
+        "leagueID": 9,
+        "name": "Club Brugge KV",
         "transferBudget": 25900000
     },
-    "16": {
-        "leagueID": 55,
-        "name": "AC MINEROS DE GUAYANA",
-        "transferBudget": 1300000
+    "153": {
+        "leagueID": 9,
+        "name": "KAA Gent",
+        "transferBudget": 15800000
     },
-    "160": {
-        "leagueID": 36,
-        "name": "CLUB CERRO PORTENO",
+    "154": {
+        "leagueID": 9,
+        "name": "KAS Eupen",
         "transferBudget": 3600000
     },
-    "161": {
-        "leagueID": 6,
-        "name": "CLUB DE DEPORTES COBRESAL",
-        "transferBudget": 1600000
+    "155": {
+        "leagueID": 9,
+        "name": "KRC Genk",
+        "transferBudget": 17400000
     },
-    "162": {
-        "leagueID": 52,
-        "name": "CLUB DE FOOT MONTREAL",
-        "transferBudget": 19100000
-    },
-    "163": {
-        "leagueID": 8,
-        "name": "CLUB DEPORTES TOLIMA",
-        "transferBudget": 3000000
-    },
-    "164": {
-        "leagueID": 33,
-        "name": "CLUB DEPORTIVO GUABIRA",
-        "transferBudget": 1300000
-    },
-    "165": {
-        "leagueID": 34,
-        "name": "CLUB DEPORTIVO GUADALAJARA",
-        "transferBudget": 19700000
-    },
-    "166": {
-        "leagueID": 33,
-        "name": "CLUB DEPORTIVO JORGE WILSTERMANN",
-        "transferBudget": 2100000
-    },
-    "167": {
-        "leagueID": 6,
-        "name": "CLUB DEPORTIVO PALESTINO",
-        "transferBudget": 2400000
-    },
-    "168": {
-        "leagueID": 8,
-        "name": "CLUB INDEPENDIENTE SANTA FE",
-        "transferBudget": 7200000
-    },
-    "169": {
-        "leagueID": 34,
-        "name": "CLUB LEON",
-        "transferBudget": 4090000
-    },
-    "17": {
-        "leagueID": 30,
-        "name": "AC MONZA",
-        "transferBudget": 6700000
-    },
-    "170": {
-        "leagueID": 36,
-        "name": "CLUB LIBERTAD",
-        "transferBudget": 3100000
-    },
-    "171": {
-        "leagueID": 54,
-        "name": "CLUB NACIONAL DE FOOTBALL",
+    "156": {
+        "leagueID": 9,
+        "name": "KSV Cercle Brugge",
         "transferBudget": 5400000
     },
-    "172": {
-        "leagueID": 36,
-        "name": "CLUB NACIONAL",
-        "transferBudget": 5400000
-    },
-    "173": {
-        "leagueID": 34,
-        "name": "CLUB NECAXA",
-        "transferBudget": 8300000
-    },
-    "174": {
-        "leagueID": 36,
-        "name": "CLUB OLIMPIA",
-        "transferBudget": 6000000
-    },
-    "175": {
-        "leagueID": 36,
-        "name": "CLUB RIVER PLATE ASUNCION",
-        "transferBudget": 1600000
-    },
-    "176": {
-        "leagueID": 13,
-        "name": "CLUB SOCIAL Y DEPORTIVO MACARA",
-        "transferBudget": 1500000
-    },
-    "177": {
-        "leagueID": 37,
-        "name": "CLUB SPORTING CRISTAL",
-        "transferBudget": 3400000
-    },
-    "178": {
-        "leagueID": 33,
-        "name": "CLUB THE STRONGEST",
-        "transferBudget": 2400000
-    },
-    "179": {
-        "leagueID": 34,
-        "name": "CLUB TIJUANA",
-        "transferBudget": 7200000
-    },
-    "18": {
-        "leagueID": 11,
-        "name": "AC SPARTA PRAHA",
-        "transferBudget": 7200000
-    },
-    "180": {
-        "leagueID": 34,
-        "name": "CLUB UNIVERSIDAD NACIONAL",
-        "transferBudget": 8500000
-    },
-    "181": {
-        "leagueID": 37,
-        "name": "CLUB UNIVERSITARIO DE DEPORTES",
-        "transferBudget": 3500000
-    },
-    "182": {
-        "leagueID": 5,
-        "name": "CLUBE ATLETICO MINEIRO",
-        "transferBudget": 19000000
-    },
-    "183": {
-        "leagueID": 39,
-        "name": "CLUBE SPORT MARITIMO",
-        "transferBudget": 3900000
-    },
-    "184": {
-        "leagueID": 16,
-        "name": "COLCHESTER UNITED",
-        "transferBudget": 500000
-    },
-    "185": {
-        "leagueID": 52,
-        "name": "COLORADO RAPIDS",
-        "transferBudget": 17600000
-    },
-    "186": {
-        "leagueID": 52,
-        "name": "COLUMBUS CREW",
-        "transferBudget": 18400000
-    },
-    "187": {
-        "leagueID": 14,
-        "name": "COVENTRY CITY",
-        "transferBudget": 4600000
-    },
-    "188": {
-        "leagueID": 38,
-        "name": "CRACOVIA",
-        "transferBudget": 2700000
-    },
-    "189": {
-        "leagueID": 16,
-        "name": "CRAWLEY TOWN",
-        "transferBudget": 500000
-    },
-    "19": {
-        "leagueID": 55,
-        "name": "ACADEMIA PUERTO CABELLO",
-        "transferBudget": 1500000
-    },
-    "190": {
-        "leagueID": 15,
-        "name": "CREWE ALEXANDRA",
-        "transferBudget": 500000
-    },
-    "191": {
-        "leagueID": 30,
-        "name": "CROTONE",
+    "157": {
+        "leagueID": 9,
+        "name": "KV Kortrijk",
         "transferBudget": 4500000
     },
-    "192": {
-        "leagueID": 34,
-        "name": "CRUZ AZUL",
-        "transferBudget": 20400000
+    "158": {
+        "leagueID": 9,
+        "name": "KV Mechelen",
+        "transferBudget": 4800000
     },
-    "193": {
-        "leagueID": 18,
-        "name": "CRYSTAL PALACE",
+    "159": {
+        "leagueID": 9,
+        "name": "KV Oostende",
+        "transferBudget": 3900000
+    },
+    "16": {
+        "leagueID": 1,
+        "name": "Newcastle United",
         "transferBudget": 30000000
     },
-    "194": {
-        "leagueID": 13,
-        "name": "CS EMELEC",
-        "transferBudget": 2500000
+    "160": {
+        "leagueID": 9,
+        "name": "KVC Westerlo",
+        "transferBudget": 5000000
     },
-    "195": {
-        "leagueID": 41,
-        "name": "CS MIOVENI",
-        "transferBudget": 1300000
+    "161": {
+        "leagueID": 9,
+        "name": "Oud-Heverlee Leuven",
+        "transferBudget": 6100000
     },
-    "196": {
-        "leagueID": 5,
-        "name": "CUIABA",
-        "transferBudget": 2100000
+    "162": {
+        "leagueID": 9,
+        "name": "RSC Anderlecht",
+        "transferBudget": 14300000
     },
-    "197": {
-        "leagueID": 46,
-        "name": "CADIZ CF",
+    "163": {
+        "leagueID": 9,
+        "name": "Royal Antwerp FC",
+        "transferBudget": 20800000
+    },
+    "164": {
+        "leagueID": 9,
+        "name": "Royal Charleroi S.C.",
+        "transferBudget": 6500000
+    },
+    "165": {
+        "leagueID": 9,
+        "name": "Royale Union Saint-Gilloise",
         "transferBudget": 2000000
     },
-    "198": {
-        "leagueID": 52,
-        "name": "D.C. UNITED",
-        "transferBudget": 27500000
+    "166": {
+        "leagueID": 9,
+        "name": "SV Zulte Waregem",
+        "transferBudget": 6000000
     },
-    "199": {
-        "leagueID": 32,
-        "name": "DAEGU FC",
-        "transferBudget": 4200000
-    },
-    "2": {
-        "leagueID": 24,
-        "name": "1. FC KAISERSLAUTERN",
-        "transferBudget": 750000
-    },
-    "20": {
-        "leagueID": 15,
-        "name": "ACCRINGTON STANLEY",
-        "transferBudget": 500000
-    },
-    "200": {
-        "leagueID": 7,
-        "name": "DALIAN PROFESSIONAL FOOTBALL CLUB",
-        "transferBudget": 5700000
-    },
-    "201": {
-        "leagueID": 43,
-        "name": "DAMAC FC",
-        "transferBudget": 2600000
-    },
-    "202": {
-        "leagueID": 1,
-        "name": "DEFENSA Y JUSTICIA",
-        "transferBudget": 4900000
-    },
-    "203": {
-        "leagueID": 48,
-        "name": "DEGERFORS IF",
-        "transferBudget": 1200000
-    },
-    "204": {
-        "leagueID": 50,
-        "name": "DEMIR GRUP SIVASSPOR",
-        "transferBudget": 5800000
-    },
-    "205": {
-        "leagueID": 46,
-        "name": "DEPORTIVO ALAVES",
-        "transferBudget": 4400000
-    },
-    "206": {
-        "leagueID": 8,
-        "name": "DEPORTIVO CALI",
-        "transferBudget": 7000000
-    },
-    "207": {
-        "leagueID": 55,
-        "name": "DEPORTIVO LA GUAIRA FC",
-        "transferBudget": 1200000
-    },
-    "208": {
-        "leagueID": 8,
-        "name": "DEPORTIVO PASTO",
-        "transferBudget": 2500000
-    },
-    "209": {
-        "leagueID": 34,
-        "name": "DEPORTIVO TOLUCA",
-        "transferBudget": 7500000
-    },
-    "21": {
-        "leagueID": 47,
-        "name": "AD ALCORCON",
-        "transferBudget": 1600000
-    },
-    "210": {
-        "leagueID": 55,
-        "name": "DEPORTIVO TACHIRA FC",
+    "167": {
+        "leagueID": 9,
+        "name": "Seraing",
         "transferBudget": 1900000
     },
-    "211": {
-        "leagueID": 14,
-        "name": "DERBY COUNTY",
-        "transferBudget": 5600000
-    },
-    "212": {
-        "leagueID": 40,
-        "name": "DERRY CITY",
-        "transferBudget": 510000
-    },
-    "213": {
-        "leagueID": 21,
-        "name": "DIJON FCO",
-        "transferBudget": 3900000
-    },
-    "214": {
+    "168": {
         "leagueID": 9,
-        "name": "DINAMO ZAGREB",
-        "transferBudget": 11600000
+        "name": "Sint-Truidense VV",
+        "transferBudget": 4800000
     },
-    "215": {
-        "leagueID": 48,
-        "name": "DJURGARDENS IF",
-        "transferBudget": 4400000
+    "169": {
+        "leagueID": 9,
+        "name": "Standard de Liege",
+        "transferBudget": 12700000
     },
-    "216": {
-        "leagueID": 15,
-        "name": "DONCASTER ROVERS",
-        "transferBudget": 1300000
+    "17": {
+        "leagueID": 1,
+        "name": "Nottingham Forest",
+        "transferBudget": 14600000
     },
-    "217": {
-        "leagueID": 40,
-        "name": "DROGHEDA UNITED",
-        "transferBudget": 505000
+    "170": {
+        "leagueID": 10,
+        "name": "America Futebol Clube",
+        "transferBudget": 5000000
     },
-    "218": {
-        "leagueID": 22,
-        "name": "DSC ARMINIA BIELEFELD",
+    "171": {
+        "leagueID": 10,
+        "name": "Atletico Clube Goianiense",
+        "transferBudget": 810000
+    },
+    "172": {
+        "leagueID": 10,
+        "name": "Ceara Sporting Club",
+        "transferBudget": 1800000
+    },
+    "173": {
+        "leagueID": 10,
+        "name": "Club Athletico Paranaense",
+        "transferBudget": 6200000
+    },
+    "174": {
+        "leagueID": 10,
+        "name": "Clube Atletico Mineiro",
+        "transferBudget": 19000000
+    },
+    "175": {
+        "leagueID": 10,
+        "name": "Cuiaba",
+        "transferBudget": 2100000
+    },
+    "176": {
+        "leagueID": 10,
+        "name": "Flamengo",
+        "transferBudget": 42400000
+    },
+    "177": {
+        "leagueID": 10,
+        "name": "Fluminense",
+        "transferBudget": 4090000
+    },
+    "178": {
+        "leagueID": 10,
+        "name": "Fortaleza",
+        "transferBudget": 1600000
+    },
+    "179": {
+        "leagueID": 10,
+        "name": "Internacional",
+        "transferBudget": 7700000
+    },
+    "18": {
+        "leagueID": 1,
+        "name": "Southampton",
+        "transferBudget": 32500000
+    },
+    "180": {
+        "leagueID": 10,
+        "name": "Palmeiras",
+        "transferBudget": 20500000
+    },
+    "181": {
+        "leagueID": 10,
+        "name": "RB Bragantino",
+        "transferBudget": 5400000
+    },
+    "182": {
+        "leagueID": 10,
+        "name": "Santos",
+        "transferBudget": 8600000
+    },
+    "183": {
+        "leagueID": 10,
+        "name": "Sport Club Corinthians Paulista",
+        "transferBudget": 16900000
+    },
+    "184": {
+        "leagueID": 10,
+        "name": "Sao Paulo",
+        "transferBudget": 11200000
+    },
+    "185": {
+        "leagueID": 11,
+        "name": "CD Antofagasta",
         "transferBudget": 2300000
     },
-    "219": {
-        "leagueID": 40,
-        "name": "DUNDALK FC",
-        "transferBudget": 700000
+    "186": {
+        "leagueID": 11,
+        "name": "CD Everton de Vina del Mar",
+        "transferBudget": 5000000
     },
-    "22": {
-        "leagueID": 50,
-        "name": "ADANA DEMIRSPOR",
-        "transferBudget": 4500000
+    "187": {
+        "leagueID": 11,
+        "name": "Colo-Colo",
+        "transferBudget": 5000000
     },
-    "220": {
-        "leagueID": 44,
-        "name": "DUNDEE FC",
-        "transferBudget": 750000
+    "188": {
+        "leagueID": 11,
+        "name": "Deportivo Nublense",
+        "transferBudget": 5000000
     },
-    "221": {
-        "leagueID": 44,
-        "name": "DUNDEE UNITED",
-        "transferBudget": 800000
+    "189": {
+        "leagueID": 11,
+        "name": "Universidad Catolica",
+        "transferBudget": 8500000
     },
-    "222": {
-        "leagueID": 53,
-        "name": "DYNAMO KYIV",
+    "19": {
+        "leagueID": 1,
+        "name": "Tottenham Hotspur",
+        "transferBudget": 72500000
+    },
+    "190": {
+        "leagueID": 11,
+        "name": "Union Espanola",
+        "transferBudget": 5000000
+    },
+    "191": {
+        "leagueID": 11,
+        "name": "Union La Calera",
+        "transferBudget": 1600000
+    },
+    "192": {
+        "leagueID": 12,
+        "name": "Beijing Guoan FC",
+        "transferBudget": 10000000
+    },
+    "193": {
+        "leagueID": 12,
+        "name": "Changchun Yatai FC",
+        "transferBudget": 2300000
+    },
+    "194": {
+        "leagueID": 12,
+        "name": "Chengdu Rongcheng F.C.",
+        "transferBudget": 5000000
+    },
+    "195": {
+        "leagueID": 12,
+        "name": "Dalian Professional Football Club",
+        "transferBudget": 5700000
+    },
+    "196": {
+        "leagueID": 12,
+        "name": "Guangzhou City",
+        "transferBudget": 7600000
+    },
+    "197": {
+        "leagueID": 12,
+        "name": "Guangzhou FC",
         "transferBudget": 12800000
     },
-    "223": {
-        "leagueID": 24,
-        "name": "EINTRACHT BRAUNSCHWEIG",
-        "transferBudget": 900000
+    "198": {
+        "leagueID": 12,
+        "name": "Hebei FC",
+        "transferBudget": 4200000
     },
-    "224": {
-        "leagueID": 22,
-        "name": "EINTRACHT FRANKFURT",
-        "transferBudget": 25000000
+    "199": {
+        "leagueID": 12,
+        "name": "Henan Songshan Longmen FC",
+        "transferBudget": 3400000
     },
-    "225": {
-        "leagueID": 46,
-        "name": "ELCHE CF",
-        "transferBudget": 1700000
+    "2": {
+        "leagueID": 1,
+        "name": "AFC Richmond",
+        "transferBudget": 5000000
     },
-    "226": {
-        "leagueID": 29,
-        "name": "EMPOLI",
+    "20": {
+        "leagueID": 1,
+        "name": "West Ham United",
+        "transferBudget": 35000000
+    },
+    "200": {
+        "leagueID": 12,
+        "name": "Meizhou Hakka",
+        "transferBudget": 5000000
+    },
+    "201": {
+        "leagueID": 12,
+        "name": "Shandong Taishan",
+        "transferBudget": 8000000
+    },
+    "202": {
+        "leagueID": 12,
+        "name": "Shanghai Port FC",
+        "transferBudget": 15600000
+    },
+    "203": {
+        "leagueID": 12,
+        "name": "Shanghai Shenhua FC",
+        "transferBudget": 5000000
+    },
+    "204": {
+        "leagueID": 12,
+        "name": "Shenzhen FC",
+        "transferBudget": 5100000
+    },
+    "205": {
+        "leagueID": 12,
+        "name": "Shijiazhuang Ever Bright F.C.",
+        "transferBudget": 2300000
+    },
+    "206": {
+        "leagueID": 12,
+        "name": "Tianjin Jinmen Tiger FC",
+        "transferBudget": 2300000
+    },
+    "207": {
+        "leagueID": 12,
+        "name": "Wuhan FC",
         "transferBudget": 4500000
     },
+    "208": {
+        "leagueID": 12,
+        "name": "Wuhan Three Towns",
+        "transferBudget": 5000000
+    },
+    "209": {
+        "leagueID": 12,
+        "name": "Zhejiang Professional FC",
+        "transferBudget": 5000000
+    },
+    "21": {
+        "leagueID": 1,
+        "name": "Wolverhampton Wanderers",
+        "transferBudget": 45000000
+    },
+    "210": {
+        "leagueID": 13,
+        "name": "America de Cali",
+        "transferBudget": 2200000
+    },
+    "211": {
+        "leagueID": 13,
+        "name": "Atletico Nacional",
+        "transferBudget": 1500000
+    },
+    "212": {
+        "leagueID": 13,
+        "name": "Club Deportes Tolima",
+        "transferBudget": 3000000
+    },
+    "213": {
+        "leagueID": 13,
+        "name": "Deportivo Cali",
+        "transferBudget": 7000000
+    },
+    "214": {
+        "leagueID": 13,
+        "name": "Independiente Medellin",
+        "transferBudget": 5000000
+    },
+    "215": {
+        "leagueID": 13,
+        "name": "Junior FC",
+        "transferBudget": 5000000
+    },
+    "216": {
+        "leagueID": 13,
+        "name": "La Equidad",
+        "transferBudget": 2000000
+    },
+    "217": {
+        "leagueID": 14,
+        "name": "Dinamo Zagreb",
+        "transferBudget": 11600000
+    },
+    "218": {
+        "leagueID": 14,
+        "name": "Hajduk Split",
+        "transferBudget": 8300000
+    },
+    "219": {
+        "leagueID": 15,
+        "name": "APOEL Nicosia FC",
+        "transferBudget": 7700000
+    },
+    "22": {
+        "leagueID": 2,
+        "name": "AC Ajaccio",
+        "transferBudget": 2600000
+    },
+    "220": {
+        "leagueID": 16,
+        "name": "AC Sparta Praha",
+        "transferBudget": 7200000
+    },
+    "221": {
+        "leagueID": 16,
+        "name": "FC Viktoria Plzen",
+        "transferBudget": 7800000
+    },
+    "222": {
+        "leagueID": 16,
+        "name": "SK Slavia Praha",
+        "transferBudget": 9600000
+    },
+    "223": {
+        "leagueID": 17,
+        "name": "AC Horsens",
+        "transferBudget": 5000000
+    },
+    "224": {
+        "leagueID": 17,
+        "name": "Aalborg BK",
+        "transferBudget": 2700000
+    },
+    "225": {
+        "leagueID": 17,
+        "name": "Aarhus GF",
+        "transferBudget": 3000000
+    },
+    "226": {
+        "leagueID": 17,
+        "name": "Brondby IF",
+        "transferBudget": 5600000
+    },
     "227": {
-        "leagueID": 21,
-        "name": "EN AVANT DE GUINGAMP",
-        "transferBudget": 4700000
+        "leagueID": 17,
+        "name": "F.C. Kobenhavn",
+        "transferBudget": 10300000
     },
     "228": {
-        "leagueID": 20,
-        "name": "ESTAC TROYES",
-        "transferBudget": 5900000
+        "leagueID": 17,
+        "name": "FC Midtjylland",
+        "transferBudget": 9600000
     },
     "229": {
-        "leagueID": 39,
-        "name": "ESTORIL PRAIA",
-        "transferBudget": 2000000
+        "leagueID": 17,
+        "name": "FC Nordsjaelland",
+        "transferBudget": 2800000
     },
     "23": {
         "leagueID": 2,
-        "name": "ADELAIDE UNITED",
-        "transferBudget": 2000000
+        "name": "AJ Auxerre",
+        "transferBudget": 4200000
     },
     "230": {
-        "leagueID": 1,
-        "name": "ESTUDIANTES DE LA PLATA",
-        "transferBudget": 7900000
+        "leagueID": 17,
+        "name": "Lyngby BK",
+        "transferBudget": 5000000
     },
     "231": {
-        "leagueID": 43,
-        "name": "ETTIFAQ FC",
-        "transferBudget": 3400000
-    },
-    "232": {
-        "leagueID": 18,
-        "name": "EVERTON",
-        "transferBudget": 49000000
-    },
-    "233": {
-        "leagueID": 16,
-        "name": "EXETER CITY",
-        "transferBudget": 750000
-    },
-    "234": {
-        "leagueID": 23,
-        "name": "F.C. HANSA ROSTOCK",
-        "transferBudget": 650000
-    },
-    "235": {
-        "leagueID": 12,
-        "name": "F.C. KOBENHAVN",
-        "transferBudget": 10300000
-    },
-    "236": {
-        "leagueID": 50,
-        "name": "FATIH KARAGUMRUK S.K.",
-        "transferBudget": 5200000
-    },
-    "237": {
-        "leagueID": 37,
-        "name": "FBC MELGAR",
-        "transferBudget": 1500000
-    },
-    "238": {
-        "leagueID": 41,
-        "name": "FC ACADEMICA CLINCENI",
-        "transferBudget": 1000000
-    },
-    "239": {
-        "leagueID": 39,
-        "name": "FC AROUCA",
-        "transferBudget": 1800000
-    },
-    "24": {
-        "leagueID": 25,
-        "name": "AEK ATHENS",
-        "transferBudget": 12400000
-    },
-    "240": {
-        "leagueID": 22,
-        "name": "FC AUGSBURG",
-        "transferBudget": 9500000
-    },
-    "241": {
-        "leagueID": 46,
-        "name": "FC BARCELONA",
-        "transferBudget": 130000000
-    },
-    "242": {
-        "leagueID": 49,
-        "name": "FC BASEL 1893",
-        "transferBudget": 8400000
-    },
-    "243": {
-        "leagueID": 22,
-        "name": "FC BAYERN MUNCHEN",
-        "transferBudget": 100000000
-    },
-    "244": {
-        "leagueID": 41,
-        "name": "FC BOTOSANI",
-        "transferBudget": 2000000
-    },
-    "245": {
-        "leagueID": 47,
-        "name": "FC CARTAGENA",
-        "transferBudget": 1800000
-    },
-    "246": {
-        "leagueID": 52,
-        "name": "FC CINCINNATI",
-        "transferBudget": 22000000
-    },
-    "247": {
-        "leagueID": 52,
-        "name": "FC DALLAS",
-        "transferBudget": 18200000
-    },
-    "248": {
-        "leagueID": 41,
-        "name": "FC DINAMO 1948 BUCURESTI",
-        "transferBudget": 1000000
-    },
-    "249": {
-        "leagueID": 23,
-        "name": "FC ERZGEBIRGE AUE",
-        "transferBudget": 1600000
-    },
-    "25": {
-        "leagueID": 14,
-        "name": "AFC BOURNEMOUTH",
-        "transferBudget": 11800000
-    },
-    "250": {
-        "leagueID": 41,
-        "name": "FC FARUL CONSTANTA",
-        "transferBudget": 2700000
-    },
-    "251": {
-        "leagueID": 3,
-        "name": "FC FLYERALARM ADMIRA",
-        "transferBudget": 2900000
-    },
-    "252": {
-        "leagueID": 20,
-        "name": "FC GIRONDINS DE BORDEAUX",
-        "transferBudget": 9200000
-    },
-    "253": {
-        "leagueID": 28,
-        "name": "FC GOA",
-        "transferBudget": 1200000
-    },
-    "254": {
-        "leagueID": 26,
-        "name": "FC GRONINGEN",
-        "transferBudget": 7900000
-    },
-    "255": {
-        "leagueID": 23,
-        "name": "FC INGOLSTADT 04",
-        "transferBudget": 4000000
-    },
-    "256": {
-        "leagueID": 49,
-        "name": "FC LAUSANNE-SPORT",
-        "transferBudget": 4200000
-    },
-    "257": {
-        "leagueID": 42,
-        "name": "FC LOKOMOTIV MOSCOW",
-        "transferBudget": 12500000
-    },
-    "258": {
-        "leagueID": 20,
-        "name": "FC LORIENT",
-        "transferBudget": 7000000
-    },
-    "259": {
-        "leagueID": 49,
-        "name": "FC LUGANO",
+        "leagueID": 17,
+        "name": "Odense Boldklub",
         "transferBudget": 2600000
     },
-    "26": {
-        "leagueID": 41,
-        "name": "AFC CHINDIA TARGOVISTE",
-        "transferBudget": 1300000
-    },
-    "260": {
-        "leagueID": 49,
-        "name": "FC LUZERN",
-        "transferBudget": 3600000
-    },
-    "261": {
-        "leagueID": 20,
-        "name": "FC METZ",
-        "transferBudget": 7200000
-    },
-    "262": {
-        "leagueID": 12,
-        "name": "FC MIDTJYLLAND",
-        "transferBudget": 9600000
-    },
-    "263": {
-        "leagueID": 20,
-        "name": "FC NANTES",
-        "transferBudget": 7400000
-    },
-    "264": {
-        "leagueID": 12,
-        "name": "FC NORDSJAELLAND",
-        "transferBudget": 2800000
-    },
-    "265": {
-        "leagueID": 39,
-        "name": "FC PACOS DE FERREIRA",
-        "transferBudget": 3300000
-    },
-    "266": {
-        "leagueID": 39,
-        "name": "FC PORTO",
-        "transferBudget": 20000000
-    },
-    "267": {
-        "leagueID": 3,
-        "name": "FC RED BULL SALZBURG",
-        "transferBudget": 20700000
-    },
-    "268": {
-        "leagueID": 23,
-        "name": "FC SCHALKE 04",
-        "transferBudget": 20000000
-    },
-    "269": {
-        "leagueID": 32,
-        "name": "FC SEOUL",
-        "transferBudget": 3200000
-    },
-    "27": {
-        "leagueID": 41,
-        "name": "AFC UTA ARAD",
-        "transferBudget": 1600000
-    },
-    "270": {
-        "leagueID": 49,
-        "name": "FC SION",
-        "transferBudget": 5900000
-    },
-    "271": {
-        "leagueID": 21,
-        "name": "FC SOCHAUX-MONTBELIARD",
-        "transferBudget": 3300000
-    },
-    "272": {
-        "leagueID": 49,
-        "name": "FC ST. GALLEN 1879",
-        "transferBudget": 3200000
-    },
-    "273": {
-        "leagueID": 23,
-        "name": "FC ST. PAULI",
-        "transferBudget": 2900000
-    },
-    "274": {
-        "leagueID": 31,
-        "name": "FC TOKYO",
-        "transferBudget": 10000000
-    },
-    "275": {
-        "leagueID": 26,
-        "name": "FC TWENTE",
-        "transferBudget": 8800000
-    },
-    "276": {
-        "leagueID": 41,
-        "name": "FC U CRAIOVA 1948",
-        "transferBudget": 1900000
-    },
-    "277": {
-        "leagueID": 26,
-        "name": "FC UTRECHT",
-        "transferBudget": 13800000
-    },
-    "278": {
-        "leagueID": 24,
-        "name": "FC VIKTORIA 1889 BERLIN",
-        "transferBudget": 874000
-    },
-    "279": {
-        "leagueID": 11,
-        "name": "FC VIKTORIA PLZEN",
-        "transferBudget": 7800000
-    },
-    "28": {
-        "leagueID": 15,
-        "name": "AFC WIMBLEDON",
-        "transferBudget": 500000
-    },
-    "280": {
-        "leagueID": 39,
-        "name": "FC VIZELA",
-        "transferBudget": 1600000
-    },
-    "281": {
-        "leagueID": 41,
-        "name": "FC VOLUNTARI",
-        "transferBudget": 1300000
-    },
-    "282": {
-        "leagueID": 24,
-        "name": "FC WURZBURGER KICKERS",
-        "transferBudget": 725000
-    },
-    "283": {
-        "leagueID": 49,
-        "name": "FC ZURICH",
-        "transferBudget": 4000000
-    },
-    "284": {
-        "leagueID": 41,
-        "name": "FCSB (STEAUA)",
-        "transferBudget": 5400000
-    },
-    "285": {
-        "leagueID": 50,
-        "name": "FENERBAHCE SK",
-        "transferBudget": 14000000
-    },
-    "286": {
-        "leagueID": 27,
-        "name": "FERENCVAROSI TC",
-        "transferBudget": 6800000
-    },
-    "287": {
-        "leagueID": 26,
-        "name": "FEYENOORD",
-        "transferBudget": 14300000
-    },
-    "288": {
-        "leagueID": 40,
-        "name": "FINN HARPS",
-        "transferBudget": 500000
-    },
-    "289": {
-        "leagueID": 29,
-        "name": "FIORENTINA",
-        "transferBudget": 25000000
-    },
-    "29": {
-        "leagueID": 48,
-        "name": "AIK",
-        "transferBudget": 4400000
-    },
-    "290": {
-        "leagueID": 3,
-        "name": "FK AUSTRIA WIEN",
-        "transferBudget": 7700000
-    },
-    "291": {
-        "leagueID": 35,
-        "name": "FK BODOGLIMT",
-        "transferBudget": 2800000
-    },
-    "292": {
-        "leagueID": 35,
-        "name": "FK HAUGESUND",
-        "transferBudget": 1400000
-    },
-    "293": {
-        "leagueID": 5,
-        "name": "FLAMENGO",
-        "transferBudget": 42400000
-    },
-    "294": {
-        "leagueID": 15,
-        "name": "FLEETWOOD TOWN",
-        "transferBudget": 750000
-    },
-    "295": {
-        "leagueID": 5,
-        "name": "FLUMINENSE",
-        "transferBudget": 4090000
-    },
-    "296": {
-        "leagueID": 16,
-        "name": "FOREST GREEN ROVERS",
-        "transferBudget": 1000000
-    },
-    "297": {
-        "leagueID": 5,
-        "name": "FORTALEZA",
-        "transferBudget": 1600000
-    },
-    "298": {
-        "leagueID": 23,
-        "name": "FORTUNA DUSSELDORF",
-        "transferBudget": 7500000
-    },
-    "299": {
-        "leagueID": 26,
-        "name": "FORTUNA SITTARD",
-        "transferBudget": 6200000
-    },
-    "3": {
-        "leagueID": 22,
-        "name": "1. FC KOLN",
-        "transferBudget": 12500000
-    },
-    "30": {
-        "leagueID": 21,
-        "name": "AJ AUXERRE",
-        "transferBudget": 4200000
-    },
-    "300": {
-        "leagueID": 24,
-        "name": "FSV ZWICKAU",
-        "transferBudget": 500000
-    },
-    "301": {
-        "leagueID": 14,
-        "name": "FULHAM",
-        "transferBudget": 15800000
-    },
-    "302": {
-        "leagueID": 39,
-        "name": "FUTEBOL CLUBE DE FAMALICAO",
-        "transferBudget": 4400000
-    },
-    "303": {
-        "leagueID": 34,
-        "name": "FUTBOL CLUB JUAREZ",
+    "232": {
+        "leagueID": 17,
+        "name": "Randers FC",
         "transferBudget": 2000000
     },
-    "304": {
-        "leagueID": 50,
-        "name": "GALATASARAY SK",
-        "transferBudget": 16200000
-    },
-    "305": {
-        "leagueID": 34,
-        "name": "GALLOS BLANCOS DE QUERETARO",
-        "transferBudget": 1600000
-    },
-    "306": {
-        "leagueID": 31,
-        "name": "GAMBA OSAKA",
-        "transferBudget": 8700000
-    },
-    "307": {
-        "leagueID": 32,
-        "name": "GANGWON FC",
-        "transferBudget": 4800000
-    },
-    "308": {
-        "leagueID": 41,
-        "name": "GAZ METAN MEDIAS",
+    "233": {
+        "leagueID": 17,
+        "name": "Silkeborg IF",
         "transferBudget": 1700000
     },
-    "309": {
-        "leagueID": 50,
-        "name": "GAZISEHIR GAZIANTEP F.K.",
-        "transferBudget": 3500000
+    "234": {
+        "leagueID": 17,
+        "name": "Viborg FF",
+        "transferBudget": 1300000
     },
-    "31": {
-        "leagueID": 26,
-        "name": "AJAX",
-        "transferBudget": 34400000
+    "235": {
+        "leagueID": 18,
+        "name": "9 de Octubre",
+        "transferBudget": 5000000
     },
-    "310": {
-        "leagueID": 29,
-        "name": "GENOA",
-        "transferBudget": 8500000
+    "236": {
+        "leagueID": 18,
+        "name": "Barcelona Sporting Club",
+        "transferBudget": 4900000
     },
-    "311": {
-        "leagueID": 46,
-        "name": "GETAFE CF",
-        "transferBudget": 8300000
+    "237": {
+        "leagueID": 18,
+        "name": "C.D. Universidad Catolica del Ecuador",
+        "transferBudget": 5000000
     },
-    "312": {
-        "leagueID": 39,
-        "name": "GIL VICENTE FC",
-        "transferBudget": 2900000
+    "238": {
+        "leagueID": 18,
+        "name": "CS Emelec",
+        "transferBudget": 2500000
     },
-    "313": {
-        "leagueID": 15,
-        "name": "GILLINGHAM",
-        "transferBudget": 1000000
+    "239": {
+        "leagueID": 18,
+        "name": "Delfin Sporting Club",
+        "transferBudget": 5000000
     },
-    "314": {
-        "leagueID": 1,
-        "name": "GIMNASIA Y ESGRIMA LA PLATA",
-        "transferBudget": 4400000
+    "24": {
+        "leagueID": 2,
+        "name": "AS Monaco",
+        "transferBudget": 26100000
     },
-    "315": {
-        "leagueID": 47,
-        "name": "GIRONA FC",
-        "transferBudget": 4300000
+    "240": {
+        "leagueID": 18,
+        "name": "Independiente del Valle",
+        "transferBudget": 1900000
     },
-    "316": {
-        "leagueID": 26,
-        "name": "GO AHEAD EAGLES",
-        "transferBudget": 3800000
+    "241": {
+        "leagueID": 18,
+        "name": "LDU Quito",
+        "transferBudget": 2200000
     },
-    "317": {
-        "leagueID": 1,
-        "name": "GODOY CRUZ",
-        "transferBudget": 3500000
+    "242": {
+        "leagueID": 18,
+        "name": "Mushuc Runa",
+        "transferBudget": 5000000
     },
-    "318": {
-        "leagueID": 46,
-        "name": "GRANADA CF",
-        "transferBudget": 7600000
+    "243": {
+        "leagueID": 19,
+        "name": "Birmingham City",
+        "transferBudget": 7100000
     },
-    "319": {
-        "leagueID": 49,
-        "name": "GRASSHOPPER CLUB ZURICH",
-        "transferBudget": 5200000
+    "244": {
+        "leagueID": 19,
+        "name": "Blackburn Rovers",
+        "transferBudget": 9200000
     },
-    "32": {
-        "leagueID": 43,
-        "name": "AL AHLI",
-        "transferBudget": 14600000
-    },
-    "320": {
-        "leagueID": 21,
-        "name": "GRENOBLE FOOT 38",
-        "transferBudget": 3300000
-    },
-    "321": {
-        "leagueID": 5,
-        "name": "GREMIO",
-        "transferBudget": 7000000
-    },
-    "322": {
-        "leagueID": 36,
-        "name": "GUAIRENA FC",
-        "transferBudget": 2300000
-    },
-    "323": {
-        "leagueID": 7,
-        "name": "GUANGZHOU CITY",
-        "transferBudget": 7600000
-    },
-    "324": {
-        "leagueID": 7,
-        "name": "GUANGZHOU FC",
-        "transferBudget": 12800000
-    },
-    "325": {
-        "leagueID": 13,
-        "name": "GUAYAQUIL CITY FC",
-        "transferBudget": 1800000
-    },
-    "326": {
-        "leagueID": 32,
-        "name": "GWANGJU FC",
-        "transferBudget": 1600000
-    },
-    "327": {
-        "leagueID": 50,
-        "name": "GZT GIRESUNSPOR",
-        "transferBudget": 2400000
-    },
-    "328": {
-        "leagueID": 38,
-        "name": "GORNIK ZABRZE",
+    "245": {
+        "leagueID": 19,
+        "name": "Blackpool",
         "transferBudget": 2100000
     },
-    "329": {
-        "leagueID": 38,
-        "name": "GORNIK LECZNA",
-        "transferBudget": 1500000
+    "246": {
+        "leagueID": 19,
+        "name": "Bristol City",
+        "transferBudget": 7800000
     },
-    "33": {
-        "leagueID": 51,
-        "name": "AL AIN FC",
-        "transferBudget": 13900000
+    "247": {
+        "leagueID": 19,
+        "name": "Burnley",
+        "transferBudget": 22000000
     },
-    "330": {
-        "leagueID": 50,
-        "name": "GOZTEPE SK",
+    "248": {
+        "leagueID": 19,
+        "name": "Cardiff City",
+        "transferBudget": 8800000
+    },
+    "249": {
+        "leagueID": 19,
+        "name": "Coventry City",
+        "transferBudget": 4600000
+    },
+    "25": {
+        "leagueID": 2,
+        "name": "Angers SCO",
+        "transferBudget": 6300000
+    },
+    "250": {
+        "leagueID": 19,
+        "name": "Huddersfield Town",
+        "transferBudget": 5100000
+    },
+    "251": {
+        "leagueID": 19,
+        "name": "Hull City",
+        "transferBudget": 3900000
+    },
+    "252": {
+        "leagueID": 19,
+        "name": "Luton Town",
+        "transferBudget": 3000000
+    },
+    "253": {
+        "leagueID": 19,
+        "name": "Middlesbrough",
+        "transferBudget": 7700000
+    },
+    "254": {
+        "leagueID": 19,
+        "name": "Millwall",
+        "transferBudget": 4300000
+    },
+    "255": {
+        "leagueID": 19,
+        "name": "Norwich City",
+        "transferBudget": 20000000
+    },
+    "256": {
+        "leagueID": 19,
+        "name": "Preston North End",
+        "transferBudget": 4700000
+    },
+    "257": {
+        "leagueID": 19,
+        "name": "Queens Park Rangers",
+        "transferBudget": 5100000
+    },
+    "258": {
+        "leagueID": 19,
+        "name": "Reading",
+        "transferBudget": 5900000
+    },
+    "259": {
+        "leagueID": 19,
+        "name": "Rotherham United",
+        "transferBudget": 1800000
+    },
+    "26": {
+        "leagueID": 2,
+        "name": "Clermont Foot 63",
         "transferBudget": 4500000
     },
+    "260": {
+        "leagueID": 19,
+        "name": "Sheffield United",
+        "transferBudget": 13300000
+    },
+    "261": {
+        "leagueID": 19,
+        "name": "Stoke City",
+        "transferBudget": 5800000
+    },
+    "262": {
+        "leagueID": 19,
+        "name": "Sunderland",
+        "transferBudget": 5400000
+    },
+    "263": {
+        "leagueID": 19,
+        "name": "Swansea City",
+        "transferBudget": 10200000
+    },
+    "264": {
+        "leagueID": 19,
+        "name": "Watford",
+        "transferBudget": 30000000
+    },
+    "265": {
+        "leagueID": 19,
+        "name": "West Bromwich Albion",
+        "transferBudget": 13700000
+    },
+    "266": {
+        "leagueID": 19,
+        "name": "Wigan Athletic",
+        "transferBudget": 2400000
+    },
+    "267": {
+        "leagueID": 20,
+        "name": "Accrington Stanley",
+        "transferBudget": 500000
+    },
+    "268": {
+        "leagueID": 20,
+        "name": "Barnsley",
+        "transferBudget": 5800000
+    },
+    "269": {
+        "leagueID": 20,
+        "name": "Bolton Wanderers",
+        "transferBudget": 500000
+    },
+    "27": {
+        "leagueID": 2,
+        "name": "ESTAC Troyes",
+        "transferBudget": 5900000
+    },
+    "270": {
+        "leagueID": 20,
+        "name": "Bristol Rovers",
+        "transferBudget": 750000
+    },
+    "271": {
+        "leagueID": 20,
+        "name": "Burton Albion",
+        "transferBudget": 750000
+    },
+    "272": {
+        "leagueID": 20,
+        "name": "Cambridge United",
+        "transferBudget": 500000
+    },
+    "273": {
+        "leagueID": 20,
+        "name": "Charlton Athletic",
+        "transferBudget": 2800000
+    },
+    "274": {
+        "leagueID": 20,
+        "name": "Cheltenham Town",
+        "transferBudget": 500000
+    },
+    "275": {
+        "leagueID": 20,
+        "name": "Derby County",
+        "transferBudget": 5600000
+    },
+    "276": {
+        "leagueID": 20,
+        "name": "Exeter City",
+        "transferBudget": 750000
+    },
+    "277": {
+        "leagueID": 20,
+        "name": "Fleetwood Town",
+        "transferBudget": 750000
+    },
+    "278": {
+        "leagueID": 20,
+        "name": "Forest Green Rovers",
+        "transferBudget": 1000000
+    },
+    "279": {
+        "leagueID": 20,
+        "name": "Ipswich Town",
+        "transferBudget": 2800000
+    },
+    "28": {
+        "leagueID": 2,
+        "name": "FC Lorient",
+        "transferBudget": 7000000
+    },
+    "280": {
+        "leagueID": 20,
+        "name": "Lincoln City",
+        "transferBudget": 1300000
+    },
+    "281": {
+        "leagueID": 20,
+        "name": "Milton Keynes Dons",
+        "transferBudget": 1500000
+    },
+    "282": {
+        "leagueID": 20,
+        "name": "Morecambe",
+        "transferBudget": 500000
+    },
+    "283": {
+        "leagueID": 20,
+        "name": "Oxford United",
+        "transferBudget": 1000000
+    },
+    "284": {
+        "leagueID": 20,
+        "name": "Peterborough United",
+        "transferBudget": 2700000
+    },
+    "285": {
+        "leagueID": 20,
+        "name": "Plymouth Argyle",
+        "transferBudget": 1300000
+    },
+    "286": {
+        "leagueID": 20,
+        "name": "Port Vale",
+        "transferBudget": 750000
+    },
+    "287": {
+        "leagueID": 20,
+        "name": "Portsmouth",
+        "transferBudget": 2000000
+    },
+    "288": {
+        "leagueID": 20,
+        "name": "Sheffield Wednesday",
+        "transferBudget": 5000000
+    },
+    "289": {
+        "leagueID": 20,
+        "name": "Shrewsbury Town",
+        "transferBudget": 750000
+    },
+    "29": {
+        "leagueID": 2,
+        "name": "FC Nantes",
+        "transferBudget": 7400000
+    },
+    "290": {
+        "leagueID": 20,
+        "name": "Wycombe Wanderers",
+        "transferBudget": 750000
+    },
+    "291": {
+        "leagueID": 21,
+        "name": "AFC Wimbledon",
+        "transferBudget": 500000
+    },
+    "292": {
+        "leagueID": 21,
+        "name": "Barrow",
+        "transferBudget": 500000
+    },
+    "293": {
+        "leagueID": 21,
+        "name": "Bradford City",
+        "transferBudget": 1300000
+    },
+    "294": {
+        "leagueID": 21,
+        "name": "Carlisle United",
+        "transferBudget": 500000
+    },
+    "295": {
+        "leagueID": 21,
+        "name": "Colchester United",
+        "transferBudget": 500000
+    },
+    "296": {
+        "leagueID": 21,
+        "name": "Crawley Town",
+        "transferBudget": 500000
+    },
+    "297": {
+        "leagueID": 21,
+        "name": "Crewe Alexandra",
+        "transferBudget": 500000
+    },
+    "298": {
+        "leagueID": 21,
+        "name": "Doncaster Rovers",
+        "transferBudget": 1300000
+    },
+    "299": {
+        "leagueID": 21,
+        "name": "Gillingham",
+        "transferBudget": 1000000
+    },
+    "3": {
+        "leagueID": 1,
+        "name": "Arsenal",
+        "transferBudget": 2100000
+    },
+    "30": {
+        "leagueID": 2,
+        "name": "LOSC Lille",
+        "transferBudget": 15800000
+    },
+    "300": {
+        "leagueID": 21,
+        "name": "Grimsby Town",
+        "transferBudget": 5000000
+    },
+    "301": {
+        "leagueID": 21,
+        "name": "Harrogate Town",
+        "transferBudget": 500000
+    },
+    "302": {
+        "leagueID": 21,
+        "name": "Hartlepool United",
+        "transferBudget": 650000
+    },
+    "303": {
+        "leagueID": 21,
+        "name": "Leyton Orient",
+        "transferBudget": 750000
+    },
+    "304": {
+        "leagueID": 21,
+        "name": "Mansfield Town",
+        "transferBudget": 1500000
+    },
+    "305": {
+        "leagueID": 21,
+        "name": "Newport County",
+        "transferBudget": 750000
+    },
+    "306": {
+        "leagueID": 21,
+        "name": "Northampton Town",
+        "transferBudget": 1000000
+    },
+    "307": {
+        "leagueID": 21,
+        "name": "Rochdale",
+        "transferBudget": 500000
+    },
+    "308": {
+        "leagueID": 21,
+        "name": "Salford City",
+        "transferBudget": 1500000
+    },
+    "309": {
+        "leagueID": 21,
+        "name": "Stevenage",
+        "transferBudget": 750000
+    },
+    "31": {
+        "leagueID": 2,
+        "name": "Montpellier Herault SC",
+        "transferBudget": 7600000
+    },
+    "310": {
+        "leagueID": 21,
+        "name": "Stockport County",
+        "transferBudget": 5000000
+    },
+    "311": {
+        "leagueID": 21,
+        "name": "Sutton United",
+        "transferBudget": 1300000
+    },
+    "312": {
+        "leagueID": 21,
+        "name": "Swindon Town",
+        "transferBudget": 750000
+    },
+    "313": {
+        "leagueID": 21,
+        "name": "Tranmere Rovers",
+        "transferBudget": 750000
+    },
+    "314": {
+        "leagueID": 21,
+        "name": "Walsall",
+        "transferBudget": 750000
+    },
+    "315": {
+        "leagueID": 22,
+        "name": "Wrexham AFC",
+        "transferBudget": 500000
+    },
+    "316": {
+        "leagueID": 23,
+        "name": "HJK Helsinki",
+        "transferBudget": 2000000
+    },
+    "317": {
+        "leagueID": 24,
+        "name": "AS Saint-Etienne",
+        "transferBudget": 12100000
+    },
+    "318": {
+        "leagueID": 24,
+        "name": "Amiens SC",
+        "transferBudget": 3900000
+    },
+    "319": {
+        "leagueID": 24,
+        "name": "Chamois Niortais Football Club",
+        "transferBudget": 3100000
+    },
+    "32": {
+        "leagueID": 2,
+        "name": "OGC Nice",
+        "transferBudget": 14700000
+    },
+    "320": {
+        "leagueID": 24,
+        "name": "Dijon FCO",
+        "transferBudget": 3900000
+    },
+    "321": {
+        "leagueID": 24,
+        "name": "En Avant de Guingamp",
+        "transferBudget": 4700000
+    },
+    "322": {
+        "leagueID": 24,
+        "name": "FC Annecy",
+        "transferBudget": 5000000
+    },
+    "323": {
+        "leagueID": 24,
+        "name": "FC Girondins de Bordeaux",
+        "transferBudget": 9200000
+    },
+    "324": {
+        "leagueID": 24,
+        "name": "FC Metz",
+        "transferBudget": 7200000
+    },
+    "325": {
+        "leagueID": 24,
+        "name": "FC Sochaux-Montbeliard",
+        "transferBudget": 3300000
+    },
+    "326": {
+        "leagueID": 24,
+        "name": "Grenoble Foot 38",
+        "transferBudget": 3300000
+    },
+    "327": {
+        "leagueID": 24,
+        "name": "Le Havre AC",
+        "transferBudget": 5200000
+    },
+    "328": {
+        "leagueID": 24,
+        "name": "Nimes Olympique",
+        "transferBudget": 5200000
+    },
+    "329": {
+        "leagueID": 24,
+        "name": "Paris FC",
+        "transferBudget": 5600000
+    },
+    "33": {
+        "leagueID": 2,
+        "name": "Olympique Lyonnais",
+        "transferBudget": 50000000
+    },
+    "330": {
+        "leagueID": 24,
+        "name": "Pau FC",
+        "transferBudget": 1900000
+    },
     "331": {
-        "leagueID": 9,
-        "name": "HAJDUK SPLIT",
-        "transferBudget": 8300000
+        "leagueID": 24,
+        "name": "Rodez Aveyron Football",
+        "transferBudget": 2000000
     },
     "332": {
         "leagueID": 24,
-        "name": "HALLESCHER FC",
-        "transferBudget": 640000
+        "name": "SC Bastia",
+        "transferBudget": 2100000
     },
     "333": {
-        "leagueID": 48,
-        "name": "HALMSTADS BK",
-        "transferBudget": 1600000
+        "leagueID": 24,
+        "name": "Stade Lavallois Mayenne FC",
+        "transferBudget": 5000000
     },
     "334": {
-        "leagueID": 23,
-        "name": "HAMBURGER SV",
-        "transferBudget": 18000000
+        "leagueID": 24,
+        "name": "Stade Malherbe Caen",
+        "transferBudget": 3300000
     },
     "335": {
-        "leagueID": 48,
-        "name": "HAMMARBY IF",
-        "transferBudget": 4300000
+        "leagueID": 24,
+        "name": "US Quevilly Rouen Metropole",
+        "transferBudget": 1900000
     },
     "336": {
-        "leagueID": 23,
-        "name": "HANNOVER 96",
-        "transferBudget": 10000000
+        "leagueID": 24,
+        "name": "Valenciennes FC",
+        "transferBudget": 2700000
     },
     "337": {
-        "leagueID": 16,
-        "name": "HARROGATE TOWN",
-        "transferBudget": 500000
-    },
-    "338": {
-        "leagueID": 16,
-        "name": "HARTLEPOOL UNITED",
-        "transferBudget": 650000
-    },
-    "339": {
-        "leagueID": 44,
-        "name": "HEART OF MIDLOTHIAN",
-        "transferBudget": 2300000
-    },
-    "34": {
-        "leagueID": 43,
-        "name": "AL BATIN",
-        "transferBudget": 1300000
-    },
-    "340": {
-        "leagueID": 7,
-        "name": "HEBEI FC",
-        "transferBudget": 4200000
-    },
-    "341": {
-        "leagueID": 29,
-        "name": "HELLAS VERONA",
-        "transferBudget": 8000000
-    },
-    "342": {
-        "leagueID": 7,
-        "name": "HENAN SONGSHAN LONGMEN FC",
-        "transferBudget": 3400000
-    },
-    "343": {
-        "leagueID": 26,
-        "name": "HERACLES ALMELO",
-        "transferBudget": 4400000
-    },
-    "344": {
-        "leagueID": 22,
-        "name": "HERTHA BSC",
-        "transferBudget": 60000000
-    },
-    "345": {
-        "leagueID": 44,
-        "name": "HIBERNIAN",
-        "transferBudget": 3000000
-    },
-    "346": {
-        "leagueID": 19,
-        "name": "HJK HELSINKI",
+        "leagueID": 25,
+        "name": "1. FC Heidenheim 1846",
         "transferBudget": 2000000
     },
+    "338": {
+        "leagueID": 25,
+        "name": "1. FC Kaiserslautern",
+        "transferBudget": 750000
+    },
+    "339": {
+        "leagueID": 25,
+        "name": "1. FC Magdeburg",
+        "transferBudget": 800000
+    },
+    "34": {
+        "leagueID": 2,
+        "name": "Olympique de Marseille",
+        "transferBudget": 14000000
+    },
+    "340": {
+        "leagueID": 25,
+        "name": "1. FC Nurnberg",
+        "transferBudget": 5400000
+    },
+    "341": {
+        "leagueID": 25,
+        "name": "DSC Arminia Bielefeld",
+        "transferBudget": 2300000
+    },
+    "342": {
+        "leagueID": 25,
+        "name": "Eintracht Braunschweig",
+        "transferBudget": 900000
+    },
+    "343": {
+        "leagueID": 25,
+        "name": "F.C. Hansa Rostock",
+        "transferBudget": 650000
+    },
+    "344": {
+        "leagueID": 25,
+        "name": "FC St. Pauli",
+        "transferBudget": 2900000
+    },
+    "345": {
+        "leagueID": 25,
+        "name": "Fortuna Dusseldorf",
+        "transferBudget": 7500000
+    },
+    "346": {
+        "leagueID": 25,
+        "name": "Hamburger SV",
+        "transferBudget": 18000000
+    },
     "347": {
-        "leagueID": 31,
-        "name": "HOKKAIDO CONSADOLE SAPPORO",
-        "transferBudget": 5200000
+        "leagueID": 25,
+        "name": "Hannover 96",
+        "transferBudget": 10000000
     },
     "348": {
-        "leagueID": 23,
-        "name": "HOLSTEIN KIEL",
+        "leagueID": 25,
+        "name": "Holstein Kiel",
         "transferBudget": 1700000
     },
     "349": {
-        "leagueID": 52,
-        "name": "HOUSTON DYNAMO",
-        "transferBudget": 23900000
+        "leagueID": 25,
+        "name": "Karlsruher SC",
+        "transferBudget": 800000
     },
     "35": {
-        "leagueID": 43,
-        "name": "AL FAISALY",
-        "transferBudget": 2200000
+        "leagueID": 2,
+        "name": "Paris Saint-Germain",
+        "transferBudget": 160000000
     },
     "350": {
-        "leagueID": 14,
-        "name": "HUDDERSFIELD TOWN",
-        "transferBudget": 5100000
+        "leagueID": 25,
+        "name": "SC Paderborn 07",
+        "transferBudget": 5000000
     },
     "351": {
-        "leagueID": 14,
-        "name": "HULL CITY",
-        "transferBudget": 3900000
+        "leagueID": 25,
+        "name": "SSV Jahn Regensburg",
+        "transferBudget": 1000000
     },
     "352": {
-        "leagueID": 28,
-        "name": "HYDERABAD FC",
-        "transferBudget": 933000
+        "leagueID": 25,
+        "name": "SV Darmstadt 98",
+        "transferBudget": 3300000
     },
     "353": {
-        "leagueID": 48,
-        "name": "IF ELFSBORG",
-        "transferBudget": 2900000
+        "leagueID": 25,
+        "name": "SV Sandhausen",
+        "transferBudget": 1500000
     },
     "354": {
-        "leagueID": 48,
-        "name": "IFK GOTEBORG",
-        "transferBudget": 2400000
-    },
-    "355": {
-        "leagueID": 48,
-        "name": "IFK NORRKOPING",
-        "transferBudget": 4700000
-    },
-    "356": {
-        "leagueID": 48,
-        "name": "IK SIRIUS",
-        "transferBudget": 600000
-    },
-    "357": {
-        "leagueID": 32,
-        "name": "INCHEON UNITED FC",
-        "transferBudget": 2700000
-    },
-    "358": {
-        "leagueID": 13,
-        "name": "INDEPENDIENTE DEL VALLE",
+        "leagueID": 25,
+        "name": "SpVgg Greuther Furth",
         "transferBudget": 1900000
     },
+    "355": {
+        "leagueID": 26,
+        "name": "1. FC Saarbrucken",
+        "transferBudget": 1200000
+    },
+    "356": {
+        "leagueID": 26,
+        "name": "Borussia Dortmund II",
+        "transferBudget": 2100000
+    },
+    "357": {
+        "leagueID": 26,
+        "name": "FC Erzgebirge Aue",
+        "transferBudget": 1600000
+    },
+    "358": {
+        "leagueID": 26,
+        "name": "FC Ingolstadt 04",
+        "transferBudget": 4000000
+    },
     "359": {
-        "leagueID": 52,
-        "name": "INTER MIAMI CF",
-        "transferBudget": 30000000
+        "leagueID": 26,
+        "name": "FSV Zwickau",
+        "transferBudget": 500000
     },
     "36": {
-        "leagueID": 43,
-        "name": "AL FATEH",
-        "transferBudget": 3100000
+        "leagueID": 2,
+        "name": "RC Strasbourg Alsace",
+        "transferBudget": 7300000
     },
     "360": {
-        "leagueID": 29,
-        "name": "INTER",
-        "transferBudget": 30000000
+        "leagueID": 26,
+        "name": "Hallescher FC",
+        "transferBudget": 640000
     },
     "361": {
-        "leagueID": 5,
-        "name": "INTERNACIONAL",
-        "transferBudget": 7700000
+        "leagueID": 26,
+        "name": "MSV Duisburg",
+        "transferBudget": 800000
     },
     "362": {
-        "leagueID": 15,
-        "name": "IPSWICH TOWN",
-        "transferBudget": 2800000
+        "leagueID": 26,
+        "name": "Rot-WeiB Essen",
+        "transferBudget": 5000000
     },
     "363": {
-        "leagueID": 38,
-        "name": "JAGIELLONIA BIALYSTOK",
+        "leagueID": 26,
+        "name": "SC Freiburg II",
         "transferBudget": 2600000
     },
     "364": {
-        "leagueID": 28,
-        "name": "JAMSHEDPUR FC",
-        "transferBudget": 1100000
+        "leagueID": 26,
+        "name": "SG Dynamo Dresden",
+        "transferBudget": 2000000
     },
     "365": {
-        "leagueID": 32,
-        "name": "JEJU UNITED FC",
-        "transferBudget": 3600000
-    },
-    "366": {
-        "leagueID": 32,
-        "name": "JEONBUK HYUNDAI MOTORS",
-        "transferBudget": 8600000
-    },
-    "367": {
-        "leagueID": 8,
-        "name": "JUNIOR FC",
+        "leagueID": 26,
+        "name": "SV Elversberg",
         "transferBudget": 5000000
     },
+    "366": {
+        "leagueID": 26,
+        "name": "SV Meppen",
+        "transferBudget": 520000
+    },
+    "367": {
+        "leagueID": 26,
+        "name": "SV Waldhof Mannheim 07",
+        "transferBudget": 500000
+    },
     "368": {
-        "leagueID": 5,
-        "name": "JUVENTUDE",
-        "transferBudget": 2400000
+        "leagueID": 26,
+        "name": "SV Wehen Wiesbaden",
+        "transferBudget": 1700000
     },
     "369": {
-        "leagueID": 29,
-        "name": "JUVENTUS",
-        "transferBudget": 105000000
+        "leagueID": 26,
+        "name": "SpVgg Bayreuth",
+        "transferBudget": 5000000
     },
     "37": {
-        "leagueID": 43,
-        "name": "AL FAYHA",
-        "transferBudget": 2500000
+        "leagueID": 2,
+        "name": "Racing Club de Lens",
+        "transferBudget": 8600000
     },
     "370": {
-        "leagueID": 4,
-        "name": "K BEERSCHOT VA",
-        "transferBudget": 5300000
+        "leagueID": 26,
+        "name": "Sportclub Verl",
+        "transferBudget": 1000000
     },
     "371": {
-        "leagueID": 4,
-        "name": "KAA GENT",
-        "transferBudget": 15800000
+        "leagueID": 26,
+        "name": "TSV 1860 Munchen",
+        "transferBudget": 1000000
     },
     "372": {
-        "leagueID": 45,
-        "name": "KAIZER CHIEFS",
-        "transferBudget": 2200000
+        "leagueID": 26,
+        "name": "VfB Oldenburg",
+        "transferBudget": 5000000
     },
     "373": {
-        "leagueID": 48,
-        "name": "KALMAR FF",
-        "transferBudget": 1600000
+        "leagueID": 26,
+        "name": "VfL Osnabruck",
+        "transferBudget": 520000
     },
     "374": {
-        "leagueID": 23,
-        "name": "KARLSRUHER SC",
-        "transferBudget": 800000
+        "leagueID": 26,
+        "name": "Viktoria Koln",
+        "transferBudget": 500000
     },
     "375": {
-        "leagueID": 4,
-        "name": "KAS EUPEN",
-        "transferBudget": 3600000
+        "leagueID": 27,
+        "name": "AEK Athens",
+        "transferBudget": 12400000
     },
     "376": {
-        "leagueID": 31,
-        "name": "KASHIMA ANTLERS",
-        "transferBudget": 8900000
-    },
-    "377": {
-        "leagueID": 31,
-        "name": "KASHIWA REYSOL",
-        "transferBudget": 7700000
-    },
-    "378": {
-        "leagueID": 50,
-        "name": "KASIMPASA SK",
-        "transferBudget": 4000000
-    },
-    "379": {
-        "leagueID": 31,
-        "name": "KAWASAKI FRONTALE",
-        "transferBudget": 9300000
-    },
-    "38": {
-        "leagueID": 43,
-        "name": "AL HAZEM",
-        "transferBudget": 1600000
-    },
-    "380": {
-        "leagueID": 28,
-        "name": "KERALA BLASTERS FC",
-        "transferBudget": 2100000
-    },
-    "381": {
-        "leagueID": 4,
-        "name": "KRC GENK",
-        "transferBudget": 17400000
-    },
-    "382": {
-        "leagueID": 35,
-        "name": "KRISTIANSUND BK",
-        "transferBudget": 750000
-    },
-    "383": {
-        "leagueID": 4,
-        "name": "KSV CERCLE BRUGGE",
-        "transferBudget": 5400000
-    },
-    "384": {
-        "leagueID": 4,
-        "name": "KV KORTRIJK",
-        "transferBudget": 4500000
-    },
-    "385": {
-        "leagueID": 4,
-        "name": "KV MECHELEN",
-        "transferBudget": 4800000
-    },
-    "386": {
-        "leagueID": 4,
-        "name": "KV OOSTENDE",
-        "transferBudget": 3900000
-    },
-    "387": {
-        "leagueID": 8,
-        "name": "LA EQUIDAD",
-        "transferBudget": 2000000
-    },
-    "388": {
-        "leagueID": 52,
-        "name": "LA GALAXY",
-        "transferBudget": 37100000
-    },
-    "389": {
-        "leagueID": 3,
-        "name": "LASK LINZ",
-        "transferBudget": 6900000
-    },
-    "39": {
-        "leagueID": 43,
-        "name": "AL HILAL",
-        "transferBudget": 23600000
-    },
-    "390": {
-        "leagueID": 29,
-        "name": "LAZIO",
-        "transferBudget": 39600000
-    },
-    "391": {
-        "leagueID": 13,
-        "name": "LDU QUITO",
-        "transferBudget": 2200000
-    },
-    "392": {
-        "leagueID": 21,
-        "name": "LE HAVRE AC",
-        "transferBudget": 5200000
-    },
-    "393": {
-        "leagueID": 30,
-        "name": "LECCE",
-        "transferBudget": 6000000
-    },
-    "394": {
-        "leagueID": 38,
-        "name": "LECH POZNAN",
-        "transferBudget": 3900000
-    },
-    "395": {
-        "leagueID": 38,
-        "name": "LECHIA GDANSK",
-        "transferBudget": 2900000
-    },
-    "396": {
-        "leagueID": 18,
-        "name": "LEEDS UNITED",
-        "transferBudget": 32500000
-    },
-    "397": {
-        "leagueID": 38,
-        "name": "LEGIA WARSZAWA",
-        "transferBudget": 5200000
-    },
-    "398": {
-        "leagueID": 18,
-        "name": "LEICESTER CITY",
-        "transferBudget": 50000000
-    },
-    "399": {
-        "leagueID": 46,
-        "name": "LEVANTE UNION DEPORTIVA",
-        "transferBudget": 9300000
-    },
-    "4": {
-        "leagueID": 24,
-        "name": "1. FC MAGDEBURG",
-        "transferBudget": 800000
-    },
-    "40": {
-        "leagueID": 43,
-        "name": "AL ITTIHAD",
-        "transferBudget": 15000000
-    },
-    "400": {
-        "leagueID": 16,
-        "name": "LEYTON ORIENT",
-        "transferBudget": 750000
-    },
-    "401": {
-        "leagueID": 35,
-        "name": "LILLESTROM SK",
-        "transferBudget": 1500000
-    },
-    "402": {
-        "leagueID": 15,
-        "name": "LINCOLN CITY",
-        "transferBudget": 1300000
-    },
-    "403": {
-        "leagueID": 18,
-        "name": "LIVERPOOL",
-        "transferBudget": 95000000
-    },
-    "404": {
-        "leagueID": 44,
-        "name": "LIVINGSTON FC",
-        "transferBudget": 650000
-    },
-    "405": {
-        "leagueID": 40,
-        "name": "LONGFORD TOWN",
-        "transferBudget": 500000
-    },
-    "406": {
-        "leagueID": 52,
-        "name": "LOS ANGELES FC",
-        "transferBudget": 36800000
-    },
-    "407": {
-        "leagueID": 20,
-        "name": "LOSC LILLE",
-        "transferBudget": 15800000
-    },
-    "408": {
-        "leagueID": 14,
-        "name": "LUTON TOWN",
-        "transferBudget": 3000000
-    },
-    "409": {
-        "leagueID": 2,
-        "name": "MACARTHUR FC",
-        "transferBudget": 2000000
-    },
-    "41": {
-        "leagueID": 43,
-        "name": "AL NASSR",
-        "transferBudget": 24000000
-    },
-    "410": {
-        "leagueID": 48,
-        "name": "MALMO FF",
-        "transferBudget": 8100000
-    },
-    "411": {
-        "leagueID": 18,
-        "name": "MANCHESTER CITY",
-        "transferBudget": 176000000
-    },
-    "412": {
-        "leagueID": 18,
-        "name": "MANCHESTER UNITED",
-        "transferBudget": 175000000
-    },
-    "413": {
-        "leagueID": 16,
-        "name": "MANSFIELD TOWN",
-        "transferBudget": 1500000
-    },
-    "414": {
-        "leagueID": 34,
-        "name": "MAZATLAN FUTBOL CLUB",
-        "transferBudget": 1600000
-    },
-    "415": {
-        "leagueID": 2,
-        "name": "MELBOURNE CITY FC",
-        "transferBudget": 2000000
-    },
-    "416": {
-        "leagueID": 2,
-        "name": "MELBOURNE VICTORY",
-        "transferBudget": 2000000
-    },
-    "417": {
-        "leagueID": 55,
-        "name": "METROPOLITANOS DE CARACAS FC",
-        "transferBudget": 1500000
-    },
-    "418": {
-        "leagueID": 14,
-        "name": "MIDDLESBROUGH",
-        "transferBudget": 7700000
-    },
-    "419": {
-        "leagueID": 14,
-        "name": "MILLWALL",
-        "transferBudget": 4300000
-    },
-    "42": {
-        "leagueID": 43,
-        "name": "AL RAED",
-        "transferBudget": 2700000
-    },
-    "420": {
-        "leagueID": 15,
-        "name": "MILTON KEYNES DONS",
-        "transferBudget": 1500000
-    },
-    "421": {
-        "leagueID": 52,
-        "name": "MINNESOTA UNITED FC",
-        "transferBudget": 25400000
-    },
-    "422": {
-        "leagueID": 48,
-        "name": "MJALLBY AIF",
-        "transferBudget": 850000
-    },
-    "423": {
-        "leagueID": 35,
-        "name": "MJONDALEN IF",
-        "transferBudget": 1500000
-    },
-    "424": {
-        "leagueID": 35,
-        "name": "MOLDE FK",
-        "transferBudget": 5400000
-    },
-    "425": {
-        "leagueID": 54,
-        "name": "MONTEVIDEO CITY TORQUE",
-        "transferBudget": 2700000
-    },
-    "426": {
-        "leagueID": 20,
-        "name": "MONTPELLIER HERAULT SC",
-        "transferBudget": 7600000
-    },
-    "427": {
-        "leagueID": 15,
-        "name": "MORECAMBE",
-        "transferBudget": 500000
-    },
-    "428": {
-        "leagueID": 39,
-        "name": "MOREIRENSE FC",
-        "transferBudget": 3300000
-    },
-    "429": {
-        "leagueID": 44,
-        "name": "MOTHERWELL",
-        "transferBudget": 900000
-    },
-    "43": {
-        "leagueID": 43,
-        "name": "AL SHABAB",
-        "transferBudget": 10700000
-    },
-    "430": {
-        "leagueID": 24,
-        "name": "MSV DUISBURG",
-        "transferBudget": 800000
-    },
-    "431": {
-        "leagueID": 28,
-        "name": "MUMBAI CITY FC",
-        "transferBudget": 3100000
-    },
-    "432": {
-        "leagueID": 47,
-        "name": "MALAGA CF",
-        "transferBudget": 9900000
-    },
-    "433": {
-        "leagueID": 26,
-        "name": "N.E.C. NIJMEGEN",
-        "transferBudget": 4800000
-    },
-    "434": {
-        "leagueID": 31,
-        "name": "NAGOYA GRAMPUS",
-        "transferBudget": 8300000
-    },
-    "435": {
-        "leagueID": 29,
-        "name": "NAPOLI",
-        "transferBudget": 56000000
-    },
-    "436": {
-        "leagueID": 52,
-        "name": "NASHVILLE SC",
-        "transferBudget": 18400000
-    },
-    "437": {
-        "leagueID": 52,
-        "name": "NEW ENGLAND REVOLUTION",
-        "transferBudget": 21600000
-    },
-    "438": {
-        "leagueID": 52,
-        "name": "NEW YORK CITY FC",
-        "transferBudget": 31300000
-    },
-    "439": {
-        "leagueID": 52,
-        "name": "NEW YORK RED BULLS",
-        "transferBudget": 24700000
-    },
-    "44": {
-        "leagueID": 43,
-        "name": "AL TAAWOUN",
-        "transferBudget": 4300000
-    },
-    "440": {
-        "leagueID": 2,
-        "name": "NEWCASTLE JETS",
-        "transferBudget": 2000000
-    },
-    "441": {
-        "leagueID": 18,
-        "name": "NEWCASTLE UNITED",
-        "transferBudget": 30000000
-    },
-    "442": {
-        "leagueID": 1,
-        "name": "NEWELL'S OLD BOYS",
-        "transferBudget": 4000000
-    },
-    "443": {
-        "leagueID": 16,
-        "name": "NEWPORT COUNTY",
-        "transferBudget": 750000
-    },
-    "444": {
-        "leagueID": 16,
-        "name": "NORTHAMPTON TOWN",
-        "transferBudget": 1000000
-    },
-    "445": {
-        "leagueID": 28,
-        "name": "NORTHEAST UNITED FC",
-        "transferBudget": 923000
-    },
-    "446": {
-        "leagueID": 18,
-        "name": "NORWICH CITY",
-        "transferBudget": 20000000
-    },
-    "447": {
-        "leagueID": 14,
-        "name": "NOTTINGHAM FOREST",
-        "transferBudget": 14600000
-    },
-    "448": {
-        "leagueID": 21,
-        "name": "NIMES OLYMPIQUE",
-        "transferBudget": 5200000
-    },
-    "449": {
-        "leagueID": 35,
-        "name": "ODDS BK",
-        "transferBudget": 2400000
-    },
-    "45": {
-        "leagueID": 43,
-        "name": "AL TAI",
-        "transferBudget": 1800000
-    },
-    "450": {
-        "leagueID": 12,
-        "name": "ODENSE BOLDKLUB",
-        "transferBudget": 2600000
-    },
-    "451": {
-        "leagueID": 28,
-        "name": "ODISHA FC",
-        "transferBudget": 851000
-    },
-    "452": {
-        "leagueID": 20,
-        "name": "OGC NICE",
-        "transferBudget": 14700000
-    },
-    "453": {
-        "leagueID": 31,
-        "name": "OITA TRINITA",
-        "transferBudget": 4090000
-    },
-    "454": {
-        "leagueID": 16,
-        "name": "OLDHAM ATHLETIC",
-        "transferBudget": 750000
-    },
-    "455": {
-        "leagueID": 25,
-        "name": "OLYMPIACOS CFP",
-        "transferBudget": 19000000
-    },
-    "456": {
-        "leagueID": 20,
-        "name": "OLYMPIQUE DE MARSEILLE",
-        "transferBudget": 14000000
-    },
-    "457": {
-        "leagueID": 20,
-        "name": "OLYMPIQUE LYONNAIS",
-        "transferBudget": 50000000
-    },
-    "458": {
-        "leagueID": 52,
-        "name": "ORLANDO CITY SOCCER CLUB",
-        "transferBudget": 25000000
-    },
-    "459": {
-        "leagueID": 45,
-        "name": "ORLANDO PIRATES",
-        "transferBudget": 2600000
-    },
-    "46": {
-        "leagueID": 50,
-        "name": "ALTAY SK",
-        "transferBudget": 3400000
-    },
-    "460": {
-        "leagueID": 4,
-        "name": "OUD-HEVERLEE LEUVEN",
-        "transferBudget": 6100000
-    },
-    "461": {
-        "leagueID": 15,
-        "name": "OXFORD UNITED",
-        "transferBudget": 1000000
-    },
-    "462": {
-        "leagueID": 34,
-        "name": "PACHUCA",
-        "transferBudget": 4900000
-    },
-    "463": {
-        "leagueID": 5,
-        "name": "PALMEIRAS",
-        "transferBudget": 20500000
-    },
-    "464": {
-        "leagueID": 25,
-        "name": "PANATHINAIKOS FC",
-        "transferBudget": 5300000
-    },
-    "465": {
-        "leagueID": 25,
+        "leagueID": 27,
         "name": "PAOK",
         "transferBudget": 16800000
     },
-    "466": {
-        "leagueID": 21,
-        "name": "PARIS FC",
-        "transferBudget": 5600000
-    },
-    "467": {
-        "leagueID": 20,
-        "name": "PARIS SAINT-GERMAIN",
-        "transferBudget": 160000000
-    },
-    "468": {
-        "leagueID": 30,
-        "name": "PARMA",
-        "transferBudget": 8000000
-    },
-    "469": {
-        "leagueID": 1,
-        "name": "PATRONATO",
-        "transferBudget": 2000000
-    },
-    "47": {
-        "leagueID": 21,
-        "name": "AMIENS SC",
-        "transferBudget": 3900000
-    },
-    "470": {
-        "leagueID": 21,
-        "name": "PAU FC",
-        "transferBudget": 1900000
-    },
-    "471": {
-        "leagueID": 26,
-        "name": "PEC ZWOLLE",
+    "377": {
+        "leagueID": 27,
+        "name": "Panathinaikos FC",
         "transferBudget": 5300000
     },
-    "472": {
+    "378": {
+        "leagueID": 28,
+        "name": "AZ Alkmaar",
+        "transferBudget": 9900000
+    },
+    "379": {
+        "leagueID": 28,
+        "name": "Ajax",
+        "transferBudget": 34400000
+    },
+    "38": {
         "leagueID": 2,
-        "name": "PERTH GLORY",
-        "transferBudget": 2000000
+        "name": "Stade Brestois 29",
+        "transferBudget": 6300000
     },
-    "473": {
-        "leagueID": 14,
-        "name": "PETERBOROUGH UNITED",
-        "transferBudget": 2700000
+    "380": {
+        "leagueID": 28,
+        "name": "Excelsior",
+        "transferBudget": 5000000
     },
-    "474": {
-        "leagueID": 42,
-        "name": "PFC CSKA MOSCOW",
-        "transferBudget": 10200000
+    "381": {
+        "leagueID": 28,
+        "name": "FC Emmen",
+        "transferBudget": 5000000
     },
-    "475": {
-        "leagueID": 38,
-        "name": "PGE FKS STAL MIELEC",
-        "transferBudget": 1500000
+    "382": {
+        "leagueID": 28,
+        "name": "FC Groningen",
+        "transferBudget": 7900000
     },
-    "476": {
-        "leagueID": 52,
-        "name": "PHILADELPHIA UNION",
-        "transferBudget": 21300000
+    "383": {
+        "leagueID": 28,
+        "name": "FC Twente",
+        "transferBudget": 8800000
     },
-    "477": {
-        "leagueID": 38,
-        "name": "PIAST GLIWICE",
-        "transferBudget": 2300000
+    "384": {
+        "leagueID": 28,
+        "name": "FC Utrecht",
+        "transferBudget": 13800000
     },
-    "478": {
-        "leagueID": 1,
-        "name": "PLATENSE",
-        "transferBudget": 2200000
+    "385": {
+        "leagueID": 28,
+        "name": "FC Volendam",
+        "transferBudget": 5000000
     },
-    "479": {
-        "leagueID": 15,
-        "name": "PLYMOUTH ARGYLE",
-        "transferBudget": 1300000
+    "386": {
+        "leagueID": 28,
+        "name": "Feyenoord",
+        "transferBudget": 14300000
     },
-    "48": {
-        "leagueID": 8,
-        "name": "AMERICA DE CALI",
-        "transferBudget": 2200000
+    "387": {
+        "leagueID": 28,
+        "name": "Fortuna Sittard",
+        "transferBudget": 6200000
     },
-    "480": {
-        "leagueID": 38,
-        "name": "POGON SZCZECIN",
-        "transferBudget": 2800000
+    "388": {
+        "leagueID": 28,
+        "name": "Go Ahead Eagles",
+        "transferBudget": 3800000
     },
-    "481": {
-        "leagueID": 32,
-        "name": "POHANG STEELERS",
-        "transferBudget": 4400000
+    "389": {
+        "leagueID": 28,
+        "name": "N.E.C. Nijmegen",
+        "transferBudget": 4800000
     },
-    "482": {
-        "leagueID": 16,
-        "name": "PORT VALE",
-        "transferBudget": 750000
+    "39": {
+        "leagueID": 2,
+        "name": "Stade Rennais FC",
+        "transferBudget": 14000000
     },
-    "483": {
-        "leagueID": 39,
-        "name": "PORTIMONENSE SC",
-        "transferBudget": 3300000
-    },
-    "484": {
-        "leagueID": 52,
-        "name": "PORTLAND TIMBERS",
-        "transferBudget": 31600000
-    },
-    "485": {
-        "leagueID": 15,
-        "name": "PORTSMOUTH",
-        "transferBudget": 2000000
-    },
-    "486": {
-        "leagueID": 14,
-        "name": "PRESTON NORTH END",
-        "transferBudget": 4700000
-    },
-    "487": {
-        "leagueID": 26,
+    "390": {
+        "leagueID": 28,
         "name": "PSV",
         "transferBudget": 23900000
     },
-    "488": {
-        "leagueID": 34,
-        "name": "PUEBLA FC",
-        "transferBudget": 3700000
+    "391": {
+        "leagueID": 28,
+        "name": "RKC Waalwijk",
+        "transferBudget": 2700000
     },
-    "489": {
-        "leagueID": 7,
-        "name": "QINGDAO FC",
+    "392": {
+        "leagueID": 28,
+        "name": "SC Cambuur",
+        "transferBudget": 3300000
+    },
+    "393": {
+        "leagueID": 28,
+        "name": "SC Heerenveen",
+        "transferBudget": 6400000
+    },
+    "394": {
+        "leagueID": 28,
+        "name": "Sparta Rotterdam",
+        "transferBudget": 6000000
+    },
+    "395": {
+        "leagueID": 28,
+        "name": "Vitesse",
+        "transferBudget": 16300000
+    },
+    "396": {
+        "leagueID": 29,
+        "name": "Ferencvarosi TC",
+        "transferBudget": 6800000
+    },
+    "397": {
+        "leagueID": 30,
+        "name": "ATK Mohun Bagan FC",
+        "transferBudget": 3000000
+    },
+    "398": {
+        "leagueID": 30,
+        "name": "Bengaluru FC",
+        "transferBudget": 2000000
+    },
+    "399": {
+        "leagueID": 30,
+        "name": "Chennaiyin FC",
+        "transferBudget": 1700000
+    },
+    "4": {
+        "leagueID": 1,
+        "name": "Aston Villa",
+        "transferBudget": 37500000
+    },
+    "40": {
+        "leagueID": 2,
+        "name": "Stade de Reims",
+        "transferBudget": 8800000
+    },
+    "400": {
+        "leagueID": 30,
+        "name": "FC Goa",
+        "transferBudget": 1200000
+    },
+    "401": {
+        "leagueID": 30,
+        "name": "Hyderabad FC",
+        "transferBudget": 933000
+    },
+    "402": {
+        "leagueID": 30,
+        "name": "Jamshedpur FC",
+        "transferBudget": 1100000
+    },
+    "403": {
+        "leagueID": 30,
+        "name": "Kerala Blasters FC",
+        "transferBudget": 2100000
+    },
+    "404": {
+        "leagueID": 30,
+        "name": "Mumbai City FC",
+        "transferBudget": 3100000
+    },
+    "405": {
+        "leagueID": 30,
+        "name": "NorthEast United FC",
+        "transferBudget": 923000
+    },
+    "406": {
+        "leagueID": 30,
+        "name": "Odisha FC",
+        "transferBudget": 851000
+    },
+    "407": {
+        "leagueID": 30,
+        "name": "SC East Bengal FC",
+        "transferBudget": 2000000
+    },
+    "408": {
+        "leagueID": 31,
+        "name": "Ascoli",
+        "transferBudget": 5000000
+    },
+    "409": {
+        "leagueID": 31,
+        "name": "Bari",
+        "transferBudget": 5000000
+    },
+    "41": {
+        "leagueID": 2,
+        "name": "Toulouse Football Club",
+        "transferBudget": 6700000
+    },
+    "410": {
+        "leagueID": 31,
+        "name": "Benevento",
+        "transferBudget": 5600000
+    },
+    "411": {
+        "leagueID": 31,
+        "name": "Brescia",
+        "transferBudget": 5000000
+    },
+    "412": {
+        "leagueID": 31,
+        "name": "Cagliari",
+        "transferBudget": 10000000
+    },
+    "413": {
+        "leagueID": 31,
+        "name": "Cittadella",
+        "transferBudget": 5000000
+    },
+    "414": {
+        "leagueID": 31,
+        "name": "Como",
+        "transferBudget": 5000000
+    },
+    "415": {
+        "leagueID": 31,
+        "name": "Cosenza",
+        "transferBudget": 5000000
+    },
+    "416": {
+        "leagueID": 31,
+        "name": "Frosinone",
+        "transferBudget": 5000000
+    },
+    "417": {
+        "leagueID": 31,
+        "name": "Genoa",
+        "transferBudget": 8500000
+    },
+    "418": {
+        "leagueID": 31,
+        "name": "Modena",
+        "transferBudget": 5000000
+    },
+    "419": {
+        "leagueID": 31,
+        "name": "Palermo",
+        "transferBudget": 5000000
+    },
+    "42": {
+        "leagueID": 3,
+        "name": "1. FC Koln",
+        "transferBudget": 12500000
+    },
+    "420": {
+        "leagueID": 31,
+        "name": "Parma",
+        "transferBudget": 8000000
+    },
+    "421": {
+        "leagueID": 31,
+        "name": "Perugia",
+        "transferBudget": 5000000
+    },
+    "422": {
+        "leagueID": 31,
+        "name": "Pisa",
+        "transferBudget": 5000000
+    },
+    "423": {
+        "leagueID": 31,
+        "name": "SPAL",
+        "transferBudget": 5000000
+    },
+    "424": {
+        "leagueID": 31,
+        "name": "Sudtirol",
+        "transferBudget": 5000000
+    },
+    "425": {
+        "leagueID": 31,
+        "name": "Ternana",
+        "transferBudget": 5000000
+    },
+    "426": {
+        "leagueID": 31,
+        "name": "Urbs Reggina 1914",
+        "transferBudget": 5000000
+    },
+    "427": {
+        "leagueID": 31,
+        "name": "Venezia FC",
+        "transferBudget": 4000000
+    },
+    "428": {
+        "leagueID": 32,
+        "name": "Daegu FC",
+        "transferBudget": 4200000
+    },
+    "429": {
+        "leagueID": 32,
+        "name": "FC Seoul",
         "transferBudget": 3200000
     },
-    "49": {
-        "leagueID": 20,
-        "name": "ANGERS SCO",
-        "transferBudget": 6300000
+    "43": {
+        "leagueID": 3,
+        "name": "1. FC Union Berlin",
+        "transferBudget": 6500000
     },
-    "490": {
-        "leagueID": 14,
-        "name": "QUEENS PARK RANGERS",
-        "transferBudget": 5100000
+    "430": {
+        "leagueID": 32,
+        "name": "Gangwon FC",
+        "transferBudget": 4800000
     },
-    "491": {
-        "leagueID": 20,
-        "name": "RACING CLUB DE LENS",
+    "431": {
+        "leagueID": 32,
+        "name": "Incheon United FC",
+        "transferBudget": 2700000
+    },
+    "432": {
+        "leagueID": 32,
+        "name": "Jeju United FC",
+        "transferBudget": 3600000
+    },
+    "433": {
+        "leagueID": 32,
+        "name": "Jeonbuk Hyundai Motors",
         "transferBudget": 8600000
     },
+    "434": {
+        "leagueID": 32,
+        "name": "Pohang Steelers",
+        "transferBudget": 4400000
+    },
+    "435": {
+        "leagueID": 32,
+        "name": "Sangju Sangmu FC",
+        "transferBudget": 5000000
+    },
+    "436": {
+        "leagueID": 32,
+        "name": "Seongnam FC",
+        "transferBudget": 2800000
+    },
+    "437": {
+        "leagueID": 32,
+        "name": "Suwon FC",
+        "transferBudget": 2100000
+    },
+    "438": {
+        "leagueID": 32,
+        "name": "Suwon Samsung Bluewings",
+        "transferBudget": 3000000
+    },
+    "439": {
+        "leagueID": 32,
+        "name": "Ulsan Hyundai FC",
+        "transferBudget": 9100000
+    },
+    "44": {
+        "leagueID": 3,
+        "name": "1. FSV Mainz 05",
+        "transferBudget": 9200000
+    },
+    "440": {
+        "leagueID": 33,
+        "name": "Club Always Ready",
+        "transferBudget": 1100000
+    },
+    "441": {
+        "leagueID": 33,
+        "name": "Club Deportivo Guabira",
+        "transferBudget": 1300000
+    },
+    "442": {
+        "leagueID": 33,
+        "name": "Club Deportivo Jorge Wilstermann",
+        "transferBudget": 2100000
+    },
+    "443": {
+        "leagueID": 33,
+        "name": "Club Deportivo Oriente Petrolero",
+        "transferBudget": 5000000
+    },
+    "444": {
+        "leagueID": 33,
+        "name": "Club The Strongest",
+        "transferBudget": 2400000
+    },
+    "445": {
+        "leagueID": 33,
+        "name": "Independiente Petrolero",
+        "transferBudget": 5000000
+    },
+    "446": {
+        "leagueID": 33,
+        "name": "Royal Pari",
+        "transferBudget": 5000000
+    },
+    "447": {
+        "leagueID": 34,
+        "name": "Aalesunds FK",
+        "transferBudget": 5000000
+    },
+    "448": {
+        "leagueID": 34,
+        "name": "FK Bodo/Glimt",
+        "transferBudget": 5000000
+    },
+    "449": {
+        "leagueID": 34,
+        "name": "FK Haugesund",
+        "transferBudget": 1400000
+    },
+    "45": {
+        "leagueID": 3,
+        "name": "Bayer 04 Leverkusen",
+        "transferBudget": 39000000
+    },
+    "450": {
+        "leagueID": 34,
+        "name": "FK Jerv",
+        "transferBudget": 5000000
+    },
+    "451": {
+        "leagueID": 34,
+        "name": "Hamarkameratene",
+        "transferBudget": 5000000
+    },
+    "452": {
+        "leagueID": 34,
+        "name": "Kristiansund BK",
+        "transferBudget": 750000
+    },
+    "453": {
+        "leagueID": 34,
+        "name": "Lillestrom SK",
+        "transferBudget": 1500000
+    },
+    "454": {
+        "leagueID": 34,
+        "name": "Molde FK",
+        "transferBudget": 5400000
+    },
+    "455": {
+        "leagueID": 34,
+        "name": "Odds BK",
+        "transferBudget": 2400000
+    },
+    "456": {
+        "leagueID": 34,
+        "name": "Rosenborg BK",
+        "transferBudget": 8300000
+    },
+    "457": {
+        "leagueID": 34,
+        "name": "Sandefjord Fotball",
+        "transferBudget": 1100000
+    },
+    "458": {
+        "leagueID": 34,
+        "name": "Sarpsborg 08 FF",
+        "transferBudget": 2200000
+    },
+    "459": {
+        "leagueID": 34,
+        "name": "Stromsgodset IF",
+        "transferBudget": 2500000
+    },
+    "46": {
+        "leagueID": 3,
+        "name": "Borussia Dortmund",
+        "transferBudget": 2100000
+    },
+    "460": {
+        "leagueID": 34,
+        "name": "Tromso IL",
+        "transferBudget": 1800000
+    },
+    "461": {
+        "leagueID": 34,
+        "name": "Viking FK",
+        "transferBudget": 2200000
+    },
+    "462": {
+        "leagueID": 34,
+        "name": "Valerenga Fotball",
+        "transferBudget": 2700000
+    },
+    "463": {
+        "leagueID": 35,
+        "name": "Club Cerro Porteno",
+        "transferBudget": 3600000
+    },
+    "464": {
+        "leagueID": 35,
+        "name": "Club Libertad",
+        "transferBudget": 3100000
+    },
+    "465": {
+        "leagueID": 35,
+        "name": "Club Nacional",
+        "transferBudget": 5400000
+    },
+    "466": {
+        "leagueID": 35,
+        "name": "Club Olimpia",
+        "transferBudget": 6000000
+    },
+    "467": {
+        "leagueID": 35,
+        "name": "Club Sol de America",
+        "transferBudget": 5000000
+    },
+    "468": {
+        "leagueID": 35,
+        "name": "General Caballero (JLM)",
+        "transferBudget": 5000000
+    },
+    "469": {
+        "leagueID": 35,
+        "name": "Guairena FC",
+        "transferBudget": 2300000
+    },
+    "47": {
+        "leagueID": 3,
+        "name": "Borussia Monchengladbach",
+        "transferBudget": 25000000
+    },
+    "470": {
+        "leagueID": 36,
+        "name": "Ayacucho",
+        "transferBudget": 5000000
+    },
+    "471": {
+        "leagueID": 36,
+        "name": "Cienciano",
+        "transferBudget": 5000000
+    },
+    "472": {
+        "leagueID": 36,
+        "name": "Club Alianza Lima",
+        "transferBudget": 5000000
+    },
+    "473": {
+        "leagueID": 36,
+        "name": "Club Sporting Cristal",
+        "transferBudget": 3400000
+    },
+    "474": {
+        "leagueID": 36,
+        "name": "FBC Melgar",
+        "transferBudget": 1500000
+    },
+    "475": {
+        "leagueID": 36,
+        "name": "Sport Boys",
+        "transferBudget": 5000000
+    },
+    "476": {
+        "leagueID": 37,
+        "name": "Cracovia",
+        "transferBudget": 2700000
+    },
+    "477": {
+        "leagueID": 37,
+        "name": "Gornik Zabrze",
+        "transferBudget": 2100000
+    },
+    "478": {
+        "leagueID": 37,
+        "name": "Jagiellonia Bialystok",
+        "transferBudget": 2600000
+    },
+    "479": {
+        "leagueID": 37,
+        "name": "Korona Kielce",
+        "transferBudget": 5000000
+    },
+    "48": {
+        "leagueID": 3,
+        "name": "Eintracht Frankfurt",
+        "transferBudget": 25000000
+    },
+    "480": {
+        "leagueID": 37,
+        "name": "Lech Poznan",
+        "transferBudget": 3900000
+    },
+    "481": {
+        "leagueID": 37,
+        "name": "Lechia Gdansk",
+        "transferBudget": 2900000
+    },
+    "482": {
+        "leagueID": 37,
+        "name": "Legia Warszawa",
+        "transferBudget": 5200000
+    },
+    "483": {
+        "leagueID": 37,
+        "name": "Miedz Legnica",
+        "transferBudget": 5000000
+    },
+    "484": {
+        "leagueID": 37,
+        "name": "PGE FKS Stal Mielec",
+        "transferBudget": 1500000
+    },
+    "485": {
+        "leagueID": 37,
+        "name": "Piast Gliwice",
+        "transferBudget": 2300000
+    },
+    "486": {
+        "leagueID": 37,
+        "name": "Pogon Szczecin",
+        "transferBudget": 2800000
+    },
+    "487": {
+        "leagueID": 37,
+        "name": "Radomiak Radom",
+        "transferBudget": 1500000
+    },
+    "488": {
+        "leagueID": 37,
+        "name": "Rakow Czestochowa",
+        "transferBudget": 2200000
+    },
+    "489": {
+        "leagueID": 37,
+        "name": "Warta Poznan",
+        "transferBudget": 1500000
+    },
+    "49": {
+        "leagueID": 3,
+        "name": "FC Augsburg",
+        "transferBudget": 9500000
+    },
+    "490": {
+        "leagueID": 37,
+        "name": "Widzew Lodz",
+        "transferBudget": 5000000
+    },
+    "491": {
+        "leagueID": 37,
+        "name": "Wisla Plock",
+        "transferBudget": 1700000
+    },
     "492": {
-        "leagueID": 1,
-        "name": "RACING CLUB",
-        "transferBudget": 9400000
+        "leagueID": 37,
+        "name": "Zaglebie Lubin",
+        "transferBudget": 2900000
     },
     "493": {
-        "leagueID": 38,
-        "name": "RADOMIAK RADOM",
-        "transferBudget": 1500000
+        "leagueID": 37,
+        "name": "Slask Wroclaw",
+        "transferBudget": 2500000
     },
     "494": {
         "leagueID": 38,
-        "name": "RAKOW CZESTOCHOWA",
-        "transferBudget": 2200000
+        "name": "Boavista FC",
+        "transferBudget": 4200000
     },
     "495": {
-        "leagueID": 12,
-        "name": "RANDERS FC",
-        "transferBudget": 2000000
-    },
-    "496": {
-        "leagueID": 44,
-        "name": "RANGERS FC",
-        "transferBudget": 8300000
-    },
-    "497": {
-        "leagueID": 41,
-        "name": "RAPID BUCURESTI",
-        "transferBudget": 1800000
-    },
-    "498": {
-        "leagueID": 46,
-        "name": "RAYO VALLECANO",
-        "transferBudget": 3300000
-    },
-    "499": {
-        "leagueID": 5,
-        "name": "RB BRAGANTINO",
-        "transferBudget": 5400000
-    },
-    "5": {
-        "leagueID": 23,
-        "name": "1. FC NURNBERG",
-        "transferBudget": 5400000
-    },
-    "50": {
-        "leagueID": 50,
-        "name": "ANTALYASPOR",
-        "transferBudget": 5300000
-    },
-    "500": {
-        "leagueID": 22,
-        "name": "RB LEIPZIG",
-        "transferBudget": 50000000
-    },
-    "501": {
-        "leagueID": 46,
-        "name": "RC CELTA DE VIGO",
-        "transferBudget": 11800000
-    },
-    "502": {
-        "leagueID": 20,
-        "name": "RC STRASBOURG ALSACE",
-        "transferBudget": 7300000
-    },
-    "503": {
-        "leagueID": 46,
-        "name": "RCD ESPANYOL DE BARCELONA",
-        "transferBudget": 6000000
-    },
-    "504": {
-        "leagueID": 46,
-        "name": "RCD MALLORCA",
-        "transferBudget": 2800000
-    },
-    "505": {
-        "leagueID": 14,
-        "name": "READING",
-        "transferBudget": 5900000
-    },
-    "506": {
-        "leagueID": 46,
-        "name": "REAL BETIS BALOMPIE",
-        "transferBudget": 16100000
-    },
-    "507": {
-        "leagueID": 46,
-        "name": "REAL MADRID CF",
-        "transferBudget": 150000000
-    },
-    "508": {
-        "leagueID": 47,
-        "name": "REAL OVIEDO",
-        "transferBudget": 2000000
-    },
-    "509": {
-        "leagueID": 52,
-        "name": "REAL SALT LAKE",
-        "transferBudget": 20900000
-    },
-    "51": {
-        "leagueID": 10,
-        "name": "APOEL NICOSIA FC",
-        "transferBudget": 7700000
-    },
-    "510": {
-        "leagueID": 47,
-        "name": "REAL SOCIEDAD B",
-        "transferBudget": 1500000
-    },
-    "511": {
-        "leagueID": 46,
-        "name": "REAL SOCIEDAD",
-        "transferBudget": 1500000
-    },
-    "512": {
-        "leagueID": 47,
-        "name": "REAL SPORTING DE GIJON",
-        "transferBudget": 4800000
-    },
-    "513": {
-        "leagueID": 47,
-        "name": "REAL VALLADOLID CF",
-        "transferBudget": 3100000
-    },
-    "514": {
-        "leagueID": 47,
-        "name": "REAL ZARAGOZA",
-        "transferBudget": 2700000
-    },
-    "515": {
-        "leagueID": 1,
-        "name": "RIVER PLATE",
-        "transferBudget": 1600000
-    },
-    "516": {
-        "leagueID": 26,
-        "name": "RKC WAALWIJK",
-        "transferBudget": 2700000
-    },
-    "517": {
-        "leagueID": 16,
-        "name": "ROCHDALE",
-        "transferBudget": 500000
-    },
-    "518": {
-        "leagueID": 21,
-        "name": "RODEZ AVEYRON FOOTBALL",
-        "transferBudget": 2000000
-    },
-    "519": {
-        "leagueID": 29,
-        "name": "ROMA",
-        "transferBudget": 46000000
-    },
-    "52": {
-        "leagueID": 55,
-        "name": "ARAGUA FUTBOL CLUB",
-        "transferBudget": 1400000
-    },
-    "520": {
-        "leagueID": 1,
-        "name": "ROSARIO CENTRAL",
+        "leagueID": 38,
+        "name": "Casa Pia",
         "transferBudget": 5000000
     },
-    "521": {
-        "leagueID": 35,
-        "name": "ROSENBORG BK",
-        "transferBudget": 8300000
+    "496": {
+        "leagueID": 38,
+        "name": "Clube Sport Maritimo",
+        "transferBudget": 3900000
     },
-    "522": {
-        "leagueID": 44,
-        "name": "ROSS COUNTY FC",
-        "transferBudget": 600000
+    "497": {
+        "leagueID": 38,
+        "name": "Estoril Praia",
+        "transferBudget": 2000000
     },
-    "523": {
-        "leagueID": 15,
-        "name": "ROTHERHAM UNITED",
+    "498": {
+        "leagueID": 38,
+        "name": "FC Arouca",
         "transferBudget": 1800000
     },
-    "524": {
-        "leagueID": 4,
-        "name": "ROYAL ANTWERP FC",
-        "transferBudget": 20800000
-    },
-    "525": {
-        "leagueID": 4,
-        "name": "ROYAL CHARLEROI S.C.",
-        "transferBudget": 6500000
-    },
-    "526": {
-        "leagueID": 4,
-        "name": "ROYALE UNION SAINT-GILLOISE",
-        "transferBudget": 2000000
-    },
-    "527": {
-        "leagueID": 4,
-        "name": "RSC ANDERLECHT",
-        "transferBudget": 14300000
-    },
-    "528": {
-        "leagueID": 3,
-        "name": "RZ PELLETS WOLFSBERGER AC",
-        "transferBudget": 4400000
-    },
-    "529": {
-        "leagueID": 31,
-        "name": "SAGAN TOSU",
-        "transferBudget": 4090000
-    },
-    "53": {
-        "leagueID": 1,
-        "name": "ARGENTINOS JUNIORS",
-        "transferBudget": 2800000
-    },
-    "530": {
-        "leagueID": 16,
-        "name": "SALFORD CITY",
-        "transferBudget": 1500000
-    },
-    "531": {
-        "leagueID": 52,
-        "name": "SAN JOSE EARTHQUAKES",
-        "transferBudget": 23600000
-    },
-    "532": {
-        "leagueID": 1,
-        "name": "SAN LORENZO DE ALMAGRO",
-        "transferBudget": 9000000
-    },
-    "533": {
-        "leagueID": 35,
-        "name": "SANDEFJORD FOTBALL",
-        "transferBudget": 1100000
-    },
-    "534": {
-        "leagueID": 31,
-        "name": "SANFRECCE HIROSHIMA",
-        "transferBudget": 8000000
-    },
-    "535": {
-        "leagueID": 39,
-        "name": "SANTA CLARA",
-        "transferBudget": 2300000
-    },
-    "536": {
-        "leagueID": 34,
-        "name": "SANTOS LAGUNA",
-        "transferBudget": 8600000
-    },
-    "537": {
-        "leagueID": 5,
-        "name": "SANTOS",
-        "transferBudget": 8600000
-    },
-    "538": {
-        "leagueID": 35,
-        "name": "SARPSBORG 08 FF",
-        "transferBudget": 2200000
-    },
-    "539": {
-        "leagueID": 21,
-        "name": "SC BASTIA",
-        "transferBudget": 2100000
-    },
-    "54": {
-        "leagueID": 1,
-        "name": "ARSENAL DE SARANDI",
-        "transferBudget": 2100000
-    },
-    "540": {
-        "leagueID": 39,
-        "name": "SC BRAGA",
-        "transferBudget": 14000000
-    },
-    "541": {
-        "leagueID": 26,
-        "name": "SC CAMBUUR",
+    "499": {
+        "leagueID": 38,
+        "name": "FC Pacos de Ferreira",
         "transferBudget": 3300000
     },
-    "542": {
-        "leagueID": 28,
-        "name": "SC EAST BENGAL FC",
+    "5": {
+        "leagueID": 1,
+        "name": "Brentford",
+        "transferBudget": 18000000
+    },
+    "50": {
+        "leagueID": 3,
+        "name": "FC Bayern Munchen",
+        "transferBudget": 100000000
+    },
+    "500": {
+        "leagueID": 38,
+        "name": "FC Porto",
+        "transferBudget": 20000000
+    },
+    "501": {
+        "leagueID": 38,
+        "name": "FC Vizela",
+        "transferBudget": 1600000
+    },
+    "502": {
+        "leagueID": 38,
+        "name": "Futebol Clube de Famalicao",
+        "transferBudget": 4400000
+    },
+    "503": {
+        "leagueID": 38,
+        "name": "GD Chaves",
+        "transferBudget": 5000000
+    },
+    "504": {
+        "leagueID": 38,
+        "name": "Gil Vicente FC",
+        "transferBudget": 2900000
+    },
+    "505": {
+        "leagueID": 38,
+        "name": "Portimonense SC",
+        "transferBudget": 3300000
+    },
+    "506": {
+        "leagueID": 38,
+        "name": "Rio Ave FC",
+        "transferBudget": 5000000
+    },
+    "507": {
+        "leagueID": 38,
+        "name": "SC Braga",
+        "transferBudget": 14000000
+    },
+    "508": {
+        "leagueID": 38,
+        "name": "SL Benfica",
+        "transferBudget": 29300000
+    },
+    "509": {
+        "leagueID": 38,
+        "name": "Santa Clara",
+        "transferBudget": 2300000
+    },
+    "51": {
+        "leagueID": 3,
+        "name": "FC Schalke 04",
+        "transferBudget": 20000000
+    },
+    "510": {
+        "leagueID": 38,
+        "name": "Sporting CP",
+        "transferBudget": 21600000
+    },
+    "511": {
+        "leagueID": 38,
+        "name": "Vitoria de Guimaraes",
+        "transferBudget": 5900000
+    },
+    "512": {
+        "leagueID": 39,
+        "name": "Bohemian FC",
+        "transferBudget": 530000
+    },
+    "513": {
+        "leagueID": 39,
+        "name": "Derry City",
+        "transferBudget": 510000
+    },
+    "514": {
+        "leagueID": 39,
+        "name": "Drogheda United",
+        "transferBudget": 505000
+    },
+    "515": {
+        "leagueID": 39,
+        "name": "Dundalk FC",
+        "transferBudget": 700000
+    },
+    "516": {
+        "leagueID": 39,
+        "name": "Finn Harps",
+        "transferBudget": 500000
+    },
+    "517": {
+        "leagueID": 39,
+        "name": "Shamrock Rovers",
+        "transferBudget": 750000
+    },
+    "518": {
+        "leagueID": 39,
+        "name": "Shelbourne FC",
+        "transferBudget": 5000000
+    },
+    "519": {
+        "leagueID": 39,
+        "name": "Sligo Rovers",
+        "transferBudget": 515000
+    },
+    "52": {
+        "leagueID": 3,
+        "name": "Hertha BSC",
+        "transferBudget": 60000000
+    },
+    "520": {
+        "leagueID": 39,
+        "name": "St. Patrick's Athletic",
+        "transferBudget": 525000
+    },
+    "521": {
+        "leagueID": 39,
+        "name": "UCD AFC",
+        "transferBudget": 5000000
+    },
+    "522": {
+        "leagueID": 40,
+        "name": "AFC Chindia Targoviste",
+        "transferBudget": 1300000
+    },
+    "523": {
+        "leagueID": 40,
+        "name": "AFC Hermannstadt",
+        "transferBudget": 5000000
+    },
+    "524": {
+        "leagueID": 40,
+        "name": "AFC UTA Arad",
+        "transferBudget": 1600000
+    },
+    "525": {
+        "leagueID": 40,
+        "name": "CFR Cluj",
+        "transferBudget": 3300000
+    },
+    "526": {
+        "leagueID": 40,
+        "name": "CS Mioveni",
+        "transferBudget": 1300000
+    },
+    "527": {
+        "leagueID": 40,
+        "name": "Campionii FC Arges",
+        "transferBudget": 1500000
+    },
+    "528": {
+        "leagueID": 40,
+        "name": "FC Botosani",
         "transferBudget": 2000000
     },
+    "529": {
+        "leagueID": 40,
+        "name": "FC Farul Constanta",
+        "transferBudget": 2700000
+    },
+    "53": {
+        "leagueID": 3,
+        "name": "RB Leipzig",
+        "transferBudget": 50000000
+    },
+    "530": {
+        "leagueID": 40,
+        "name": "FC U Craiova 1948",
+        "transferBudget": 1900000
+    },
+    "531": {
+        "leagueID": 40,
+        "name": "FC Voluntari",
+        "transferBudget": 1300000
+    },
+    "532": {
+        "leagueID": 40,
+        "name": "FCSB (Steaua)",
+        "transferBudget": 5400000
+    },
+    "533": {
+        "leagueID": 40,
+        "name": "Petrolul Ploiesti",
+        "transferBudget": 5000000
+    },
+    "534": {
+        "leagueID": 40,
+        "name": "Rapid Bucuresti",
+        "transferBudget": 1800000
+    },
+    "535": {
+        "leagueID": 40,
+        "name": "Sepsi OSK Sf. Gheorghe",
+        "transferBudget": 2400000
+    },
+    "536": {
+        "leagueID": 40,
+        "name": "Universitatea Cluj",
+        "transferBudget": 5000000
+    },
+    "537": {
+        "leagueID": 40,
+        "name": "Universitatea Craiova",
+        "transferBudget": 2900000
+    },
+    "538": {
+        "leagueID": 41,
+        "name": "Abha Club",
+        "transferBudget": 1700000
+    },
+    "539": {
+        "leagueID": 41,
+        "name": "Al Adalah",
+        "transferBudget": 5000000
+    },
+    "54": {
+        "leagueID": 3,
+        "name": "SV Werder Bremen",
+        "transferBudget": 10000000
+    },
+    "540": {
+        "leagueID": 41,
+        "name": "Al Batin",
+        "transferBudget": 1300000
+    },
+    "541": {
+        "leagueID": 41,
+        "name": "Al Fateh",
+        "transferBudget": 3100000
+    },
+    "542": {
+        "leagueID": 41,
+        "name": "Al Fayha",
+        "transferBudget": 2500000
+    },
     "543": {
-        "leagueID": 24,
-        "name": "SC FREIBURG II",
-        "transferBudget": 2600000
+        "leagueID": 41,
+        "name": "Al Hilal",
+        "transferBudget": 23600000
     },
     "544": {
-        "leagueID": 26,
-        "name": "SC HEERENVEEN",
-        "transferBudget": 6400000
+        "leagueID": 41,
+        "name": "Al Ittihad",
+        "transferBudget": 15000000
     },
     "545": {
-        "leagueID": 23,
-        "name": "SC PADERBORN 07",
+        "leagueID": 41,
+        "name": "Al Khaleej",
         "transferBudget": 5000000
     },
     "546": {
-        "leagueID": 3,
-        "name": "SC RHEINDORF ALTACH",
-        "transferBudget": 2900000
+        "leagueID": 41,
+        "name": "Al Nassr",
+        "transferBudget": 24000000
     },
     "547": {
-        "leagueID": 16,
-        "name": "SCUNTHORPE UNITED",
-        "transferBudget": 1000000
+        "leagueID": 41,
+        "name": "Al Raed",
+        "transferBudget": 2700000
     },
     "548": {
-        "leagueID": 47,
-        "name": "SD AMOREBIETA",
-        "transferBudget": 1500000
+        "leagueID": 41,
+        "name": "Al Shabab",
+        "transferBudget": 10700000
     },
     "549": {
-        "leagueID": 47,
-        "name": "SD EIBAR",
-        "transferBudget": 6500000
+        "leagueID": 41,
+        "name": "Al Taawoun",
+        "transferBudget": 4300000
     },
     "55": {
-        "leagueID": 18,
-        "name": "ARSENAL",
-        "transferBudget": 2100000
-    },
-    "550": {
-        "leagueID": 47,
-        "name": "SD HUESCA",
-        "transferBudget": 2100000
-    },
-    "551": {
-        "leagueID": 47,
-        "name": "SD PONFERRADINA",
-        "transferBudget": 2000000
-    },
-    "552": {
-        "leagueID": 52,
-        "name": "SEATTLE SOUNDERS FC",
-        "transferBudget": 32500000
-    },
-    "553": {
-        "leagueID": 32,
-        "name": "SEONGNAM FC",
-        "transferBudget": 2800000
-    },
-    "554": {
-        "leagueID": 41,
-        "name": "SEPSI OSK SF. GHEORGHE",
-        "transferBudget": 2400000
-    },
-    "555": {
-        "leagueID": 4,
-        "name": "SERAING",
-        "transferBudget": 1900000
-    },
-    "556": {
-        "leagueID": 49,
-        "name": "SERVETTE FC",
-        "transferBudget": 3800000
-    },
-    "557": {
-        "leagueID": 46,
-        "name": "SEVILLA FC",
-        "transferBudget": 34500000
-    },
-    "558": {
-        "leagueID": 23,
-        "name": "SG DYNAMO DRESDEN",
-        "transferBudget": 2000000
-    },
-    "559": {
-        "leagueID": 53,
-        "name": "SHAKHTAR DONETSK",
-        "transferBudget": 16800000
-    },
-    "56": {
-        "leagueID": 20,
-        "name": "AS MONACO",
-        "transferBudget": 26100000
-    },
-    "560": {
-        "leagueID": 40,
-        "name": "SHAMROCK ROVERS",
-        "transferBudget": 750000
-    },
-    "561": {
-        "leagueID": 7,
-        "name": "SHANDONG TAISHAN",
-        "transferBudget": 8000000
-    },
-    "562": {
-        "leagueID": 7,
-        "name": "SHANGHAI PORT FC",
-        "transferBudget": 15600000
-    },
-    "563": {
-        "leagueID": 7,
-        "name": "SHANGHAI SHENHUA FC",
-        "transferBudget": 5000000
-    },
-    "564": {
-        "leagueID": 14,
-        "name": "SHEFFIELD UNITED",
-        "transferBudget": 13300000
-    },
-    "565": {
-        "leagueID": 15,
-        "name": "SHEFFIELD WEDNESDAY",
-        "transferBudget": 5000000
-    },
-    "566": {
-        "leagueID": 7,
-        "name": "SHENZHEN FC",
-        "transferBudget": 5100000
-    },
-    "567": {
-        "leagueID": 7,
-        "name": "SHIJIAZHUANG EVER BRIGHT F.C.",
-        "transferBudget": 2300000
-    },
-    "568": {
-        "leagueID": 31,
-        "name": "SHIMIZU S-PULSE",
-        "transferBudget": 4200000
-    },
-    "569": {
-        "leagueID": 31,
-        "name": "SHONAN BELLMARE",
-        "transferBudget": 3900000
-    },
-    "57": {
-        "leagueID": 21,
-        "name": "AS NANCY LORRAINE",
-        "transferBudget": 3800000
-    },
-    "570": {
-        "leagueID": 15,
-        "name": "SHREWSBURY TOWN",
-        "transferBudget": 750000
-    },
-    "571": {
-        "leagueID": 12,
-        "name": "SILKEBORG IF",
-        "transferBudget": 1700000
-    },
-    "572": {
-        "leagueID": 4,
-        "name": "SINT-TRUIDENSE VV",
-        "transferBudget": 4800000
-    },
-    "573": {
         "leagueID": 3,
-        "name": "SK AUSTRIA KLAGENFURT",
-        "transferBudget": 2600000
-    },
-    "574": {
-        "leagueID": 35,
-        "name": "SK BRANN",
-        "transferBudget": 3700000
-    },
-    "575": {
-        "leagueID": 3,
-        "name": "SK RAPID WIEN",
-        "transferBudget": 5200000
-    },
-    "576": {
-        "leagueID": 11,
-        "name": "SK SLAVIA PRAHA",
-        "transferBudget": 9600000
-    },
-    "577": {
-        "leagueID": 3,
-        "name": "SK STURM GRAZ",
-        "transferBudget": 5200000
-    },
-    "578": {
-        "leagueID": 39,
-        "name": "SL BENFICA",
-        "transferBudget": 29300000
-    },
-    "579": {
-        "leagueID": 40,
-        "name": "SLIGO ROVERS",
-        "transferBudget": 515000
-    },
-    "58": {
-        "leagueID": 20,
-        "name": "AS SAINT-ETIENNE",
-        "transferBudget": 12100000
-    },
-    "580": {
-        "leagueID": 13,
-        "name": "SOCIEDAD DEPORTIVA AUCAS",
-        "transferBudget": 1600000
-    },
-    "581": {
-        "leagueID": 18,
-        "name": "SOUTHAMPTON",
-        "transferBudget": 32500000
-    },
-    "582": {
-        "leagueID": 26,
-        "name": "SPARTA ROTTERDAM",
-        "transferBudget": 6000000
-    },
-    "583": {
-        "leagueID": 42,
-        "name": "SPARTAK MOSKVA",
-        "transferBudget": 20000000
-    },
-    "584": {
-        "leagueID": 29,
-        "name": "SPEZIA",
-        "transferBudget": 2800000
-    },
-    "585": {
-        "leagueID": 5,
-        "name": "SPORT CLUB CORINTHIANS PAULISTA",
-        "transferBudget": 16900000
-    },
-    "586": {
-        "leagueID": 37,
-        "name": "SPORT HUANCAYO",
-        "transferBudget": 2200000
-    },
-    "587": {
-        "leagueID": 22,
-        "name": "SPORT-CLUB FREIBURG",
+        "name": "Sport-Club Freiburg",
         "transferBudget": 10500000
     },
-    "588": {
-        "leagueID": 24,
-        "name": "SPORTCLUB VERL",
-        "transferBudget": 1000000
+    "550": {
+        "leagueID": 41,
+        "name": "Al Tai",
+        "transferBudget": 1800000
     },
-    "589": {
-        "leagueID": 39,
-        "name": "SPORTING CP",
-        "transferBudget": 21600000
+    "551": {
+        "leagueID": 41,
+        "name": "Al Wehda",
+        "transferBudget": 5000000
     },
-    "59": {
-        "leagueID": 5,
-        "name": "ASSOCIACAO CHAPECOENSE DE FUTEBOL",
-        "transferBudget": 3300000
+    "552": {
+        "leagueID": 41,
+        "name": "Damac FC",
+        "transferBudget": 2600000
     },
-    "590": {
-        "leagueID": 52,
-        "name": "SPORTING KANSAS CITY",
-        "transferBudget": 27200000
+    "553": {
+        "leagueID": 41,
+        "name": "Ettifaq FC",
+        "transferBudget": 3400000
     },
-    "591": {
-        "leagueID": 22,
-        "name": "SPVGG GREUTHER FURTH",
-        "transferBudget": 1900000
+    "554": {
+        "leagueID": 42,
+        "name": "Aberdeen",
+        "transferBudget": 2300000
     },
-    "592": {
-        "leagueID": 23,
-        "name": "SSV JAHN REGENSBURG",
-        "transferBudget": 1000000
+    "555": {
+        "leagueID": 42,
+        "name": "Celtic",
+        "transferBudget": 14600000
     },
-    "593": {
-        "leagueID": 44,
-        "name": "ST. JOHNSTONE FC",
-        "transferBudget": 700000
+    "556": {
+        "leagueID": 42,
+        "name": "Dundee United",
+        "transferBudget": 800000
     },
-    "594": {
-        "leagueID": 44,
-        "name": "ST. MIRREN",
-        "transferBudget": 750000
+    "557": {
+        "leagueID": 42,
+        "name": "Heart of Midlothian",
+        "transferBudget": 2300000
     },
-    "595": {
-        "leagueID": 40,
-        "name": "ST. PATRICK'S ATHLETIC",
-        "transferBudget": 525000
-    },
-    "596": {
-        "leagueID": 35,
-        "name": "STABAEK FOTBALL",
-        "transferBudget": 1700000
-    },
-    "597": {
-        "leagueID": 20,
-        "name": "STADE BRESTOIS 29",
-        "transferBudget": 6300000
-    },
-    "598": {
-        "leagueID": 20,
-        "name": "STADE DE REIMS",
-        "transferBudget": 8800000
-    },
-    "599": {
-        "leagueID": 21,
-        "name": "STADE MALHERBE CAEN",
-        "transferBudget": 3300000
-    },
-    "6": {
-        "leagueID": 24,
-        "name": "1. FC SAARBRUCKEN",
-        "transferBudget": 1200000
-    },
-    "60": {
-        "leagueID": 18,
-        "name": "ASTON VILLA",
-        "transferBudget": 37500000
-    },
-    "600": {
-        "leagueID": 20,
-        "name": "STADE RENNAIS FC",
-        "transferBudget": 14000000
-    },
-    "601": {
-        "leagueID": 4,
-        "name": "STANDARD DE LIEGE",
-        "transferBudget": 12700000
-    },
-    "602": {
-        "leagueID": 16,
-        "name": "STEVENAGE",
-        "transferBudget": 750000
-    },
-    "603": {
-        "leagueID": 14,
-        "name": "STOKE CITY",
-        "transferBudget": 5800000
-    },
-    "604": {
-        "leagueID": 35,
-        "name": "STROMSGODSET IF",
-        "transferBudget": 2500000
-    },
-    "605": {
-        "leagueID": 15,
-        "name": "SUNDERLAND",
-        "transferBudget": 5400000
-    },
-    "606": {
-        "leagueID": 16,
-        "name": "SUTTON UNITED",
-        "transferBudget": 1300000
-    },
-    "607": {
-        "leagueID": 32,
-        "name": "SUWON FC",
-        "transferBudget": 2100000
-    },
-    "608": {
-        "leagueID": 32,
-        "name": "SUWON SAMSUNG BLUEWINGS",
+    "558": {
+        "leagueID": 42,
+        "name": "Hibernian",
         "transferBudget": 3000000
     },
-    "609": {
-        "leagueID": 23,
-        "name": "SV DARMSTADT 98",
-        "transferBudget": 3300000
+    "559": {
+        "leagueID": 42,
+        "name": "Kilmarnock",
+        "transferBudget": 5000000
     },
-    "61": {
-        "leagueID": 50,
-        "name": "ATAKAS HATAYSPOR",
-        "transferBudget": 3300000
-    },
-    "610": {
-        "leagueID": 24,
-        "name": "SV MEPPEN",
-        "transferBudget": 520000
-    },
-    "611": {
+    "56": {
         "leagueID": 3,
-        "name": "SV RIED",
-        "transferBudget": 3300000
+        "name": "TSG Hoffenheim",
+        "transferBudget": 28000000
     },
-    "612": {
-        "leagueID": 23,
-        "name": "SV SANDHAUSEN",
-        "transferBudget": 1500000
+    "560": {
+        "leagueID": 42,
+        "name": "Livingston FC",
+        "transferBudget": 650000
     },
-    "613": {
-        "leagueID": 24,
-        "name": "SV WALDHOF MANNHEIM 07",
-        "transferBudget": 500000
+    "561": {
+        "leagueID": 42,
+        "name": "Motherwell",
+        "transferBudget": 900000
     },
-    "614": {
-        "leagueID": 24,
-        "name": "SV WEHEN WIESBADEN",
-        "transferBudget": 1700000
+    "562": {
+        "leagueID": 42,
+        "name": "Rangers FC",
+        "transferBudget": 8300000
     },
-    "615": {
-        "leagueID": 23,
-        "name": "SV WERDER BREMEN",
-        "transferBudget": 10000000
+    "563": {
+        "leagueID": 42,
+        "name": "Ross County FC",
+        "transferBudget": 600000
     },
-    "616": {
-        "leagueID": 4,
-        "name": "SV ZULTE WAREGEM",
-        "transferBudget": 6000000
+    "564": {
+        "leagueID": 42,
+        "name": "St. Johnstone FC",
+        "transferBudget": 700000
     },
-    "617": {
-        "leagueID": 14,
-        "name": "SWANSEA CITY",
-        "transferBudget": 10200000
-    },
-    "618": {
-        "leagueID": 16,
-        "name": "SWINDON TOWN",
+    "565": {
+        "leagueID": 42,
+        "name": "St. Mirren",
         "transferBudget": 750000
     },
-    "619": {
-        "leagueID": 2,
-        "name": "SYDNEY FC",
+    "566": {
+        "leagueID": 43,
+        "name": "Kaizer Chiefs",
+        "transferBudget": 2200000
+    },
+    "567": {
+        "leagueID": 43,
+        "name": "Mamelodi Sundowns FC",
+        "transferBudget": 5000000
+    },
+    "568": {
+        "leagueID": 43,
+        "name": "Orlando Pirates",
+        "transferBudget": 2600000
+    },
+    "569": {
+        "leagueID": 44,
+        "name": "Albacete BP",
+        "transferBudget": 5000000
+    },
+    "57": {
+        "leagueID": 3,
+        "name": "VfB Stuttgart",
+        "transferBudget": 20000000
+    },
+    "570": {
+        "leagueID": 44,
+        "name": "Burgos CF",
+        "transferBudget": 1500000
+    },
+    "571": {
+        "leagueID": 44,
+        "name": "CD Leganes",
+        "transferBudget": 4200000
+    },
+    "572": {
+        "leagueID": 44,
+        "name": "CD Lugo",
+        "transferBudget": 1600000
+    },
+    "573": {
+        "leagueID": 44,
+        "name": "CD Mirandes",
+        "transferBudget": 1500000
+    },
+    "574": {
+        "leagueID": 44,
+        "name": "CD Tenerife",
         "transferBudget": 2000000
     },
+    "575": {
+        "leagueID": 44,
+        "name": "Deportivo Alaves",
+        "transferBudget": 4400000
+    },
+    "576": {
+        "leagueID": 44,
+        "name": "FC Andorra",
+        "transferBudget": 5000000
+    },
+    "577": {
+        "leagueID": 44,
+        "name": "FC Cartagena",
+        "transferBudget": 1800000
+    },
+    "578": {
+        "leagueID": 44,
+        "name": "Granada CF",
+        "transferBudget": 7600000
+    },
+    "579": {
+        "leagueID": 44,
+        "name": "Levante Union Deportiva",
+        "transferBudget": 9300000
+    },
+    "58": {
+        "leagueID": 3,
+        "name": "VfL Bochum 1848",
+        "transferBudget": 3300000
+    },
+    "580": {
+        "leagueID": 44,
+        "name": "Malaga CF",
+        "transferBudget": 9900000
+    },
+    "581": {
+        "leagueID": 44,
+        "name": "Racing Santander",
+        "transferBudget": 5000000
+    },
+    "582": {
+        "leagueID": 44,
+        "name": "Real Oviedo",
+        "transferBudget": 2000000
+    },
+    "583": {
+        "leagueID": 44,
+        "name": "Real Sporting de Gijon",
+        "transferBudget": 4800000
+    },
+    "584": {
+        "leagueID": 44,
+        "name": "Real Zaragoza",
+        "transferBudget": 2700000
+    },
+    "585": {
+        "leagueID": 44,
+        "name": "SD Eibar",
+        "transferBudget": 6500000
+    },
+    "586": {
+        "leagueID": 44,
+        "name": "SD Huesca",
+        "transferBudget": 2100000
+    },
+    "587": {
+        "leagueID": 44,
+        "name": "SD Ponferradina",
+        "transferBudget": 2000000
+    },
+    "588": {
+        "leagueID": 44,
+        "name": "UD Ibiza",
+        "transferBudget": 1500000
+    },
+    "589": {
+        "leagueID": 44,
+        "name": "Union Deportiva Las Palmas",
+        "transferBudget": 6600000
+    },
+    "59": {
+        "leagueID": 3,
+        "name": "VfL Wolfsburg",
+        "transferBudget": 40000000
+    },
+    "590": {
+        "leagueID": 44,
+        "name": "Villarreal Club de Futbol B",
+        "transferBudget": 5000000
+    },
+    "591": {
+        "leagueID": 45,
+        "name": "AIK",
+        "transferBudget": 4400000
+    },
+    "592": {
+        "leagueID": 45,
+        "name": "BK Hacken",
+        "transferBudget": 3700000
+    },
+    "593": {
+        "leagueID": 45,
+        "name": "Degerfors IF",
+        "transferBudget": 1200000
+    },
+    "594": {
+        "leagueID": 45,
+        "name": "Djurgardens IF",
+        "transferBudget": 4400000
+    },
+    "595": {
+        "leagueID": 45,
+        "name": "GIF Sundsvall",
+        "transferBudget": 5000000
+    },
+    "596": {
+        "leagueID": 45,
+        "name": "Hammarby IF",
+        "transferBudget": 4300000
+    },
+    "597": {
+        "leagueID": 45,
+        "name": "Helsingborgs IF",
+        "transferBudget": 5000000
+    },
+    "598": {
+        "leagueID": 45,
+        "name": "IF Elfsborg",
+        "transferBudget": 2900000
+    },
+    "599": {
+        "leagueID": 45,
+        "name": "IFK Goteborg",
+        "transferBudget": 2400000
+    },
+    "6": {
+        "leagueID": 1,
+        "name": "Brighton & Hove Albion",
+        "transferBudget": 28000000
+    },
+    "60": {
+        "leagueID": 4,
+        "name": "AC Milan",
+        "transferBudget": 37000000
+    },
+    "600": {
+        "leagueID": 45,
+        "name": "IFK Norrkoping",
+        "transferBudget": 4700000
+    },
+    "601": {
+        "leagueID": 45,
+        "name": "IFK Varnamo",
+        "transferBudget": 5000000
+    },
+    "602": {
+        "leagueID": 45,
+        "name": "IK Sirius",
+        "transferBudget": 600000
+    },
+    "603": {
+        "leagueID": 45,
+        "name": "Kalmar FF",
+        "transferBudget": 1600000
+    },
+    "604": {
+        "leagueID": 45,
+        "name": "Malmo FF",
+        "transferBudget": 8100000
+    },
+    "605": {
+        "leagueID": 45,
+        "name": "Mjallby AIF",
+        "transferBudget": 850000
+    },
+    "606": {
+        "leagueID": 45,
+        "name": "Varbergs BoIS FC",
+        "transferBudget": 650000
+    },
+    "607": {
+        "leagueID": 46,
+        "name": "BSC Young Boys",
+        "transferBudget": 8600000
+    },
+    "608": {
+        "leagueID": 46,
+        "name": "FC Basel 1893",
+        "transferBudget": 8400000
+    },
+    "609": {
+        "leagueID": 46,
+        "name": "FC Lugano",
+        "transferBudget": 2600000
+    },
+    "61": {
+        "leagueID": 4,
+        "name": "AC Monza",
+        "transferBudget": 6700000
+    },
+    "610": {
+        "leagueID": 46,
+        "name": "FC Luzern",
+        "transferBudget": 3600000
+    },
+    "611": {
+        "leagueID": 46,
+        "name": "FC Sion",
+        "transferBudget": 5900000
+    },
+    "612": {
+        "leagueID": 46,
+        "name": "FC St. Gallen 1879",
+        "transferBudget": 3200000
+    },
+    "613": {
+        "leagueID": 46,
+        "name": "FC Winterthur",
+        "transferBudget": 5000000
+    },
+    "614": {
+        "leagueID": 46,
+        "name": "FC Zurich",
+        "transferBudget": 4000000
+    },
+    "615": {
+        "leagueID": 46,
+        "name": "Grasshopper Club Zurich",
+        "transferBudget": 5200000
+    },
+    "616": {
+        "leagueID": 46,
+        "name": "Servette FC",
+        "transferBudget": 3800000
+    },
+    "617": {
+        "leagueID": 47,
+        "name": "Adana Demirspor",
+        "transferBudget": 4500000
+    },
+    "618": {
+        "leagueID": 47,
+        "name": "Antalyaspor",
+        "transferBudget": 5300000
+    },
+    "619": {
+        "leagueID": 47,
+        "name": "Atakas Hatayspor",
+        "transferBudget": 3300000
+    },
     "62": {
-        "leagueID": 29,
-        "name": "ATALANTA",
+        "leagueID": 4,
+        "name": "Atalanta",
         "transferBudget": 20000000
     },
     "620": {
-        "leagueID": 5,
-        "name": "SAO PAULO",
-        "transferBudget": 11200000
+        "leagueID": 47,
+        "name": "Aytemiz Alanyaspor",
+        "transferBudget": 5700000
     },
     "621": {
-        "leagueID": 12,
-        "name": "SONDERJYSKE",
-        "transferBudget": 2000000
-    },
-    "622": {
-        "leagueID": 7,
-        "name": "TIANJIN JINMEN TIGER FC",
-        "transferBudget": 2300000
-    },
-    "623": {
-        "leagueID": 34,
-        "name": "TIGRES U.A.N.L.",
-        "transferBudget": 22200000
-    },
-    "624": {
-        "leagueID": 31,
-        "name": "TOKUSHIMA VORTIS",
-        "transferBudget": 2900000
-    },
-    "625": {
-        "leagueID": 29,
-        "name": "TORINO F.C.",
+        "leagueID": 47,
+        "name": "Besiktas JK",
         "transferBudget": 15500000
     },
+    "622": {
+        "leagueID": 47,
+        "name": "Demir Grup Sivasspor",
+        "transferBudget": 5800000
+    },
+    "623": {
+        "leagueID": 47,
+        "name": "Fatih Karagumruk S.K.",
+        "transferBudget": 5200000
+    },
+    "624": {
+        "leagueID": 47,
+        "name": "Fenerbahce SK",
+        "transferBudget": 14000000
+    },
+    "625": {
+        "leagueID": 47,
+        "name": "GZT Giresunspor",
+        "transferBudget": 2400000
+    },
     "626": {
-        "leagueID": 52,
-        "name": "TORONTO FC",
-        "transferBudget": 31900000
+        "leagueID": 47,
+        "name": "Galatasaray SK",
+        "transferBudget": 16200000
     },
     "627": {
-        "leagueID": 18,
-        "name": "TOTTENHAM HOTSPUR",
-        "transferBudget": 72500000
+        "leagueID": 47,
+        "name": "Gazisehir Gaziantep F.K.",
+        "transferBudget": 3500000
     },
     "628": {
-        "leagueID": 21,
-        "name": "TOULOUSE FOOTBALL CLUB",
-        "transferBudget": 6700000
+        "leagueID": 47,
+        "name": "Kasimpasa SK",
+        "transferBudget": 4000000
     },
     "629": {
-        "leagueID": 50,
-        "name": "TRABZONSPOR",
-        "transferBudget": 12700000
+        "leagueID": 47,
+        "name": "MKE Ankaragucu",
+        "transferBudget": 5000000
     },
     "63": {
-        "leagueID": 46,
-        "name": "ATHLETIC CLUB DE BILBAO",
-        "transferBudget": 18500000
+        "leagueID": 4,
+        "name": "Bologna",
+        "transferBudget": 15000000
     },
     "630": {
-        "leagueID": 16,
-        "name": "TRANMERE ROVERS",
-        "transferBudget": 750000
+        "leagueID": 47,
+        "name": "Trabzonspor",
+        "transferBudget": 12700000
     },
     "631": {
-        "leagueID": 35,
-        "name": "TROMSO IL",
+        "leagueID": 47,
+        "name": "Yukatel Kayserispor",
         "transferBudget": 1800000
     },
     "632": {
-        "leagueID": 22,
-        "name": "TSG HOFFENHEIM",
-        "transferBudget": 28000000
-    },
-    "633": {
-        "leagueID": 24,
-        "name": "TSV 1860 MUNCHEN",
-        "transferBudget": 1000000
-    },
-    "634": {
-        "leagueID": 3,
-        "name": "TSV EGGER GLAS HARTBERG",
-        "transferBudget": 2500000
-    },
-    "635": {
-        "leagueID": 24,
-        "name": "TSV HAVELSE",
-        "transferBudget": 1900000
-    },
-    "636": {
-        "leagueID": 24,
-        "name": "TURKGUCU MUNCHEN",
-        "transferBudget": 1000000
-    },
-    "637": {
-        "leagueID": 29,
-        "name": "U.C. SAMPDORIA",
-        "transferBudget": 12000000
-    },
-    "638": {
-        "leagueID": 29,
-        "name": "U.S. SASSUOLO CALCIO",
-        "transferBudget": 13500000
-    },
-    "639": {
         "leagueID": 47,
-        "name": "UD IBIZA",
-        "transferBudget": 1500000
-    },
-    "64": {
-        "leagueID": 28,
-        "name": "ATK MOHUN BAGAN FC",
-        "transferBudget": 3000000
-    },
-    "640": {
-        "leagueID": 29,
-        "name": "UDINESE CALCIO",
-        "transferBudget": 8000000
-    },
-    "641": {
-        "leagueID": 32,
-        "name": "ULSAN HYUNDAI FC",
-        "transferBudget": 9100000
-    },
-    "642": {
-        "leagueID": 6,
-        "name": "UNIVERSIDAD CATOLICA",
-        "transferBudget": 8500000
-    },
-    "643": {
-        "leagueID": 37,
-        "name": "UNIVERSIDAD TECNICA DE CAJAMARCA",
-        "transferBudget": 2500000
-    },
-    "644": {
-        "leagueID": 41,
-        "name": "UNIVERSITATEA CRAIOVA",
-        "transferBudget": 2900000
-    },
-    "645": {
-        "leagueID": 1,
-        "name": "UNION DE SANTA FE",
-        "transferBudget": 4000000
-    },
-    "646": {
-        "leagueID": 47,
-        "name": "UNION DEPORTIVA ALMERIA",
-        "transferBudget": 10800000
-    },
-    "647": {
-        "leagueID": 47,
-        "name": "UNION DEPORTIVA LAS PALMAS",
-        "transferBudget": 6600000
-    },
-    "648": {
-        "leagueID": 6,
-        "name": "UNION LA CALERA",
-        "transferBudget": 1600000
-    },
-    "649": {
-        "leagueID": 31,
-        "name": "URAWA RED DIAMONDS",
-        "transferBudget": 10200000
-    },
-    "65": {
-        "leagueID": 52,
-        "name": "ATLANTA UNITED",
-        "transferBudget": 38300000
-    },
-    "650": {
-        "leagueID": 21,
-        "name": "US QUEVILLY ROUEN METROPOLE",
-        "transferBudget": 1900000
-    },
-    "651": {
-        "leagueID": 29,
-        "name": "US SALERNITANA 1919",
-        "transferBudget": 4000000
-    },
-    "652": {
-        "leagueID": 21,
-        "name": "USL DUNKERQUE",
-        "transferBudget": 2700000
-    },
-    "653": {
-        "leagueID": 46,
-        "name": "VALENCIA CF",
-        "transferBudget": 60000000
-    },
-    "654": {
-        "leagueID": 52,
-        "name": "VANCOUVER WHITECAPS FC",
-        "transferBudget": 19500000
-    },
-    "655": {
-        "leagueID": 48,
-        "name": "VARBERGS BOIS FC",
-        "transferBudget": 650000
-    },
-    "656": {
-        "leagueID": 31,
-        "name": "VEGALTA SENDAI",
-        "transferBudget": 4300000
-    },
-    "657": {
-        "leagueID": 12,
-        "name": "VEJLE BOLDKLUB",
-        "transferBudget": 1500000
-    },
-    "658": {
-        "leagueID": 29,
-        "name": "VENEZIA FC",
-        "transferBudget": 4000000
-    },
-    "659": {
-        "leagueID": 22,
-        "name": "VFB STUTTGART",
-        "transferBudget": 20000000
-    },
-    "66": {
-        "leagueID": 5,
-        "name": "ATLETICO CLUBE GOIANIENSE",
-        "transferBudget": 810000
-    },
-    "660": {
-        "leagueID": 22,
-        "name": "VFL BOCHUM 1848",
-        "transferBudget": 3300000
-    },
-    "661": {
-        "leagueID": 24,
-        "name": "VFL OSNABRUCK",
-        "transferBudget": 520000
-    },
-    "662": {
-        "leagueID": 22,
-        "name": "VFL WOLFSBURG",
-        "transferBudget": 40000000
-    },
-    "663": {
-        "leagueID": 12,
-        "name": "VIBORG FF",
-        "transferBudget": 1300000
-    },
-    "664": {
-        "leagueID": 35,
-        "name": "VIKING FK",
-        "transferBudget": 2200000
-    },
-    "665": {
-        "leagueID": 24,
-        "name": "VIKTORIA KOLN",
-        "transferBudget": 500000
-    },
-    "666": {
-        "leagueID": 46,
-        "name": "VILLARREAL CF",
-        "transferBudget": 32900000
-    },
-    "667": {
-        "leagueID": 31,
-        "name": "VISSEL KOBE",
-        "transferBudget": 16800000
-    },
-    "668": {
-        "leagueID": 26,
-        "name": "VITESSE",
-        "transferBudget": 16300000
-    },
-    "669": {
-        "leagueID": 39,
-        "name": "VITORIA DE GUIMARAES",
-        "transferBudget": 5900000
-    },
-    "67": {
-        "leagueID": 46,
-        "name": "ATLETICO DE MADRID",
-        "transferBudget": 68600000
-    },
-    "670": {
-        "leagueID": 35,
-        "name": "VALERENGA FOTBALL",
-        "transferBudget": 2700000
-    },
-    "671": {
-        "leagueID": 1,
-        "name": "VELEZ SARSFIELD",
-        "transferBudget": 8000000
-    },
-    "672": {
-        "leagueID": 16,
-        "name": "WALSALL",
-        "transferBudget": 750000
-    },
-    "673": {
-        "leagueID": 38,
-        "name": "WARTA POZNAN",
-        "transferBudget": 1500000
-    },
-    "674": {
-        "leagueID": 40,
-        "name": "WATERFORD FC",
-        "transferBudget": 508000
-    },
-    "675": {
-        "leagueID": 18,
-        "name": "WATFORD",
-        "transferBudget": 30000000
-    },
-    "676": {
-        "leagueID": 2,
-        "name": "WELLINGTON PHOENIX",
-        "transferBudget": 2000000
-    },
-    "677": {
-        "leagueID": 14,
-        "name": "WEST BROMWICH ALBION",
-        "transferBudget": 13700000
-    },
-    "678": {
-        "leagueID": 18,
-        "name": "WEST HAM UNITED",
-        "transferBudget": 35000000
-    },
-    "679": {
-        "leagueID": 2,
-        "name": "WESTERN SYDNEY WANDERERS",
-        "transferBudget": 2000000
-    },
-    "68": {
-        "leagueID": 8,
-        "name": "ATLETICO NACIONAL",
-        "transferBudget": 1500000
-    },
-    "680": {
-        "leagueID": 2,
-        "name": "WESTERN UNITED FC",
-        "transferBudget": 2000000
-    },
-    "681": {
-        "leagueID": 15,
-        "name": "WIGAN ATHLETIC",
-        "transferBudget": 2400000
-    },
-    "682": {
-        "leagueID": 26,
-        "name": "WILLEM II",
+        "name": "Umraniyespor",
         "transferBudget": 5000000
     },
-    "683": {
-        "leagueID": 38,
-        "name": "WISLA KRAKOW",
-        "transferBudget": 1900000
-    },
-    "684": {
-        "leagueID": 38,
-        "name": "WISLA PLOCK",
-        "transferBudget": 1700000
-    },
-    "685": {
-        "leagueID": 18,
-        "name": "WOLVERHAMPTON WANDERERS",
-        "transferBudget": 45000000
-    },
-    "686": {
-        "leagueID": 17,
-        "name": "WREXHAM AFC",
-        "transferBudget": 500000
-    },
-    "687": {
-        "leagueID": 3,
-        "name": "WSG TIROL",
-        "transferBudget": 2900000
-    },
-    "688": {
-        "leagueID": 7,
-        "name": "WUHAN FC",
-        "transferBudget": 4500000
-    },
-    "689": {
-        "leagueID": 15,
-        "name": "WYCOMBE WANDERERS",
-        "transferBudget": 750000
-    },
-    "69": {
-        "leagueID": 1,
-        "name": "ATLETICO TUCUMAN",
-        "transferBudget": 2900000
-    },
-    "690": {
-        "leagueID": 50,
-        "name": "YENI MALATYASPOR",
-        "transferBudget": 4000000
-    },
-    "691": {
-        "leagueID": 31,
-        "name": "YOKOHAMA F. MARINOS",
-        "transferBudget": 10300000
-    },
-    "692": {
-        "leagueID": 31,
-        "name": "YOKOHAMA FC",
-        "transferBudget": 2800000
-    },
-    "693": {
-        "leagueID": 50,
-        "name": "YUKATEL KAYSERISPOR",
-        "transferBudget": 1800000
-    },
-    "694": {
-        "leagueID": 38,
-        "name": "ZAGLEBIE LUBIN",
-        "transferBudget": 2900000
-    },
-    "695": {
-        "leagueID": 50,
-        "name": "CAYKUR RIZESPOR",
-        "transferBudget": 4000000
-    },
-    "696": {
-        "leagueID": 48,
-        "name": "OREBRO SK",
-        "transferBudget": 2000000
-    },
-    "697": {
-        "leagueID": 48,
-        "name": "OSTERSUNDS FK",
-        "transferBudget": 1700000
-    },
-    "698": {
-        "leagueID": 50,
-        "name": "ISTANBUL BASAKSEHIR FK",
+    "633": {
+        "leagueID": 47,
+        "name": "Istanbul Basaksehir FK",
         "transferBudget": 9900000
     },
-    "699": {
-        "leagueID": 50,
-        "name": "ITTIFAK HOLDING KONYASPOR",
+    "634": {
+        "leagueID": 47,
+        "name": "Istanbulspor",
+        "transferBudget": 5000000
+    },
+    "635": {
+        "leagueID": 47,
+        "name": "Ittifak Holding Konyaspor",
         "transferBudget": 4800000
     },
-    "7": {
-        "leagueID": 22,
-        "name": "1. FC UNION BERLIN",
-        "transferBudget": 6500000
+    "636": {
+        "leagueID": 48,
+        "name": "Al Ain FC",
+        "transferBudget": 13900000
     },
-    "70": {
-        "leagueID": 52,
-        "name": "AUSTIN FC",
+    "637": {
+        "leagueID": 49,
+        "name": "Atlanta United",
+        "transferBudget": 38300000
+    },
+    "638": {
+        "leagueID": 49,
+        "name": "Austin FC",
         "transferBudget": 15800000
     },
-    "700": {
-        "leagueID": 38,
-        "name": "SLASK WROCLAW",
-        "transferBudget": 2500000
+    "639": {
+        "leagueID": 49,
+        "name": "Charlotte FC",
+        "transferBudget": 5000000
     },
-    "701": {
-        "leagueID": 21,
-        "name": "VALENCIENNES FC",
-        "transferBudget": 2700000
+    "64": {
+        "leagueID": 4,
+        "name": "Empoli",
+        "transferBudget": 4500000
     },
-    "71": {
-        "leagueID": 31,
-        "name": "AVISPA FUKUOKA",
-        "transferBudget": 2700000
+    "640": {
+        "leagueID": 49,
+        "name": "Chicago Fire Football Club",
+        "transferBudget": 27900000
     },
-    "72": {
-        "leagueID": 50,
-        "name": "AYTEMIZ ALANYASPOR",
-        "transferBudget": 5700000
+    "641": {
+        "leagueID": 49,
+        "name": "Club de Foot Montreal",
+        "transferBudget": 19100000
     },
-    "73": {
-        "leagueID": 26,
-        "name": "AZ ALKMAAR",
-        "transferBudget": 9900000
+    "642": {
+        "leagueID": 49,
+        "name": "Colorado Rapids",
+        "transferBudget": 17600000
     },
-    "74": {
-        "leagueID": 5,
-        "name": "BAHIA",
-        "transferBudget": 3600000
+    "643": {
+        "leagueID": 49,
+        "name": "Columbus Crew",
+        "transferBudget": 18400000
     },
-    "75": {
-        "leagueID": 13,
-        "name": "BARCELONA SPORTING CLUB",
-        "transferBudget": 4900000
+    "644": {
+        "leagueID": 49,
+        "name": "D.C. United",
+        "transferBudget": 27500000
     },
-    "76": {
-        "leagueID": 14,
-        "name": "BARNSLEY",
-        "transferBudget": 5800000
+    "645": {
+        "leagueID": 49,
+        "name": "FC Cincinnati",
+        "transferBudget": 22000000
     },
-    "77": {
-        "leagueID": 16,
-        "name": "BARROW",
-        "transferBudget": 500000
+    "646": {
+        "leagueID": 49,
+        "name": "FC Dallas",
+        "transferBudget": 18200000
     },
-    "78": {
-        "leagueID": 22,
-        "name": "BAYER 04 LEVERKUSEN",
-        "transferBudget": 39000000
+    "647": {
+        "leagueID": 49,
+        "name": "Houston Dynamo",
+        "transferBudget": 23900000
     },
-    "79": {
-        "leagueID": 7,
-        "name": "BEIJING GUOAN FC",
-        "transferBudget": 10000000
+    "648": {
+        "leagueID": 49,
+        "name": "Inter Miami CF",
+        "transferBudget": 30000000
     },
-    "8": {
-        "leagueID": 22,
-        "name": "1. FSV MAINZ 05",
-        "transferBudget": 9200000
+    "649": {
+        "leagueID": 49,
+        "name": "LA Galaxy",
+        "transferBudget": 37100000
     },
-    "80": {
-        "leagueID": 39,
-        "name": "BELENENSES SAD",
-        "transferBudget": 2200000
-    },
-    "81": {
-        "leagueID": 30,
-        "name": "BENEVENTO",
-        "transferBudget": 5600000
-    },
-    "82": {
-        "leagueID": 28,
-        "name": "BENGALURU FC",
-        "transferBudget": 2000000
-    },
-    "83": {
-        "leagueID": 50,
-        "name": "BESIKTAS JK",
-        "transferBudget": 15500000
-    },
-    "84": {
-        "leagueID": 14,
-        "name": "BIRMINGHAM CITY",
-        "transferBudget": 7100000
-    },
-    "85": {
-        "leagueID": 48,
-        "name": "BK HACKEN",
-        "transferBudget": 3700000
-    },
-    "86": {
-        "leagueID": 14,
-        "name": "BLACKBURN ROVERS",
-        "transferBudget": 9200000
-    },
-    "87": {
-        "leagueID": 14,
-        "name": "BLACKPOOL",
-        "transferBudget": 2100000
-    },
-    "88": {
-        "leagueID": 39,
-        "name": "BOAVISTA FC",
-        "transferBudget": 4200000
-    },
-    "89": {
-        "leagueID": 1,
-        "name": "BOCA JUNIORS",
-        "transferBudget": 15000000
-    },
-    "9": {
-        "leagueID": 36,
-        "name": "12 DE OCTUBRE FC",
-        "transferBudget": 1900000
-    },
-    "90": {
-        "leagueID": 40,
-        "name": "BOHEMIAN FC",
-        "transferBudget": 530000
-    },
-    "91": {
-        "leagueID": 29,
-        "name": "BOLOGNA",
-        "transferBudget": 15000000
-    },
-    "92": {
-        "leagueID": 15,
-        "name": "BOLTON WANDERERS",
-        "transferBudget": 500000
-    },
-    "93": {
-        "leagueID": 24,
-        "name": "BORUSSIA DORTMUND II",
-        "transferBudget": 2100000
-    },
-    "94": {
-        "leagueID": 22,
-        "name": "BORUSSIA DORTMUND",
-        "transferBudget": 2100000
-    },
-    "95": {
-        "leagueID": 22,
-        "name": "BORUSSIA MONCHENGLADBACH",
+    "65": {
+        "leagueID": 4,
+        "name": "Fiorentina",
         "transferBudget": 25000000
     },
+    "650": {
+        "leagueID": 49,
+        "name": "Los Angeles FC",
+        "transferBudget": 36800000
+    },
+    "651": {
+        "leagueID": 49,
+        "name": "Minnesota United FC",
+        "transferBudget": 25400000
+    },
+    "652": {
+        "leagueID": 49,
+        "name": "Nashville SC",
+        "transferBudget": 18400000
+    },
+    "653": {
+        "leagueID": 49,
+        "name": "New England Revolution",
+        "transferBudget": 21600000
+    },
+    "654": {
+        "leagueID": 49,
+        "name": "New York City FC",
+        "transferBudget": 31300000
+    },
+    "655": {
+        "leagueID": 49,
+        "name": "New York Red Bulls",
+        "transferBudget": 24700000
+    },
+    "656": {
+        "leagueID": 49,
+        "name": "Orlando City Soccer Club",
+        "transferBudget": 25000000
+    },
+    "657": {
+        "leagueID": 49,
+        "name": "Philadelphia Union",
+        "transferBudget": 21300000
+    },
+    "658": {
+        "leagueID": 49,
+        "name": "Portland Timbers",
+        "transferBudget": 31600000
+    },
+    "659": {
+        "leagueID": 49,
+        "name": "Real Salt Lake",
+        "transferBudget": 20900000
+    },
+    "66": {
+        "leagueID": 4,
+        "name": "Hellas Verona",
+        "transferBudget": 8000000
+    },
+    "660": {
+        "leagueID": 49,
+        "name": "San Jose Earthquakes",
+        "transferBudget": 23600000
+    },
+    "661": {
+        "leagueID": 49,
+        "name": "Seattle Sounders FC",
+        "transferBudget": 32500000
+    },
+    "662": {
+        "leagueID": 49,
+        "name": "Sporting Kansas City",
+        "transferBudget": 27200000
+    },
+    "663": {
+        "leagueID": 49,
+        "name": "Toronto FC",
+        "transferBudget": 31900000
+    },
+    "664": {
+        "leagueID": 49,
+        "name": "Vancouver Whitecaps FC",
+        "transferBudget": 19500000
+    },
+    "665": {
+        "leagueID": 50,
+        "name": "Dynamo Kyiv",
+        "transferBudget": 12800000
+    },
+    "666": {
+        "leagueID": 50,
+        "name": "Shakhtar Donetsk",
+        "transferBudget": 16800000
+    },
+    "667": {
+        "leagueID": 51,
+        "name": "Cerro Largo Futbol Club",
+        "transferBudget": 1600000
+    },
+    "668": {
+        "leagueID": 51,
+        "name": "Club Atletico Penarol",
+        "transferBudget": 4900000
+    },
+    "669": {
+        "leagueID": 51,
+        "name": "Club Atletico River Plate",
+        "transferBudget": 5000000
+    },
+    "67": {
+        "leagueID": 4,
+        "name": "Inter",
+        "transferBudget": 30000000
+    },
+    "670": {
+        "leagueID": 51,
+        "name": "Club Nacional de Football",
+        "transferBudget": 5400000
+    },
+    "671": {
+        "leagueID": 51,
+        "name": "Liverpool Futbol Club",
+        "transferBudget": 5000000
+    },
+    "672": {
+        "leagueID": 51,
+        "name": "Montevideo Wanderers",
+        "transferBudget": 5000000
+    },
+    "673": {
+        "leagueID": 52,
+        "name": "Caracas Futbol Club",
+        "transferBudget": 5000000
+    },
+    "674": {
+        "leagueID": 52,
+        "name": "Deportivo La Guaira FC",
+        "transferBudget": 1200000
+    },
+    "675": {
+        "leagueID": 52,
+        "name": "Deportivo Tachira FC",
+        "transferBudget": 1900000
+    },
+    "676": {
+        "leagueID": 52,
+        "name": "Estudiantes de Merida",
+        "transferBudget": 5000000
+    },
+    "677": {
+        "leagueID": 52,
+        "name": "Hermanos Colmenarez",
+        "transferBudget": 5000000
+    },
+    "678": {
+        "leagueID": 52,
+        "name": "Metropolitanos de Caracas FC",
+        "transferBudget": 1500000
+    },
+    "68": {
+        "leagueID": 4,
+        "name": "Juventus",
+        "transferBudget": 105000000
+    },
+    "69": {
+        "leagueID": 4,
+        "name": "Lazio",
+        "transferBudget": 39600000
+    },
+    "7": {
+        "leagueID": 1,
+        "name": "Chelsea",
+        "transferBudget": 85000000
+    },
+    "70": {
+        "leagueID": 4,
+        "name": "Lecce",
+        "transferBudget": 6000000
+    },
+    "71": {
+        "leagueID": 4,
+        "name": "Napoli",
+        "transferBudget": 56000000
+    },
+    "72": {
+        "leagueID": 4,
+        "name": "Roma",
+        "transferBudget": 46000000
+    },
+    "73": {
+        "leagueID": 4,
+        "name": "Spezia",
+        "transferBudget": 2800000
+    },
+    "74": {
+        "leagueID": 4,
+        "name": "Torino F.C.",
+        "transferBudget": 15500000
+    },
+    "75": {
+        "leagueID": 4,
+        "name": "U.C. Sampdoria",
+        "transferBudget": 12000000
+    },
+    "76": {
+        "leagueID": 4,
+        "name": "U.S. Sassuolo Calcio",
+        "transferBudget": 13500000
+    },
+    "77": {
+        "leagueID": 4,
+        "name": "US Cremonese",
+        "transferBudget": 5000000
+    },
+    "78": {
+        "leagueID": 4,
+        "name": "US Salernitana 1919",
+        "transferBudget": 4000000
+    },
+    "79": {
+        "leagueID": 4,
+        "name": "Udinese Calcio",
+        "transferBudget": 8000000
+    },
+    "8": {
+        "leagueID": 1,
+        "name": "Crystal Palace",
+        "transferBudget": 30000000
+    },
+    "80": {
+        "leagueID": 5,
+        "name": "Athletic Club de Bilbao",
+        "transferBudget": 18500000
+    },
+    "81": {
+        "leagueID": 5,
+        "name": "Atletico de Madrid",
+        "transferBudget": 68600000
+    },
+    "82": {
+        "leagueID": 5,
+        "name": "CA Osasuna",
+        "transferBudget": 4800000
+    },
+    "83": {
+        "leagueID": 5,
+        "name": "Cadiz CF",
+        "transferBudget": 2000000
+    },
+    "84": {
+        "leagueID": 5,
+        "name": "Elche CF",
+        "transferBudget": 1700000
+    },
+    "85": {
+        "leagueID": 5,
+        "name": "FC Barcelona",
+        "transferBudget": 130000000
+    },
+    "86": {
+        "leagueID": 5,
+        "name": "Getafe CF",
+        "transferBudget": 8300000
+    },
+    "87": {
+        "leagueID": 5,
+        "name": "Girona FC",
+        "transferBudget": 4300000
+    },
+    "88": {
+        "leagueID": 5,
+        "name": "RC Celta de Vigo",
+        "transferBudget": 11800000
+    },
+    "89": {
+        "leagueID": 5,
+        "name": "RCD Espanyol de Barcelona",
+        "transferBudget": 6000000
+    },
+    "9": {
+        "leagueID": 1,
+        "name": "Everton",
+        "transferBudget": 49000000
+    },
+    "90": {
+        "leagueID": 5,
+        "name": "RCD Mallorca",
+        "transferBudget": 2800000
+    },
+    "91": {
+        "leagueID": 5,
+        "name": "Rayo Vallecano",
+        "transferBudget": 3300000
+    },
+    "92": {
+        "leagueID": 5,
+        "name": "Real Betis Balompie",
+        "transferBudget": 16100000
+    },
+    "93": {
+        "leagueID": 5,
+        "name": "Real Madrid CF",
+        "transferBudget": 150000000
+    },
+    "94": {
+        "leagueID": 5,
+        "name": "Real Sociedad",
+        "transferBudget": 1500000
+    },
+    "95": {
+        "leagueID": 5,
+        "name": "Real Valladolid CF",
+        "transferBudget": 3100000
+    },
     "96": {
-        "leagueID": 16,
-        "name": "BRADFORD CITY",
-        "transferBudget": 1300000
+        "leagueID": 5,
+        "name": "Sevilla FC",
+        "transferBudget": 34500000
     },
     "97": {
-        "leagueID": 18,
-        "name": "BRENTFORD",
-        "transferBudget": 18000000
+        "leagueID": 5,
+        "name": "Union Deportiva Almeria",
+        "transferBudget": 10800000
     },
     "98": {
-        "leagueID": 18,
-        "name": "BRIGHTON & HOVE ALBION",
-        "transferBudget": 28000000
+        "leagueID": 5,
+        "name": "Valencia CF",
+        "transferBudget": 60000000
     },
     "99": {
-        "leagueID": 2,
-        "name": "BRISBANE ROAR",
-        "transferBudget": 2000000
+        "leagueID": 5,
+        "name": "Villarreal CF",
+        "transferBudget": 32900000
     }
 }

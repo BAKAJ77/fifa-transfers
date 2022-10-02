@@ -1,102 +1,102 @@
 {
     "1": {
-        "position": "GK",
-        "category": 0
+        "category": 0,
+        "position": "GK"
     },
     "10": {
-        "position": "RCM",
-        "category": 2
+        "category": 2,
+        "position": "RCM"
     },
     "11": {
-        "position": "CM",
-        "category": 2
+        "category": 2,
+        "position": "CM"
     },
     "12": {
-        "position": "LDM",
-        "category": 2
+        "category": 2,
+        "position": "LDM"
     },
     "13": {
-        "position": "RDM",
-        "category": 2
+        "category": 2,
+        "position": "RDM"
     },
     "14": {
-        "position": "CDM",
-        "category": 2
+        "category": 2,
+        "position": "CDM"
     },
     "15": {
-        "position": "LAM",
-        "category": 2
+        "category": 2,
+        "position": "LAM"
     },
     "16": {
-        "position": "RAM",
-        "category": 2
+        "category": 2,
+        "position": "RAM"
     },
     "17": {
-        "position": "CAM",
-        "category": 2
+        "category": 2,
+        "position": "CAM"
     },
     "18": {
-        "position": "LM",
-        "category": 2
+        "category": 2,
+        "position": "LM"
     },
     "19": {
-        "position": "RM",
-        "category": 2
+        "category": 2,
+        "position": "RM"
     },
     "2": {
-        "position": "LB",
-        "category": 1
+        "category": 1,
+        "position": "LB"
     },
     "20": {
-        "position": "LW",
-        "category": 3
+        "category": 3,
+        "position": "LW"
     },
     "21": {
-        "position": "RW",
-        "category": 3
+        "category": 3,
+        "position": "RW"
     },
     "22": {
-        "position": "LF",
-        "category": 3
+        "category": 3,
+        "position": "LF"
     },
     "23": {
-        "position": "RF",
-        "category": 3
+        "category": 3,
+        "position": "RF"
     },
     "24": {
-        "position": "CF",
-        "category": 3
+        "category": 3,
+        "position": "CF"
     },
     "25": {
-        "position": "ST",
-        "category": 3
+        "category": 3,
+        "position": "ST"
     },
     "3": {
-        "position": "LWB",
-        "category": 1
+        "category": 1,
+        "position": "LWB"
     },
     "4": {
-        "position": "LCB",
-        "category": 1
+        "category": 1,
+        "position": "LCB"
     },
     "5": {
-        "position": "CB",
-        "category": 1
+        "category": 1,
+        "position": "CB"
     },
     "6": {
-        "position": "RCB",
-        "category": 1
+        "category": 1,
+        "position": "RCB"
     },
     "7": {
-        "position": "RWB",
-        "category": 1
+        "category": 1,
+        "position": "RWB"
     },
     "8": {
-        "position": "RB",
-        "category": 1
+        "category": 1,
+        "position": "RB"
     },
     "9": {
-        "position": "LCM",
-        "category": 2
+        "category": 2,
+        "position": "LCM"
     }
 }
