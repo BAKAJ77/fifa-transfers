@@ -70,7 +70,15 @@ void Club::GenerateObjectives()
     }
 
     const int targetLeaguePosition = (numBetterClubs + 1) + RandomEngine::GetInstance().GenerateRandom<int>(0, numEqualClubs);
-    this->objectives.push_back({ currentLeague->GetID(), (uint16_t)std::min(targetLeaguePosition, currentLeague->GetRelegationThreshold() - 1) });
+
+    if (currentLeague->GetRelegationThreshold() != -1)
+    {
+        this->objectives.push_back({ currentLeague->GetID(), 
+            (uint16_t)std::min(targetLeaguePosition, currentLeague->GetRelegationThreshold() - 1) });
+    }
+    else
+        this->objectives.push_back({ currentLeague->GetID(), 
+            (uint16_t)std::min(targetLeaguePosition, (int)currentLeague->GetClubs().size() - 3) });
 
     // Generate fair targets for the cup competitions
     for (const League::CompetitionLink& comp : currentLeague->GetLinkedCompetitions())
