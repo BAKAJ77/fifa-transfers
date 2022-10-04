@@ -10,11 +10,16 @@
 #include <util/logging_system.h>
 #include <util/timestamp.h>
 
+#include <GLFW/glfw3.h>
 #include <vector>
 
 
 ApplicationCore::ApplicationCore()
 {
+	// Initialize the GLFW library
+	if (glfwInit() < 0)
+		LogSystem::GetInstance().OutputLog("Failed to initialize GLFW", Severity::FATAL);
+
 	// Load the application config file (if it doesn't exist then generate a new one then load it)
 	bool generateConfigSettings = false;
 	if (!Util::IsExistingFile("config.json"))
@@ -23,8 +28,12 @@ ApplicationCore::ApplicationCore()
 	JSONLoader configFile("config.json");
 	if (generateConfigSettings)
 	{
-		configFile.GetRoot()["window"]["resolution"] = { 1600, 900 };
-		configFile.GetRoot()["window"]["fullscreen"] = false;
+		// Get the resolution of the user's monitor
+		const GLFWvidmode* monitorData = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+		// Set the default config setting values
+		configFile.GetRoot()["window"]["resolution"] = { monitorData->width, monitorData->height };
+		configFile.GetRoot()["window"]["fullscreen"] = true;
 		configFile.GetRoot()["window"]["vsync"] = false;
 
 		configFile.GetRoot()["graphics"]["samplesMSAA"] = 4;
@@ -57,6 +66,11 @@ ApplicationCore::ApplicationCore()
 
 	// Continue onto the main loop
 	this->MainLoop();
+}
+
+ApplicationCore::~ApplicationCore()
+{
+	glfwTerminate();
 }
 
 void ApplicationCore::MainLoop()

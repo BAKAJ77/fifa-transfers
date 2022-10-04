@@ -18,7 +18,7 @@ private:
 	void Render() const;
 public:
 	ApplicationCore();
-	~ApplicationCore() = default;
+	~ApplicationCore();
 };
 
 #endif

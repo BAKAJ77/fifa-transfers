@@ -21,10 +21,6 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 	framePtr(nullptr), width(width), height(height), usingVsync(vsync), fullscreenEnabled(fullscreen),
 	samplesPerPixel(std::max((int)samplesPerPixel, 1))
 {
-	// Initialize the GLFW library
-	if (glfwInit() < 0)
-		LogSystem::GetInstance().OutputLog("Failed to initialize GLFW", Severity::FATAL);
-
 	// Setup GLFW window hints
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -86,7 +82,7 @@ WindowFrame::WindowFrame(const std::string_view& title, int width, int height, b
 
 WindowFrame::~WindowFrame()
 {
-	glfwTerminate();
+	glfwDestroyWindow(this->framePtr);
 }
 
 void WindowFrame::SetWidth(int width)
