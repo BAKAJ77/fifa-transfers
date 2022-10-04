@@ -12,8 +12,8 @@
 void ContractNegotiation::Init()
 {
     // Initialize the member variables
-    this->exitState = this->wentBack = this->onNegotiationCooldown = this->leagueTierInsufficient = this->lengthInvalid = this->wageInvalid = 
-        this->releaseClauseInvalid = this->sellerSquadTooSmall = this->buyerSquadTooLarge = this->tooGoodForClub = false;
+    this->exitState = this->wentBack = this->onNegotiationCooldown = this->lengthInvalid = this->wageInvalid = this->releaseClauseInvalid = 
+        this->sellerSquadTooSmall = this->buyerSquadTooLarge = this->tooGoodForClub = false;
     
     // Fetch the Bahnschrift Bold font
     this->font = FontLoader::GetInstance().GetFont("Bahnschrift Bold");
@@ -30,28 +30,36 @@ void ContractNegotiation::Init()
         {
             this->buyerSquadTooLarge = true;
         }
-
-        // For more realism, players who play in way higher leagues tiers shouldn't be as interested in joining.
-        const League* playerLeague = SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
-        const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
-
-        if ((playerLeague->GetTier() <= std::ceil((float)userLeague->GetTier() / 2.0f)) && userLeague->GetTier() != 1)
-            this->leagueTierInsufficient = true;
     }
     
-    // The player won't want to renew if he is too good for the club
+    // For realism purposes, compute if the higher rated player is interested in joining the club (or renewing if he is already at the club)
     const int generatedNumber = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
 
     if (this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 5) &&
         generatedNumber >= 20)
     {
-        this->tooGoodForClub = true;
+        if (this->negotiatingPlayer->GetClub() != MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID()) // BUYING FROM ANOTHER CLUB
+        {
+            // For more realism, players who play in higher leagues tiers shouldn't be as interested in joining.
+            const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
+            const League* playerLeague = 
+                SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
+
+            if ((playerLeague->GetTier() <= std::ceil((float)userLeague->GetTier() / 2.0f)) && userLeague->GetTier() != 1)
+                this->tooGoodForClub = true;
+        }
+        else // RENEWING CONTRACT OF PLAYER ALREADY IN THE USER'S CLUB
+        {
+            // The player won't want to renew his contract if he is too good for the club
+            this->tooGoodForClub = true;
+        }
+
         SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(),
-            this->negotiatingPlayer->GetClub(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 6 });
+            this->negotiatingPlayer->GetClub(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 10 });
     }
 
     // Check if there is an active negotiation cooldown with the user's club and the player
-    if (!this->leagueTierInsufficient)
+    if (!this->tooGoodForClub)
     {
         for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
         {
@@ -68,8 +76,7 @@ void ContractNegotiation::Init()
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
     this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "BACK"));
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
-        !this->tooGoodForClub)
+    if (!this->onNegotiationCooldown && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge && !this->tooGoodForClub)
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 880 }, { 300, 100 }, { 315, 115 }, "SUBMIT"));
 
@@ -147,8 +154,7 @@ void ContractNegotiation::Update(const float& deltaTime)
                 this->exitState = this->wentBack = true;
         }
 
-        if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
-            !this->tooGoodForClub)
+        if (!this->onNegotiationCooldown && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge && !this->tooGoodForClub)
         {
             // Only show the release clause text input box if a release clause is to be included
             if (this->userInterface.GetTickBox("Release Clause Included")->isCurrentlyTicked())
@@ -171,8 +177,7 @@ void ContractNegotiation::Render() const
     Renderer::GetInstance().RenderShadowedText({ 1040, 90 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 75,
         "CONTRACT NEGOTIATION", 5);
 
-    if (!this->onNegotiationCooldown && !this->leagueTierInsufficient && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge &&
-        !this->tooGoodForClub)
+    if (!this->onNegotiationCooldown && !this->sellerSquadTooSmall && !this->buyerSquadTooLarge && !this->tooGoodForClub)
     {
         // Render text displaying the club's remaining wage budget and the current wage and release clause of the player
         Renderer::GetInstance().RenderShadowedText({ 60, 220 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 70,
@@ -244,11 +249,6 @@ void ContractNegotiation::Render() const
     {
         Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
             "At the moment, you are unable to buy anyone since you are at the max squad size limit of 52 players.", 5);
-    }
-    else if (this->leagueTierInsufficient)
-    {
-        Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
-            std::string(this->negotiatingPlayer->GetName().data()) + " doesn't want to play in a league which isn't competitive enough for his skills.", 5);
     }
     else if (this->tooGoodForClub)
     {

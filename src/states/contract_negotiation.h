@@ -15,7 +15,7 @@ private:
 
 	bool* finishedNegotiating;
 	bool lengthInvalid, wageInvalid, releaseClauseInvalid;
-	bool exitState, wentBack, onNegotiationCooldown, leagueTierInsufficient, sellerSquadTooSmall, buyerSquadTooLarge, tooGoodForClub,
+	bool exitState, wentBack, onNegotiationCooldown, sellerSquadTooSmall, buyerSquadTooLarge, tooGoodForClub,
 		renewingContract;
 private:
 	// Checks if the all the inputs given are valid.
