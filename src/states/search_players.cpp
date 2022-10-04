@@ -62,9 +62,16 @@ void SearchPlayers::UpdateSelectionList()
             const Club& club = *SaveData::GetInstance().GetClub(player.GetClub());
             const SaveData::Position& position = *SaveData::GetInstance().GetPosition(player.GetPosition());
 
+            // Transform the player name and club name into upper case
+            std::string playerName = player.GetName().data();
+            std::string clubName = club.GetName().data();
+
+            std::transform(playerName.begin(), playerName.end(), playerName.begin(), ::toupper);
+            std::transform(clubName.begin(), clubName.end(), clubName.begin(), ::toupper);
+
             // Add the players which match the filters specified into the selection list and aren't already in the current user's club
-            if ((playerNameFilter.empty() || player.GetName().find(playerNameFilter) != std::string_view::npos) &&
-                (clubNameFilter.empty() || club.GetName().find(clubNameFilter) != std::string_view::npos) &&
+            if ((playerNameFilter.empty() || playerName.find(playerNameFilter) != std::string_view::npos) &&
+                (clubNameFilter.empty() || clubName.find(clubNameFilter) != std::string_view::npos) &&
                 (positionFilter.empty() || position.type.find(positionFilter) != std::string::npos) && 
                 club.GetID() != MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID())
             {
