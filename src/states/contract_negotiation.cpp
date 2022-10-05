@@ -31,44 +31,53 @@ void ContractNegotiation::Init()
             this->buyerSquadTooLarge = true;
         }
     }
+
+    // Check if there is an active negotiation cooldown with the user's club and the player
+    for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
+    {
+        if ((cooldown.clubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() || cooldown.clubID == 0) &&
+            cooldown.playerID == this->negotiatingPlayer->GetID() && cooldown.type == SaveData::CooldownType::CONTRACT_NEGOTIATING)
+        {
+            this->onNegotiationCooldown = true;
+            break;
+        }
+    }
     
     // For realism purposes, compute if the higher rated player is interested in joining the club (or renewing if he is already at the club)
-    const int generatedNumber = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
-
-    if (this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 5) &&
-        generatedNumber >= 20)
+    if (!this->onNegotiationCooldown)
     {
+        const int generatedNumber = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
+
         if (this->negotiatingPlayer->GetClub() != MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID()) // BUYING FROM ANOTHER CLUB
         {
-            // For more realism, players who play in higher leagues tiers shouldn't be as interested in joining.
             const League* userLeague = SaveData::GetInstance().GetCurrentLeague();
-            const League* playerLeague = 
+            const League* playerLeague =
                 SaveData::GetInstance().GetLeague(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetLeague());
 
             if ((playerLeague->GetTier() <= std::ceil((float)userLeague->GetTier() / 2.0f)) && userLeague->GetTier() != 1)
-                this->tooGoodForClub = true;
+            {
+                if ((this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 10)) ||
+                    (this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 5) &&
+                        generatedNumber >= 20) || (generatedNumber >= 80))
+                {
+                    this->tooGoodForClub = true;
+                }
+            }
         }
         else // RENEWING CONTRACT OF PLAYER ALREADY IN THE USER'S CLUB
         {
-            // The player won't want to renew his contract if he is too good for the club
-            this->tooGoodForClub = true;
+            if ((this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 10)) ||
+                (this->negotiatingPlayer->GetOverall() >= (MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall() + 5) &&
+                    generatedNumber >= 20))
+            {
+                this->tooGoodForClub = true;
+            }
         }
 
-        SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(),
-            this->negotiatingPlayer->GetClub(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 10 });
-    }
-
-    // Check if there is an active negotiation cooldown with the user's club and the player
-    if (!this->tooGoodForClub)
-    {
-        for (const SaveData::NegotiationCooldown& cooldown : SaveData::GetInstance().GetNegotiationCooldowns())
+        if (this->tooGoodForClub)
         {
-            if ((cooldown.clubID == MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID() || cooldown.clubID == 0) &&
-                cooldown.playerID == this->negotiatingPlayer->GetID() && cooldown.type == SaveData::CooldownType::CONTRACT_NEGOTIATING)
-            {
-                this->onNegotiationCooldown = true;
-                break;
-            }
+            SaveData::GetInstance().GetNegotiationCooldowns().push_back({ this->negotiatingPlayer->GetID(),
+                MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetID(), SaveData::CooldownType::CONTRACT_NEGOTIATING, 10 });
         }
     }
 
