@@ -1,102 +1,102 @@
 {
-    "1": {
+    "0": {
         "category": 0,
         "position": "GK"
     },
-    "10": {
-        "category": 2,
-        "position": "RCM"
-    },
-    "11": {
-        "category": 2,
-        "position": "CM"
-    },
-    "12": {
-        "category": 2,
-        "position": "LDM"
-    },
-    "13": {
-        "category": 2,
-        "position": "RDM"
-    },
-    "14": {
-        "category": 2,
-        "position": "CDM"
-    },
-    "15": {
-        "category": 2,
-        "position": "LAM"
-    },
-    "16": {
-        "category": 2,
-        "position": "RAM"
-    },
-    "17": {
-        "category": 2,
-        "position": "CAM"
-    },
-    "18": {
-        "category": 2,
-        "position": "LM"
-    },
-    "19": {
-        "category": 2,
-        "position": "RM"
-    },
-    "2": {
+    "1": {
         "category": 1,
         "position": "LB"
     },
-    "20": {
+    "10": {
+        "category": 2,
+        "position": "CM"
+    },
+    "11": {
+        "category": 2,
+        "position": "LDM"
+    },
+    "12": {
+        "category": 2,
+        "position": "RDM"
+    },
+    "13": {
+        "category": 2,
+        "position": "CDM"
+    },
+    "14": {
+        "category": 2,
+        "position": "LAM"
+    },
+    "15": {
+        "category": 2,
+        "position": "RAM"
+    },
+    "16": {
+        "category": 2,
+        "position": "CAM"
+    },
+    "17": {
+        "category": 2,
+        "position": "LM"
+    },
+    "18": {
+        "category": 2,
+        "position": "RM"
+    },
+    "19": {
         "category": 3,
         "position": "LW"
     },
-    "21": {
+    "2": {
+        "category": 1,
+        "position": "LWB"
+    },
+    "20": {
         "category": 3,
         "position": "RW"
     },
-    "22": {
+    "21": {
         "category": 3,
         "position": "LF"
     },
-    "23": {
+    "22": {
         "category": 3,
         "position": "RF"
     },
-    "24": {
+    "23": {
         "category": 3,
         "position": "CF"
     },
-    "25": {
+    "24": {
         "category": 3,
         "position": "ST"
     },
     "3": {
         "category": 1,
-        "position": "LWB"
+        "position": "LCB"
     },
     "4": {
         "category": 1,
-        "position": "LCB"
+        "position": "CB"
     },
     "5": {
         "category": 1,
-        "position": "CB"
+        "position": "RCB"
     },
     "6": {
         "category": 1,
-        "position": "RCB"
+        "position": "RWB"
     },
     "7": {
         "category": 1,
-        "position": "RWB"
+        "position": "RB"
     },
     "8": {
-        "category": 1,
-        "position": "RB"
+        "category": 2,
+        "position": "LCM"
     },
     "9": {
         "category": 2,
-        "position": "LCM"
+        "position": "RCM"
     }
 }

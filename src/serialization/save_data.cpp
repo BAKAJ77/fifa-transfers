@@ -34,7 +34,7 @@ void SaveData::SetCurrentLeague(League* league)
 
 void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t id = 1001;
+    uint16_t id = 1000;
     while (dataRoot.contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -58,7 +58,7 @@ void SaveData::LoadCupsFromJSON(const nlohmann::json& dataRoot)
 
 void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t id = 1;
+    uint16_t id = 0;
     while (dataRoot.contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -99,7 +99,7 @@ void SaveData::LoadLeaguesFromJSON(const nlohmann::json& dataRoot)
 
 void SaveData::LoadUsersFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t id = 1;
+    uint16_t id = 0;
     while (dataRoot["users"].contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -162,7 +162,7 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
     if (!loadingDefault)
         root = &dataRoot["clubs"];
 
-    uint16_t id = 1;
+    uint16_t id = 0;
     while (root->contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -253,7 +253,7 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
     if (!loadingDefault)
         root = &dataRoot["players"];
 
-    uint16_t id = 1;
+    uint16_t id = 0;
     while (root->contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -294,7 +294,7 @@ void SaveData::LoadPlayersFromJSON(const nlohmann::json& dataRoot, bool loadingD
 
 void SaveData::LoadPositionsFromJSON(const nlohmann::json& dataRoot)
 {
-    uint16_t id = 1;
+    uint16_t id = 0;
     while (dataRoot.contains(std::to_string(id)))
     {
         const std::string idStr = std::to_string(id);
@@ -403,7 +403,7 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     for (size_t index = 0; index < this->negotiationCooldowns.size(); index++)
     {
         const NegotiationCooldown& cooldown = this->negotiationCooldowns[index];
-        this->ConvertNegotiationCooldownToJSON(file.GetRoot(), cooldown, (int)(index + 1));
+        this->ConvertNegotiationCooldownToJSON(file.GetRoot(), cooldown, (int)index);
 
         // Update the current progress tracker
         {
@@ -416,7 +416,7 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     for (size_t index = 0; index < this->transferHistory.size(); index++)
     {
         const PastTransfer& transfer = this->transferHistory[index];
-        this->ConvertPastTransferToJSON(file.GetRoot(), transfer, (int)(index + 1));
+        this->ConvertPastTransferToJSON(file.GetRoot(), transfer, (int)index);
 
         // Update the current progress tracker
         {
@@ -432,7 +432,7 @@ void SaveData::Write(float& currentProgress, std::mutex& mutex)
     file.Open("data/saves.json");
 
     // Get the next free save ID, also search if the save written is new or not
-    uint16_t nextID = 1;
+    uint16_t nextID = 0;
     bool isNewSave = true;
 
     while (file.GetRoot().contains(std::to_string(nextID)))

@@ -84,7 +84,7 @@ void Club::GenerateObjectives()
     for (const League::CompetitionLink& comp : currentLeague->GetLinkedCompetitions())
     {
         // Only generate objectives for domestic cup competitions
-        if (comp.competitionID >= 1001 && comp.competitionID <= 1004) 
+        if (comp.competitionID >= 1000 && comp.competitionID <= 1003) 
             continue;
 
         // Total up all the better and equal clubs that compete in the same cup competition

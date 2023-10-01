@@ -71,10 +71,10 @@ UserProfile UserSetup::SetupUserProfile(uint16_t id, const std::string_view& nam
 
     // Setup new competition tracking data
     const League* selectedLeague = SaveData::GetInstance().GetCurrentLeague();
-    competitionTrackingData.push_back({ 1, selectedLeague->GetID() });
+    competitionTrackingData.push_back({ 0, selectedLeague->GetID() });
 
     for (size_t i = 0; i < selectedLeague->GetLinkedCompetitions().size(); i++)
-        competitionTrackingData.push_back({ (uint16_t)(i + 2), selectedLeague->GetLinkedCompetitions()[i].competitionID });
+        competitionTrackingData.push_back({ (uint16_t)(i + 1), selectedLeague->GetLinkedCompetitions()[i].competitionID });
 
     // Create the new user profile
     return UserProfile(id, name, club, competitionTrackingData);
@@ -103,7 +103,7 @@ void UserSetup::Update(const float& deltaTime)
                     // Setup the new user profile
                     Club* club = SaveData::GetInstance().GetClub((uint16_t)this->userInterface.GetDropDown("Club")->GetCurrentSelected());
 
-                    UserProfile user = this->SetupUserProfile((uint16_t)(SaveData::GetInstance().GetUsers().size() + 1),
+                    UserProfile user = this->SetupUserProfile((uint16_t)SaveData::GetInstance().GetUsers().size(),
                         this->userInterface.GetTextField("Manager Name")->GetInputtedText(), *club);
 
                     // Push the created user profile into the save data

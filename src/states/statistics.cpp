@@ -79,7 +79,7 @@ void Statistics::Render() const
     // Render the statistics text
     const UserProfile::CompetitionData& compStats = this->displayedUser->GetCompetitionData()[this->competitionIndex];
 
-    if (compStats.compID > 1000)
+    if (compStats.compID >= 1000)
     {
         const KnockoutCup* cup = SaveData::GetInstance().GetCup(compStats.compID);
         Renderer::GetInstance().RenderShadowedText({ 60, 190 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 28,

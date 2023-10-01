@@ -1,7 +1,7 @@
 {
-    "1001": {
+    "1000": {
         "name": "International Preseason Cup",
-        "region": "GLOBAL",
+        "region": "Global",
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -12,9 +12,9 @@
         "tier": 4,
         "winnerBonus": 500000
     },
-    "1002": {
+    "1001": {
         "name": "UEFA Conference League",
-        "region": "EUROPE",
+        "region": "Europe",
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -26,9 +26,9 @@
         "tier": 3,
         "winnerBonus": 10000000
     },
-    "1003": {
+    "1002": {
         "name": "UEFA Europa League",
-        "region": "EUROPE",
+        "region": "Europe",
         "rounds": [
             "Group Stage",
             "Preliminary Round",
@@ -40,9 +40,9 @@
         "tier": 2,
         "winnerBonus": 20000000
     },
-    "1004": {
+    "1003": {
         "name": "UEFA Champions League",
-        "region": "EUROPE",
+        "region": "Europe",
         "rounds": [
             "Group Stage",
             "Round of 16",
@@ -53,9 +53,9 @@
         "tier": 1,
         "winnerBonus": 40000000
     },
-    "1005": {
+    "1004": {
         "name": "English Papa John Cup",
-        "region": "ENGLAND",
+        "region": "England",
         "rounds": [
             "Group Stage",
             "Round 2",
@@ -67,9 +67,9 @@
         "tier": 3,
         "winnerBonus": 1500000
     },
-    "1006": {
+    "1005": {
         "name": "English Carabao Cup",
-        "region": "ENGLAND",
+        "region": "England",
         "rounds": [
             "Round 1",
             "Round 2",
@@ -82,9 +82,9 @@
         "tier": 2,
         "winnerBonus": 4000000
     },
-    "1007": {
+    "1006": {
         "name": "English Emirates FA Cup",
-        "region": "ENGLAND",
+        "region": "England",
         "rounds": [
             "Round 1",
             "Round 2",

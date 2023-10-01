@@ -68,7 +68,7 @@ void NewSave::Update(const float& deltaTime)
                 this->saveNameInvalid = saveNameStr.empty();
                 
                 JSONLoader savesFile("data/saves.json");
-                uint16_t id = 1;
+                uint16_t id = 0;
 
                 while (savesFile.GetRoot().contains(std::to_string(id))) 
                 {
@@ -101,7 +101,7 @@ void NewSave::Update(const float& deltaTime)
                     SaveData::GetInstance().SetSaveName(saveNameStr);
                     SaveData::GetInstance().SetPlayerCount((uint8_t)std::stoi(playerCountStr));
                     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)growthSystemType);
-                    SaveData::GetInstance().SetCurrentYear(2022);
+                    SaveData::GetInstance().SetCurrentYear(2023);
 
                     SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague((uint16_t)selectedLeagueID));
 

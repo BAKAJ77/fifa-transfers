@@ -53,9 +53,15 @@ void SaveWriting::ExecuteSavingProcess()
 
 			club.SetInitialTransferBudget(club.GetTransferBudget());
 
-			// Randomise contract lengths of the players in every club
+			// Randomise contract lengths of the players who's contracts are nearly up already
 			for (Player* player : club.GetPlayers())
-				player->SetExpiryYear((int)SaveData::GetInstance().GetCurrentYear() + RandomEngine::GetInstance().GenerateRandom<int>(2, 5));
+			{
+				if (player->GetExpiryYear() <= SaveData::GetInstance().GetCurrentYear() + 1)
+				{
+					player->SetExpiryYear(player->GetExpiryYear() + RandomEngine::GetInstance().GenerateRandom<int>(0, 3) +
+						(int)(player->GetExpiryYear() == SaveData::GetInstance().GetCurrentYear()));
+				}
+			}
 		}
 
 		// Randomise the potentials of player in the new save if specified to do so

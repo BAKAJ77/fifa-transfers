@@ -87,9 +87,9 @@ void DropDown::Update(const float& deltaTime)
             const float scrollOffsetY = InputSystem::GetInstance().GetScrollOffset().y;
 
             if (scrollOffsetY > 0.0f)
-                this->selectionsOffset = std::max(--this->selectionsOffset, 0);
+                this->selectionsOffset = std::max(this->selectionsOffset - 0.075f, 0.0f);
             else if (scrollOffsetY < 0.0f)
-                this->selectionsOffset = std::min(++this->selectionsOffset, (int)std::max((int)this->selections.size() - this->maxSelectionsVisible, 0));
+                this->selectionsOffset = std::min(this->selectionsOffset + 0.075f, (float)std::max((int)this->selections.size() - this->maxSelectionsVisible, 0));
         }
 
         // Update the clicked and released boolean flags
@@ -108,9 +108,9 @@ void DropDown::Update(const float& deltaTime)
         if (this->doDropDown)
         {
             bool buttonClicked = false;
-            for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
+            for (int i = (int)this->selectionsOffset; i < std::min((int)this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
             {
-                this->selections[i].button.SetPosition({ this->position.x, this->position.y + ((float)((i - this->selectionsOffset) + 1) * this->size.y) });
+                this->selections[i].button.SetPosition({ this->position.x, this->position.y + ((float)((i - (int)this->selectionsOffset) + 1) * this->size.y) });
                 this->selections[i].button.Update(deltaTime, 8.0f);
 
                 if (this->selections[i].button.WasClicked())
@@ -148,7 +148,7 @@ void DropDown::Render(float masterOpacity) const
 
     if (this->doDropDown)
     {
-        for (int i = this->selectionsOffset; i < std::min(this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
+        for (int i = (int)this->selectionsOffset; i < std::min((int)this->selectionsOffset + this->maxSelectionsVisible, (int)this->selections.size()); i++)
         {
             // Render the selection element button body
             this->selections[i].button.Render(masterOpacity);
@@ -162,11 +162,11 @@ void DropDown::Render(float masterOpacity) const
         // If drop down is scrollable, render small arrow triangles to indicate so
         if (this->selections.size() > this->maxSelectionsVisible)
         {
-            if (this->selectionsOffset > 0)
+            if ((int)this->selectionsOffset > 0)
                 Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, this->position.y + (this->size.y / 2) + 20 },
                     glm::vec2(20, 25), { 50, 50, 50, (this->opacity * masterOpacity) / 255 }, 180);
 
-            if ((this->selectionsOffset + this->maxSelectionsVisible) < this->selections.size())
+            if (((int)this->selectionsOffset + this->maxSelectionsVisible) < this->selections.size())
                 Renderer::GetInstance().RenderTriangle({ this->position.x + (this->size.x / 2) - 20, 
                     this->position.y + ((this->maxSelectionsVisible * this->size.y) + (this->size.y / 2)) - 20}, glm::vec2(20, 25), 
                     { 50, 50, 50, (this->opacity * masterOpacity) / 255 });
