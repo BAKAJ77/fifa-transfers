@@ -35,6 +35,11 @@ void ManageSquad::Destroy()
     MainGame::GetAppState()->SetUpdateWhilePaused(true);
 }
 
+void ManageSquad::Resume()
+{
+    this->ReloadSquad();
+}
+
 void ManageSquad::ReloadSquad()
 {
     this->userInterface.GetSelectionList("Players")->Clear();
@@ -43,12 +48,19 @@ void ManageSquad::ReloadSquad()
     {
         const Player* player = this->currentUserClub->GetPlayers()[index];
 
-        if (player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() == 1)
+        if (player->GetTransferListed())
+        {
+            // Set the selection element color as RED if the player is transfer listed
+            this->userInterface.GetSelectionList("Players")->AddElement({ player->GetName().data(), player->GetNation().data(),
+                std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type,
+                std::to_string(player->GetExpiryYear()) }, (int)index, { 140, 0, 0 }, { 175, 0, 0 }, { 115, 0, 0 });
+        }
+        else if (player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() == 1)
         {
             // Set the selection element color as YELLOW if the player only has 1 year left on his contract
             this->userInterface.GetSelectionList("Players")->AddElement({ player->GetName().data(), player->GetNation().data(),
                 std::to_string(player->GetAge()), SaveData::GetInstance().GetPosition(player->GetPosition())->type,
-                std::to_string(player->GetExpiryYear()) }, (int)index, { 85, 85, 0 }, { 115, 115, 0 }, { 60, 60, 0 });
+                std::to_string(player->GetExpiryYear()) }, (int)index, { 140, 140, 0 }, { 175, 175, 0 }, { 115, 115, 0 });
         }
         else
         {

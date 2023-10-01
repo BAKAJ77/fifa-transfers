@@ -16,6 +16,8 @@ protected:
 	void Init() override;
 	void Destroy() override;
 
+	void Resume() override;
+
 	void Update(const float& deltaTime) override;
 	void Render() const override;
 
