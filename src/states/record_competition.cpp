@@ -16,7 +16,7 @@ void RecordCompetition::Init()
 
     this->userProfileIndex = 0;
     
-    EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected() > 1000 ? // Cup competitions have an ID exceeding 1000
+    EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected() >= 1000 ? // Cup competitions have an ID exceeding 1000
         this->selectedCup = SaveData::GetInstance().GetCup(EndCompetition::GetAppState()->GetCompetitionSelectionList().GetCurrentSelected()) :
         this->selectedCup = nullptr;
 

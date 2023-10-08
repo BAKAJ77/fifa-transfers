@@ -45,7 +45,7 @@ void FinancialsGeneration::Init()
             gamesLost += compStats.currentLosses;
 
             // Add the revenue bonuses from the competitions won by the user
-            if (compStats.compID > 1000) // DOMESTIC CUP COMPETITION
+            if (compStats.compID >= 1000) // DOMESTIC CUP COMPETITION
             {
                 if (compStats.seasonEndPosition == SaveData::GetInstance().GetCup(compStats.compID)->GetRounds().size() + 1) // The user won the cup?
                     totalWinnerBonus += SaveData::GetInstance().GetCup(compStats.compID)->GetWinnerBonus();
