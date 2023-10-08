@@ -1,5 +1,7 @@
 #include <interface/user_interface.h>
+#include <core/input_system.h>
 #include <util/logging_system.h>
+#include <util/timestamp.h>
 
 UserInterface::UserInterface() :
     animationSpeed(8.0f), opacity(255.0f)
@@ -34,13 +36,16 @@ void UserInterface::AddButton(ButtonBase* button)
 void UserInterface::AddTextField(const std::string_view& id, const TextInputField& field)
 {
     // Don't add the text field to the interface if another with the ID given already exists
-    if (this->textFields.find(id.data()) != this->textFields.end())
+    for (const auto& field : this->textFields)
     {
-        LogSystem::GetInstance().OutputLog("There's already a text field with the ID: " + std::string(id), Severity::WARNING);
-        return;
+        if (field.first == id.data())
+        {
+            LogSystem::GetInstance().OutputLog("There's already a text field with the ID: " + std::string(id), Severity::WARNING);
+            return;
+        }
     }
 
-    this->textFields[id.data()] = field;
+    this->textFields.push_back({ id.data(), field });
 }
 
 void UserInterface::AddRadioButtonGroup(const std::string_view& id, const RadioButtonGroup& group)
@@ -111,6 +116,27 @@ void UserInterface::Update(const float& deltaTime)
             activeDropDown->Update(deltaTime); // Update the active drop down only
         else
         {
+            // If TAB is pressed, then switch focus to next text input field
+            static float previousTime = Util::GetSecondsSinceEpoch();
+            if (InputSystem::GetInstance().WasKeyPressed(KeyCode::KEY_TAB) && Util::GetSecondsSinceEpoch() - previousTime >= 0.2f)
+            {
+                bool isFocusedOnTextField = false;
+                for (size_t i = 0; i < this->textFields.size(); i++)
+                {
+                    if (this->textFields[i].second.IsFocused())
+                    {
+                        this->textFields[(i + 1) % this->textFields.size()].second.SetFocus(true);
+                        isFocusedOnTextField = true;
+                        break;
+                    }
+                }
+
+                if (!isFocusedOnTextField)
+                    this->textFields[0].second.SetFocus(true);
+
+                previousTime = Util::GetSecondsSinceEpoch();
+            }
+
             // Update the drop downs
             for (auto& dropDown : this->dropDowns)
                 dropDown.second.Update(deltaTime);
@@ -174,9 +200,11 @@ void UserInterface::Render() const
 
 TextInputField* UserInterface::GetTextField(const std::string_view& id)
 {
-    auto iterator = this->textFields.find(id.data());
-    if (iterator != this->textFields.end())
-        return &iterator->second;
+    for (auto& field : this->textFields)
+    {
+        if (field.first == id.data())
+            return &field.second;
+    }
 
     // No text field has been found matching the ID given
     LogSystem::GetInstance().OutputLog("No text field exists with the ID: " + std::string(id), Severity::WARNING);

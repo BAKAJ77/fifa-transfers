@@ -18,7 +18,7 @@ class UserInterface
 private:
 	WindowFramePtr appWindow;
 	std::vector<ButtonBase*> buttons;
-	std::unordered_map<std::string, TextInputField> textFields;
+	std::vector<std::pair<std::string, TextInputField>> textFields;
 
 	std::unordered_map<std::string, RadioButtonGroup> radioButtonGroups;
 	std::unordered_map<std::string, SelectionList> selectionLists;
