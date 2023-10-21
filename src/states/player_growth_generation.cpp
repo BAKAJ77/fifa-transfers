@@ -65,6 +65,18 @@ void PlayerGrowthGeneration::Init()
                         overallIncreaseAmount = 2;
                 }
 
+                // Young players (under 20) which are below 65 rated have a chance of getting a bonus overall rating increase
+                // Note that this only applies if coaches for the player's position have been hired for the season
+                const int generatedBonusWeight = RandomEngine::GetInstance().GenerateRandom<int>(0, 1000);
+                if (player->GetAge() < 20 && player->GetOverall() <= 65)
+                {
+                    if ((staffLevel == 1 && generatedBonusWeight >= 700) || (staffLevel == 2 && generatedBonusWeight >= 500) ||
+                        (staffLevel == 3 && generatedBonusWeight >= 300) || (staffLevel == 4 && generatedBonusWeight >= 100))
+                    {
+                        overallIncreaseAmount += (int)(staffLevel > 1) + 1;
+                    }
+                }
+
                 if (overallIncreaseAmount > 0)
                 {
                     // Increase their value based on amount of growth
