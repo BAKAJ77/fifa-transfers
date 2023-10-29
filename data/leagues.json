@@ -82,15 +82,15 @@
         "autoPromotionThreshold": 2,
         "linkedCompetitions": {
             "1": {
-                "competitionID": 1001,
+                "competitionID": 1000,
                 "qualifyingPositions": []
             },
             "2": {
-                "competitionID": 1006,
+                "competitionID": 1005,
                 "qualifyingPositions": []
             },
             "3": {
-                "competitionID": 1007,
+                "competitionID": 1006,
                 "qualifyingPositions": []
             }
         },
