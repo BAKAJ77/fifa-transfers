@@ -77,7 +77,6 @@ void AppStateSystem::SwitchState(AppState* appState)
 void AppStateSystem::PushState(AppState* appState)
 {
 	this->pendingOperations.push({ SystemCommand::PUSH, appState });
-	this->stateStack.back()->Pause();
 	appState->Init();
 }
 
@@ -182,9 +181,12 @@ void AppStateSystem::Update(const float& deltaTime)
 				static bool calledPauseFunc = false;
 
 				if (!calledPauseFunc) // This is to prevent the pause function from being called multiple times
+				{
+					this->stateStack.back()->Pause();
 					calledPauseFunc = true;
+				}
 
-				// Pause the last active application state in the stack
+				// Run app state pause transition function
 				if ((pauseTransitionComplete = this->stateStack.back()->OnPauseTransitionUpdate(deltaTime)))
 					calledPauseFunc = false;
 			}
@@ -214,12 +216,7 @@ void AppStateSystem::Update(const float& deltaTime)
 		AppState* appState = this->stateStack[stateIndex];
 		if (stateIndex == (this->stateStack.size() - 1) || appState->updateWhilePaused)
 		{
-			if (!this->pendingOperations.empty())
-			{
-				if (this->pendingOperations.front().command != SystemCommand::SWITCH && this->pendingOperations.front().command != SystemCommand::PUSH)
-					appState->Update(deltaTime);
-			}
-			else
+			if (this->pendingOperations.empty())
 				appState->Update(deltaTime);
 		}
 	}
