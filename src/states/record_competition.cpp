@@ -221,8 +221,8 @@ void RecordCompetition::GenerateAIOutboundTransfers()
         for (Player* player : user.GetClub()->GetPlayers())
         {
             // Ensure the user has enough players in their squad in order to be able to sell
-            if ((player->GetPosition() == 1 && user.GetClub()->GetTotalGoalkeepers() > Globals::minGoalkeepers) ||
-                (player->GetPosition() > 1 && user.GetClub()->GetTotalOutfielders() > Globals::minOutfielders))
+            if ((player->GetPosition() == 0 && user.GetClub()->GetTotalGoalkeepers() > Globals::minGoalkeepers) ||
+                (player->GetPosition() > 0 && user.GetClub()->GetTotalOutfielders() > Globals::minOutfielders))
             {
                 // Simple algorithm for AI deciding whether to send an offer for the player
                 int generatedWeight = RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
@@ -359,8 +359,8 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 
                     // As an absolute caution, make sure both clubs meet the squad size requirements
                     const bool squadSizeRequirementsMet = (club.GetPlayers().size() < Globals::maxSquadSize) &&
-                        ((targettedPlayer->GetPosition() == 1 && sellerClub->GetTotalGoalkeepers() > Globals::minGoalkeepers) || 
-                        (targettedPlayer->GetPosition() > 1 && sellerClub->GetTotalOutfielders() > Globals::minOutfielders));
+                        ((targettedPlayer->GetPosition() == 0 && sellerClub->GetTotalGoalkeepers() > Globals::minGoalkeepers) || 
+                        (targettedPlayer->GetPosition() > 0 && sellerClub->GetTotalOutfielders() > Globals::minOutfielders));
 
                     if (transfer.feeAgreed && squadSizeRequirementsMet)
                     {

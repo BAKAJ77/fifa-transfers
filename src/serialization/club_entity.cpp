@@ -280,7 +280,7 @@ const int Club::GetTotalGoalkeepers() const
     int count = 0;
     for (const Player* player : this->players)
     {
-        if (player->GetPosition() == 1)
+        if (player->GetPosition() == 0)
             ++count;
     }
 

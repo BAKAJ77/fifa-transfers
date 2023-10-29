@@ -21,8 +21,8 @@ void ContractNegotiation::Init()
     if (!this->renewingContract)
     {
         // Make sure the buying user's squad isn't at the maximum limit and that the selling team is not at the minimum squad limit
-        if ((this->negotiatingPlayer->GetPosition() == 1 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers) ||
-            ((this->negotiatingPlayer->GetPosition() > 1 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalOutfielders() <= Globals::minOutfielders)))
+        if ((this->negotiatingPlayer->GetPosition() == 0 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers) ||
+            ((this->negotiatingPlayer->GetPosition() > 0 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalOutfielders() <= Globals::minOutfielders)))
         {
             this->sellerSquadTooSmall = true;
         }
@@ -239,7 +239,7 @@ void ContractNegotiation::Render() const
     }
     else if (this->sellerSquadTooSmall)
     {
-        if (this->negotiatingPlayer->GetPosition() == 1 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers)
+        if (this->negotiatingPlayer->GetPosition() == 0 && SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetTotalGoalkeepers() <= Globals::minGoalkeepers)
         {
             Renderer::GetInstance().RenderShadowedText({ 60, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 30,
                 std::string(SaveData::GetInstance().GetClub(this->negotiatingPlayer->GetClub())->GetName()) +
