@@ -478,63 +478,84 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 
 void RecordCompetition::HandleAITransferCompletion(Club& buyerClub, Club& sellerClub, Player& player, int transferFee, bool activatedReleaseClause)
 {
-    // Add the paid transfer fee onto the seller user's club transfer budget
-    sellerClub.SetTransferBudget(sellerClub.GetTransferBudget() + transferFee);
+    // Generate random chance to indicate that the contract negotiations between the player and the AI club was successful
+    // 50/50 chance of being successful
+    const float generatedWeight = (float)RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
 
-    // Add the freed wages onto the seller user's club wage budget
-    sellerClub.SetWageBudget(sellerClub.GetWageBudget() + player.GetWage());
-
-    // Generate the player's new contract terms
-    const int contractLength = RandomEngine::GetInstance().GenerateRandom<int>(player.GetAge() > 26 ? 2 : 3, 5);
-
-    const int min = player.GetWage();
-    const int max = (int)(player.GetWage() * 2.25f);
-    const int contractWage = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
-
-    player.SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + contractLength);
-    player.SetWage(contractWage);
-    player.SetReleaseClause(0);
-
-    // Move the player to his new club
-    buyerClub.AddPlayer(&player);
-    sellerClub.RemovePlayer(&player);
-
-    // Send general message to the seller user club to notify that the player has been successfully sold
-    if (activatedReleaseClause)
+    if (generatedWeight > ((float)player.GetWage() / (float)buyerClub.GetWageBudget()) * 225.0f) // Contract negotiations was successful
     {
-        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have paid the " + Util::GetFormattedCashString(transferFee) + 
-            " release clause for " + player.GetName().data() + " and signed him on a " + 
-            std::to_string(player.GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract." });
-    }
-    else
-    {
-        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have successfully signed " + player.GetName().data() + " on a " +
-            std::to_string(contractLength) + " year contract for a transfer fee of " + Util::GetFormattedCashString(transferFee) + "." });
-    }
+        // Add the paid transfer fee onto the seller user's club transfer budget
+        sellerClub.SetTransferBudget(sellerClub.GetTransferBudget() + transferFee);
 
-    // Erase all transfer messages in every other club's inbox which involve this player
-    for (Club& club : SaveData::GetInstance().GetClubDatabase())
-    {
-        if (club.GetID() != buyerClub.GetID())
+        // Add the freed wages onto the seller user's club wage budget
+        sellerClub.SetWageBudget(sellerClub.GetWageBudget() + player.GetWage());
+
+        // Generate the player's new contract terms
+        const int contractLength = RandomEngine::GetInstance().GenerateRandom<int>(player.GetAge() > 26 ? 2 : 3, 5);
+
+        const int min = player.GetWage();
+        const int max = (int)(player.GetWage() * 2.25f);
+        const int contractWage = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
+
+        player.SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + contractLength);
+        player.SetWage(contractWage);
+        player.SetReleaseClause(0);
+
+        // Move the player to his new club
+        buyerClub.AddPlayer(&player);
+        sellerClub.RemovePlayer(&player);
+
+        // Send general message to the seller user club to notify that the player has been successfully sold
+        if (activatedReleaseClause)
         {
-            std::vector<Club::Transfer>& transferInbox = club.GetTransferMessages();
+            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have paid the " + Util::GetFormattedCashString(transferFee) +
+                " release clause for " + player.GetName().data() + " and signed him on a " +
+                std::to_string(player.GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract." });
+        }
+        else
+        {
+            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have successfully signed " + player.GetName().data() + " on a " +
+                std::to_string(contractLength) + " year contract for a transfer fee of " + Util::GetFormattedCashString(transferFee) + "." });
+        }
 
-            for (int index = 0; index < (int)transferInbox.size(); index++)
+        // Erase all transfer messages in every other club's inbox which involve this player
+        for (Club& club : SaveData::GetInstance().GetClubDatabase())
+        {
+            if (club.GetID() != buyerClub.GetID())
             {
-                if (transferInbox[index].playerID == player.GetID())
+                std::vector<Club::Transfer>& transferInbox = club.GetTransferMessages();
+
+                for (int index = 0; index < (int)transferInbox.size(); index++)
                 {
-                    transferInbox.erase(transferInbox.begin() + index);
-                    --index;
+                    if (transferInbox[index].playerID == player.GetID())
+                    {
+                        transferInbox.erase(transferInbox.begin() + index);
+                        --index;
+                    }
                 }
             }
         }
+
+        // Push transfer into the transfer history database
+        SaveData::GetInstance().GetTransferHistory().push_back({ player.GetID(), sellerClub.GetID(), buyerClub.GetID(), transferFee });
+
+        // Push negotiation cooldown for all clubs
+        SaveData::GetInstance().GetNegotiationCooldowns().push_back({ player.GetID(), 0, SaveData::CooldownType::CONTRACT_NEGOTIATING, 7 });
     }
-
-    // Push transfer into the transfer history database
-    SaveData::GetInstance().GetTransferHistory().push_back({ player.GetID(), sellerClub.GetID(), buyerClub.GetID(), transferFee });
-
-    // Push negotiation cooldown for all clubs
-    SaveData::GetInstance().GetNegotiationCooldowns().push_back({ player.GetID(), 0, SaveData::CooldownType::CONTRACT_NEGOTIATING, 7 });
+    else // Contract negotiations was unsuccessful
+    {
+        if (activatedReleaseClause)
+        {
+            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " activated the " + 
+                Util::GetFormattedCashString(transferFee) + " release clause for " + player.GetName().data() + 
+                " but couldn't reach an agreement with the player." });
+        }
+        else
+        {
+            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + 
+                " have pulled out of the deal since they couldn't reach an agreement with " + player.GetName().data() });
+        }
+    }
 }
 
 void RecordCompetition::UpdateNegotiationCooldowns()
