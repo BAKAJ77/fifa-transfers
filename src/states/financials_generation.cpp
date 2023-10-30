@@ -21,7 +21,7 @@ void FinancialsGeneration::Init()
     // Calculate the finances of each user in the save
     for (UserProfile& user : SaveData::GetInstance().GetUsers())
     {
-        const float objectiveBonusAmount = 0.3f / (float)user.GetClub()->GetObjectives().size();
+        const float objectiveBonusAmount = 1.0f + (0.3f / (float)user.GetClub()->GetObjectives().size());
 
         UserFinancials calculatedFinancials;
         calculatedFinancials.previousTransferBudget = user.GetClub()->GetTransferBudget();
@@ -82,22 +82,22 @@ void FinancialsGeneration::Init()
         }
 
         // Calculate the user's club's new wage budget
-        const int baseWageBudget = user.GetClub()->GetWageBudget() > user.GetClub()->GetInitialWageBudget() ? 
-            user.GetClub()->GetWageBudget() : 
+        const int previousInitialWageBudget = user.GetClub()->GetInitialWageBudget();
+        user.GetClub()->SetInitialWageBudget(
+            Util::GetTruncatedSFInteger((int)((float)user.GetClub()->GetInitialWageBudget() * totalObjectiveBonus), 3));
+
+        calculatedFinancials.newWageBudget = user.GetClub()->GetWageBudget() > user.GetClub()->GetInitialWageBudget() ?
+            user.GetClub()->GetWageBudget() + (user.GetClub()->GetInitialWageBudget() - previousInitialWageBudget) :
             user.GetClub()->GetInitialWageBudget();
 
-        calculatedFinancials.newWageBudget = Util::GetTruncatedSFInteger(baseWageBudget + (int)((float)user.GetClub()->GetInitialWageBudget() * totalObjectiveBonus), 3);
-        user.GetClub()->SetInitialWageBudget(calculatedFinancials.newWageBudget);
-
         // Calculate the user's club's new transfer budget
-        const int baseTransferBudget = user.GetClub()->GetTransferBudget() > user.GetClub()->GetInitialTransferBudget() ?
-            user.GetClub()->GetTransferBudget() :
-            user.GetClub()->GetInitialTransferBudget();
+        const int previousInitialTransferBudget = user.GetClub()->GetInitialTransferBudget();
+        user.GetClub()->SetInitialTransferBudget(
+            Util::GetTruncatedSFInteger((int)((float)user.GetClub()->GetInitialTransferBudget() * totalObjectiveBonus), 4));
 
-        calculatedFinancials.newTransferBudget = Util::GetTruncatedSFInteger(baseTransferBudget + totalWinnerBonus +
-            (int)((float)user.GetClub()->GetInitialTransferBudget() * (totalObjectiveBonus * 1.2f)), 4);
-
-        user.GetClub()->SetInitialTransferBudget(calculatedFinancials.newTransferBudget - totalWinnerBonus);
+        calculatedFinancials.newTransferBudget = user.GetClub()->GetTransferBudget() > user.GetClub()->GetInitialTransferBudget() ?
+            user.GetClub()->GetTransferBudget() + totalWinnerBonus + (user.GetClub()->GetInitialTransferBudget() - previousInitialTransferBudget) :
+            user.GetClub()->GetInitialTransferBudget() + totalWinnerBonus;
         
         // Calculate the total revenue made by the club
         const float generatedRevenueMultiplier = ((gamesWon / 3.0f) + (gamesDrawn / 12.0f) + (user.GetClub()->GetAverageOverall() / 30.0f) * 
