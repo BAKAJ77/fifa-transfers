@@ -24,6 +24,8 @@ void ContractResponse::Init()
     // Execute the contract response generation operation
     const int contractLengthRequest = this->GenerateContractLengthResponse();
     const int wageRequest = this->GenerateWageResponse();
+    const int releaseClauseRequest = 
+        this->GenerateReleaseClauseResponse(contractLengthRequest == -1 ? this->contractLength : contractLengthRequest);
 
     if (this->contractWage < wageRequest / 2) // A way too low wage offer may offend the player, so outright reject the contract to exit negotiations
         this->contractRejected = true;
@@ -31,7 +33,7 @@ void ContractResponse::Init()
     // Initialize the user interface
     this->userInterface = UserInterface(this->GetAppWindow(), 8.0f, 0.0f);
 
-    if (!this->contractRejected && (contractLengthRequest != -1 || wageRequest != -1))
+    if (!this->contractRejected && (contractLengthRequest != -1 || wageRequest != -1 || releaseClauseRequest != -1))
     {
         this->userInterface.AddButton(new MenuButton({ 1745, 1005 }, { 300, 100 }, { 315, 115 }, "REJECT"));
 
@@ -46,6 +48,9 @@ void ContractResponse::Init()
 
         if (wageRequest != -1)
             this->contractWage = wageRequest;
+
+        if (releaseClauseRequest != -1)
+            this->contractReleaseClause = releaseClauseRequest;
 
         this->contractCountered = true;
     }
@@ -175,6 +180,33 @@ int ContractResponse::GenerateWageResponse() const
         requestedWages = minAcceptableWage;
 
     return requestedWages;
+}
+
+int ContractResponse::GenerateReleaseClauseResponse(int contractLength) const
+{
+    int requestedReleaseClause = -1; // If this remains as -1, then that means that they accepted it
+
+    // Generate number to decide whether the player should request a release clause or not
+    const float generatedNum = (float)RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
+    if (generatedNum > 100.0f - ((16.0f / (float)this->negotiatingPlayer->GetAge()) * 55.0f))
+    {
+        // Simple algorithm to decide the release clause preferred by the player
+        const int min = this->negotiatingPlayer->GetValue();
+        const int max = (int)(std::ceil((float)this->negotiatingPlayer->GetValue() * (2.5f + ((float)(contractLength - 1) / 10.0f))));
+
+        int preferredReleaseClause = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
+
+        if (contractLength > 3)
+        {
+            preferredReleaseClause = Util::GetTruncatedSFInteger((int)((float)this->negotiatingPlayer->GetValue() *
+                (2.5f + ((float)contractLength / 10.0f))), 3);
+        }
+
+        if (this->contractReleaseClause == 0 || this->contractReleaseClause > preferredReleaseClause)
+            requestedReleaseClause = preferredReleaseClause;
+    }
+
+    return requestedReleaseClause;
 }
 
 void ContractResponse::Update(const float& deltaTime)

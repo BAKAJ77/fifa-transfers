@@ -25,6 +25,10 @@ private:
 	// Returns -1 if accepted, else the wages the AI player asks for instead is returned.
 	int GenerateWageResponse() const;
 
+	// Generates a response from the AI on whether they accept the release clause offered by the user.
+	// Returns -1 if accepted, else the release clause the AI player asks for instead is returned.
+	int GenerateReleaseClauseResponse(int contractLength) const;
+
 	// Renders text telling the user whether the player accepted the contract or not.
 	void RenderOfferResponse() const;
 protected:
