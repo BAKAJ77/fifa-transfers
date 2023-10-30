@@ -162,7 +162,7 @@ void Club::RemovePlayer(Player* player)
 
 int Club::GetAverageOverall() const
 {
-    // Only the top 11 players are taken into account since a team line up consists of 11 players
+    // Only the top 11 players are taken into account, we assume those players are in the starting 11 of the club
     int overallTotal = 0;
     for (size_t index = 0; index < 11; index++)
         overallTotal += this->players[index]->GetOverall();
