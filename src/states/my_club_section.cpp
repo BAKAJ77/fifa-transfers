@@ -87,6 +87,10 @@ void MyClub::Render() const
 
     Renderer::GetInstance().RenderShadowedText({ 25, 265 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
         std::string("CLUB: ") + MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetName().data(), 5);
+
+    Renderer::GetInstance().RenderShadowedText({ 1275, 200 }, { glm::vec3(255), this->userInterface.GetOpacity() }, this->font, 50,
+        std::string("CLUB OVERALL RATING: ") + 
+        std::to_string(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetAverageOverall()), 5);
 }
 
 bool MyClub::OnStartupTransitionUpdate(const float deltaTime)
