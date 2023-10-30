@@ -83,6 +83,10 @@ void ContractResponse::Destroy()
             sellingClub->RemovePlayer(this->negotiatingPlayer);
             currentUserClub->AddPlayer(this->negotiatingPlayer);
 
+            // Re-sort the users club squad in descending order based on overall rating
+            std::sort(currentUserClub->GetPlayers().begin(), currentUserClub->GetPlayers().end(),
+                [](const Player* first, const Player* second) { return first->GetOverall() > second->GetOverall(); });
+
             // Erase all transfer messages in every other club's inbox which involve this player
             for (Club& club : SaveData::GetInstance().GetClubDatabase())
             {
