@@ -318,10 +318,10 @@ void RecordCompetition::GenerateAIOutboundTransfers()
 
                             if (openingBid >= player->GetReleaseClause() && player->GetReleaseClause() > 0)
                             {
-                                // Send release clause activation data to the bidding club. 
-                                // Once the expiration ticks reaches 1, a conclusion on the release clause activation will be reached,
-                                // so set expiration ticks to 2 to allow the user time to decide on renewing the contract of the player
-                                // to prevent the release clause deal being completed. 
+                                // Send pending release clause activation data to the bidding club. 
+                                // Once the expiration ticks reaches 1, a conclusion on the AI release clause activation will be 
+                                // computed, so the expiration ticks is set to 2 to allow the user time to decide on renewing the 
+                                // contract of the player to prevent the release clause activation deal from being completed. 
                                 Club::Transfer pendingReleaseClauseTransfer;
                                 pendingReleaseClauseTransfer.biddingClubID = biddingAIClub->GetID();
                                 pendingReleaseClauseTransfer.playerID = player->GetID();
