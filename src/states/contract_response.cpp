@@ -115,6 +115,20 @@ void ContractResponse::Destroy()
             // Update the wage budget balance of the user's club
             MainGame::GetAppState()->GetCurrentUser()->GetClub()->SetWageBudget(MainGame::GetAppState()->GetCurrentUser()->GetClub()->GetWageBudget() -
                 (this->contractWage - previousWage));
+
+            // Remove all pending release clause activation attempts from AI clubs for this player
+            for (auto& club : SaveData::GetInstance().GetClubDatabase())
+            {
+                for (size_t i = 0; i < club.GetTransferMessages().size(); i++)
+                {
+                    const Club::Transfer& transferMsg = club.GetTransferMessages()[i];
+                    if (transferMsg.playerID == this->negotiatingPlayer->GetID() && transferMsg.activatedReleaseClause)
+                    {
+                        club.GetTransferMessages().erase(club.GetTransferMessages().begin() + i);
+                        break;
+                    }
+                }
+            }
         }
 
         // The squad currently loaded into the manage squad list is outdated now, so reload it

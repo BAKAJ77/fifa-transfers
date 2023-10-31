@@ -221,10 +221,12 @@ void SaveData::LoadClubsFromJSON(const nlohmann::json& dataRoot, bool loadingDef
                     const uint16_t expirationTicks = transferMessage["expirationTicks"].get<uint16_t>();
 
                     const int transferFee = transferMessage["transferFee"].get<int>();
+                    const bool activatedReleaseClause = transferMessage["activatedReleaseClause"].get<bool>();
                     const bool counterOffer = transferMessage["counterOffer"].get<bool>();
                     const bool feeAgreed = transferMessage["feeAgreed"].get<bool>();
                     
-                    transferMessages.push_back({ biddingClubID, playerID, expirationTicks, transferFee, counterOffer, feeAgreed });
+                    transferMessages.push_back({ biddingClubID, playerID, expirationTicks, transferFee, activatedReleaseClause, 
+                        counterOffer, feeAgreed });
                 }
             }
         }
@@ -505,6 +507,7 @@ void SaveData::ConvertClubToJSON(nlohmann::json& root, const Club& club) const
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["expirationTicks"] = transferMsg.expirationTicks;
 
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["transferFee"] = transferMsg.transferFee;
+        root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["activatedReleaseClause"] = transferMsg.activatedReleaseClause;
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["counterOffer"] = transferMsg.counterOffer;
         root["clubs"][std::to_string(club.GetID())]["transferMessages"][std::to_string(index + 1)]["feeAgreed"] = transferMsg.feeAgreed;
     }

@@ -273,9 +273,20 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                             }
                         }
 
+                        // Make sure the club hasn't already approached for the player
+                        bool alreadyCurrentlyApproachingPlayer = false;
+                        for (const auto& transferMsg : biddingAIClub->GetTransferMessages())
+                        {
+                            if (transferMsg.playerID == player->GetID())
+                            {
+                                alreadyCurrentlyApproachingPlayer = true;
+                                break;
+                            }
+                        }
+
                         // To keep it realistic, make sure the club chosen isn't way too good/bad for the player
                         constexpr int requiredOverallRange = 5;
-                        if (!clubControlledByUser)
+                        if (!clubControlledByUser && !alreadyCurrentlyApproachingPlayer)
                         {
                             if (player->GetOverall() >= 60)
                             {
@@ -307,8 +318,23 @@ void RecordCompetition::GenerateAIOutboundTransfers()
 
                             if (openingBid >= player->GetReleaseClause() && player->GetReleaseClause() > 0)
                             {
-                                // The AI will just activate the player's release clause
-                                this->HandleAITransferCompletion(*biddingAIClub, *user.GetClub(), *player, player->GetReleaseClause(), true);
+                                // Send release clause activation data to the bidding club. 
+                                // Once the expiration ticks reaches 1, a conclusion on the release clause activation will be reached,
+                                // so set expiration ticks to 2 to allow the user time to decide on renewing the contract of the player
+                                // to prevent the release clause deal being completed. 
+                                Club::Transfer pendingReleaseClauseTransfer;
+                                pendingReleaseClauseTransfer.biddingClubID = biddingAIClub->GetID();
+                                pendingReleaseClauseTransfer.playerID = player->GetID();
+                                pendingReleaseClauseTransfer.transferFee = player->GetReleaseClause();
+                                pendingReleaseClauseTransfer.expirationTicks = 2;
+                                pendingReleaseClauseTransfer.activatedReleaseClause = true;
+                                pendingReleaseClauseTransfer.feeAgreed = true;
+
+                                biddingAIClub->GetTransferMessages().emplace_back(pendingReleaseClauseTransfer);
+                                user.GetClub()->GetGeneralMessages().push_back({ std::string(biddingAIClub->GetName()) + 
+                                    " have triggered the " + Util::GetFormattedCashString(player->GetReleaseClause()) + 
+                                    " release clause for " + player->GetName().data() + 
+                                    ". If you want to keep him, we suggest you renew his contract now." });
                             }
                             else
                             {
@@ -364,7 +390,10 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 
                     if (transfer.feeAgreed && squadSizeRequirementsMet)
                     {
-                        this->HandleAITransferCompletion(club, *sellerClub, *targettedPlayer, transfer.transferFee);
+                        if (transfer.activatedReleaseClause && transfer.expirationTicks == 1)
+                            this->HandleAITransferCompletion(club, *sellerClub, *targettedPlayer, transfer.transferFee, true);
+                        else if (!transfer.activatedReleaseClause)
+                            this->HandleAITransferCompletion(club, *sellerClub, *targettedPlayer, transfer.transferFee);
                     }
                     else
                     {
@@ -506,17 +535,9 @@ void RecordCompetition::HandleAITransferCompletion(Club& buyerClub, Club& seller
         sellerClub.RemovePlayer(&player);
 
         // Send general message to the seller user club to notify that the player has been successfully sold
-        if (activatedReleaseClause)
-        {
-            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have paid the " + Util::GetFormattedCashString(transferFee) +
-                " release clause for " + player.GetName().data() + " and signed him on a " +
-                std::to_string(player.GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) + " year contract." });
-        }
-        else
-        {
-            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have successfully signed " + player.GetName().data() + " on a " +
-                std::to_string(contractLength) + " year contract for a transfer fee of " + Util::GetFormattedCashString(transferFee) + "." });
-        }
+        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " have successfully signed " + 
+            player.GetName().data() + " on a " + std::to_string(contractLength) + " year contract for a transfer fee of " + 
+            Util::GetFormattedCashString(transferFee) + "." });
 
         // Erase all transfer messages in every other club's inbox which involve this player
         for (Club& club : SaveData::GetInstance().GetClubDatabase())
@@ -544,17 +565,8 @@ void RecordCompetition::HandleAITransferCompletion(Club& buyerClub, Club& seller
     }
     else // Contract negotiations was unsuccessful
     {
-        if (activatedReleaseClause)
-        {
-            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + " activated the " + 
-                Util::GetFormattedCashString(transferFee) + " release clause for " + player.GetName().data() + 
-                " but couldn't reach an agreement with the player." });
-        }
-        else
-        {
-            sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) + 
+        sellerClub.GetGeneralMessages().push_back({ std::string(buyerClub.GetName()) +
                 " have pulled out of the deal since they couldn't reach an agreement with " + player.GetName().data() });
-        }
     }
 }
 

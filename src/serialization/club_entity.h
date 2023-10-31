@@ -17,7 +17,7 @@ public:
 	{
 		uint16_t biddingClubID, playerID, expirationTicks;
 		int transferFee;
-		bool counterOffer = false, feeAgreed = false;
+		bool activatedReleaseClause = false, counterOffer = false, feeAgreed = false;
 	};
 
 	struct GeneralMessage
