@@ -21,7 +21,7 @@ void FinancialsGeneration::Init()
     // Calculate the finances of each user in the save
     for (UserProfile& user : SaveData::GetInstance().GetUsers())
     {
-        const float objectiveBonusAmount = 1.0f + (0.3f / (float)user.GetClub()->GetObjectives().size());
+        const float objectiveBonusAmount = 0.3f / (float)user.GetClub()->GetObjectives().size();
 
         UserFinancials calculatedFinancials;
         calculatedFinancials.previousTransferBudget = user.GetClub()->GetTransferBudget();
@@ -35,7 +35,7 @@ void FinancialsGeneration::Init()
         int totalObjectivesIncomplete = 0;
 
         int totalWinnerBonus = 0;
-        float totalObjectiveBonus = 0.0f;
+        float totalObjectiveBonus = 1.0f;
 
         for (const UserProfile::CompetitionData& compStats : user.GetCompetitionData())
         {
@@ -56,8 +56,11 @@ void FinancialsGeneration::Init()
             {
                 if (compStats.seasonEndPosition == 1)
                     totalWinnerBonus += SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus();
-                else if (compStats.wonPlayoffs || compStats.seasonEndPosition <= SaveData::GetInstance().GetLeague(compStats.compID)->GetAutoPromotionThreshold())
+                else if (compStats.wonPlayoffs || (compStats.seasonEndPosition <= SaveData::GetInstance().GetLeague(compStats.compID)->GetAutoPromotionThreshold() && 
+                        compStats.seasonEndPosition != 0))
+                {
                     totalWinnerBonus += (int)(SaveData::GetInstance().GetLeague(compStats.compID)->GetTitleBonus() / 2.5f);
+                }
             }
 
             // Tally up the total amount of club objectives that the user didn't complete
