@@ -508,7 +508,6 @@ void RecordCompetition::HandleAIClubsTransferResponses()
 void RecordCompetition::HandleAITransferCompletion(Club& buyerClub, Club& sellerClub, Player& player, int transferFee, bool activatedReleaseClause)
 {
     // Generate random chance to indicate that the contract negotiations between the player and the AI club was successful
-    // 50/50 chance of being successful
     const float generatedWeight = (float)RandomEngine::GetInstance().GenerateRandom<int>(0, 100);
 
     if (generatedWeight > ((float)player.GetWage() / (float)buyerClub.GetWageBudget()) * 225.0f) // Contract negotiations was successful
