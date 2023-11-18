@@ -232,7 +232,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                 else
                     generatedWeight *= (int)((float)(player->GetOverall() + player->GetPotential()) / 10.0f);
 
-                if (generatedWeight >= 1100 && !player->GetTransfersBlocked())
+                if (generatedWeight >= 1150)
                 {
                     // Simple algorithm to decide the amount willing to be bidded for the player
                     const int min = (int)(std::floor((float)(player->GetValue()) / 2.0f));
@@ -336,7 +336,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                                     " release clause for " + player->GetName().data() + 
                                     ". If you want to keep him, we suggest you renew his contract now." });
                             }
-                            else
+                            else if (!player->GetTransfersBlocked())
                             {
                                 // Send opening transfer offer to seller user's club
                                 Club::Transfer openingTransferOffer;
