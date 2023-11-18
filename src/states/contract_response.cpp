@@ -216,6 +216,9 @@ int ContractResponse::GenerateReleaseClauseResponse(int contractLength) const
                 (2.5f + ((float)contractLength / 10.0f))), 3);
         }
 
+        if (preferredReleaseClause <= this->negotiatingPlayer->GetReleaseClause())
+            preferredReleaseClause = this->negotiatingPlayer->GetReleaseClause() + (preferredReleaseClause / 2);
+
         if (this->contractReleaseClause == 0 || this->contractReleaseClause > preferredReleaseClause)
             requestedReleaseClause = preferredReleaseClause;
     }
