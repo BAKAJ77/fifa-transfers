@@ -162,12 +162,17 @@ void Club::RemovePlayer(Player* player)
 
 int Club::GetAverageOverall() const
 {
-    // Only the top 11 players are taken into account, we assume those players are in the starting 11 of the club
-    int overallTotal = 0;
-    for (size_t index = 0; index < 11; index++)
-        overallTotal += this->players[index]->GetOverall();
+    if (this->players.size() >= 11)
+    {
+        // Only the top 11 players are taken into account, we assume those players are in the starting 11 of the club
+        int overallTotal = 0;
+        for (size_t index = 0; index < 11; index++)
+            overallTotal += this->players[index]->GetOverall();
 
-    return overallTotal / 11;
+        return overallTotal / 11;
+    }
+
+    return -1; // This club most likely isn't in the game so return -1
 }
 
 Club::TrainingStaff& Club::GetTrainingStaff(Club::StaffType type)
