@@ -18,15 +18,15 @@ void TrainingMenu::Init()
     float costMultiplier = 1.0f, levelMultiplier = 0.5f;
 
     if (currentUser->GetClub()->GetAverageOverall() >= 80)
-        costMultiplier = 12.0f;
-    else if (currentUser->GetClub()->GetAverageOverall() >= 75)
         costMultiplier = 8.0f;
-    else if (currentUser->GetClub()->GetAverageOverall() >= 70)
+    else if (currentUser->GetClub()->GetAverageOverall() >= 75)
         costMultiplier = 5.0f;
-    else if (currentUser->GetClub()->GetAverageOverall() >= 65)
+    else if (currentUser->GetClub()->GetAverageOverall() >= 70)
         costMultiplier = 3.0f;
-    else if (currentUser->GetClub()->GetAverageOverall() >= 60)
+    else if (currentUser->GetClub()->GetAverageOverall() >= 65)
         costMultiplier = 2.0f;
+    else if (currentUser->GetClub()->GetAverageOverall() >= 60)
+        costMultiplier = 1.0f;
 
     this->purchasableStaff.clear();
 
