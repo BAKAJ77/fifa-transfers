@@ -216,43 +216,44 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
     // Generate new objectives for the user's club
     user.GetClub()->GenerateObjectives();
 
-    for (Player* player : user.GetClub()->GetPlayers())
+    auto player = user.GetClub()->GetPlayers().begin();
+    while (player != user.GetClub()->GetPlayers().end())
     {
         // For each player who's contract is running low (i.e 1 year left), send the user a general message letting him know
-        if ((player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) == 1)
+        if (((*player)->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) == 1)
         {
-            user.GetClub()->GetGeneralMessages().push_back({ std::string(player->GetName()) +
+            user.GetClub()->GetGeneralMessages().push_back({ std::string((*player)->GetName()) +
                 " only has 1 year left on his contract. We suggest you renew his contract if you don't want him to leave on a free." });
         }
 
-        if ((player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) <= 0)
+        if (((*player)->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) <= 0)
         {
             // Generate a new contract length for the player
             const int contractLength = RandomEngine::GetInstance().GenerateRandom<int>(2, 5);
-            player->SetExpiryYear(player->GetExpiryYear() + contractLength);
+            (*player)->SetExpiryYear((*player)->GetExpiryYear() + contractLength);
 
             // If the user's club's squad is at the minimum limit then renew every contract which has ended
-            if ((player->GetPosition() == 0 && user.GetClub()->GetTotalGoalkeepers() <= Globals::minGoalkeepers) || 
-                (player->GetPosition() > 0 && user.GetClub()->GetTotalOutfielders() <= Globals::minOutfielders))
+            if (((*player)->GetPosition() == 0 && user.GetClub()->GetTotalGoalkeepers() <= Globals::minGoalkeepers) ||
+                ((*player)->GetPosition() > 0 && user.GetClub()->GetTotalOutfielders() <= Globals::minOutfielders))
             {
                 // Increase the wage of the player and decrease the user club's wage budget
                 const float wageMultiplier = RandomEngine::GetInstance().GenerateRandom<float>(1.25f, 2.0f);
-                const int playerInitialWages = player->GetWage();
+                const int playerInitialWages = (*player)->GetWage();
 
-                player->SetWage((int)(player->GetWage() * wageMultiplier));
-                user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() - (player->GetWage() - playerInitialWages));
+                (*player)->SetWage((int)((*player)->GetWage() * wageMultiplier));
+                user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() - ((*player)->GetWage() - playerInitialWages));
                 user.GetClub()->SetInitialWageBudget(user.GetClub()->GetWageBudget());
 
                 // Let the user know that this has occurred via general messages.
-                if (player->GetPosition() == 0)
+                if ((*player)->GetPosition() == 0)
                 {
-                    user.GetClub()->GetGeneralMessages().push_back({ "We've had to renew " + std::string(player->GetName()) + 
+                    user.GetClub()->GetGeneralMessages().push_back({ "We've had to renew " + std::string((*player)->GetName()) +
                         " on a " + std::to_string(contractLength) + 
                         " year contract, due to you only having " + std::to_string(Globals::minGoalkeepers) + " goalkeeper(s)." });
                 }
                 else
                 {
-                    user.GetClub()->GetGeneralMessages().push_back({ "We've had to renew " + std::string(player->GetName()) +
+                    user.GetClub()->GetGeneralMessages().push_back({ "We've had to renew " + std::string((*player)->GetName()) +
                         " on a " + std::to_string(contractLength) +
                         " year contract, due to you only having " + std::to_string(Globals::minOutfielders) + " outfielders." });
                 }
@@ -282,10 +283,10 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
                     constexpr int requiredOverallRange = 5;
                     if (!clubControlledByUser)
                     {
-                        if (player->GetOverall() >= 60)
+                        if ((*player)->GetOverall() >= 60)
                         {
-                            if (aiClub->GetAverageOverall() >= player->GetOverall() - requiredOverallRange &&
-                                aiClub->GetAverageOverall() <= player->GetOverall() + requiredOverallRange)
+                            if (aiClub->GetAverageOverall() >= (*player)->GetOverall() - requiredOverallRange &&
+                                aiClub->GetAverageOverall() <= (*player)->GetOverall() + requiredOverallRange)
                             {
                                 suitableAIClubFound = true;
                             }
@@ -303,16 +304,12 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
 
                     if (suitableAIClubFound)
                     {
-                        // Move the player from the user's club to the AI club
-                        aiClub->AddPlayer(player);
-                        user.GetClub()->RemovePlayer(player);
-
                         // Update the user's club wage budget
-                        user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() + player->GetWage());
+                        user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() + (*player)->GetWage());
 
                         // Send general message to user to let him know that the player has left the club
-                        user.GetClub()->GetGeneralMessages().push_back({ std::string(player->GetName()) + " has signed for " + aiClub->GetName().data() + " on a " +
-                            std::to_string(contractLength) + " year deal as a free agent." });
+                        user.GetClub()->GetGeneralMessages().push_back({ std::string((*player)->GetName().data()) + " has signed for " +
+                            aiClub->GetName().data() + " on a " + std::to_string(contractLength) + " year deal as a free agent." });
 
                         // Remove any pending transfer messages involving this player
                         for (Club& club : SaveData::GetInstance().GetClubDatabase())
@@ -321,17 +318,25 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
 
                             for (int index = 0; index < (int)transferInbox.size(); index++)
                             {
-                                if (transferInbox[index].playerID == player->GetID())
+                                if (transferInbox[index].playerID == (*player)->GetID())
                                 {
                                     transferInbox.erase(transferInbox.begin() + index);
                                     --index;
                                 }
                             }
                         }
+
+                        // Move the player from the user's club to the AI club
+                        aiClub->AddPlayer((*player));
+                        user.GetClub()->RemovePlayer((*player));
                     }
                 }
+
+                continue; // Skip increment of player iterator pointer
             }
         }
+
+        player++;
     }
 }
 
