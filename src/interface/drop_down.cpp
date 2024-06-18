@@ -1,3 +1,4 @@
+#include "drop_down.h"
 #include <interface/drop_down.h>
 #include <core/input_system.h>
 #include <graphics/renderer.h>
