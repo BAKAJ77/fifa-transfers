@@ -14,37 +14,34 @@ void TrainingMenu::Init()
     // Calculate the prices for the available staff to hire
     const UserProfile* currentUser = MainGame::GetAppState()->GetCurrentUser();
 
-    constexpr int maxLevel = 4, baseCost = 5000;
-    float costMultiplier = 1.0f, levelMultiplier = 0.5f;
+    constexpr int maxLevel = 4;
+    constexpr int baseLevelCosts[maxLevel] = { 5000, 9000, 13000, 16000 };
+    float costMultiplier = 1.0f;
 
     if (currentUser->GetClub()->GetAverageOverall() >= 80)
-        costMultiplier = 8.0f;
+        costMultiplier = 10.0f;
     else if (currentUser->GetClub()->GetAverageOverall() >= 75)
         costMultiplier = 5.0f;
     else if (currentUser->GetClub()->GetAverageOverall() >= 70)
         costMultiplier = 3.0f;
     else if (currentUser->GetClub()->GetAverageOverall() >= 65)
         costMultiplier = 2.0f;
-    else if (currentUser->GetClub()->GetAverageOverall() >= 60)
-        costMultiplier = 1.0f;
 
     this->purchasableStaff.clear();
 
     for (int i = 0; i < maxLevel; i++)
     {
         this->purchasableStaff.push_back({ { Club::StaffType::GOALKEEPING, (i + 1) }, 
-            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
+            Util::GetTruncatedSFInteger((int)(baseLevelCosts[i] * costMultiplier), 3) });
 
         this->purchasableStaff.push_back({ { Club::StaffType::DEFENCE, (i + 1) }, 
-            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
+            Util::GetTruncatedSFInteger((int)(baseLevelCosts[i] * costMultiplier), 3) });
 
         this->purchasableStaff.push_back({ { Club::StaffType::MIDFIELD, (i + 1) }, 
-            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
+            Util::GetTruncatedSFInteger((int)(baseLevelCosts[i] * costMultiplier), 3) });
 
         this->purchasableStaff.push_back({ { Club::StaffType::ATTACK, (i + 1) }, 
-            Util::GetTruncatedSFInteger((int)(baseCost * costMultiplier * levelMultiplier), 3) });
-
-        levelMultiplier += 0.5f;
+            Util::GetTruncatedSFInteger((int)(baseLevelCosts[i] * costMultiplier), 3) });
     }
 
     // Initialize the user interface
