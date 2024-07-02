@@ -63,9 +63,6 @@ void ContractResponse::Destroy()
     if (this->negotiationSuccessful)
     {
         // Apply the new contract details onto the player
-        if (EndCompetition::GetAppState()->GetAmountOfIncompleteCompetitions() <= 3)
-            this->contractLength += 1;
-
         this->renewingContract ?
             this->negotiatingPlayer->SetExpiryYear(this->negotiatingPlayer->GetExpiryYear() + this->contractLength) :
             this->negotiatingPlayer->SetExpiryYear(SaveData::GetInstance().GetCurrentYear() + this->contractLength);
@@ -149,6 +146,7 @@ void ContractResponse::Destroy()
 
 int ContractResponse::GenerateContractLengthResponse() const
 {
+    const int contractYearsRemaining = this->negotiatingPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear();
 	int requestedContractLength = -1; // If this remains as -1, then that means that they accepted it
 
     // Do small calculations to determine whether the player accepts the contract length given
@@ -156,25 +154,25 @@ int ContractResponse::GenerateContractLengthResponse() const
 	int preferenceWeight = 0;
 
 	if (this->renewingContract)
-	{
-		const int contractYearsRemaining = this->negotiatingPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear();
         preferenceWeight = (int)(((7 - (contractYearsRemaining + this->contractLength)) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 20.0f));
-	}
 	else
         preferenceWeight = (int)(((7 - this->contractLength) * generatedMultiplier) / (this->negotiatingPlayer->GetAge() / 22.0f));
 
-	if (preferenceWeight < 300)
+	if (preferenceWeight < 300 && this->contractLength > 1)
 	{
         // Generate a shorter contract length
         const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, (this->negotiatingPlayer->GetAge() > 25 ? 3 : 2));
-        requestedContractLength = std::max(this->contractLength - lengthOffset, (int)(!this->renewingContract));
+        requestedContractLength = std::max(this->contractLength - lengthOffset, 1);
 	}
-    else if (preferenceWeight > 600)
+    else if (preferenceWeight > 600 && this->contractLength < 5)
     {
         // Generate a longer contract length
         const int lengthOffset = RandomEngine::GetInstance().GenerateRandom<int>(1, (this->negotiatingPlayer->GetAge() < 23 ? 3 : 2));
         requestedContractLength = std::min(this->contractLength + lengthOffset, 5);
     }
+
+    if (contractYearsRemaining + requestedContractLength > 5) // Hard cap contract length to 5 years
+        requestedContractLength = 5 - contractYearsRemaining;
 
     return requestedContractLength;
 }
@@ -206,15 +204,9 @@ int ContractResponse::GenerateReleaseClauseResponse(int contractLength) const
     {
         // Simple algorithm to decide the release clause preferred by the player
         const int min = this->negotiatingPlayer->GetValue();
-        const int max = (int)(std::ceil((float)this->negotiatingPlayer->GetValue() * 2.5f));
+        const int max = (int)(std::ceil((float)this->negotiatingPlayer->GetValue() * 1.5f));
 
         int preferredReleaseClause = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
-
-        if (contractLength > 3)
-        {
-            preferredReleaseClause = Util::GetTruncatedSFInteger((int)((float)this->negotiatingPlayer->GetValue() *
-                (2.5f + ((float)contractLength / 10.0f))), 3);
-        }
 
         if (preferredReleaseClause <= this->negotiatingPlayer->GetReleaseClause())
             preferredReleaseClause = this->negotiatingPlayer->GetReleaseClause() + (preferredReleaseClause / 2);
