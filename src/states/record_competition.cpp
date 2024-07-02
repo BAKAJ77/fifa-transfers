@@ -315,7 +315,8 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                                     (1.5f * ((float)player->GetWage() / (float)biddingAIClub->GetWageBudget()))), 4);
                             }
 
-                            if (openingBid >= player->GetReleaseClause() && player->GetReleaseClause() > 0)
+                            if (player->GetReleaseClause() > 0 && openingBid >= ((float)player->GetReleaseClause() / 1.25f) &&
+                                player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() > 3)
                             {
                                 // Send pending release clause activation data to the bidding club. 
                                 // Once the expiration ticks reaches 1, a conclusion on the AI release clause activation will be 
