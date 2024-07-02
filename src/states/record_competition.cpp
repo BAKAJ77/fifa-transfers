@@ -237,8 +237,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                     // Simple algorithm to decide the amount willing to be bidded for the player
                     const int min = (int)(std::floor((float)(player->GetValue()) / 2.0f));
                     const int max = (int)(std::ceil((float)(player->GetValue()) *
-                        std::max((float)(player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f) *
-                        std::max((float)(player->GetPotential() - player->GetOverall()) / 6.0f, 1.0f)));
+                        std::clamp((float)(player->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f, 1.5f)));
 
                     int openingBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
 
@@ -313,7 +312,7 @@ void RecordCompetition::GenerateAIOutboundTransfers()
                             if (player->GetWage() >= (biddingAIClub->GetWageBudget() / 2.0f))
                             {
                                 openingBid = Util::GetTruncatedSFInteger((int)(openingBid /
-                                    (2.0f * ((float)player->GetWage() / (float)biddingAIClub->GetWageBudget()))), 4);
+                                    (1.5f * ((float)player->GetWage() / (float)biddingAIClub->GetWageBudget()))), 4);
                             }
 
                             if (openingBid >= player->GetReleaseClause() && player->GetReleaseClause() > 0)
@@ -399,9 +398,8 @@ void RecordCompetition::HandleAIClubsTransferResponses()
                     {
                         // Simple algorithm to decide the amount willing to be bidded for the player
                         const int min = (int)(std::floor((float)(targettedPlayer->GetValue()) / 2.0f));
-                        const int max = (int)(std::ceil((float)(targettedPlayer->GetValue()) * 
-                            std::max((float)(targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f) *
-                            std::max((float)(targettedPlayer->GetPotential() - targettedPlayer->GetOverall()) / 6.0f, 1.0f)));
+                        const int max = (int)(std::ceil((float)(targettedPlayer->GetValue()) *
+                            std::clamp((float)(targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear()) / 2.0f, 1.0f, 1.5f)));
 
                         const int willingAmountToBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
 
@@ -455,17 +453,13 @@ void RecordCompetition::HandleAIClubsTransferResponses()
                     Club* biddingClub = SaveData::GetInstance().GetClub(transfer.biddingClubID);
 
                     // Simple algorithm to decide the minimum required amount wanted for player
-                    const int min = (int)(std::floor((float)targettedPlayer->GetValue() / 2.5f));
+                    const int min = (int)(std::floor((float)targettedPlayer->GetValue() / 1.5f));
                     const int max = (int)(std::ceil((float)targettedPlayer->GetValue() *
-                        (2.5f + (((float)targettedPlayer->GetExpiryYear() - (float)SaveData::GetInstance().GetCurrentYear() - 1) / 10.0f))));
+                        (1.5f + (((float)targettedPlayer->GetExpiryYear() - (float)SaveData::GetInstance().GetCurrentYear()) / 10.0f))));
 
                     int minRequiredBid = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 4);
-
-                    if (targettedPlayer->GetExpiryYear() - SaveData::GetInstance().GetCurrentYear() > 3)
-                    {
-                        minRequiredBid = Util::GetTruncatedSFInteger((int)((float)targettedPlayer->GetValue() * 
-                            (1.5f + (((float)targettedPlayer->GetExpiryYear() - (float)SaveData::GetInstance().GetCurrentYear()) / 10.0f))), 4);
-                    }
+                    if (targettedPlayer->GetReleaseClause() > 0 && minRequiredBid > targettedPlayer->GetReleaseClause())
+                        minRequiredBid = targettedPlayer->GetReleaseClause();
 
                     if (transfer.transferFee >= minRequiredBid)
                     {

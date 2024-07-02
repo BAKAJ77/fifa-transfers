@@ -73,7 +73,7 @@ void PlayerGrowthGeneration::Init()
                     if ((staffLevel == 1 && generatedBonusWeight >= 700) || (staffLevel == 2 && generatedBonusWeight >= 500) ||
                         (staffLevel == 3 && generatedBonusWeight >= 300) || (staffLevel == 4 && generatedBonusWeight >= 100))
                     {
-                        overallIncreaseAmount += (int)(staffLevel > 1) + 1;
+                        overallIncreaseAmount += (int)(staffLevel > 2) + 1;
                     }
                 }
 

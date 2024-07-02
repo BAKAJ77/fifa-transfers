@@ -206,7 +206,7 @@ int ContractResponse::GenerateReleaseClauseResponse(int contractLength) const
     {
         // Simple algorithm to decide the release clause preferred by the player
         const int min = this->negotiatingPlayer->GetValue();
-        const int max = (int)(std::ceil((float)this->negotiatingPlayer->GetValue() * (2.5f + ((float)(contractLength - 1) / 10.0f))));
+        const int max = (int)(std::ceil((float)this->negotiatingPlayer->GetValue() * 2.5f));
 
         int preferredReleaseClause = Util::GetTruncatedSFInteger(RandomEngine::GetInstance().GenerateRandom<int>(min, max), 3);
 
