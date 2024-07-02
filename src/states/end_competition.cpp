@@ -159,7 +159,7 @@ int EndCompetition::GetAmountOfIncompleteCompetitions() const
             for (const League::CompetitionLink& linkedComp : SaveData::GetInstance().GetCurrentLeague()->GetLinkedCompetitions())
             {
                 if (compStats.compID == linkedComp.competitionID && compStats.seasonEndPosition == 0 &&
-                    (linkedComp.competitionID < 1002 || linkedComp.competitionID > 1005))
+                    (linkedComp.competitionID == 1000 || linkedComp.competitionID > 1003))
                 {
                     ++incompleteCompCount;
                 }
