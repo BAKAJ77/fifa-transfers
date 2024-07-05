@@ -138,7 +138,7 @@
     "16": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Fortuna Liga",
+        "name": "First League",
         "nation": "Czech Republic",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -193,7 +193,7 @@
     "20": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "1. HNL",
+        "name": "Hrvatska nogometna liga",
         "nation": "Croatia",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -248,7 +248,7 @@
     "25": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "NB I.",
+        "name": "Nemzeti Bajnoksag I",
         "nation": "Hungary",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -281,7 +281,7 @@
     "28": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Ukranian Premier League",
+        "name": "Ukrainian Premier League",
         "nation": "Ukraine",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -292,7 +292,7 @@
     "29": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Liga BetPlay",
+        "name": "Categoria Primera A",
         "nation": "Colombia",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -435,7 +435,7 @@
     "40": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Liga 1",
+        "name": "Liga I",
         "nation": "Romania",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -474,7 +474,7 @@
     "42": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Liga De Futbol Prof",
+        "name": "Division de Futbol Profesional",
         "nation": "Bolivia",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -579,7 +579,7 @@
     "5": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Liga Portugal",
+        "name": "Primeira Liga",
         "nation": "Portugal",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
@@ -623,7 +623,7 @@
     "9": {
         "autoPromotionThreshold": -1,
         "linkedCompetitions": {},
-        "name": "Liga Profesional",
+        "name": "Liga Profesional de Futbol",
         "nation": "Argentina",
         "playoffsThreshold": -1,
         "relegationThreshold": -1,
