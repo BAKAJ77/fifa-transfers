@@ -242,8 +242,7 @@ void NewSeasonSetup::UpdateUserClubsState(UserProfile& user) const
 
                 (*player)->SetWage((int)((*player)->GetWage() * wageMultiplier));
                 user.GetClub()->SetWageBudget(user.GetClub()->GetWageBudget() - ((*player)->GetWage() - playerInitialWages));
-                user.GetClub()->SetInitialWageBudget(user.GetClub()->GetWageBudget());
-
+                
                 // Let the user know that this has occurred via general messages.
                 if ((*player)->GetPosition() == 0)
                 {
