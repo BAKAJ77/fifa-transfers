@@ -171,7 +171,7 @@ int ContractResponse::GenerateContractLengthResponse() const
         requestedContractLength = std::min(this->contractLength + lengthOffset, 5);
     }
 
-    if (contractYearsRemaining + requestedContractLength > 5) // Hard cap contract length to 5 years
+    if (this->renewingContract && (contractYearsRemaining + requestedContractLength > 5)) // Hard cap contract length to 5 years when renewing
         requestedContractLength = 5 - contractYearsRemaining;
 
     return requestedContractLength;
