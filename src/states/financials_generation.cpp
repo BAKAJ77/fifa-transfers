@@ -21,7 +21,7 @@ void FinancialsGeneration::Init()
     // Calculate the finances of each user in the save
     for (UserProfile& user : SaveData::GetInstance().GetUsers())
     {
-        const float objectiveBonusAmount = 0.3f / (float)user.GetClub()->GetObjectives().size();
+        const float objectiveBonusAmount = 0.4f / (float)user.GetClub()->GetObjectives().size();
 
         UserFinancials calculatedFinancials;
         calculatedFinancials.previousTransferBudget = user.GetClub()->GetTransferBudget();
