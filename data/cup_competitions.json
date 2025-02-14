@@ -54,7 +54,7 @@
         "winnerBonus": 40000000
     },
     "1004": {
-        "name": "English Papa John Cup",
+        "name": "EFL Trophy",
         "region": "England",
         "rounds": [
             "Group Stage",
@@ -68,7 +68,7 @@
         "winnerBonus": 1500000
     },
     "1005": {
-        "name": "English Carabao Cup",
+        "name": "EFL Cup",
         "region": "England",
         "rounds": [
             "Round 1",
@@ -83,7 +83,7 @@
         "winnerBonus": 4000000
     },
     "1006": {
-        "name": "English Emirates FA Cup",
+        "name": "Emirates FA Cup",
         "region": "England",
         "rounds": [
             "Round 1",
