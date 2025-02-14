@@ -1,102 +1,50 @@
 {
     "0": {
-        "category": 0,
-        "position": "GK"
+        "position": "GK",
+        "category": 0
     },
     "1": {
-        "category": 1,
-        "position": "LB"
-    },
-    "10": {
-        "category": 2,
-        "position": "CM"
-    },
-    "11": {
-        "category": 2,
-        "position": "LDM"
-    },
-    "12": {
-        "category": 2,
-        "position": "RDM"
-    },
-    "13": {
-        "category": 2,
-        "position": "CDM"
-    },
-    "14": {
-        "category": 2,
-        "position": "LAM"
-    },
-    "15": {
-        "category": 2,
-        "position": "RAM"
-    },
-    "16": {
-        "category": 2,
-        "position": "CAM"
-    },
-    "17": {
-        "category": 2,
-        "position": "LM"
-    },
-    "18": {
-        "category": 2,
-        "position": "RM"
-    },
-    "19": {
-        "category": 3,
-        "position": "LW"
+        "position": "LB",
+        "category": 1
     },
     "2": {
-        "category": 1,
-        "position": "LWB"
-    },
-    "20": {
-        "category": 3,
-        "position": "RW"
-    },
-    "21": {
-        "category": 3,
-        "position": "LF"
-    },
-    "22": {
-        "category": 3,
-        "position": "RF"
-    },
-    "23": {
-        "category": 3,
-        "position": "CF"
-    },
-    "24": {
-        "category": 3,
-        "position": "ST"
+        "position": "RB",
+        "category": 1
     },
     "3": {
-        "category": 1,
-        "position": "LCB"
+        "position": "CB",
+        "category": 1
     },
     "4": {
-        "category": 1,
-        "position": "CB"
+        "position": "CDM",
+        "category": 2
     },
     "5": {
-        "category": 1,
-        "position": "RCB"
+        "position": "CAM",
+        "category": 2
     },
     "6": {
-        "category": 1,
-        "position": "RWB"
+        "position": "CM",
+        "category": 2
     },
     "7": {
-        "category": 1,
-        "position": "RB"
+        "position": "LM",
+        "category": 3
     },
     "8": {
-        "category": 2,
-        "position": "LCM"
+        "position": "LW",
+        "category": 3
     },
     "9": {
-        "category": 2,
-        "position": "RCM"
+        "position": "RM",
+        "category": 3
+    },
+    "10": {
+        "position": "RW",
+        "category": 3
+    },
+    "11": {
+        "position": "ST",
+        "category": 3
     }
 }
