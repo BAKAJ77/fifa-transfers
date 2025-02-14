@@ -404,3 +404,5 @@ config.json
 data/saves.json
 data/saves
 runtime_log.txt
+database_gen.py
+copy_transfer_values.py
