@@ -54,7 +54,7 @@ ApplicationCore::ApplicationCore()
 	const uint32_t configSamplesPerPixel = configFile.GetRoot()["graphics"]["samplesMSAA"].get<uint32_t>();
 
 	// Create the main application window
-	this->window = Memory::CreateWindowFrame("FTFS 23", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
+	this->window = Memory::CreateWindowFrame("FTFS 24", configWindowResolution[0], configWindowResolution[1], configWindowFullscreen,
 		configWindowVsync, configSamplesPerPixel);
 
 	// Initialize singleton systems

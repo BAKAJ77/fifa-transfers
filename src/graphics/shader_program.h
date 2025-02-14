@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <string_view>
 #include <glm/glm.hpp>
+#include <string>
 
 class ShaderProgram
 {

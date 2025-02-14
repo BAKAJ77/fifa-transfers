@@ -101,7 +101,7 @@ void NewSave::Update(const float& deltaTime)
                     SaveData::GetInstance().SetSaveName(saveNameStr);
                     SaveData::GetInstance().SetPlayerCount((uint8_t)std::stoi(playerCountStr));
                     SaveData::GetInstance().SetGrowthSystem((SaveData::GrowthSystemType)growthSystemType);
-                    SaveData::GetInstance().SetCurrentYear(2023);
+                    SaveData::GetInstance().SetCurrentYear(2024);
 
                     SaveData::GetInstance().SetCurrentLeague(SaveData::GetInstance().GetLeague((uint16_t)selectedLeagueID));
 

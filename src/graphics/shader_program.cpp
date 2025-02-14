@@ -1,5 +1,4 @@
 #include "shader_program.h"
-#include <graphics/shader_program.h>
 #include <util/logging_system.h>
 #include <util/opengl_error.h>
 
