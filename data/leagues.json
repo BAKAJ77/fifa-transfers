@@ -129,7 +129,7 @@
                 "qualifyingPositions": []
             }
         },
-        "name": "League One",
+        "name": "EFL League One",
         "nation": "England",
         "playoffsThreshold": 6,
         "relegationThreshold": 21,
@@ -157,7 +157,7 @@
                 "qualifyingPositions": []
             }
         },
-        "name": "League Two",
+        "name": "EFL League Two",
         "nation": "England",
         "playoffsThreshold": 7,
         "relegationThreshold": -1,
@@ -445,7 +445,7 @@
                 ]
             }
         },
-        "name": "Premier League",
+        "name": "Barclays Premier League",
         "nation": "England",
         "playoffsThreshold": -1,
         "relegationThreshold": 18,
@@ -579,7 +579,7 @@
                 "qualifyingPositions": []
             }
         },
-        "name": "Championship",
+        "name": "EFL Championship",
         "nation": "England",
         "playoffsThreshold": 6,
         "relegationThreshold": 22,
