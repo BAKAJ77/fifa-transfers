@@ -48,7 +48,7 @@ void SaveWriting::ExecuteSavingProcess()
 			for (const Player* player : club.GetPlayers())
 				totalClubWages += player->GetWage();
 
-			club.SetWageBudget(Util::GetTruncatedSFInteger((int)(totalClubWages / 4.03306f), 3));
+			club.SetWageBudget(Util::GetTruncatedSFInteger((int)(totalClubWages / 14.03306f), 3));
 			club.SetInitialWageBudget(club.GetWageBudget());
 
 			club.SetInitialTransferBudget(club.GetTransferBudget());
