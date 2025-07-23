@@ -29,6 +29,17 @@ if(WIN32 AND MSVC)
     target_link_options(FTFS PRIVATE "$<$<CONFIG:Release>:/SUBSYSTEM:WINDOWS>" "$<$<CONFIG:Release>:/ENTRY:mainCRTStartup>")
 endif()
 
+add_custom_command(TARGET FTFS POST_BUILD 
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_if_different "${CMAKE_SOURCE_DIR}/libs/irrklang/bin/irrKlang.dll" "${CMAKE_BINARY_DIR}"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_if_different "${CMAKE_SOURCE_DIR}/resources.json" "${CMAKE_BINARY_DIR}"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/audio" "${CMAKE_BINARY_DIR}/audio"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/data" "${CMAKE_BINARY_DIR}/data"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/fonts" "${CMAKE_BINARY_DIR}/fonts"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/misc" "${CMAKE_BINARY_DIR}/misc"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/shaders" "${CMAKE_BINARY_DIR}/shaders"
+    COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory_if_different "${CMAKE_SOURCE_DIR}/textures" "${CMAKE_BINARY_DIR}/textures"
+)
+
 #if(FTFS_BUILD_TESTS)
 #    include(CTest)
 #    enable_testing()
