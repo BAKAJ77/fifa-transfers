@@ -191,8 +191,12 @@ void UserInterface::Render() const
         // Render the drop downs
         const DropDown* activeDropDown = nullptr;
         for (auto& dropDown : this->dropDowns)
-            dropDown.second.IsDroppedDown() ? activeDropDown = &dropDown.second : dropDown.second.Render(this->opacity);
-
+        {
+            if (dropDown.second.IsDroppedDown())
+                activeDropDown = &dropDown.second;
+            else
+                dropDown.second.Render(this->opacity);
+        }
         if (activeDropDown) // This is to make sure the active drop down renders over other inactive drop downs
             activeDropDown->Render(this->opacity);
     }
